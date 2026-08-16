@@ -26,36 +26,38 @@
 
 <style>
 :root{
-  --terracota:#B85C3C; --terracota-dark:#9C4830; --terracota-soft:#EFD5C8;
-  --salvia:#7A8B6F;    --salvia-dark:#5C6E54;    --salvia-soft:#D9E0D2;
-  --arena:#C4A876;     --arena-dark:#8B7B5C;     --arena-deep:#6B5B40; --arena-soft:#F5EEDD;
-  --ambar:#D4A547;     --ambar-dark:#A07930;     --ambar-deep:#6B4F0F;  --ambar-soft:#F4E4BC;
-  --charcoal:#2D2D2D;  --gris:#595959;           --gris-claro:#8A8A8A;
-  --blanco:#FFFFFF;    --crema:#FAF6EF;
-  --shadow-soft:0 2px 8px rgba(45,45,45,.08);
-  --shadow-medium:0 6px 20px rgba(45,45,45,.12);
-  --radius:12px; --radius-sm:8px;
+  --bosque:#2F5D50;    --bosque-dark:#234639;    --bosque-deep:#17302A;  --bosque-soft:#D6E3DD;
+  --arcilla:#C4714F;   --arcilla-dark:#A2563A;   --arcilla-deep:#6F3823; --arcilla-soft:#F3DCD1;
+  --malva:#7A5C8A;     --malva-dark:#5F4570;     --malva-deep:#402C4D;   --malva-soft:#E4DAEA;
+  --piedra:#8A8578;    --piedra-dark:#6B6659;    --piedra-deep:#4E4A40;  --piedra-soft:#EFEBE3;
+  --pizarra:#22282A;   --gris:#565E5C;           --gris-claro:#9AA09D;
+  --blanco:#FFFFFF;    --lino:#FAF8F4;
+  --shadow-soft:0 2px 8px rgba(34,40,42,.07);
+  --shadow-medium:0 6px 20px rgba(34,40,42,.11);
+  --radius:14px; --radius-sm:9px;
   --sans:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif;
-  --mono:'Courier New',monospace;
+  --mono:'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace;
   --serif:Georgia,'Times New Roman',serif;
-  --acento:var(--salvia); --acento-dark:var(--salvia-dark); --acento-soft:var(--salvia-soft);
+
+  /* Unidad 1 → bosque */
+  --acento:var(--bosque); --acento-dark:var(--bosque-deep); --acento-soft:var(--bosque-soft);
 }
 *,*::before,*::after{box-sizing:border-box}
-body{margin:0;font-family:var(--sans);color:var(--charcoal);background:var(--crema);line-height:1.62}
+body{margin:0;font-family:var(--sans);color:var(--pizarra);background:var(--lino);line-height:1.62}
 :focus-visible{outline:3px solid var(--acento);outline-offset:2px}
 a{color:var(--acento-dark)}
 .envoltura{max-width:48rem;margin:0 auto;padding:0 1.25rem}
-.saltar{position:absolute;left:-9999px;background:var(--charcoal);color:var(--crema);padding:.6rem 1rem;z-index:20}
+.saltar{position:absolute;left:-9999px;background:var(--pizarra);color:var(--lino);padding:.6rem 1rem;z-index:20}
 .saltar:focus{left:0}
 
-.nav-sesion{background:var(--charcoal);color:var(--crema);padding:.55rem 1rem;font-size:.82rem;
+.nav-sesion{background:var(--pizarra);color:var(--lino);padding:.55rem 1rem;font-size:.82rem;
   display:flex;flex-wrap:wrap;align-items:center;gap:.3rem .9rem}
-.nav-sesion a{color:var(--arena-soft);text-decoration:none;border-bottom:1px solid transparent}
-.nav-sesion a:hover,.nav-sesion a:focus{border-bottom-color:var(--arena)}
+.nav-sesion a{color:var(--piedra-soft);text-decoration:none;border-bottom:1px solid transparent}
+.nav-sesion a:hover,.nav-sesion a:focus{border-bottom-color:var(--piedra)}
 .nav-sesion .ns-curso{font-weight:700}
 @media print{.nav-sesion,.saltar{display:none}}
 
-.hero{background:linear-gradient(160deg,var(--crema) 0%,var(--salvia-soft) 100%);
+.hero{background:linear-gradient(160deg,var(--lino) 0%,var(--bosque-soft) 100%);
   padding:clamp(1.8rem,5vw,3rem) 0 clamp(1.3rem,3vw,2rem);border-bottom:1px solid rgba(45,45,45,.08)}
 .hero__eyebrow{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;
   color:var(--acento-dark);font-weight:700;margin:0 0 .5rem}
@@ -75,9 +77,9 @@ p{max-width:60ch}
 .estado{border-radius:var(--radius);padding:.9rem 1.15rem;margin:1.2rem 0 0;
   font-size:.92rem;border-left:4px solid var(--gris-claro);background:var(--blanco);
   box-shadow:var(--shadow-soft);max-width:60ch}
-.estado--ok{border-left-color:var(--salvia);background:var(--salvia-soft)}
-.estado--aviso{border-left-color:var(--ambar);background:var(--ambar-soft);color:var(--ambar-deep)}
-.estado--malo{border-left-color:var(--terracota);background:var(--terracota-soft);color:var(--terracota-dark)}
+.estado--ok{border-left-color:var(--bosque);background:var(--bosque-soft)}
+.estado--aviso{border-left-color:var(--piedra);background:var(--piedra-soft);color:var(--piedra-deep)}
+.estado--malo{border-left-color:var(--arcilla);background:var(--arcilla-soft);color:var(--arcilla-dark)}
 .estado strong{display:block;margin-bottom:.2rem}
 
 /* Cómo funciona */
@@ -97,7 +99,7 @@ label{display:block;font-size:.85rem;font-weight:600;margin-bottom:.3rem}
 .pista{font-size:.8rem;color:var(--gris);font-weight:400;margin:.15rem 0 .4rem}
 input[type=text],input[type=email],input[type=number],textarea{
   width:100%;font:inherit;font-size:.95rem;padding:.55rem .7rem;border:1px solid #C9C4BA;
-  border-radius:var(--radius-sm);background:var(--blanco);color:var(--charcoal)}
+  border-radius:var(--radius-sm);background:var(--blanco);color:var(--pizarra)}
 textarea{min-height:9rem;resize:vertical;line-height:1.6}
 input:focus,textarea:focus{border-color:var(--acento)}
 
@@ -106,43 +108,43 @@ input:focus,textarea:focus{border-color:var(--acento)}
   box-shadow:var(--shadow-soft);border-left:4px solid var(--acento);margin-bottom:1.3rem}
 .pregunta__n{font-family:var(--mono);font-size:.75rem;font-weight:700;letter-spacing:.08em;
   text-transform:uppercase;color:var(--acento-dark);margin:0 0 .3rem}
-.pregunta h3{font-size:1.08rem;color:var(--charcoal);margin-bottom:.5rem;line-height:1.3}
+.pregunta h3{font-size:1.08rem;color:var(--pizarra);margin-bottom:.5rem;line-height:1.3}
 .pregunta__ctx{font-size:.93rem;color:var(--gris);margin:0 0 .8rem;max-width:58ch}
 .pregunta__q{font-family:var(--serif);font-size:1.04rem;color:var(--acento-dark);
   border-left:3px solid var(--acento-soft);padding:.3em 0 .3em .9em;margin:0 0 .9rem;max-width:56ch}
-.espera{background:var(--arena-soft);border-radius:var(--radius-sm);padding:.7rem .9rem;
-  font-size:.86rem;color:var(--arena-deep);margin:0 0 .9rem;max-width:58ch}
+.espera{background:var(--piedra-soft);border-radius:var(--radius-sm);padding:.7rem .9rem;
+  font-size:.86rem;color:var(--piedra-deep);margin:0 0 .9rem;max-width:58ch}
 .espera strong{display:block;margin-bottom:.2rem}
 .espera ul{margin:.3rem 0 0;padding-left:1.05rem}
 .espera li{margin-bottom:.2rem}
 .contador{font-family:var(--mono);font-size:.78rem;color:var(--gris);text-align:right;margin:.35rem 0 0}
-.contador.corto{color:var(--ambar-deep)}
-.contador.bien{color:var(--salvia-dark);font-weight:700}
+.contador.corto{color:var(--piedra-deep)}
+.contador.bien{color:var(--bosque-dark);font-weight:700}
 
 /* Envío */
 .envio{background:var(--blanco);border-radius:var(--radius);padding:1.2rem 1.35rem;
-  box-shadow:var(--shadow-medium);border-top:4px solid var(--arena)}
+  box-shadow:var(--shadow-medium);border-top:4px solid var(--piedra)}
 .botones{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1rem}
 button{font:inherit;font-weight:600;cursor:pointer;border-radius:999px;padding:.55rem 1.3rem;
   border:1px solid var(--acento);background:var(--blanco);color:var(--acento-dark)}
 button:hover{background:var(--acento-soft)}
 button.primario{background:var(--acento-dark);color:var(--blanco);border-color:var(--acento-dark)}
-button.primario:hover{background:var(--salvia)}
+button.primario:hover{background:var(--bosque)}
 button[disabled]{opacity:.5;cursor:default}
 .autoguardado{font-size:.8rem;color:var(--gris);margin:.7rem 0 0;font-family:var(--mono)}
 
-.nota{background:var(--blanco);border-left:4px solid var(--arena);border-radius:var(--radius-sm);
+.nota{background:var(--blanco);border-left:4px solid var(--piedra);border-radius:var(--radius-sm);
   padding:.95rem 1.15rem;box-shadow:var(--shadow-soft);font-size:.9rem;color:var(--gris);max-width:60ch}
-.nota strong{color:var(--charcoal)}
+.nota strong{color:var(--pizarra)}
 
 .lecturas{list-style:none;padding:0;margin:1rem 0 0;display:grid;gap:.55rem;max-width:60ch}
 .lecturas li{background:var(--blanco);border-radius:var(--radius-sm);padding:.8rem 1rem;
-  box-shadow:var(--shadow-soft);border-left:3px solid var(--arena);font-size:.92rem}
+  box-shadow:var(--shadow-soft);border-left:3px solid var(--piedra);font-size:.92rem}
 .lecturas .tipo{display:block;font-family:var(--mono);font-size:.71rem;letter-spacing:.05em;
-  text-transform:uppercase;color:var(--arena-deep);font-weight:700;margin-bottom:.2rem}
+  text-transform:uppercase;color:var(--piedra-deep);font-weight:700;margin-bottom:.2rem}
 
-footer{background:var(--charcoal);color:var(--crema);margin-top:2rem;padding:2rem 0;font-size:.86rem}
-footer a{color:var(--arena-soft)}
+footer{background:var(--pizarra);color:var(--lino);margin-top:2rem;padding:2rem 0;font-size:.86rem}
+footer a{color:var(--piedra-soft)}
 footer p{margin:0 0 .5rem;max-width:60ch}
 .footer__legal{color:#B8B8B8;font-size:.79rem;margin-top:.9rem}
 @media (prefers-reduced-motion:reduce){*{transition:none !important}}
@@ -152,7 +154,8 @@ footer p{margin:0 0 .5rem;max-width:60ch}
 
 <nav class="nav-sesion" aria-label="Navegación del seminario">
   <a class="ns-curso" href="../../index.html">← Seminario de fundamentación en CP</a>
-  <a href="index.html">Guía de la sesión 1</a>
+  <a href="index.html">Guía de la sesión</a>
+  <a href="clase.html">Presentación</a>
 </nav>
 
 <header class="hero">
@@ -183,7 +186,7 @@ footer p{margin:0 0 .5rem;max-width:60ch}
   <div class="envoltura">
     <h2>Cómo funciona</h2>
     <ol class="pasos">
-      <li><strong>Empiece por las lecturas.</strong> Están abajo, cada una junto a la pregunta que apoya. Las preguntas piden más su lectura del asunto que un resumen, así que con ellas leídas salen mucho mejor.</li>
+      <li><strong>Empiece por la presentación de la sesión.</strong> Está enlazada abajo y trae todo el contenido del tema. Las preguntas piden más su lectura del asunto que un resumen, así que con ella estudiada salen mucho mejor.</li>
       <li><strong>Escriba aquí mismo.</strong> El texto se guarda solo en su navegador. Puede cerrar y volver, y puede trabajar sin internet.</li>
       <li><strong>Envíe antes del viernes a las 7:00.</strong> Puede reenviar cuantas veces quiera hasta esa hora: cada envío reemplaza al anterior. Volver sobre lo escrito es parte del trabajo, no una corrección de última hora.</li>
       <li><strong>El viernes ponemos en común lo escrito, sin nombres.</strong> Cada quien aparece con una letra. Comparamos las respuestas y de ahí sale la sesión.</li>
@@ -199,37 +202,33 @@ footer p{margin:0 0 .5rem;max-width:60ch}
 
 <section>
   <div class="envoltura">
-    <h2>Lecturas previas</h2>
+    <h2>Qué estudiar antes de responder</h2>
     <p class="intro">
-      Dos son obligatorias y dos apoyan preguntas concretas. La cuarta está en inglés: es
-      deliberado, la lectura de literatura científica en inglés es una de las competencias que
-      este seminario evalúa.
+      La presentación de la sesión es autosuficiente: con ella se pueden responder las preguntas
+      1, 2, 3 y 5. La cuarta necesita ir a la fuente, que está en inglés — es deliberado: la
+      lectura de literatura científica en inglés es una de las competencias que este seminario
+      evalúa.
     </p>
     <ul class="lecturas">
       <li>
-        <span class="tipo">Obligatoria</span>
-        <strong>Contexto histórico de los cuidados paliativos</strong> — sesión 1 del curso de
-        2026-I. Del morir doméstico al morir hospitalario, y del hospicio medieval a
-        St Christopher's.
-        <a href="https://jboglop.github.io/Contexto_Historico_Legal_CP/sesiones/s01-contexto-historico/">Abrir</a>
+        <span class="tipo">Primero · material de la sesión</span>
+        <strong>Antecedentes históricos y fundamentos filosóficos</strong> — la presentación
+        completa: los dos regímenes del morir, el <em>pallium</em>, la línea de tiempo del
+        hospicio, Saunders y Kübler-Ross, el puente hacia Colombia, las tres definiciones y los
+        principios. Veintiún pasos, se lee sin conexión.
+        <a href="clase.html">Abrir la presentación</a>
       </li>
       <li>
-        <span class="tipo">Obligatoria</span>
-        <strong>Genealogía del cuidado</strong> — sesión 2 del curso de 2026-I. El <em>pallium</em>,
-        el dolor total, los pioneros y las tres definiciones.
-        <a href="https://jboglop.github.io/Contexto_Historico_Legal_CP/sesiones/s02-genealogia-del-cuidado/">Abrir</a>
-      </li>
-      <li>
-        <span class="tipo">Para la pregunta 2</span>
-        <strong>OMS — <em>Palliative care: fact sheet</em></strong> (2020). Es la referencia que
-        el contenido programático del seminario cita como base.
-        <a href="https://www.who.int/news-room/fact-sheets/detail/palliative-care">who.int</a>
-      </li>
-      <li>
-        <span class="tipo">Para la pregunta 4 · en inglés</span>
+        <span class="tipo">Necesaria para la pregunta 4 · en inglés</span>
         <strong>WHPCA — <em>Global Atlas of Palliative Care at the End of Life</em></strong>
         (2.ª ed., 2020). Busque el capítulo de las Américas y los mapas de nivel de desarrollo.
         <a href="http://www.thewhpca.org/resources/global-atlas-on-end-of-life-care">thewhpca.org</a>
+      </li>
+      <li>
+        <span class="tipo">Recomendada</span>
+        <strong>OMS — <em>Palliative care: fact sheet</em></strong> (2020). Es la referencia que
+        el contenido programático del seminario cita como base.
+        <a href="https://www.who.int/news-room/fact-sheets/detail/palliative-care">who.int</a>
       </li>
     </ul>
   </div>
@@ -370,16 +369,16 @@ footer p{margin:0 0 .5rem;max-width:60ch}
     <!-- ── P5 ───────────────────────────────────────────────────────── -->
     <article class="pregunta">
       <p class="pregunta__n">Pregunta 5 · de la afirmación a la pregunta</p>
-      <h3>Convierta una afirmación de las lecturas en algo investigable</h3>
+      <h3>Convierta una afirmación del material en algo investigable</h3>
       <p class="pregunta__ctx">
         Este es el movimiento que va a repetirse en las siete sesiones, así que conviene hacerlo
-        despacio la primera vez. Las lecturas están llenas de afirmaciones que suenan cerradas:
+        despacio la primera vez. El material está lleno de afirmaciones que suenan cerradas:
         «el movimiento paliativo nace de la indignación compasiva», «la Ley 1733 marca un antes y
         un después», «los cuidados paliativos son una corrección histórica de la medicina».
         Todas pueden ser ciertas. Ninguna, tal como está escrita, se puede responder con datos.
       </p>
       <p class="pregunta__q">
-        Elija una afirmación de las lecturas, cítela, y conviértala en una pregunta de
+        Elija una afirmación del material de la sesión, cítela, y conviértala en una pregunta de
         investigación respondible. Luego diga qué dato la respondería, quién lo tendría, y si
         cree que existe.
       </p>
@@ -680,7 +679,7 @@ var CONFIG = {
       p2: 'P2 · ¿Con qué definición trabaja realmente su institución?',
       p3: 'P3 · El dolor total, y qué haría falta para poder afirmarlo',
       p4: 'P4 · Qué mide un indicador, y qué no mide',
-      p5: 'P5 · Convierta una afirmación de las lecturas en algo investigable'
+      p5: 'P5 · Convierta una afirmación del material en algo investigable'
     };
     IDS_TEXTO.forEach(function (id) {
       l.push('─────────────────────────────────────────────');

@@ -63,12 +63,19 @@ y verificar que se lee a 375 px de ancho.
 **Esto decide cómo se construye cada sesión.** El contenido no se expone en el aula: se lee
 antes. Cada sesión tiene tres piezas y un orden fijo:
 
-1. **`index.html`** — la guía. Explica qué leer, qué se entrega y cómo transcurrirá el encuentro.
-   El contenido del tema está ahí, rotulado **«material de consulta · se lee antes»**.
-2. **`preparacion.html`** — el entregable previo, individual. Cinco preguntas que no se responden
-   con lo que dice la lectura: piden mirar el propio terreno con lo que la lectura dio.
-3. **`_shared/tablero.html`** — el tablero docente. Se abre en clase, proyecta lo entregado
+1. **`index.html`** — la guía. Qué estudiar, qué entregar y cómo transcurre el encuentro.
+2. **`clase.html`** — **la presentación**: el contenido del tema en diapositivas autocontenidas,
+   navegables con teclado y con impresión completa. Se estudia antes; en el aula es apoyo puntual,
+   nunca guion de exposición.
+3. **`preparacion.html`** — el entregable previo, individual. Cinco preguntas que no se responden
+   copiando el material: piden mirar el propio terreno con lo que el material dio.
+4. **`_shared/tablero.html`** — el tablero docente. Se abre en clase, proyecta lo entregado
    **sin nombres** y la sesión se conduce contrastándolo.
+
+> **Sin dependencias de cursos anteriores.** Ninguna página de estudiante enlaza a los
+> repositorios de 2026-I. Si una sesión necesita contenido que estaba allí, **se reconstruye
+> aquí**. Las fuentes externas legítimas (OMS, WHPCA) sí se enlazan: son fuentes primarias, no
+> material de otra asignatura.
 
 **Las preguntas del entregable no se resumen ni se recuerdan: se sostienen.** El patrón que se
 repite en las siete sesiones es *del juicio al dato*: se pide una posición y, acto seguido, qué
@@ -124,7 +131,8 @@ CLAUDE.md                  este archivo
 sesiones/
   _sesiones.json           ← LISTA CANÓNICA de las sesiones
   sNN-slug/
-    index.html             guía de la sesión + material de consulta
+    index.html             guía de la sesión
+    clase.html             presentación · el contenido del tema
     preparacion.html       entregable previo del estudiante
     README.md              nota de trabajo del docente
 
@@ -173,12 +181,18 @@ compartido se rompe.
 El color significa la unidad, no decora. La paleta es cálida y sobria a propósito: **la asignatura
 habla de personas que mueren.**
 
-| Ámbito | Acento |
-|---|---|
-| Unidad 1 · Contexto histórico-filosófico y lineamientos | `salvia` |
-| Unidad 2 · Modelos de atención desde la investigación | `ambar` |
-| Unidad 3 · Aspectos bioéticos y manejo integral | `terracota` |
-| Transversal · portada, avisos, evaluación | `arena` |
+| Ámbito | Acento | Hex |
+|---|---|---|
+| Unidad 1 · Contexto histórico-filosófico y lineamientos | `bosque` | `#2F5D50` |
+| Unidad 2 · Modelos de atención desde la investigación | `arcilla` | `#C4714F` |
+| Unidad 3 · Aspectos bioéticos y manejo integral | `malva` | `#7A5C8A` |
+| Transversal · portada, avisos, evaluación | `piedra` | `#8A8578` |
+
+Papel `--lino` `#FAF8F4` · tinta `--pizarra` `#22282A`.
+
+**Paleta propia desde el 16 de agosto de 2026**, en sustitución de la heredada de Epidemiología.
+`--salvia`, `--terracota`, `--arena`, `--crema` y `--charcoal` ya no existen: si aparecen, es
+código sin migrar.
 
 **No inventes colores nuevos ni cambies los hex.** El CSS usa siempre `var(--acento*)`, nunca el
 color concreto, para que cambiar de unidad sea una sola edición.

@@ -183,14 +183,24 @@ línea dentro del `<style>` de cada página. Si cambia un valor ahí, hay que pr
 
 El color significa algo, no decora:
 
-| Unidad | Acento |
-|---|---|
-| U1 · Contexto histórico | salvia |
-| U2 · Modelos de atención | ámbar |
-| U3 · Bioética y manejo integral | terracota |
-| Transversal (avisos, evaluación) | arena |
+| Unidad | Acento | Hex |
+|---|---|---|
+| U1 · Contexto histórico | **bosque** | `#2F5D50` |
+| U2 · Modelos de atención | **arcilla** | `#C4714F` |
+| U3 · Bioética y manejo integral | **malva** | `#7A5C8A` |
+| Transversal (portada, avisos, evaluación) | **piedra** | `#8A8578` |
 
-La paleta es cálida y sobria a propósito: **la asignatura habla de personas que mueren.**
+Papel `#FAF8F4` (lino) · tinta `#22282A` (pizarra).
+
+La paleta es cálida y profunda a propósito: **la asignatura habla de personas que mueren**, y ni
+el gris clínico ni el color alegre le sientan bien.
+
+> **Identidad propia desde el 16 de agosto de 2026.** Hasta esa fecha se usaba la paleta heredada
+> de Epidemiología y Contexto Histórico (terracota / salvia / arena / ámbar) y las sesiones
+> enviaban a leer al repositorio de 2026-I. Se cambiaron las dos cosas por decisión del docente:
+> el semestre se construye con identidad propia y **sin depender de material de cursos
+> anteriores**. Si encuentra `--salvia`, `--terracota`, `--arena`, `--crema` o `--charcoal` en
+> algún archivo, es código viejo sin migrar.
 
 ### 4.4 Ramas
 
@@ -404,6 +414,9 @@ git remote -v    # si no imprime nada, está en el clon huérfano
 | 11 | **El tablero proyecta sin nombres.** Cada estudiante es una letra estable. El docente ve la identidad en su panel; el salón no | 16 ago 2026 |
 | 12 | **Los entregables previos cuentan para el corte** como seguimiento, y el producto de cada corte los integra | 16 ago 2026 |
 | 13 | **El roster nunca llega al navegador.** El estudiante escribe su correo y el servidor lo valida. Un selector expondría la lista los días que el entregable está abierto | 16 ago 2026 |
+| 14 | **Identidad propia.** Paleta nueva (bosque / arcilla / malva / piedra) y **cero enlaces a los cursos de 2026-I** en las páginas de estudiantes. El material que antes se delegaba se reconstruyó dentro del proyecto | 16 ago 2026 |
+| 15 | **El material de cada sesión es una presentación por diapositivas** (`clase.html`), autocontenida y navegable con teclado. Se estudia antes; en el aula sirve de apoyo puntual, no de guion | 16 ago 2026 |
+| 16 | **La genealogía de la fusión sale de la vista del estudiante.** El hilo «hay norma y no hay datos» se presenta como la pregunta del seminario, no como resultado administrativo de juntar dos asignaturas. La historia queda en este HANDOFF | 16 ago 2026 |
 | 1 | El material de Investigación CP se usa como **cantera** para U2 y U3, no como estructura | 5 ago 2026 |
 | 2 | **Repositorio nuevo.** Los dos anteriores se congelan como archivo de 2026-I | 5 ago 2026 |
 | 3 | El proyecto vive en **Google Drive**, no en `C:\repos\` | 15 ago 2026 |

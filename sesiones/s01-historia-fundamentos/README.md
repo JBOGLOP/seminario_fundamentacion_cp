@@ -25,35 +25,30 @@ cuidado/` — `Clase1_contextohistorico.pptx`, `genealogia del CP.pptx`,
 
 ---
 
-## Qué se dicta y qué pasó a lectura previa
+## Qué se estudia antes y qué se hace en el aula
 
-La regla que se aplicó: **se dicta lo que necesita discusión; se lee lo que solo necesita
-lectura.** Tres horas para 3 h 30 min de material original no obligaban a cortar mucho, pero sí
-a decidir — y el encuadre del seminario, que antes no existía, se come 20 minutos.
+La regla: **se conversa lo que necesita discusión; se estudia antes lo que solo necesita lectura.**
 
-### Se dicta
+### Se estudia antes · `clase.html`
 
-| Bloque | Contenido | Viene de |
+Veintiún pasos con todo el contenido del tema. **Autosuficiente desde el 16 de agosto**: ya no
+manda a leer a ninguna parte. Incluye lo que antes se delegaba al repositorio de 2026-I —los
+hitos intermedios del hospicio (Garnier 1842, Dublín 1879, St Joseph's 1905), el episodio de
+David Tasma, el desarrollo de Kübler-Ross y la biografía del *pallium*.
+
+### Se conversa en el aula
+
+| Bloque | Contenido | Origen |
 |---|---|---|
-| Encuadre (20 min) | El hilo del seminario, las tres unidades, evaluación, acuerdos de lenguaje y de IA | **Nuevo** |
-| Apertura (40 min) | Pregunta generadora + la historia propia del grupo | s02 (apertura) + s01 (preguntas) |
-| Bloque 1 (50 min) | Dos regímenes del morir · arco del hospicio · Saunders y Kübler-Ross · puente a Colombia | s01 + s02 |
-| Bloque 2 (40 min) | El *pallium* · principios como respuesta a crisis · dolor total · tres definiciones | s02 |
-| Cierre (20 min) | **Capa investigativa**: de la narrativa a la pregunta | **Nuevo** |
-
-### Pasó a lectura previa
-
-- **Los hitos intermedios del hospicio** (Garnier 1842, Dublín 1879, St Joseph's 1905) se
-  comprimieron en un solo eslabón de la línea de tiempo. El detalle está en la s01 de 2026-I,
-  enlazada como lectura obligatoria.
-- **Las dos sesiones completas de 2026-I** quedan como lectura obligatoria previa. No es relleno:
-  quien no las lea perderá el detalle que la clase ya no repite.
+| Encuadre (20 min) | El hilo, las tres unidades, evaluación, acuerdos de lenguaje y de IA | **Nuevo** |
+| P1 y P2 (60 min) | El mapa de los territorios del grupo y sus huecos | Entregables |
+| P3 y P4 (50 min) | Del juicio al dato; qué deja invisible cada indicador | Entregables |
+| P5 (30 min) | Se depuran las preguntas de investigación del grupo | Entregables |
 
 ### Se retiró
 
-- La **actividad preparatoria original** en su forma de 2026-I (era preparatoria *para la clase
-  2*, que aquí ya no existe como sesión aparte). Se reconvirtió en el encargo del primer insumo
-  del producto del corte.
+- La **actividad preparatoria de 2026-I** en su forma original (era preparatoria *para la clase 2*,
+  que aquí no existe como sesión aparte). Se reconvirtió en el entregable previo.
 - La carpeta `TAREAS CLASE 1/` del taller — 17 entregas de estudiantes de 2026-I. **Nunca al
   repositorio.**
 
@@ -61,51 +56,56 @@ a decidir — y el encuadre del seminario, que antes no existía, se come 20 min
 
 ## Lo que se añadió, y por qué
 
-**1 · El encuadre del seminario.** No existía en 2026-I porque aquella era otra asignatura. Aquí
-es obligatorio: es la primera vez que el grupo oye el hilo «hay norma y no hay datos», y de él
-cuelga todo lo demás.
+**1 · El encuadre del seminario.** No existía en el material de origen. Aquí es obligatorio: es la
+primera vez que el grupo oye el hilo «hay norma y no hay datos», y de él cuelga todo lo demás.
 
 **2 · La capa investigativa** que pide [`docs/PLAN_MIGRACION_U1.md`](../../docs/PLAN_MIGRACION_U1.md) §4.
 El programa repite «desde la investigación» y evalúa competencia investigativa, pero no trae un
 solo tema de metodología. El hueco se tapa así: cada sesión cierra preguntando qué de lo dicho es
-verificable con datos. En esta sesión la operación se hace sobre la frase «los CP llegaron a
-Colombia en los años ochenta».
+verificable con datos. Aquí se hace sobre la frase «los CP llegaron a Colombia en los ochenta».
 
-**3 · «Qué no se pudo averiguar» como parte C evaluable** del encargo. En 2026-I la ausencia de
-datos se mencionaba de pasada; aquí cuenta igual que las otras partes. Es la forma de que el hilo
-del seminario se vea en el propio territorio del estudiante desde la primera semana.
+**3 · «Qué no se pudo averiguar» como parte evaluable.** La ausencia de datos cuenta igual que un
+hallazgo. Es la forma de que el hilo se vea en el propio territorio desde la primera semana.
 
 **4 · El acuerdo sobre uso de IA.** El contenido programático oficial lo respalda («uso adecuado
-y responsable de la inteligencia artificial», §Estrategias pedagógicas) y el
-[`PLAN_MIGRACION_U1.md`](../../docs/PLAN_MIGRACION_U1.md) §5.3 lo dejaba pendiente de redactar.
-Queda enunciado en la sesión: se declara, y la fuente inventada resta.
+y responsable de la inteligencia artificial») y el plan de migración lo dejaba pendiente de
+redactar. Queda enunciado: se declara, y la fuente inventada resta.
 
 ---
 
 ## Datos rotulados [DATO POR VERIFICAR]
 
-Heredados de 2026-I, se arrastran visibles en la página en vez de resolverse por conjetura:
+Se arrastran visibles en la página en vez de resolverse por conjetura:
 
-1. **Edad de Cicely Saunders al graduarse como médica.** La presentación original decía «33
-   años»; nacida en 1918 y graduada en 1957, serían 39.
-2. **Figura pionera de Medellín.** El guion de 2026-I la nombraba con un tratamiento de género
-   que no concuerda. El hito se describe sin atribuirlo hasta contrastarlo.
-
----
+1. **Edad de Cicely Saunders al graduarse como médica.** Algunas fuentes dicen «33 años»;
+   nacida en 1918 y graduada en 1957, serían 39.
+2. **Figura pionera de Medellín.** Circulan atribuciones nominales con datos que no concuerdan
+   entre fuentes. El hito se describe sin atribuirlo hasta contrastarlo.
 
 ---
 
-## Cómo funciona esta sesión (modelo de seminario)
+## Las cuatro piezas
 
-**No hay clase magistral.** El contenido histórico y filosófico está en `index.html` rotulado
-como *material de consulta*, y se lee antes. Las tres horas del viernes se dedican a contrastar
-lo que el grupo escribió.
+**No hay clase magistral.** El contenido vive en la presentación y se estudia antes; las tres
+horas del viernes se dedican a contrastar lo que el grupo escribió.
 
 | Pieza | Archivo | Para quién |
 |---|---|---|
-| Guía de la sesión + contenido | [`index.html`](index.html) | Estudiantes, antes y después |
+| Guía de la sesión | [`index.html`](index.html) | Estudiantes, antes |
+| **Presentación · el contenido** | [`clase.html`](clase.html) | Estudiantes, antes y después |
 | Entregable previo, individual | [`preparacion.html`](preparacion.html) | Estudiantes, antes |
 | Tablero de conducción | [`../../_shared/tablero.html`](../../_shared/tablero.html) | Solo docente, en clase |
+
+### Identidad propia · 16 de agosto de 2026
+
+La sesión se rehízo entera. Antes mandaba a leer al repositorio de 2026-I; ahora **todo el
+contenido está aquí dentro**, en `clase.html`, con la paleta nueva (bosque / arcilla / malva /
+piedra). Las únicas fuentes externas son la OMS y el *Global Atlas* de la WHPCA — fuentes
+primarias, no material de otra asignatura.
+
+Lo que se reconstruyó y antes se delegaba: los hitos intermedios del hospicio (Garnier 1842,
+Dublín 1879, St Joseph's 1905), el episodio de David Tasma, el desarrollo de Kübler-Ross y la
+biografía del *pallium*. Veintiún pasos en total.
 
 ### Las cinco preguntas y qué evalúan
 
@@ -115,7 +115,7 @@ lo que el grupo escribió.
 | P2 | ¿Qué definición opera de hecho en su institución? | Observación de la práctica frente al discurso; a quién deja fuera |
 | P3 | Dimensión peor atendida del dolor total — **y qué dato lo demostraría** | El paso del juicio al dato. La segunda mitad pesa más que la primera |
 | P4 | Un indicador del *Global Atlas*: qué mide y qué deja invisible | **Lectura de fuente en inglés** + lectura crítica de indicadores |
-| P5 | Convierta una afirmación de la lectura en pregunta investigable | La competencia investigativa, en su forma más directa |
+| P5 | Convierta una afirmación del material en pregunta investigable | La competencia investigativa, en su forma más directa |
 
 Más la **declaración de uso de IA** y los minutos dedicados (para calibrar la carga de las
 siguientes sesiones).
@@ -135,7 +135,7 @@ siguientes sesiones).
 ## Estado
 
 - [x] Decidir qué se dicta y qué pasa a lectura previa
-- [x] Construir la guía de sesión (`index.html`) y el material de consulta
+- [x] Construir la guía (`index.html`) y la presentación (`clase.html`), autosuficiente
 - [x] Añadir la capa investigativa
 - [x] Convertir la sesión al modelo de seminario (entregable previo + tablero)
 - [x] Construir `preparacion.html` con las cinco preguntas

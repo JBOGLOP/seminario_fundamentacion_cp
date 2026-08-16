@@ -24,35 +24,35 @@
    Se copia, no se enlaza: la página debe abrir sin servidor. Si un valor
    cambia en tokens.css, hay que propagarlo aquí.                          --- */
 :root{
-  --terracota:#B85C3C; --terracota-dark:#9C4830; --terracota-soft:#EFD5C8;
-  --salvia:#7A8B6F;    --salvia-dark:#5C6E54;    --salvia-soft:#D9E0D2;
-  --arena:#C4A876;     --arena-dark:#8B7B5C;     --arena-deep:#6B5B40; --arena-soft:#F5EEDD;
-  --ambar:#D4A547;     --ambar-dark:#A07930;     --ambar-deep:#6B4F0F;  --ambar-soft:#F4E4BC;
-  --charcoal:#2D2D2D;  --gris:#595959;           --gris-claro:#A6A6A6;
-  --blanco:#FFFFFF;    --crema:#FAF6EF;
-  --shadow-soft:0 2px 8px rgba(45,45,45,.08);
-  --shadow-medium:0 6px 20px rgba(45,45,45,.12);
-  --radius:12px; --radius-sm:8px;
+  --bosque:#2F5D50;    --bosque-dark:#234639;    --bosque-deep:#17302A;  --bosque-soft:#D6E3DD;
+  --arcilla:#C4714F;   --arcilla-dark:#A2563A;   --arcilla-deep:#6F3823; --arcilla-soft:#F3DCD1;
+  --malva:#7A5C8A;     --malva-dark:#5F4570;     --malva-deep:#402C4D;   --malva-soft:#E4DAEA;
+  --piedra:#8A8578;    --piedra-dark:#6B6659;    --piedra-deep:#4E4A40;  --piedra-soft:#EFEBE3;
+  --pizarra:#22282A;   --gris:#565E5C;           --gris-claro:#9AA09D;
+  --blanco:#FFFFFF;    --lino:#FAF8F4;
+  --shadow-soft:0 2px 8px rgba(34,40,42,.07);
+  --shadow-medium:0 6px 20px rgba(34,40,42,.11);
+  --radius:14px; --radius-sm:9px;
   --sans:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif;
-  --mono:'Courier New',monospace;
-  --serif:Georgia,serif;
+  --mono:'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace;
+  --serif:Georgia,'Times New Roman',serif;
 
-  /* Acento de la unidad. El color significa la unidad, no decora. */
+  /* Acento de la unidad; el generador lo sustituye */
   --acento:      var(--${ACENTO});
-  --acento-dark: var(--${ACENTO}-dark);
+  --acento-dark: var(--${ACENTO}-deep);
   --acento-soft: var(--${ACENTO}-soft);
 }
 
 *,*::before,*::after{box-sizing:border-box}
 body{
-  margin:0; font-family:var(--sans); color:var(--charcoal);
-  background:var(--crema); line-height:1.55;
+  margin:0; font-family:var(--sans); color:var(--pizarra);
+  background:var(--lino); line-height:1.55;
 }
 .envoltura{max-width:64rem; margin:0 auto; padding:0 clamp(1rem,4vw,2.5rem)}
 
 /* Salto al contenido: la navegación por teclado es requisito, no adorno. */
 .saltar{
-  position:absolute; left:-9999px; top:0; background:var(--charcoal);
+  position:absolute; left:-9999px; top:0; background:var(--pizarra);
   color:var(--blanco); padding:.6rem 1rem; z-index:100; border-radius:0 0 var(--radius-sm) 0;
 }
 .saltar:focus{left:0}
@@ -60,7 +60,7 @@ body{
 
 /* --- Cabecera ----------------------------------------------------------- */
 .cabecera{
-  background:linear-gradient(160deg,var(--crema) 0%,var(--acento-soft) 100%);
+  background:linear-gradient(160deg,var(--lino) 0%,var(--acento-soft) 100%);
   border-bottom:4px solid var(--acento); padding:clamp(2rem,6vw,3.5rem) 0 clamp(1.5rem,4vw,2.5rem);
 }
 .migas{font-size:.85rem; color:var(--gris); margin-bottom:1.2rem}
@@ -79,10 +79,10 @@ h1{
 }
 .chips{display:flex; flex-wrap:wrap; gap:.5rem; margin-top:1.2rem}
 .chip{
-  background:var(--blanco); border:1px solid var(--acento-soft); color:var(--charcoal);
+  background:var(--blanco); border:1px solid var(--acento-soft); color:var(--pizarra);
   border-radius:999px; padding:.32rem .9rem; font-size:.85rem; box-shadow:var(--shadow-soft);
 }
-.chip--entrega{background:var(--arena-soft); border-color:var(--arena); color:var(--arena-deep); font-weight:600}
+.chip--entrega{background:var(--piedra-soft); border-color:var(--piedra); color:var(--piedra-deep); font-weight:600}
 
 /* --- Secciones ---------------------------------------------------------- */
 main{padding:clamp(2rem,5vw,3rem) 0}
@@ -111,7 +111,7 @@ a{color:var(--acento-dark)}
 .estado__etq{
   display:inline-block; font-size:.7rem; font-weight:700; letter-spacing:.06em;
   text-transform:uppercase; padding:.15em .55em; border-radius:4px;
-  background:var(--arena-soft); color:var(--arena-deep); margin-bottom:.6rem;
+  background:var(--piedra-soft); color:var(--piedra-deep); margin-bottom:.6rem;
 }
 .estado p:last-child{margin-bottom:0}
 

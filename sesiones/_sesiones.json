@@ -24,9 +24,9 @@
   "franja": "viernes de 8:00 a 11:00",
 
   "unidades": {
-    "U1": { "nombre": "Contexto histórico-filosófico y lineamientos sociopolíticos", "acento": "salvia" },
-    "U2": { "nombre": "Modelos de atención desde la investigación", "acento": "ambar" },
-    "U3": { "nombre": "Aspectos bioéticos y experiencias de manejo integral", "acento": "terracota" }
+    "U1": { "nombre": "Contexto histórico-filosófico y lineamientos sociopolíticos", "acento": "bosque" },
+    "U2": { "nombre": "Modelos de atención desde la investigación", "acento": "arcilla" },
+    "U3": { "nombre": "Aspectos bioéticos y experiencias de manejo integral", "acento": "malva" }
   },
 
   "sesiones": [

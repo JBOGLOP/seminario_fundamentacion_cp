@@ -1,64 +1,73 @@
 /* ============================================================================
-   tokens.css — Sistema de diseño · Contexto Histórico y Legal de los CP (37542001)
-   Maestría en Cuidado Paliativo · Universidad Antonio Nariño
+   tokens.css — Sistema de diseño
+   Seminario de fundamentación en cuidados paliativos (32264001)
+   Maestría en Cuidados Paliativos · Universidad Antonio Nariño · 2026-II
    ----------------------------------------------------------------------------
-   Origen: reutilizado de Epidemiología del Cuidado Paliativo (37542002), por
-   decisión D7. Las dos asignaturas comparten programa y estudiantes; compartir
-   el sistema de diseño hace que el semestre se lea como una sola cosa.
-
    ⚠️ FUENTE CANÓNICA, NO ENLACE.
-   Por la regla de portabilidad de CLAUDE.md, cada HTML del curso es un archivo
-   autocontenido que debe abrir sin servidor y sin conexión. Este archivo NO se
-   enlaza con <link rel="stylesheet">: se COPIA EN LÍNEA dentro del <style> de
-   cada clase. Si cambias un valor aquí, propágalo a los archivos que lo usan.
+   Por la regla de portabilidad, cada HTML del curso es un archivo autocontenido
+   que abre sin servidor y sin conexión. Este archivo NO se enlaza con
+   <link rel="stylesheet">: se COPIA EN LÍNEA dentro del <style> de cada página.
+   Si cambia un valor aquí, hay que propagarlo.
 
-   ⚠️ NO INVENTES COLORES NUEVOS NI CAMBIES LOS HEX (CLAUDE.md).
-   La paleta es cálida y sobria de forma deliberada: la asignatura habla de
-   personas que mueren.
+   ----------------------------------------------------------------------------
+   IDENTIDAD PROPIA — 16 de agosto de 2026
+
+   Hasta esta fecha el seminario usaba la paleta heredada de Epidemiología y de
+   Contexto Histórico (terracota / salvia / arena / ámbar). Se cambió por
+   decisión del docente: este semestre se construye con identidad propia y sin
+   depender de material de cursos anteriores.
+
+   Los nombres de las variables también cambiaron. Si encuentra `--salvia`,
+   `--terracota`, `--arena`, `--crema` o `--charcoal` en algún archivo, es
+   código viejo que quedó sin migrar.
+
+   ----------------------------------------------------------------------------
+   EL COLOR SIGNIFICA LA UNIDAD, NO DECORA
+
+     Unidad 1 · Contexto histórico-filosófico y lineamientos  → bosque
+     Unidad 2 · Modelos de atención desde la investigación    → arcilla
+     Unidad 3 · Aspectos bioéticos y manejo integral          → malva
+     Transversal · portada, avisos, evaluación                → piedra
+
+   El CSS del curso usa siempre var(--acento*), nunca el color concreto, para
+   que cambiar de unidad sea una sola edición.
+
+   La paleta es cálida y profunda a propósito: la asignatura habla de personas
+   que mueren, y ni el gris clínico ni el color alegre le sientan bien.
    ============================================================================ */
 
 :root{
-  /* --- Terracota · casos y controles, brecha de acceso -------------------- */
-  --terracota:#B85C3C; --terracota-dark:#9C4830; --terracota-soft:#EFD5C8;
+  /* --- Bosque · Unidad 1 · contexto histórico-filosófico ------------------ */
+  --bosque:#2F5D50;    --bosque-dark:#234639;    --bosque-deep:#17302A;  --bosque-soft:#D6E3DD;
 
-  /* --- Salvia · cohorte prospectiva, calidad del morir -------------------- */
-  --salvia:#7A8B6F;    --salvia-dark:#5C6E54;    --salvia-soft:#D9E0D2;
+  /* --- Arcilla · Unidad 2 · modelos de atención -------------------------- */
+  --arcilla:#C4714F;   --arcilla-dark:#A2563A;   --arcilla-deep:#6F3823; --arcilla-soft:#F3DCD1;
 
-  /* --- Arena · cohorte histórica, cobertura ------------------------------ */
-  --arena:#C4A876;     --arena-dark:#8B7B5C;     --arena-deep:#6B5B40; --arena-soft:#F5EEDD;
+  /* --- Malva · Unidad 3 · bioética y manejo integral --------------------- */
+  --malva:#7A5C8A;     --malva-dark:#5F4570;     --malva-deep:#402C4D;   --malva-soft:#E4DAEA;
 
-  /* --- Ámbar · anidado, necesidad estimada ------------------------------- */
-  --ambar:#D4A547;     --ambar-dark:#A07930;     --ambar-deep:#6B4F0F; --ambar-soft:#F4E4BC;
+  /* --- Piedra · transversal · avisos, evaluación, portada ---------------- */
+  --piedra:#8A8578;    --piedra-dark:#6B6659;    --piedra-deep:#4E4A40;  --piedra-soft:#EFEBE3;
 
   /* --- Neutros ----------------------------------------------------------- */
-  --charcoal:#2D2D2D;  --gris:#595959;           --gris-claro:#A6A6A6;
-  --blanco:#FFFFFF;    --crema:#FAF6EF;
+  --pizarra:#22282A;   --gris:#565E5C;           --gris-claro:#9AA09D;
+  --blanco:#FFFFFF;    --lino:#FAF8F4;
 
   /* --- Elevación y forma -------------------------------------------------- */
-  --shadow-soft:0 2px 8px rgba(45,45,45,.08);
-  --shadow-medium:0 6px 20px rgba(45,45,45,.12);
-  --shadow-strong:0 12px 40px rgba(45,45,45,.18);
-  --radius:12px; --radius-sm:8px;
+  --shadow-soft:0 2px 8px rgba(34,40,42,.07);
+  --shadow-medium:0 6px 20px rgba(34,40,42,.11);
+  --shadow-strong:0 12px 40px rgba(34,40,42,.17);
+  --radius:14px; --radius-sm:9px;
 
   /* --- Tipografía · fuentes del sistema, nunca Google Fonts -------------- */
   --sans:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif;
-  --mono:'Courier New',monospace;
-  --serif:Georgia,serif;
+  --mono:'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace;
+  --serif:Georgia,'Times New Roman',serif;
 
-  /* --- ACENTO DE LA SESIÓN ----------------------------------------------
-     Cada sesión redefine estas tres variables según su unidad, de modo que
-     el color signifique algo y no sea decorativo:
-
-       Unidad 1 · Contexto histórico   · sesiones 1-3 → salvia
-       Unidad 2 · Marco político       · sesiones 4-5 → ambar
-       Unidad 3 · Marco legal          · sesiones 6-8 → terracota
-
-     Esta asignatura tiene tres unidades, no cuatro. La paleta arena queda
-     libre y se usa para lo transversal: avisos, evaluación y pendientes.
-
-     El resto del CSS del curso usa siempre var(--acento*), nunca el color
-     concreto, para que cambiar de unidad sea una sola edición.               */
-  --acento:      var(--terracota);
-  --acento-dark: var(--terracota-dark);
-  --acento-soft: var(--terracota-soft);
+  /* --- ACENTO DE LA PÁGINA ----------------------------------------------
+     Cada página redefine estas tres según su unidad. Por defecto, piedra,
+     que es lo transversal.                                                */
+  --acento:      var(--piedra);
+  --acento-dark: var(--piedra-deep);
+  --acento-soft: var(--piedra-soft);
 }

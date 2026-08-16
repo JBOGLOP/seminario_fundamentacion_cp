@@ -25,42 +25,40 @@
    Se copia, no se enlaza: la página debe abrir sin servidor. Si un valor
    cambia en tokens.css, hay que propagarlo aquí.                          --- */
 :root{
-  --terracota:#B85C3C; --terracota-dark:#9C4830; --terracota-soft:#EFD5C8;
-  --salvia:#7A8B6F;    --salvia-dark:#5C6E54;    --salvia-soft:#D9E0D2;
-  --arena:#C4A876;     --arena-dark:#8B7B5C;     --arena-deep:#6B5B40; --arena-soft:#F5EEDD;
-  --ambar:#D4A547;     --ambar-dark:#A07930;     --ambar-deep:#6B4F0F;  --ambar-soft:#F4E4BC;
-  --charcoal:#2D2D2D;  --gris:#595959;           --gris-claro:#A6A6A6;
-  --blanco:#FFFFFF;    --crema:#FAF6EF;
-  --shadow-soft:0 2px 8px rgba(45,45,45,.08);
-  --shadow-medium:0 6px 20px rgba(45,45,45,.12);
-  --radius:12px; --radius-sm:8px;
+  --bosque:#2F5D50;    --bosque-dark:#234639;    --bosque-deep:#17302A;  --bosque-soft:#D6E3DD;
+  --arcilla:#C4714F;   --arcilla-dark:#A2563A;   --arcilla-deep:#6F3823; --arcilla-soft:#F3DCD1;
+  --malva:#7A5C8A;     --malva-dark:#5F4570;     --malva-deep:#402C4D;   --malva-soft:#E4DAEA;
+  --piedra:#8A8578;    --piedra-dark:#6B6659;    --piedra-deep:#4E4A40;  --piedra-soft:#EFEBE3;
+  --pizarra:#22282A;   --gris:#565E5C;           --gris-claro:#9AA09D;
+  --blanco:#FFFFFF;    --lino:#FAF8F4;
+  --shadow-soft:0 2px 8px rgba(34,40,42,.07);
+  --shadow-medium:0 6px 20px rgba(34,40,42,.11);
+  --radius:14px; --radius-sm:9px;
   --sans:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif;
-  --mono:'Courier New',monospace;
-  --serif:Georgia,serif;
+  --mono:'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace;
+  --serif:Georgia,'Times New Roman',serif;
 
-  /* La portada es transversal a las tres unidades: su acento es arena. */
-  --acento:      var(--arena);
-  --acento-dark: var(--arena-deep);
-  --acento-soft: var(--arena-soft);
+  /* La portada es transversal a las tres unidades → piedra */
+  --acento:var(--piedra); --acento-dark:var(--piedra-deep); --acento-soft:var(--piedra-soft);
 }
 
 *,*::before,*::after{box-sizing:border-box}
 body{
-  margin:0; font-family:var(--sans); color:var(--charcoal);
-  background:var(--crema); line-height:1.55;
+  margin:0; font-family:var(--sans); color:var(--pizarra);
+  background:var(--lino); line-height:1.55;
 }
 .envoltura{max-width:68rem; margin:0 auto; padding:0 clamp(1rem,4vw,2.5rem)}
 
 .saltar{
-  position:absolute; left:-9999px; top:0; background:var(--charcoal);
+  position:absolute; left:-9999px; top:0; background:var(--pizarra);
   color:var(--blanco); padding:.6rem 1rem; z-index:100; border-radius:0 0 var(--radius-sm) 0;
 }
 .saltar:focus{left:0}
-:focus-visible{outline:3px solid var(--arena-dark); outline-offset:2px}
+:focus-visible{outline:3px solid var(--piedra-dark); outline-offset:2px}
 
 /* --- Cabecera ----------------------------------------------------------- */
 .cabecera{
-  background:linear-gradient(155deg,#3F4A39 0%,#5C6E54 45%,#8B7B5C 100%);
+  background:linear-gradient(155deg,var(--bosque-deep) 0%,var(--bosque) 55%,#4A7A63 100%);
   color:var(--blanco); padding:clamp(2.5rem,7vw,4.5rem) 0 clamp(4rem,9vw,6rem);
 }
 .cabecera .eyebrow{
@@ -83,40 +81,40 @@ body{
 }
 .practico{
   background:var(--blanco); border-radius:var(--radius); padding:1rem 1.15rem;
-  box-shadow:var(--shadow-medium); border-top:3px solid var(--arena);
+  box-shadow:var(--shadow-medium); border-top:3px solid var(--piedra);
 }
 .practico__etq{
   font-size:.7rem; letter-spacing:.09em; text-transform:uppercase;
   color:var(--gris); font-weight:700; margin:0 0 .3rem;
 }
 .practico__val{margin:0; font-weight:600; font-size:1.02rem; line-height:1.35}
-.practico__val a{color:var(--arena-deep); word-break:break-word}
+.practico__val a{color:var(--piedra-deep); word-break:break-word}
 
 /* --- Aviso -------------------------------------------------------------- */
 .aviso{
-  background:var(--arena-soft); border-left:4px solid var(--arena);
+  background:var(--piedra-soft); border-left:4px solid var(--piedra);
   border-radius:var(--radius-sm); padding:.9rem 1.1rem; margin:2rem 0 0;
-  font-size:.92rem; color:var(--arena-deep); max-width:70ch;
+  font-size:.92rem; color:var(--piedra-deep); max-width:70ch;
 }
-.aviso strong{color:var(--charcoal)}
+.aviso strong{color:var(--pizarra)}
 
 /* --- Secciones ---------------------------------------------------------- */
 main{padding:clamp(2.5rem,6vw,4rem) 0}
 section{margin-bottom:clamp(2.5rem,6vw,4rem)}
 h2{
-  font-size:clamp(1.35rem,2.8vw,1.9rem); color:var(--arena-deep);
+  font-size:clamp(1.35rem,2.8vw,1.9rem); color:var(--piedra-deep);
   margin:0 0 .3rem; line-height:1.2; letter-spacing:-.01em;
 }
 .seccion__intro{color:var(--gris); max-width:66ch; margin:0 0 1.4rem}
 p{margin:0 0 1em; max-width:68ch}
-a{color:var(--arena-deep)}
+a{color:var(--piedra-deep)}
 
 .hilo{
   font-family:var(--serif); font-size:clamp(1.05rem,2.2vw,1.35rem); font-style:italic;
-  color:var(--salvia-dark); border-left:4px solid var(--salvia);
+  color:var(--bosque-dark); border-left:4px solid var(--bosque);
   padding:.5em 0 .5em 1.1em; max-width:58ch; margin:1.2rem 0;
 }
-.hilo strong{font-style:normal; color:var(--charcoal)}
+.hilo strong{font-style:normal; color:var(--pizarra)}
 
 /* --- Unidades ----------------------------------------------------------- */
 .unidades{display:grid; gap:1rem; grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
@@ -124,17 +122,17 @@ a{color:var(--arena-deep)}
   background:var(--blanco); border-radius:var(--radius); padding:1.2rem 1.3rem;
   box-shadow:var(--shadow-soft); border-top:4px solid var(--gris-claro);
 }
-.unidad--u1{border-top-color:var(--salvia)}
-.unidad--u2{border-top-color:var(--ambar)}
-.unidad--u3{border-top-color:var(--terracota)}
+.unidad--u1{border-top-color:var(--bosque)}
+.unidad--u2{border-top-color:var(--arcilla)}
+.unidad--u3{border-top-color:var(--malva)}
 .unidad__num{
   font-family:var(--mono); font-size:.75rem; letter-spacing:.08em;
   text-transform:uppercase; color:var(--gris); margin:0 0 .35rem;
 }
 .unidad h3{margin:0 0 .6rem; font-size:1.08rem; line-height:1.3}
-.unidad--u1 h3{color:var(--salvia-dark)}
-.unidad--u2 h3{color:var(--ambar-deep)}
-.unidad--u3 h3{color:var(--terracota-dark)}
+.unidad--u1 h3{color:var(--bosque-dark)}
+.unidad--u2 h3{color:var(--arcilla-dark)}
+.unidad--u3 h3{color:var(--malva-dark)}
 .unidad ul{margin:0; padding-left:1.1rem; font-size:.92rem; color:var(--gris)}
 .unidad li{margin-bottom:.3rem}
 
@@ -146,31 +144,31 @@ a{color:var(--arena-deep)}
   display:grid; gap:.2rem .9rem; padding:.95rem 1.15rem;
   grid-template-columns:auto 1fr auto; align-items:baseline;
 }
-.sesion--u1{border-left-color:var(--salvia)}
-.sesion--u2{border-left-color:var(--ambar)}
-.sesion--u3{border-left-color:var(--terracota)}
+.sesion--u1{border-left-color:var(--bosque)}
+.sesion--u2{border-left-color:var(--arcilla)}
+.sesion--u3{border-left-color:var(--malva)}
 .sesion__num{
   font-family:var(--mono); font-size:.9rem; font-weight:700; color:var(--gris);
   grid-row:1 / span 2;
 }
 .sesion__titulo{margin:0; font-size:1.02rem; font-weight:600; line-height:1.3}
-.sesion__titulo a{text-decoration:none; color:var(--charcoal)}
+.sesion__titulo a{text-decoration:none; color:var(--pizarra)}
 .sesion__titulo a:hover,.sesion__titulo a:focus{text-decoration:underline}
-.sesion--u1 .sesion__titulo a{color:var(--salvia-dark)}
-.sesion--u2 .sesion__titulo a{color:var(--ambar-deep)}
-.sesion--u3 .sesion__titulo a{color:var(--terracota-dark)}
+.sesion--u1 .sesion__titulo a{color:var(--bosque-dark)}
+.sesion--u2 .sesion__titulo a{color:var(--arcilla-dark)}
+.sesion--u3 .sesion__titulo a{color:var(--malva-dark)}
 .sesion__meta{
   grid-column:2; font-size:.85rem; color:var(--gris); margin:0;
 }
 .sesion__estado{
   grid-column:3; grid-row:1 / span 2; font-size:.7rem; font-weight:700;
   letter-spacing:.06em; text-transform:uppercase; white-space:nowrap;
-  padding:.2em .6em; border-radius:4px; background:var(--arena-soft); color:var(--arena-deep);
+  padding:.2em .6em; border-radius:4px; background:var(--piedra-soft); color:var(--piedra-deep);
 }
 /* Publicada: el material ya está en línea, no solo la ficha. */
-.sesion__estado--lista{background:var(--salvia-soft); color:var(--salvia-dark)}
+.sesion__estado--lista{background:var(--bosque-soft); color:var(--bosque-dark)}
 .sesion__entrega{
-  grid-column:2; font-size:.8rem; font-weight:700; color:var(--terracota-dark); margin:.25rem 0 0;
+  grid-column:2; font-size:.8rem; font-weight:700; color:var(--arcilla-dark); margin:.25rem 0 0;
 }
 @media (max-width:600px){
   .sesion{grid-template-columns:auto 1fr}
@@ -181,23 +179,14 @@ a{color:var(--arena-deep)}
 .cortes{display:grid; gap:1rem; grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
 .corte{
   background:var(--blanco); border-radius:var(--radius); padding:1.1rem 1.2rem;
-  box-shadow:var(--shadow-soft); border-top:3px solid var(--arena);
+  box-shadow:var(--shadow-soft); border-top:3px solid var(--piedra);
 }
 .corte__peso{
-  font-family:var(--mono); font-size:1.9rem; font-weight:700; color:var(--arena-deep);
+  font-family:var(--mono); font-size:1.9rem; font-weight:700; color:var(--piedra-deep);
   margin:0; line-height:1;
 }
 .corte__etq{margin:.3rem 0 0; font-weight:600}
 .corte__det{margin:.35rem 0 0; font-size:.88rem; color:var(--gris)}
-
-/* --- Origen ------------------------------------------------------------- */
-.origen{display:grid; gap:1rem; grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-.origen__item{
-  background:var(--blanco); border-radius:var(--radius); padding:1.1rem 1.2rem;
-  box-shadow:var(--shadow-soft);
-}
-.origen__item h3{margin:0 0 .4rem; font-size:1rem; color:var(--arena-deep)}
-.origen__item p{font-size:.9rem; color:var(--gris); margin:0 0 .6rem}
 
 /* --- Pie ---------------------------------------------------------------- */
 footer{
@@ -205,12 +194,12 @@ footer{
   padding:2.5rem 0; font-size:.88rem; color:var(--gris);
 }
 footer p{max-width:70ch}
-footer a{color:var(--arena-deep)}
+footer a{color:var(--piedra-deep)}
 
 @media print{
   .saltar{display:none}
   body{background:var(--blanco)}
-  .cabecera{background:none; color:var(--charcoal)}
+  .cabecera{background:none; color:var(--pizarra)}
   .practicos{margin-top:1rem}
 }
 </style>
@@ -273,25 +262,23 @@ footer a{color:var(--arena-deep)}
   <div class="envoltura">
 
     <section aria-labelledby="h-hilo">
-      <h2 id="h-hilo">Por qué existe este seminario</h2>
+      <h2 id="h-hilo">El hilo del seminario</h2>
       <p class="seccion__intro">
-        No es una asignatura nueva escrita desde cero. Es la fusión de dos cursos de 2026-I
-        —<em>Contexto Histórico y Legal de los Cuidados Paliativos</em> e <em>Investigación en
-        Cuidados Paliativos</em>— con la bioética añadida encima.
+        Colombia tiene una ley de cuidados paliativos desde 2014, resoluciones, sentencias de la
+        Corte y lineamientos de la OMS y de la OPS. Hay bastante norma.
       </p>
       <p>
-        Cada uno de los dos cursos traía su propia pregunta de fondo. Al ponerlas juntas resultó
-        que eran la misma pregunta vista desde dos lados:
+        Y sin embargo, si le preguntan cuántas personas con necesidad paliativa hay en su
+        municipio y cuántas están siendo atendidas, lo más probable es que el dato no exista.
       </p>
       <p class="hilo">
-        ¿Por qué un instrumento vinculante no cierra la brecha territorial?<br>
-        ¿Por qué la evidencia global existe y la colombiana está por construirse?<br>
-        <strong>Hay norma y no hay datos.</strong>
+        <strong>Hay norma y no hay datos.</strong><br>
+        Sobre esa distancia trabaja el seminario.
       </p>
       <p>
-        Ese es el hilo del seminario, y cada unidad es un tramo del mismo argumento: la primera
-        establece que la norma existe, la segunda enseña a leer la evidencia que falta, y la
-        tercera se ocupa de lo que hay que decidir cuando ni la norma ni la evidencia alcanzan.
+        Cada unidad es un tramo del mismo argumento: la primera establece que la norma existe, la
+        segunda enseña a leer la evidencia que falta, y la tercera se ocupa de lo que hay que
+        decidir cuando ni la norma ni la evidencia alcanzan.
       </p>
       <p>
         Conviene decir de entrada de qué se habla aquí: de personas con enfermedad avanzada, de
@@ -355,6 +342,7 @@ footer a{color:var(--arena-deep)}
           </p>
           <p class="sesion__meta">
             viernes 21 de agosto · presencial · Unidad 1 ·
+            <a href="sesiones/s01-historia-fundamentos/clase.html">presentación</a> ·
             <a href="sesiones/s01-historia-fundamentos/preparacion.html">entregable previo</a>
           </p>
           <span class="sesion__estado sesion__estado--lista">Publicada</span>
@@ -444,28 +432,6 @@ footer a{color:var(--arena-deep)}
         </div>
       </div>
     </section>
-
-    <section aria-labelledby="h-origen">
-      <h2 id="h-origen">De dónde viene el material</h2>
-      <p class="seccion__intro">
-        Los dos cursos de 2026-I siguen publicados como archivo. Buena parte de lo que se
-        trabaja en la Unidad 1 sale de ahí, y ahí se puede consultar con más detalle del que
-        cabe en tres sesiones.
-      </p>
-      <div class="origen">
-        <article class="origen__item">
-          <h3>Contexto Histórico y Legal de los CP</h3>
-          <p>Ocho clases sobre historia, políticas y marco normativo. Es el origen de la Unidad 1 entera.</p>
-          <p><a href="https://jboglop.github.io/Contexto_Historico_Legal_CP/">Abrir el curso de 2026-I</a></p>
-        </article>
-        <article class="origen__item">
-          <h3>Investigación en Cuidados Paliativos</h3>
-          <p>Material metodológico del que salen las piezas de lectura de evidencia de las unidades 2 y 3.</p>
-          <p><a href="https://jboglop.github.io/Investigacion_CP/">Abrir el curso de 2026-I</a></p>
-        </article>
-      </div>
-    </section>
-
   </div>
 </main>
 
