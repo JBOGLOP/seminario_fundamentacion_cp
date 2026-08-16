@@ -1,0 +1,153 @@
+{
+  "_comentario": [
+    "FUENTE CANÓNICA de la lista de sesiones.",
+    "",
+    "Quién la lee:",
+    "  · scripts/nueva-sesion.js  — crea la carpeta de cada sesión que aún no exista.",
+    "  · scripts/verificar.js     — comprobación 5: el hub index.html debe enlazar",
+    "                               exactamente estas sesiones, ni una más ni una menos.",
+    "",
+    "Por qué existe: en las dos asignaturas anteriores la lista de sesiones vivía a la vez",
+    "en el programador, en la portada y en el disco, y las tres se desincronizaron. Aquí la",
+    "lista está en un solo sitio y el verificador comprueba que la portada la respeta.",
+    "",
+    "Las carpetas se nombran por CONTENIDO, no por fecha, a propósito: si la dirección",
+    "confirma que el sábado 8 de agosto es sesión del seminario (HANDOFF §7.1), cambian las",
+    "fechas y la numeración, pero no los slugs — y ningún enlace compartido se rompe.",
+    "",
+    "Origen de los datos: docs/PROGRAMADOR-2026-II.md §3, distribución de siete viernes."
+  ],
+
+  "asignatura": "Seminario de fundamentación en cuidados paliativos",
+  "codigo": "32264001",
+  "semestre": "2026-II",
+  "franja": "viernes de 8:00 a 11:00",
+
+  "unidades": {
+    "U1": { "nombre": "Contexto histórico-filosófico y lineamientos sociopolíticos", "acento": "salvia" },
+    "U2": { "nombre": "Modelos de atención desde la investigación", "acento": "ambar" },
+    "U3": { "nombre": "Aspectos bioéticos y experiencias de manejo integral", "acento": "terracota" }
+  },
+
+  "sesiones": [
+    {
+      "num": 1,
+      "slug": "s01-historia-fundamentos",
+      "titulo": "Antecedentes históricos y fundamentos filosóficos",
+      "fecha": "viernes 21 de agosto de 2026",
+      "fechaCorta": "21 ago",
+      "modalidad": "Presencial",
+      "unidad": "U1",
+      "corte": "Primer corte",
+      "entrega": null,
+      "temas": [
+        "Encuadre del seminario y del hilo que lo atraviesa",
+        "Antecedentes históricos de los cuidados paliativos, desarrollo y tendencias",
+        "Fundamentos filosóficos del cuidado al final de la vida"
+      ],
+      "absorbe": "Clases 1 y 2 de Contexto Histórico y Legal (2026-I)"
+    },
+    {
+      "num": 2,
+      "slug": "s02-politicas-lineamientos",
+      "titulo": "Lineamientos y políticas: mundo, región, Colombia",
+      "fecha": "viernes 4 de septiembre de 2026",
+      "fechaCorta": "4 sep",
+      "modalidad": "Sincrónico",
+      "unidad": "U1",
+      "corte": "Primer corte",
+      "entrega": null,
+      "temas": [
+        "Políticas mundiales: OMS, Banco Mundial, BID, OCDE, IAHPC, SECPAL",
+        "Políticas latinoamericanas: OPS, CEPAL, ALCP",
+        "Políticas colombianas: PAIS y RIAS"
+      ],
+      "absorbe": "Clases 3, 4 y 5 de Contexto Histórico y Legal (2026-I)"
+    },
+    {
+      "num": 3,
+      "slug": "s03-marco-legal-barreras",
+      "titulo": "Marco legal, enfoque de derechos y barreras de acceso",
+      "fecha": "viernes 18 de septiembre de 2026",
+      "fechaCorta": "18 sep",
+      "modalidad": "Presencial",
+      "unidad": "U1",
+      "corte": "Primer corte",
+      "entrega": "Entrega del primer corte · 35 %",
+      "temas": [
+        "Legislación internacional, latinoamericana y nacional",
+        "Enfoque de derechos humanos aplicado al cuidado paliativo",
+        "Barreras de acceso: dónde la norma existe y el servicio no llega"
+      ],
+      "absorbe": "Clases 6, 7 y 8 de Contexto Histórico y Legal (2026-I), incluida la Resolución 813"
+    },
+    {
+      "num": 4,
+      "slug": "s04-modelos-telesalud",
+      "titulo": "Modelos de atención y telesalud",
+      "fecha": "viernes 2 de octubre de 2026",
+      "fechaCorta": "2 oct",
+      "modalidad": "Sincrónico",
+      "unidad": "U2",
+      "corte": "Segundo corte",
+      "entrega": null,
+      "temas": [
+        "Modelos tradicionales frente a modelos alternativos de atención",
+        "Telesalud y tecnologías digitales aplicadas al cuidado paliativo",
+        "Cómo se lee la evidencia que sostiene —o no sostiene— cada modelo"
+      ],
+      "absorbe": "Cantera de Investigación en Cuidados Paliativos (2026-I)"
+    },
+    {
+      "num": 5,
+      "slug": "s05-enfoques-diferenciales",
+      "titulo": "Enfoques diferenciales: domiciliario, institucional y comunitario",
+      "fecha": "viernes 16 de octubre de 2026",
+      "fechaCorta": "16 oct",
+      "modalidad": "Presencial",
+      "unidad": "U2",
+      "corte": "Segundo corte",
+      "entrega": "Entrega del segundo corte · 35 %",
+      "temas": [
+        "Atención domiciliaria: alcance real y condiciones que exige",
+        "Atención institucional y atención comunitaria",
+        "Qué enfoque responde a qué territorio, y con qué evidencia se afirma"
+      ],
+      "absorbe": "Cantera de Investigación en Cuidados Paliativos (2026-I)"
+    },
+    {
+      "num": 6,
+      "slug": "s06-bioetica-decisiones",
+      "titulo": "Bioética, dilemas y planificación anticipada",
+      "fecha": "viernes 30 de octubre de 2026",
+      "fechaCorta": "30 oct",
+      "modalidad": "Sincrónico",
+      "unidad": "U3",
+      "corte": "Tercer corte",
+      "entrega": null,
+      "temas": [
+        "Aspectos bioéticos del cuidado al final de la vida",
+        "Dilemas éticos: cómo se sostienen las decisiones difíciles",
+        "Planificación anticipada y documento de voluntad anticipada"
+      ],
+      "absorbe": "Contenido nuevo. La bioética es lo único que se construye desde cero"
+    },
+    {
+      "num": 7,
+      "slug": "s07-equipo-redes",
+      "titulo": "Equipo interprofesional, liderazgo y redes de apoyo",
+      "fecha": "viernes 20 de noviembre de 2026",
+      "fechaCorta": "20 nov",
+      "modalidad": "Presencial",
+      "unidad": "U3",
+      "corte": "Tercer corte",
+      "entrega": "Producto final · 30 %",
+      "temas": [
+        "Equipo interprofesional y liderazgo colaborativo",
+        "Redes de apoyo alrededor de la persona y de quien la cuida",
+        "Cierre del seminario: qué quedó dicho y qué queda por investigar"
+      ],
+      "absorbe": "Contenido nuevo, con piezas de manejo integral de la cantera"
+    }
+  ]
+}

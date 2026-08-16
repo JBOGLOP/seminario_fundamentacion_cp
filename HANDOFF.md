@@ -86,6 +86,36 @@ Detalle completo en [`docs/PROGRAMADOR-2026-II.md`](docs/PROGRAMADOR-2026-II.md)
 - Cruce de la fusión: qué pieza va de dónde a dónde
 - Programador contra el calendario oficial
 - Andamiaje técnico completo, heredado y probado
+- **Esqueleto del sitio** (15 ago): portada, las siete carpetas de sesión y el generador. Ver §3.1
+
+### 3.1 · El esqueleto, construido el 15 de agosto
+
+El sitio ya tiene forma completa aunque no tenga contenido. Se hizo en este orden a propósito
+—carpetas definitivas primero, portada después— porque en Fisiopatología rehacer los enlaces tras
+renombrar carpetas costó una tarde.
+
+| Pieza | Qué es |
+|---|---|
+| `index.html` | Portada del seminario. **Sin ella Pages servía el `README.md`**, que es otra cosa |
+| `sesiones/_sesiones.json` | **Lista canónica** de las siete sesiones. Único sitio donde viven |
+| `sesiones/sNN-slug/` × 7 | Ficha pública (`index.html`) + nota de trabajo (`README.md`) |
+| `_shared/plantilla-sesion.html` | El molde del que nacen todas las fichas |
+| `scripts/nueva-sesion.js` | Crea las carpetas que falten. **Nunca sobrescribe** |
+| `scripts/verificar.js` §5 | Comprobación nueva: portada ↔ manifiesto |
+| `CLAUDE.md` | Las reglas en versión ejecutable. `tokens.css` ya lo citaba y no existía |
+
+**Dos decisiones dentro de esto:**
+
+*Las carpetas se llaman por contenido, no por fecha* (`s03-marco-legal-barreras`, no `s03-18-sep`).
+Si la dirección confirma que el 8 de agosto es sesión (§7.1), cambian fechas y numeración pero no
+rutas, y ningún enlace compartido se rompe.
+
+*Las siete fichas se publican vacías, diciendo «en preparación».* El recorrido del seminario se ve
+completo desde el primer día, y no hay ningún enlace muerto: el estado se dice, no se finge.
+
+*La lista de sesiones estaba en tres sitios en los cursos anteriores* —programador, portada y
+disco— y los tres se separaron sin que nada avisara. Ahora está en uno y la comprobación 5 falla
+si la portada no lo respeta.
 
 ### Falta
 
@@ -94,7 +124,7 @@ Detalle completo en [`docs/PROGRAMADOR-2026-II.md`](docs/PROGRAMADOR-2026-II.md)
 | **Condensar U1** | 8 sesiones de 2026-I → 3. Es tijera, no obra: el material está listo |
 | **Construir U2** | 2 sesiones, con 7 piezas de la cantera |
 | **Construir U3** | 2 sesiones. La bioética es lo único de cero |
-| **Hub `index.html`** | El recorrido del seminario de principio a fin |
+| **Bibliografía** | La portada no tiene sección «qué leer»: no hay fuente en el material actual |
 | **Confirmar con la dirección** | Ver §7 |
 
 ---
@@ -133,8 +163,13 @@ en `config.js`, que está en `.gitignore`. Ver `config.example.js`.
 node scripts/verificar.js
 ```
 
-Comprueba enlaces rotos, recursos externos, rastros de datos personales y lenguaje del curso.
-Distingue una infracción de una cita normativa, y un dato duro de una mención.
+Cinco comprobaciones: enlaces rotos · recursos externos · rastros de datos personales · lenguaje
+del curso · coherencia entre la portada y `sesiones/_sesiones.json`. Distingue una infracción de
+una cita normativa, y un dato duro de una mención.
+
+Para añadir una sesión: se anota en `sesiones/_sesiones.json`, se ejecuta
+`node scripts/nueva-sesion.js` y se añade al cronograma de `index.html`. La comprobación 5 falla
+hasta que lo último se haga.
 
 **Lo que no comprueba: que la página se vea bien.** Eso no tiene sustituto — hay que abrirla en
 el navegador **con el wifi apagado**, revisar que la consola no dé errores, navegar con el
@@ -253,9 +288,10 @@ desaparecería del sitio publicado **sin ningún error visible**.
 ## 6. Estructura de la carpeta
 
 ```
-HANDOFF.md                 ← este documento
-README.md                  portada pública del repositorio
-index.html                 hub del seminario  (por construir)
+HANDOFF.md                 ← este documento · el relato completo
+CLAUDE.md                  las reglas en versión corta y ejecutable
+README.md                  cara pública del repositorio en GitHub
+index.html                 portada del seminario · se mantiene a mano
 
 docs/
   CRUCE-FUSION.md          qué material viene de cada asignatura
@@ -265,13 +301,30 @@ docs/
   DISENO_UNIDAD_3.md       sesiones de bioética y manejo integral
   METODO-reorganizar-asignatura.md   el procedimiento general
 
-sesiones/sNN-slug/         material por sesión
-_shared/                   tokens.css, base.css, bitacora.js, vendor/
+sesiones/
+  _sesiones.json           ← LISTA CANÓNICA de las sesiones
+  sNN-slug/
+    index.html             ficha pública de la sesión
+    README.md              nota de trabajo del docente
+    clase.html             (cuando exista)
+    estudiante.html        (cuando exista)
+
+_shared/
+  tokens.css  base.css     sistema de diseño · se copian en línea, no se enlazan
+  plantilla-sesion.html    el molde del que nace cada ficha
+  bitacora.js  vendor/     JS y librerías incrustadas
+
 recursos/originales/       contenido programático oficial
-scripts/verificar.js       las cuatro comprobaciones previas a publicar
+scripts/
+  verificar.js             las cinco comprobaciones previas a publicar
+  nueva-sesion.js          crea las carpetas de sesión que falten
 config.example.js          plantilla de secretos → copiar a config.js
 .nojekyll                  imprescindible
 ```
+
+**Las páginas de detalle son `index.html`, no `README.md`.** Con `.nojekyll` activo —y es
+obligatorio, §5.9— un `README.md` dentro de una carpeta no se renderiza: se sirve como texto plano
+o se descarga. Los `README.md` de las carpetas de sesión son notas de trabajo, no páginas.
 
 ### Sobre trabajar en Google Drive
 
@@ -309,12 +362,17 @@ docente y se respeta, pero conviene saber el riesgo: la sincronización de Drive
 
 ## 9. Por dónde seguir
 
-1. **Confirmar las cuatro preguntas del §7.** La primera cambia la estructura entera.
+1. **Confirmar las cuatro preguntas del §7.** La primera cambia la estructura entera. Con el
+   esqueleto ya construido, el coste de un cambio ahí es editar fechas y el manifiesto — no rutas.
 2. **Condensar U1.** Es donde el trabajo está hecho: hay que decidir qué se dicta y qué pasa a
-   lectura previa. Tres clases de 2026-I por sesión de tres horas.
-3. **Construir el hub `index.html`**, con las siete sesiones documentadas aunque no estén
-   publicadas. Así el recorrido está completo desde el primer día.
+   lectura previa. Tres clases de 2026-I por sesión de tres horas. Empezar por
+   `sesiones/s01-historia-fundamentos/`, que se dicta el 21 de agosto.
+3. **Comprobar el sitio publicado.** Ajustes → Pages → origen **GitHub Actions**, y verificar que
+   `https://jboglop.github.io/seminario_fundamentacion_cp/` muestra la portada y no el README.
+   Ver la nota del workflow en `.github/workflows/pages.yml`.
 4. **U2 y U3.** Con los diseños de julio como guion y la cantera de Investigación como material.
+5. **Bibliografía.** La portada no tiene sección «qué leer» porque el material actual no la trae.
+   Cuando se fije, va después de «Cómo se evalúa».
 
 ---
 

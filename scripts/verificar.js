@@ -9,6 +9,7 @@
  *   2. Recursos externos que se cargan  (§7.2)
  *   3. Rastros de datos personales      (§7.3)
  *   4. Lenguaje de la asignatura        (§7.4)
+ *   5. Portada ↔ manifiesto de sesiones
  *
  * Sale con código 1 si encuentra algo que bloquea la publicación.
  * Lo que NO comprueba: que la página se vea bien. Eso es §7.5 y no
@@ -42,6 +43,13 @@ titulo('1 · Enlaces locales rotos  (§7.1)');
 {
   let ok = 0; const rotos = [];
   for (const f of htmls) {
+    // Las plantillas de _shared/ son moldes, no páginas: sus rutas relativas
+    // se resuelven desde donde el generador las instancia (sesiones/sNN-slug/),
+    // no desde donde el archivo vive. Comprobarlas aquí marcaría como rotos
+    // enlaces que en la página generada son correctos — y las páginas
+    // generadas sí se comprueban, que es lo que importa.
+    // Las comprobaciones 2, 3 y 4 sí las revisan: esas reglas son de contenido.
+    if (/^_shared\/plantilla-/.test(rel(f))) continue;
     const src = fs.readFileSync(f, 'utf8');
     const refs = [...src.matchAll(/(?:href|src)="([^"]+)"/g)].map(m => m[1]);
     const metas = [...src.matchAll(/content="\s*0;\s*url=([^"]+)"/gi)].map(m => m[1]);
@@ -192,10 +200,63 @@ titulo('4 · Lenguaje de la asignatura  (§7.4)');
   if (!n && !avisa) console.log(verde('  ✅ sin infracciones'));
 }
 
+// ── 5 · Portada ↔ manifiesto de sesiones ─────────────────────────────
+// En las dos asignaturas anteriores la lista de sesiones vivía a la vez en
+// el programador, en la portada y en el disco, y las tres se separaron sin
+// que nada avisara: quedaron sesiones sin enlazar y enlaces a sesiones que
+// no existían. Aquí la lista canónica es sesiones/_sesiones.json y esta
+// comprobación exige que la portada la respete exactamente.
+titulo('5 · Portada ↔ manifiesto de sesiones');
+{
+  const manif = path.join(RAIZ, 'sesiones', '_sesiones.json');
+  const hub = path.join(RAIZ, 'index.html');
+
+  if (!fs.existsSync(manif) || !fs.existsSync(hub)) {
+    // Sin uno de los dos no hay nada que cruzar. No bloquea: un repo recién
+    // clonado antes de construir la portada es un estado legítimo.
+    console.log(gris('  omitida: falta sesiones/_sesiones.json o index.html'));
+  } else {
+    let datos = null;
+    try { datos = JSON.parse(fs.readFileSync(manif, 'utf8')); }
+    catch (e) { console.log(rojo('  ROTO  ') + `sesiones/_sesiones.json no es JSON válido — ${e.message}`); bloquea++; }
+
+    if (datos) {
+      const esperadas = datos.sesiones.map(s => s.slug);
+      const src = fs.readFileSync(hub, 'utf8');
+      const enlazadas = new Set(
+        [...src.matchAll(/href="sesiones\/([^/"#?]+)/g)].map(m => decodeURIComponent(m[1]))
+      );
+
+      let fallos = 0;
+      for (const slug of esperadas) {
+        if (!fs.existsSync(path.join(RAIZ, 'sesiones', slug))) {
+          console.log(rojo('  FALTA ') + `sesiones/${slug}/ está en el manifiesto pero no en el disco`);
+          console.log(gris('          → node scripts/nueva-sesion.js'));
+          fallos++;
+        } else if (!enlazadas.has(slug)) {
+          console.log(rojo('  SUELTA') + ` sesiones/${slug}/ existe pero la portada no la enlaza`);
+          console.log(gris('          → añadirla al cronograma de index.html'));
+          fallos++;
+        }
+      }
+      for (const slug of enlazadas) {
+        if (!esperadas.includes(slug)) {
+          console.log(rojo('  EXTRA ') + `index.html enlaza sesiones/${slug}/, que no está en el manifiesto`);
+          console.log(gris('          → añadirla a sesiones/_sesiones.json o quitarla de la portada'));
+          fallos++;
+        }
+      }
+
+      bloquea += fallos;
+      if (!fallos) console.log(verde(`  ✅ las ${esperadas.length} sesiones del manifiesto existen y están enlazadas`));
+    }
+  }
+}
+
 // ── Resumen ──────────────────────────────────────────────────────────
 console.log(`\n${'═'.repeat(66)}`);
 console.log(bloquea ? rojo(`  ${bloquea} problema(s) que bloquean la publicación`)
-                    : verde('  ✅ las cuatro comprobaciones automatizables pasan'));
+                    : verde('  ✅ las cinco comprobaciones automatizables pasan'));
 if (avisa) console.log(amar(`  ${avisa} aviso(s) para revisión humana`));
 console.log(gris('  Falta §7.5: abrir en el navegador con el wifi apagado.'));
 console.log(gris('  Consola sin errores · navegación por teclado · legible a 375 px.'));
