@@ -562,10 +562,23 @@ var CONFIG = {
     fetch(url)
       .then(function (r) { return r.json(); })
       .then(function (d) {
-        if (!d.ok)            pintarEstado('estado--malo', 'El servidor no reconoce este entregable.', 'Avísele al docente: ' + (d.error || '') + '.');
-        else if (d.abierta)   pintarEstado('estado--ok', 'Entrega abierta.', 'Cierra el ' + CONFIG.CIERRE_LEGIBLE + '. Puede reenviar hasta esa hora.');
-        else if (!d.activa)   pintarEstado('estado--aviso', 'Todavía no está habilitada.', 'El docente la abre unos días antes de la sesión.');
-        else                  pintarEstado('estado--malo', 'Fuera de plazo.', 'La ventana de entrega era ' + (d.apertura || '') + ' – ' + (d.cierre || '') + '. Escríbale al docente.');
+        if (!d.ok) {
+          pintarEstado('estado--malo', 'El servidor no reconoce este entregable.', 'Avísele al docente: ' + (d.error || '') + '.');
+        } else if (d.abierta) {
+          pintarEstado('estado--ok', 'Entrega abierta.', 'Cierra el ' + CONFIG.CIERRE_LEGIBLE + '. Puede reenviar hasta esa hora.');
+        } else if (!d.activa) {
+          pintarEstado('estado--aviso', 'Todavía no está habilitada.', 'El docente la abre unos días antes de la sesión.');
+        } else if (d.apertura && d.ahora && d.ahora < d.apertura) {
+          // Antes de la apertura NO es «fuera de plazo»: es que aún no empieza.
+          // Las dos fechas vienen del servidor como «yyyy-MM-dd HH:mm», así que
+          // se comparan como texto sin ambigüedad de zona horaria.
+          pintarEstado('estado--aviso', 'Todavía no abre.',
+            'La entrega se habilita el ' + d.apertura + ' y cierra el ' + d.cierre +
+            '. Puede ir leyendo y escribiendo desde ya: el borrador se guarda solo.');
+        } else {
+          pintarEstado('estado--malo', 'El plazo se cerró.',
+            'La ventana era ' + (d.apertura || '') + ' – ' + (d.cierre || '') + '. Escríbale al docente.');
+        }
       })
       .catch(function () {
         pintarEstado('estado--aviso', 'No se pudo comprobar el plazo.',
