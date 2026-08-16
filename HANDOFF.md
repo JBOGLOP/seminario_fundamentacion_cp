@@ -121,10 +121,11 @@ si la portada no lo respeta.
 
 | Qué | Detalle |
 |---|---|
-| **Condensar U1** | 8 sesiones de 2026-I → 3. Es tijera, no obra: el material está listo |
+| **Condensar U1** | Sesión 1 ✅ hecha (clases 1+2 → 3 h). Faltan las sesiones 2 y 3 |
 | **Construir U2** | 2 sesiones, con 7 piezas de la cantera |
 | **Construir U3** | 2 sesiones. La bioética es lo único de cero |
-| **Bibliografía** | La portada no tiene sección «qué leer»: no hay fuente en el material actual |
+| **Bibliografía** | Resuelto a medias: **sí hay** bibliografía oficial, pero es la de Epidemiología. Ver `docs/PROGRAMADOR-2026-II.md` §6.1 |
+| **Rúbricas** | La columna «Método de evaluación» del contenido programático está vacía en los tres cortes |
 | **Confirmar con la dirección** | Ver §7 |
 
 ---
@@ -335,6 +336,23 @@ docente y se respeta, pero conviene saber el riesgo: la sincronización de Drive
 **Mitigación:** el remoto en GitHub es el respaldo real. **Commitee y empuje a menudo** — lo
 único irrecuperable sería trabajo sin empujar. Si `.git` se corrompe, se vuelve a clonar.
 
+### ⚠️ El clon huérfano de `C:\repos\`
+
+Existe `C:\repos\Seminario_Fundamentacion_CP`, con tres commits propios
+(`f12c0a1`, `01394f8`, `e0ac78a`). Es el andamiaje de antes de la decisión §8.3 —el proyecto
+vive en Drive—, y quedó ahí.
+
+Comprobado el 15 de agosto: **no tiene remoto**, su árbol de trabajo está limpio y **no contiene
+ni un solo archivo versionado que no esté ya en esta carpeta**. No hay nada que rescatar.
+
+El riesgo no es perder trabajo: es **abrir la carpeta equivocada** y construir una sesión en un
+repositorio que no se empuja a ninguna parte. La carpeta buena es la de Drive, la que tiene el
+remoto `JBOGLOP/seminario_fundamentacion_cp`. Se puede comprobar en un segundo:
+
+```bash
+git remote -v    # si no imprime nada, está en el clon huérfano
+```
+
 ---
 
 ## 7. Lo que hay que confirmar con la dirección
@@ -362,17 +380,19 @@ docente y se respeta, pero conviene saber el riesgo: la sincronización de Drive
 
 ## 9. Por dónde seguir
 
-1. **Confirmar las cuatro preguntas del §7.** La primera cambia la estructura entera. Con el
-   esqueleto ya construido, el coste de un cambio ahí es editar fechas y el manifiesto — no rutas.
-2. **Condensar U1.** Es donde el trabajo está hecho: hay que decidir qué se dicta y qué pasa a
-   lectura previa. Tres clases de 2026-I por sesión de tres horas. Empezar por
-   `sesiones/s01-historia-fundamentos/`, que se dicta el 21 de agosto.
-3. **Comprobar el sitio publicado.** Ajustes → Pages → origen **GitHub Actions**, y verificar que
-   `https://jboglop.github.io/seminario_fundamentacion_cp/` muestra la portada y no el README.
-   Ver la nota del workflow en `.github/workflows/pages.yml`.
-4. **U2 y U3.** Con los diseños de julio como guion y la cantera de Investigación como material.
-5. **Bibliografía.** La portada no tiene sección «qué leer» porque el material actual no la trae.
-   Cuando se fije, va después de «Cómo se evalúa».
+1. **Revisar la sesión 1 en el navegador, con el wifi apagado**, y a 375 px. Se dicta el
+   **21 de agosto**. Es lo único que el verificador no puede comprobar.
+2. **Sesiones 2 y 3 de U1.** El molde ya existe: la sesión 1 muestra cómo se condensa y dónde va
+   la capa investigativa. La 2 absorbe las clases 3, 4 y 5 de 2026-I; la 3, las clases 6, 7 y 8.
+3. **Confirmar las cuatro preguntas del §7.** La primera cambia la estructura entera. Con el
+   esqueleto ya construido, el coste de un cambio ahí es editar fechas y el manifiesto, no rutas;
+   el programador se regenera con `python scripts/generar-programador.py`.
+4. **Bibliografía de las unidades 1 y 3.** La oficial no sirve: es la de Epidemiología
+   (`docs/PROGRAMADOR-2026-II.md` §6.1). Hay que proponerla, y de paso llevar a la Dirección las
+   seis correcciones del contenido programático.
+5. **Rúbricas de los tres cortes.** La columna «Método de evaluación» está vacía en el documento
+   oficial. La sesión 1 ya lanza el primer insumo del producto del primer corte; falta el criterio.
+6. **U2 y U3.** Con los diseños de julio como guion y la cantera de Investigación como material.
 
 ---
 

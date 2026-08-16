@@ -163,9 +163,15 @@ resuelva sobre el propio programador.
 
 ## 6. Lo que apareció al leer el contenido programático oficial
 
+> **Esto amplía [`PLAN_MIGRACION_U1.md` §7](PLAN_MIGRACION_U1.md), no lo repite.** Aquel documento
+> ya había detectado cuatro correcciones el 21 de julio: los textos guía ajenos, las competencias
+> duplicadas, la columna de evaluación vacía y el objetivo truncado de la Unidad 2. **Siguen todas
+> vigentes.** Lo de abajo confirma la primera con el detalle de qué se salva, y añade dos que no
+> estaban (§6.3 y §6.5). Cuando se lleven a la Dirección, van juntas.
+
 Al diligenciar el formato hubo que leer entero el
-`Seminario de fundamentación en cuidados paliativos.docx`, y salieron cinco cosas. Ninguna
-bloquea el programador; todas son de la asignatura.
+`Seminario de fundamentación en cuidados paliativos.docx`. Ninguna de estas cosas bloquea el
+programador; todas son de la asignatura.
 
 ### 6.1 · 🔴 La bibliografía es la de Epidemiología
 
