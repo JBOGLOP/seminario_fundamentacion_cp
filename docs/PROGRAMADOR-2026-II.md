@@ -124,9 +124,111 @@ páginas del repositorio de 2026-I—, así que el trabajo es de tijera, no de o
 
 ---
 
-## 5. Pendiente de este documento
+## 5. El documento institucional
+
+Este archivo es el análisis. El entregable firmable es
+**[`Programador_2026-II.docx`](Programador_2026-II.docx)**, diligenciado sobre el formato oficial
+`recursos/originales/4. Formato. Programador.docx`.
+
+Se genera, no se escribe a mano:
+
+```bash
+python scripts/generar-programador.py    # requiere python-docx
+```
+
+El script rellena la plantilla institucional real —no recrea el documento— para que conserve
+estilos, márgenes y encabezados de la Vicerrectoría. Si se confirma la sesión del 8 de agosto,
+se edita la tabla `FILAS` del script y se regenera: no hay que rehacer el documento.
+
+**Cómo quedó diligenciado**
+
+| Campo | Valor | De dónde sale |
+|---|---|---|
+| Horas totales · presenciales · independientes | 192 · 48 · 144 | Contenido programático, §Metodología |
+| Horas teóricas · prácticas | 48 · 0 | Espacio académico declarado **teórico** |
+| Semanas | 4, 6, 8, 10, 12, 14, 16, 17 | Contando desde la inducción del 31 jul como semana 1 |
+| Renglones | Uno por bloque horario (8-9, 9-10, 10-11) | Convención del programador de Contexto Histórico 26-I |
+| Entregas | Marcadas en el renglón de cierre de cada corte | Ídem |
+
+Se **eliminaron** del formato los renglones `PRIMER PARCIAL`, `SEGUNDO PARCIAL`, `I ROTACIÓN`,
+`II ROTACIÓN` y `EXAMEN FINAL`: son de los cursos de pregrado con práctica clínica. Este espacio
+evalúa por productos de corte y no tiene rotaciones.
+
+Los 18 subtemas del contenido programático están cubiertos, sin excepción.
+
+La nota al pie del documento deja por escrito los dos puntos del §2, para que la Dirección los
+resuelva sobre el propio programador.
+
+---
+
+## 6. Lo que apareció al leer el contenido programático oficial
+
+Al diligenciar el formato hubo que leer entero el
+`Seminario de fundamentación en cuidados paliativos.docx`, y salieron cinco cosas. Ninguna
+bloquea el programador; todas son de la asignatura.
+
+### 6.1 · 🔴 La bibliografía es la de Epidemiología
+
+Es el hallazgo serio. Los **textos guía** del seminario son:
+
+> De Irala J, Martínez-González MA, Segui-Gómez M. *Epidemiología aplicada*. Ariel, 2008.
+> Milton S. *Estadística para biología y ciencias de la salud*. McGraw-Hill, 2007.
+
+Y el complementario, *Metodología de la investigación* de Hernández Sampieri. Las cuatro
+referencias del bloque SINABI son también de epidemiología y bioestadística (Moreno Altamirano,
+Colimon, Woodward).
+
+**Ninguno de esos libros trata la historia, la filosofía, la política, el marco legal ni la
+bioética del cuidado paliativo**, que es lo que el seminario enseña. Es un arrastre del contenido
+programático de *Epidemiología del Cuidado Paliativo*, la asignatura hermana.
+
+Lo salvable está en **«Referencias en idioma extranjero»**, que sí trae fuentes pertinentes: el
+*Global Atlas of Palliative Care* de la WHPCA, la serie NECPAL de Gómez-Batiste, la revisión
+Cochrane de Gomes sobre atención domiciliaria, Tripodoro, May. Sirven sobre todo para la Unidad 2.
+
+**Para las unidades 1 y 3 no hay bibliografía en el documento oficial.** Hay que proponerla.
+
+### 6.2 · La tabla de competencias institucionales tiene tres filas duplicadas
+
+`Competencia investigativa`, `Pensamiento crítico` y `Comunicación en inglés` aparecen dos veces,
+con idéntica definición. Error de copiado.
+
+### 6.3 · La competencia investigativa está definida en términos de epidemiología
+
+> «Capacidad de diseñar, realizar e interpretar **estudios epidemiológicos** utilizando programas
+> informáticos e interpretación de resultados»
+
+Mismo arrastre del §6.1. El seminario no enseña diseño de estudios ni software estadístico —eso
+era la asignatura de Investigación—, así que la competencia, tal como está redactada, **no se
+puede evaluar con lo que el programa manda dictar**. Es la forma administrativa del hueco que
+el HANDOFF §2.1 describe: «desde la investigación» quedó como adverbio, no como contenido.
+
+### 6.4 · La columna «Método de evaluación» está vacía
+
+En la tabla de criterios de evaluación, los tres cortes tienen momento (35/35/30), estrategia
+(heteroevaluación) y resultado de aprendizaje, pero la casilla de **a través de qué se evalúa**
+está en blanco en los tres. Hay que definir los tres productos.
+
+### 6.5 · Un subtema se perdió dentro de una tabla
+
+«Programas de manejo exitosos en cuidado paliativo» aparece pegado al encabezado de la tabla de
+competencias, no en la lista de contenidos. Pertenece a la **Unidad 3, Tema 2**, y así se
+programó en el `.docx`.
+
+---
+
+## 7. Pendiente
+
+**Con la Dirección**
 
 - [ ] Confirmar si el **sábado 8 de agosto** es sesión del seminario
 - [ ] Aclarar las **48 horas presenciales** declaradas frente a las 21 reales
-- [ ] Fijar las fechas de entrega de cada corte dentro de su sesión
 - [ ] Confirmar si hay **estudiantes nuevos** en 2026-II (la inducción del 31 de julio lo sugiere)
+- [ ] Señalar los arrastres de Epidemiología del §6.1, §6.2 y §6.3 para la próxima actualización
+      del contenido programático
+
+**Del docente**
+
+- [ ] Proponer **bibliografía para las unidades 1 y 3** (§6.1)
+- [ ] Definir los **tres productos de evaluación** y llenar la columna vacía (§6.4)
+- [ ] Fijar las fechas de entrega de cada corte dentro de su sesión
