@@ -33,28 +33,30 @@ Hola a todos y todas:
 Bienvenidos a la Maestría en Cuidados Paliativos y, en particular, al **Seminario de
 fundamentación**. Soy Jorge Bogoya y voy a acompañarlos en este espacio durante el semestre.
 
-Les escribo con tiempo porque este seminario tiene una forma de trabajo que conviene conocer
-**antes** del primer encuentro, no el mismo día.
+Les escribo con tiempo porque este seminario tiene una forma de trabajar un poco distinta, y
+vale la pena que la conozcan con calma antes de que nos veamos.
 
-### Lo primero: aquí no vamos a dictar clase
+### Cómo vamos a trabajar
 
-Y lo digo en serio. No voy a pararme tres horas a exponerles la historia de los cuidados
-paliativos: eso está escrito, y ustedes saben leer.
+Prefiero no dedicar las tres horas a exponerles la historia de los cuidados paliativos. Está bien
+contada en las lecturas, y me parece que el rato que pasamos juntos rinde mucho más si lo usamos
+para conversar.
 
-Lo que vamos a hacer es otra cosa. **Antes de cada encuentro ustedes leen y me entregan un
-trabajo individual**, y la sesión del viernes se construye poniendo en común lo que escribieron.
-Proyecto sus respuestas en pantalla, las contrastamos, discutimos dónde coinciden y dónde no, y
-de ahí sale la clase.
+Así que la cosa funciona al revés de lo habitual: **antes de cada encuentro ustedes leen y me
+mandan un trabajo corto**, y la sesión del viernes se arma poniendo en común lo que escribieron.
+Proyecto las respuestas, las comparamos, vemos dónde coinciden y dónde no, y de ahí sale la clase.
 
-Esto tiene una consecuencia directa: **si no entregan, la sesión se queda sin materia prima.**
-No es una amenaza, es cómo funciona un seminario. El material somos nosotros.
+Lo que traigan es, literalmente, el material con el que trabajamos ese día. Cuando el grupo llega
+con las preguntas pensadas, la conversación es otra cosa.
 
-Una cosa importante: **cuando proyecte sus respuestas no aparecerán sus nombres.** Cada uno tiene
-asignada una letra. Se lo digo porque les voy a pedir que opinen sobre lo que pasa donde
-trabajan, y eso solo se escribe con franqueza si no queda con nombre y apellido en un proyector.
-Yo sí sé quién escribió qué —hay nota de por medio—, pero el salón no. Seamos honestos, eso sí:
-somos ocho y cada uno escribe sobre su propio territorio, así que probablemente se reconozcan
-entre ustedes. Lo que les garantizo es que su nombre no va a la pantalla.
+Una aclaración que me importa: **cuando proyecte las respuestas no van a aparecer sus nombres.**
+Cada uno tiene asignada una letra. Lo hago así porque les voy a pedir que opinen sobre lo que pasa
+donde trabajan, y eso se escribe con más soltura cuando no queda con nombre y apellido en un
+proyector. Yo sí sé quién escribió qué —hay nota de por medio—, pero el salón no.
+
+Con una salvedad honesta: somos ocho y cada uno escribe sobre su propio territorio, así que
+seguramente se reconozcan entre ustedes. Lo que sí les garantizo es que su nombre no va a la
+pantalla.
 
 ### De qué trata el seminario
 
@@ -88,8 +90,8 @@ Siete encuentros, los viernes de **8:00 a 11:00**:
 | 7 | 20 de noviembre | Presencial | Equipo interprofesional y redes · **producto final 30 %** |
 
 Los trabajos previos de cada sesión **son el seguimiento de cada corte**, y el producto que se
-entrega al cierre los integra. O sea: no son tareas sueltas que se pierden, son los ladrillos de
-la nota.
+entrega al cierre los integra. Dicho de otro modo: nada de lo que escriban se queda por el
+camino, todo va sumando al producto final.
 
 ### La primera actividad
 
@@ -99,56 +101,56 @@ Ya está publicada y abierta:
 
 **Cierra el viernes 21 de agosto a las 7:00 de la mañana**, una hora antes de vernos.
 
-Son **cinco preguntas** y les va a tomar unas tres horas contando las lecturas. Les adelanto de
-qué van, porque no son lo que probablemente esperan:
+Son **cinco preguntas** y calculo unas tres horas contando las lecturas. Les cuento de qué van,
+porque quizá no sean lo que esperan:
 
-**Ninguna se responde con lo que dice la lectura.** No les voy a preguntar en qué año abrió el
-St Christopher's Hospice. Les voy a preguntar cuándo llegaron los cuidados paliativos **a su
-municipio** —y si no encuentran el dato, quiero que me cuenten dónde buscaron y qué no
-encontraron, porque *esa* es la respuesta interesante. Les voy a preguntar con qué definición de
-cuidado paliativo trabaja de verdad su institución, y a quién deja por fuera. Y les voy a pedir
-que conviertan una afirmación de la lectura en una pregunta de investigación que se pueda
-responder con datos.
+**Más que repetir la lectura, les piden mirar con ella.** No les voy a preguntar en qué año abrió
+el St Christopher's Hospice. Les voy a preguntar cuándo llegaron los cuidados paliativos **a su
+municipio** —y si no encuentran el dato, cuéntenme dónde buscaron y qué no encontraron, porque
+*esa* suele ser la respuesta más interesante—. También con qué definición de cuidado paliativo
+trabaja de verdad su institución y a quién deja por fuera. Y que conviertan una afirmación de la
+lectura en una pregunta de investigación que se pueda responder con datos.
 
-Hay una pregunta que exige leer una fuente **en inglés**. Es a propósito: leer literatura
-científica en inglés es una de las competencias que la maestría evalúa, y más vale empezar la
-primera semana que la última.
+Una de las preguntas se apoya en una fuente **en inglés**. Es a propósito: leer literatura
+científica en inglés es una de las competencias que la maestría evalúa, y se lleva mejor
+empezando la primera semana que la última.
 
-Y hay un espacio para que declaren si usaron inteligencia artificial y para qué. **Declararlo
-suma.** Lo que resta es citar una fuente que no existe o que no dice lo que se afirma que dice.
-Verificar lo que uno cita no es un trámite: es exactamente la competencia investigativa que
-estamos evaluando.
+Y hay un espacio para contarme si usaron inteligencia artificial y para qué. **Declararlo suma.**
+Lo que resta es citar una fuente que no existe o que no dice lo que se afirma que dice. Verificar
+lo que uno cita no es un trámite: es justamente la competencia investigativa que estamos
+trabajando.
 
 ### Tres cosas prácticas
 
-**Entren con su correo institucional `@uan.edu.co`.** Es su identificación, no hay contraseña.
-Si entran con un correo personal el sistema no los va a reconocer y perderían el plazo por algo
-tonto.
+**Entren con su correo institucional `@uan.edu.co`.** Es su identificación y no hay contraseña.
+Con un correo personal el sistema no los reconoce, y sería una lástima perder el plazo por un
+detalle así.
 
 **Pueden reenviar cuantas veces quieran hasta el viernes a las 7:00.** Cada envío reemplaza al
-anterior. Volver sobre lo que uno escribió y mejorarlo es parte del trabajo, no hacer trampa.
+anterior. Volver sobre lo que uno escribió y mejorarlo es parte del trabajo, no una corrección de
+última hora.
 
 **Funciona sin internet.** Pueden abrir la página, leer y escribir aunque no tengan conexión: lo
-que escriben se guarda solo en su navegador y no se pierde. Solo el envío final necesita red. Y
-si el día del cierre están sin señal, hay un botón que dice **«Copiar todo»**: lo pegan en un
-correo, me lo mandan, y cuenta igual. Varios de ustedes trabajan en sitios donde la conectividad
-no se da por hecha, y eso no puede ser el motivo por el que alguien no entregue.
+que escriben se guarda en su navegador y no se pierde. Solo el envío final necesita red. Y si el
+día del cierre están sin señal, hay un botón que dice **«Copiar todo»**: lo pegan en un correo, me
+lo mandan y cuenta igual. Varios de ustedes trabajan donde la señal no se da por hecha, y eso no
+debería costarle a nadie una entrega.
 
 ### Antes de cerrar
 
-Una última cosa, y con esto los dejo trabajar.
+Una última cosa y los dejo trabajar.
 
-Vamos a hablar durante cuatro meses de personas que se están muriendo, de sus familias y de
-quienes las cuidan. En este seminario no las nombramos por su pronóstico: decimos «persona con
-enfermedad avanzada», no «paciente terminal». La única excepción son las citas literales de
-normas y sentencias, donde cambiar la palabra alteraría la cita. Se los pido también en lo que
-escriban.
+Vamos a pasar cuatro meses hablando de personas que se están muriendo, de sus familias y de
+quienes las cuidan. En este seminario procuramos no nombrarlas por su pronóstico: decimos
+«persona con enfermedad avanzada» en vez de «paciente terminal». La excepción son las citas
+literales de normas y sentencias, donde cambiar la palabra alteraría la cita. Les agradezco que
+lo cuiden también en lo que escriban.
 
-No es corrección política. Es que la forma en que nombramos a alguien determina lo que creemos
-que se le puede ofrecer.
+No es corrección política. Es que la forma en que nombramos a alguien termina definiendo lo que
+creemos que se le puede ofrecer.
 
-Nos vemos el viernes 21 a las 8:00. Vengan con las preguntas respondidas y con ganas de
-discutirlas.
+Nos vemos el viernes 21 a las 8:00. Vengan con las preguntas trabajadas y con ganas de
+conversarlas.
 
 Cualquier cosa —una duda, un problema con el enlace, algo que no cuadre— me escriben sin pena a
 este correo.
