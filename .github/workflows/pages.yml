@@ -1,0 +1,72 @@
+####################################################################
+# Despliegue de GitHub Pages desde Actions.
+#
+# Requiere: Settings → Pages → Source: GitHub Actions.
+# Mientras siga en «Deploy from a branch» este workflow corre y
+# construye el artefacto, pero no publica. Eso es intencional: la
+# decisión D6 dice comprobar que pasa en verde ANTES de cambiar el
+# origen, para no tumbar URLs que ya se compartieron con estudiantes.
+#
+# .nojekyll es imprescindible: sin él, Jekyll descarta en silencio
+# toda carpeta que empiece por guion bajo — y _shared/ desaparecería
+# del sitio sin ningún error visible.
+####################################################################
+name: Publicar en GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Una publicación a la vez. No se cancela la que está en curso: si dos
+# empujes se solapan, el segundo espera en vez de dejar el sitio a medias.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  verificar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Comprobaciones previas (enlaces, portabilidad, datos, lenguaje)
+        run: node scripts/verificar.js
+        # Mientras quede material sin homologar, el verificador falla por
+        # los recursos externos del material antiguo. No debe bloquear el
+        # despliegue todavía; sí deja el detalle en el registro.
+        continue-on-error: true
+
+  desplegar:
+    needs: verificar
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.despliegue.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Comprobar que .nojekyll existe
+        run: |
+          if [ ! -f .nojekyll ]; then
+            echo "::error::Falta .nojekyll — _shared/ desaparecería del sitio sin aviso."
+            exit 1
+          fi
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+      - id: despliegue
+        uses: actions/deploy-pages@v4

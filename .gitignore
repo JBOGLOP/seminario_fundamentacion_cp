@@ -1,0 +1,149 @@
+# ═══════════════════════════════════════════════════════════════════
+#  .gitignore — REPOSITORIO PÚBLICO
+#  Curso: Contexto Histórico y Legal de los Cuidados Paliativos · UAN
+#
+#  ⚠️  REGLA DE ORO: este repo es PÚBLICO y GitHub Pages lo indexa.
+#  Aquí solo va material de enseñanza sin datos personales.
+#  (Ver PROTECCION_DATOS.md y docs/DECISIONES.md)
+#
+#  ⚠️  Esto NO es la única línea de defensa. Al repositorio se copia
+#  archivo por archivo, nunca carpetas enteras. El .gitignore es la
+#  red de seguridad, no el procedimiento.
+# ═══════════════════════════════════════════════════════════════════
+
+# ── SECRETOS Y CONFIGURACIÓN (nunca versionar) ─────────────────────
+config.js
+config.local.js
+*.secret.js
+.env
+.env.*
+secrets/
+*credencial*
+*password*
+*contrasena*
+*clave_respuestas*
+answer_key*
+apps_script_url*
+
+# ── DATOS PERSONALES DE ESTUDIANTES (Ley 1581/2012 — Habeas Data) ──
+# Entregas, trabajos y tareas
+entregas/
+Entregas/
+ENTREGAS/
+tareas_estudiantes/
+TAREAS*/
+tareas*/
+trabajos_estudiantes/
+
+# Calificaciones y consolidados
+*alificacion*.xlsx
+*alificacion*.xls
+*alificacion*.csv
+*ALIFICACION*
+notas_*.xlsx
+consolidado*.xlsx
+roster*.csv
+roster*.xlsx
+listado_estudiantes*
+codigos_estudiantes*
+
+# Exámenes con clave / resultados
+examenes/
+Examenes/
+EXAMENES/
+resultados_*.csv
+resultados_*.xlsx
+respuestas_recibidas*
+
+# HANDOFF de cierre evaluativo (contiene notas y códigos)
+HANDOFF_evaluacion*.md
+HANDOFF_cierre*.md
+
+# Prefijo PRIVADO_ reservado: nada que lo lleve sale del disco.
+# Cubre el glosario de anonimización (mapea seudónimo → persona real:
+# publicarlo desharía la anonimización entera), el INVENTARIO y las
+# DECISIONES, que citan nombres al documentar dónde estaban.
+# Es prefijo y no comodín a propósito: `docs/AMBIENTE_PRIVADO.md` del
+# andamiaje es documentación pública y debe pasar.
+PRIVADO_*
+privado_*
+
+# ── AÑADIDO TRAS LA AUDITORÍA DE 2026-08-03 ────────────────────────
+# Los siete huecos detectados en INVENTARIO.md §5.
+
+# Transcripciones de clase (Tactiq, Meet, Zoom). Nombre completo de
+# cada participante y cada intervención atribuida. Lo más sensible
+# de todo el material y nada lo atrapaba antes.
+*transcript*
+*Transcript*
+*transcripcion*
+*Transcripción*
+Contexto?Histórico?y?Legal?en?CP*.txt
+*.vtt
+*.srt
+
+# Punteros de Google Drive a hojas y documentos privados
+*.gsheet
+*.gdoc
+*.gslides
+*.gdraw
+
+# Archivos nombrados por los apellidos de sus autores
+g1_*.html
+g2_*.html
+g3_*.html
+g4_*.html
+
+# Material de terceros con derechos de autor → se sustituye por su
+# cita en APA 7. Ver INVENTARIO.md §4 y DECISIONES.md D4.
+bibliografia*/
+Bibliografia*/
+referencias/
+Referencias/
+REFERENCIAS/
+*_libro.pdf
+*Manual*Paliativos*.pdf
+*ATLAS*.pdf
+*atlas*.pdf
+*IAHPC*.pdf
+
+# Zips (ya extraídos o material pesado de terceros)
+*.zip
+*.rar
+*.7z
+
+# ── PAPELERAS Y VERSIONES DE TRABAJO ───────────────────────────────
+papelera/
+Papelera/
+PAPELERA/
+Clase?V1/
+files_v2/
+actividad?dva?1/
+actividad?dva?2/
+*_old.html
+*_backup.*
+*_v[0-9].html
+*_v[0-9][0-9].html
+* (1).*
+* (2).*
+
+# ── SISTEMA / EDITOR ───────────────────────────────────────────────
+.DS_Store
+._*
+Thumbs.db
+desktop.ini
+*.tmp
+*.bak
+~$*
+.vscode/
+.idea/
+node_modules/
+
+# ── ESTE PROYECTO ──────────────────────────────────────────────────
+# Configuración local de Claude Code: permisos de una máquina concreta,
+# no del proyecto. settings.json sí se versionaría; el .local no.
+.claude/settings.local.json
+
+# El contenido programático oficial vive en recursos/originales/.
+# Esta regla evita que se cuele un duplicado en la raíz.
+/Seminario de fundamentación en cuidados paliativos.*

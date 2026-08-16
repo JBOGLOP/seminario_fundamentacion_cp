@@ -1,0 +1,219 @@
+/* ============================================================================
+   base.css — Tipografía, layout y componentes base
+   Epidemiología del Cuidado Paliativo (37542002) · UAN
+   ----------------------------------------------------------------------------
+   Requiere tokens.css (o su copia en línea) cargado antes.
+
+   ⚠️ FUENTE CANÓNICA, NO ENLACE. Se copia en línea dentro del <style> de cada
+   clase. Ver la cabecera de tokens.css y la regla de portabilidad de CLAUDE.md.
+   ============================================================================ */
+
+/* ---------------------------------------------------------------------------
+   1. RESET Y BASE
+   --------------------------------------------------------------------------- */
+*,*::before,*::after{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0; font-family:var(--sans); color:var(--charcoal);
+  background:var(--crema); line-height:1.55;
+}
+/* Las presentaciones (deck) bloquean el scroll del body; los paquetes de
+   estudiante y las estaciones NO deben hacerlo. Se activa con .es-deck. */
+body.es-deck{overflow:hidden}
+
+h1,h2,h3{line-height:1.2; margin:0 0 .5em}
+h1{font-size:clamp(1.8rem,4.2vw,3rem); letter-spacing:-.02em}
+h2{font-size:clamp(1.4rem,3vw,2.1rem); color:var(--acento-dark)}
+h3{font-size:clamp(1.05rem,2vw,1.3rem); color:var(--gris)}
+p{margin:0 0 1em; max-width:68ch}
+a{color:var(--acento-dark)}
+code,kbd{font-family:var(--mono); font-size:.9em}
+kbd{background:var(--charcoal);color:var(--blanco);border-radius:4px;padding:.1em .45em}
+
+/* Foco visible siempre: la navegación por teclado es requisito de la sesión
+   (los estudiantes usan las estaciones desde el celular y desde portátil). */
+:focus-visible{outline:3px solid var(--acento); outline-offset:2px}
+
+/* ---------------------------------------------------------------------------
+   2. DIAPOSITIVAS  (usar junto con deck.js)
+   --------------------------------------------------------------------------- */
+.deck{position:fixed; inset:0 0 68px 0}
+.slide{
+  position:absolute; inset:0; display:flex; flex-direction:column;
+  justify-content:center; gap:.5rem;
+  padding:clamp(1.5rem,5vw,4rem) clamp(1.5rem,7vw,6rem);
+  opacity:0; pointer-events:none; transition:opacity .35s ease;
+  overflow-y:auto;
+}
+.slide.active{opacity:1; pointer-events:auto}
+@media (prefers-reduced-motion:reduce){ .slide{transition:none} }
+
+.slide--portada{background:linear-gradient(160deg,var(--crema) 0%,var(--acento-soft) 100%)}
+
+.eyebrow{
+  font-size:.78rem; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--acento-dark); font-weight:700; margin-bottom:.4rem;
+}
+
+/* ---------------------------------------------------------------------------
+   3. IDENTIDAD PEDAGÓGICA DEL CURSO
+   Estos componentes no son decoración: materializan las reglas de contenido
+   de CLAUDE.md. Ver §"Reglas de contenido pedagógico".
+   --------------------------------------------------------------------------- */
+
+/* Refracción de la pregunta vertebral — obligatoria en la apertura */
+.pregunta-vertebral{
+  font-family:var(--serif); font-size:clamp(1.1rem,2.4vw,1.6rem);
+  font-style:italic; color:var(--acento-dark);
+  border-left:4px solid var(--acento); padding:.4em 0 .4em 1em; max-width:60ch;
+}
+
+/* Anclajes narrativos — María Luisa y Don Aurelio, sustantivos no decorativos */
+.anclaje{
+  display:flex; gap:1rem; align-items:flex-start; background:var(--blanco);
+  border-radius:var(--radius); padding:1rem 1.2rem; box-shadow:var(--shadow-soft);
+  border-left:4px solid var(--acento); max-width:70ch;
+}
+.anclaje__nombre{font-weight:700; color:var(--acento-dark)}
+.anclaje + .anclaje{margin-top:.8rem}
+
+/* Rótulos de honestidad de datos — obligatorios cuando la cifra no es oficial */
+.rotulo{
+  display:inline-block; font-size:.7rem; font-weight:700; letter-spacing:.06em;
+  text-transform:uppercase; padding:.15em .55em; border-radius:4px; vertical-align:middle;
+}
+.rotulo--didactico{background:var(--salvia-soft); color:var(--salvia-dark)}
+.rotulo--verificar{background:var(--ambar-soft); color:var(--ambar-deep)}
+
+/* Cascada de necesidad paliativa — qué ilumina la sesión y qué deja en penumbra */
+.cascada{display:flex; flex-wrap:wrap; gap:.5rem; margin:1rem 0; align-items:stretch}
+.cascada__eslabon{
+  flex:1 1 8rem; background:var(--blanco); border-radius:var(--radius-sm);
+  padding:.7rem .8rem; box-shadow:var(--shadow-soft); font-size:.85rem;
+  border-top:3px solid var(--gris-claro); opacity:.55;
+}
+.cascada__eslabon--activo{border-top-color:var(--acento); opacity:1; font-weight:600}
+.cascada__num{
+  display:block; font-family:var(--mono); font-size:.72rem; color:var(--gris);
+}
+
+/* ---------------------------------------------------------------------------
+   4. TARJETAS Y REJILLAS
+   --------------------------------------------------------------------------- */
+.grid{display:grid; gap:1rem; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); margin-top:1rem}
+.card{
+  background:var(--blanco); border-radius:var(--radius); padding:1.1rem 1.25rem;
+  box-shadow:var(--shadow-soft); border-top:3px solid var(--acento);
+}
+.card h3{margin-top:0; color:var(--acento-dark)}
+
+.chip{
+  background:var(--blanco); border:1px solid var(--acento-soft);
+  border-radius:999px; padding:.32rem .9rem; font-size:.85rem;
+  box-shadow:var(--shadow-soft);
+}
+.meta-sesion{display:flex; flex-wrap:wrap; gap:.5rem; margin-top:1.2rem}
+
+/* ---------------------------------------------------------------------------
+   5. ACORDEÓN DE PASOS
+   --------------------------------------------------------------------------- */
+.paso{background:var(--blanco); border-radius:var(--radius-sm); box-shadow:var(--shadow-soft); margin-bottom:.6rem; overflow:hidden}
+.paso__cabeza{
+  width:100%; text-align:left; background:none; border:0; cursor:pointer;
+  font:inherit; font-weight:600; padding:.85rem 1rem; display:flex;
+  justify-content:space-between; align-items:center; color:var(--charcoal);
+}
+.paso__cabeza:hover{background:var(--acento-soft)}
+.paso__cuerpo{max-height:0; overflow:hidden; transition:max-height .3s ease}
+.paso__cuerpo > div{padding:0 1rem 1rem}
+.paso.abierto .paso__cuerpo{max-height:1400px}
+@media (prefers-reduced-motion:reduce){ .paso__cuerpo{transition:none} }
+
+/* ---------------------------------------------------------------------------
+   6. CALCULADORA DE MEDIDAS  (usar junto con calculadora-medidas.js)
+   --------------------------------------------------------------------------- */
+.tabla2x2{border-collapse:collapse; margin:1rem 0; background:var(--blanco); box-shadow:var(--shadow-soft); border-radius:var(--radius-sm); overflow:hidden}
+.tabla2x2 th,.tabla2x2 td{border:1px solid var(--gris-claro); padding:.5rem .7rem; text-align:center}
+.tabla2x2 th{background:var(--acento-soft); color:var(--acento-dark); font-size:.85rem}
+.tabla2x2 input{width:5.5rem; font:inherit; font-family:var(--mono); text-align:center; border:1px solid var(--gris-claro); border-radius:4px; padding:.3rem}
+
+.resultados{display:grid; gap:.6rem; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); margin:.8rem 0}
+.resultado{background:var(--blanco); border-radius:var(--radius-sm); padding:.7rem .9rem; box-shadow:var(--shadow-soft)}
+.resultado__etq{font-size:.72rem; text-transform:uppercase; letter-spacing:.08em; color:var(--gris)}
+.resultado__val{font-family:var(--mono); font-size:1.3rem; font-weight:700; color:var(--acento-dark)}
+.resultado__ic{font-size:1rem}
+/* El número nunca va solo: siempre acompañado de su lectura en palabras. */
+.interpretacion{font-style:italic; color:var(--gris); max-width:64ch}
+.aviso{
+  font-size:.85rem; color:var(--ambar-deep); background:var(--ambar-soft);
+  border-radius:var(--radius-sm); padding:.55rem .8rem; max-width:64ch;
+}
+
+/* ---------------------------------------------------------------------------
+   7. BOTONES
+   --------------------------------------------------------------------------- */
+.btn{
+  font:inherit; font-weight:600; cursor:pointer; border:1px solid var(--acento);
+  background:var(--blanco); color:var(--acento-dark);
+  border-radius:999px; padding:.4rem 1rem; transition:background .15s ease;
+}
+.btn:hover{background:var(--acento-soft)}
+.btn--solido{background:var(--acento); color:var(--blanco)}
+.btn--solido:hover{background:var(--acento-dark)}
+.btn-fila{display:flex; flex-wrap:wrap; gap:.5rem; margin:.6rem 0}
+@media (prefers-reduced-motion:reduce){ .btn{transition:none} }
+
+/* ---------------------------------------------------------------------------
+   8. AUTOEVALUACIÓN  (usar junto con quiz.js)
+   --------------------------------------------------------------------------- */
+.quiz{background:var(--blanco); border-radius:var(--radius); padding:1.1rem 1.25rem; box-shadow:var(--shadow-soft); max-width:72ch}
+.quiz + .quiz{margin-top:.8rem}
+.quiz__opcion{display:block; margin:.35rem 0; cursor:pointer}
+.quiz__fb{display:none; margin-top:.7rem; padding:.7rem .9rem; border-radius:var(--radius-sm); font-size:.92rem}
+.quiz__fb.visible{display:block}
+.quiz__fb--ok{background:var(--salvia-soft); border-left:4px solid var(--salvia)}
+.quiz__fb--no{background:var(--terracota-soft); border-left:4px solid var(--terracota)}
+
+/* ---------------------------------------------------------------------------
+   9. REFLEXIÓN LIBRE "QUÉ DICE / QUÉ CALLA"
+   --------------------------------------------------------------------------- */
+.reflexion{display:grid; gap:.8rem; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); max-width:72ch}
+.reflexion textarea{
+  width:100%; min-height:110px; font:inherit; padding:.6rem;
+  border:1px solid var(--gris-claro); border-radius:var(--radius-sm); resize:vertical;
+}
+
+/* ---------------------------------------------------------------------------
+   10. BARRA DE NAVEGACIÓN  (usar junto con deck.js)
+   --------------------------------------------------------------------------- */
+.nav{
+  position:fixed; left:0; right:0; bottom:0; height:68px; display:flex;
+  align-items:center; gap:1rem; padding:0 1rem; color:var(--blanco);
+  background:rgba(45,45,45,.88); backdrop-filter:blur(8px); z-index:50;
+}
+.nav__titulo{flex:1; font-size:.9rem; font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.nav__progreso{position:absolute; top:0; left:0; height:3px; background:var(--acento); transition:width .3s ease}
+.nav__btn{
+  width:38px; height:38px; border-radius:50%; border:1px solid rgba(255,255,255,.35);
+  background:transparent; color:var(--blanco); font-size:1.1rem; cursor:pointer; line-height:1;
+}
+.nav__btn:hover{background:rgba(255,255,255,.15)}
+.nav__btn[disabled]{opacity:.3; cursor:default}
+.nav__cuenta{font-family:var(--mono); font-size:.85rem; min-width:3.5rem; text-align:center}
+.nav__pista{font-family:var(--mono); font-size:.72rem; opacity:.65}
+/* Estado de la telemetría: gris sin configurar, verde enviado, rojo error */
+.nav__estado{width:9px; height:9px; border-radius:50%; background:var(--gris-claro)}
+.nav__estado--ok{background:var(--salvia)}
+.nav__estado--error{background:var(--terracota)}
+@media (max-width:720px){ .nav__pista{display:none} }
+@media (prefers-reduced-motion:reduce){ .nav__progreso{transition:none} }
+
+/* ---------------------------------------------------------------------------
+   11. IMPRESIÓN — fichas A3 y guiones de estación
+   --------------------------------------------------------------------------- */
+@media print{
+  .nav{display:none}
+  .deck{position:static; inset:auto}
+  .slide{position:static; opacity:1; pointer-events:auto; page-break-after:always; height:auto}
+  body,body.es-deck{overflow:visible; background:var(--blanco)}
+}

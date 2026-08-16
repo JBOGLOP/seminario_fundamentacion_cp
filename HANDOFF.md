@@ -1,0 +1,322 @@
+# HANDOFF — Seminario de fundamentación en cuidados paliativos
+
+> **Qué es este documento.** El punto de entrada del proyecto. Si alguien —usted dentro de tres
+> meses, un colega, o un agente de IA— abre esta carpeta sin contexto, esto es lo que tiene que
+> leer primero.
+>
+> **Asignatura:** Seminario de fundamentación en cuidados paliativos · Código **32264001** ·
+> Plan **3660** · **3 créditos**
+> **Programa:** Maestría en Cuidados Paliativos · Facultad de Enfermería · Universidad Antonio Nariño
+> **Docente:** Jorge Wilhem Bogoya López · jbogoya63@uan.edu.co
+> **Semestre:** 2026-II · arranca el **21 de agosto de 2026**
+> **Repositorio:** https://github.com/JBOGLOP/seminario_fundamentacion_cp
+> **Actualizado:** 15 de agosto de 2026
+
+---
+
+## 1. De dónde viene esta asignatura
+
+La dirección de la maestría fusionó dos asignaturas de 2026-I y les añadió bioética:
+
+| Asignatura de origen | Código | Qué aporta |
+|---|---|---|
+| Contexto Histórico y Legal de los CP | 37542001 | **La Unidad 1 entera.** 8 sesiones ya construidas |
+| Investigación en Cuidados Paliativos | 37543011 | **Cantera** de piezas para U2 y U3 |
+| *(Bioética)* | — | No existía. Se construye |
+
+Las dos anteriores están reorganizadas, publicadas y verificadas. **Este proyecto no parte de
+cero: parte de dos cursos terminados.**
+
+- https://jboglop.github.io/Contexto_Historico_Legal_CP/
+- https://jboglop.github.io/Investigacion_CP/
+
+---
+
+## 2. Lo que hay que entender antes de tocar nada
+
+### 2.1 El programa no es una fusión a partes iguales
+
+Sus tres unidades son:
+
+1. **Contexto histórico-filosófico y lineamientos sociopolíticos** → *es Contexto Histórico, entera*
+2. **Modelos de atención desde la investigación** → contenido nuevo
+3. **Aspectos bioéticos y experiencias de manejo integral** → contenido nuevo
+
+**«Desde la investigación» es un ángulo, no un contenido.** En las tres unidades no aparece un
+solo tema de metodología: ni diseños de estudio, ni niveles de evidencia, ni búsqueda
+sistemática. La asignatura de Investigación no se fusionó al 50 %: se disolvió en un adverbio.
+
+Y sin embargo el programa **evalúa competencia investigativa**. Ese hueco se tapa con las piezas
+metodológicas de la asignatura anterior, insertadas como herramienta transversal. Ver
+[`docs/CRUCE-FUSION.md`](docs/CRUCE-FUSION.md).
+
+### 2.2 El hilo del seminario
+
+Las dos asignaturas fusionadas traían cada una su pregunta de fondo, y resultan ser **la misma
+desde dos lados**:
+
+> *Contexto Histórico:* ¿por qué un instrumento vinculante no cierra la brecha territorial?
+> *Investigación:* ¿por qué la evidencia global existe y la colombiana está por construirse?
+
+**Hay norma y no hay datos.**
+
+Ese es el hilo, y sale gratis de la fusión. Da al seminario una columna vertebral que el
+contenido programático no le da, y convierte cada unidad en un tramo del mismo argumento:
+U1 establece que la norma existe, U2 enseña a leer la evidencia que falta, U3 se ocupa de lo
+que hay que decidir cuando ni la norma ni la evidencia alcanzan.
+
+### 2.3 Siete sesiones, no doce
+
+| Fuente | Encuentros | Por qué |
+|---|---|---|
+| `docs/PLAN_MIGRACION_U1.md` (julio) | 12 | Estimado antes de tener el calendario |
+| Calendario oficial, contando fechas | 8 | Descontando inducción y encuentro de tesis |
+| Calendario oficial, **franja de los viernes** | **7** | El encuentro del 8 de agosto cae en sábado |
+
+Detalle completo en [`docs/PROGRAMADOR-2026-II.md`](docs/PROGRAMADOR-2026-II.md).
+
+---
+
+## 3. Estado actual
+
+### Hecho
+
+- Auditoría de las dos asignaturas de origen (sus `INVENTARIO.md`, en sus carpetas)
+- Diseño pedagógico de las tres unidades (`docs/PLAN_MIGRACION_U1.md`, `DISENO_UNIDAD_2.md`, `DISENO_UNIDAD_3.md`)
+- Cruce de la fusión: qué pieza va de dónde a dónde
+- Programador contra el calendario oficial
+- Andamiaje técnico completo, heredado y probado
+
+### Falta
+
+| Qué | Detalle |
+|---|---|
+| **Condensar U1** | 8 sesiones de 2026-I → 3. Es tijera, no obra: el material está listo |
+| **Construir U2** | 2 sesiones, con 7 piezas de la cantera |
+| **Construir U3** | 2 sesiones. La bioética es lo único de cero |
+| **Hub `index.html`** | El recorrido del seminario de principio a fin |
+| **Confirmar con la dirección** | Ver §7 |
+
+---
+
+## 4. Cómo se trabaja aquí
+
+### 4.1 Reglas innegociables
+
+Vienen de dos cursos y funcionaron. No son preferencias estéticas.
+
+**1 · Portabilidad sin conexión.** Cada HTML abre con doble clic, sin servidor y sin internet.
+Sin Google Fonts, sin librerías desde CDN, sin `<iframe>`. Parte de los estudiantes ejerce en
+municipios donde la conectividad no se da por supuesta; esta regla existe por ellos, no por
+elegancia técnica.
+
+> Los `<a href="https://…">` sí se conservan: son enlaces, no recursos que se carguen.
+> Incrustar una librería **no viola la portabilidad: la cumple.**
+
+**2 · Sin datos de estudiantes.** El repositorio es público e indexable. No entra ningún nombre,
+código ni calificación. Los casos territoriales van generalizados: describen un patrón, no a una
+persona.
+
+**3 · No se designa a nadie por su pronóstico.** «persona con enfermedad avanzada», no «paciente
+terminal». **Excepción:** las citas literales de normas y jurisprudencia, donde cambiar la
+palabra alteraría la cita.
+
+**4 · Material de terceros: se cita, no se reproduce.** Libros, manuales y atlas se referencian
+en APA 7 con DOI. Las normas y sentencias son públicas y sí se incluyen.
+
+**5 · Los secretos nunca en el HTML.** Contraseñas, claves de respuesta y URL de Apps Script van
+en `config.js`, que está en `.gitignore`. Ver `config.example.js`.
+
+### 4.2 Antes de cada commit
+
+```bash
+node scripts/verificar.js
+```
+
+Comprueba enlaces rotos, recursos externos, rastros de datos personales y lenguaje del curso.
+Distingue una infracción de una cita normativa, y un dato duro de una mención.
+
+**Lo que no comprueba: que la página se vea bien.** Eso no tiene sustituto — hay que abrirla en
+el navegador **con el wifi apagado**, revisar que la consola no dé errores, navegar con el
+teclado y comprobar que se lee a 375 px de ancho.
+
+### 4.3 El sistema de diseño
+
+`_shared/tokens.css` es **fuente canónica, no enlace**: por la regla de portabilidad se copia en
+línea dentro del `<style>` de cada página. Si cambia un valor ahí, hay que propagarlo.
+
+El color significa algo, no decora:
+
+| Unidad | Acento |
+|---|---|
+| U1 · Contexto histórico | salvia |
+| U2 · Modelos de atención | ámbar |
+| U3 · Bioética y manejo integral | terracota |
+| Transversal (avisos, evaluación) | arena |
+
+La paleta es cálida y sobria a propósito: **la asignatura habla de personas que mueren.**
+
+### 4.4 Ramas
+
+Cada sesión toca `index.html` para marcarse como publicada. Si las ramas salen en paralelo de
+`main`, todas chocan al fusionar. **Se apilan**: cada una sale de la anterior y se fusionan en
+el mismo orden.
+
+---
+
+## 5. Lo que costó caro en los dos cursos anteriores
+
+Esto es el valor real de este documento. Cada punto costó horas.
+
+### 5.1 Audite antes de planificar
+
+En Epidemiología el traspaso decía que las sesiones 1 a 5 no existían. La auditoría encontró
+material dictado de cuatro de ellas. En Contexto Histórico, el «plan de 12 encuentros» resultó
+ser de 7 al contrarlo contra el calendario.
+
+**Cuando el plan escrito choque con el disco, gana el disco.**
+
+### 5.2 Los datos personales están escondidos donde parecen no estar
+
+No basta con mirar los nombres de archivo:
+
+- Una guía de evaluación con aspecto publicable llevaba dentro los 12 nombres completos
+- Cuatro fichas de grupo llevaban **nombre y código estudiantil** de cada integrante
+- Un HTML docente interpelaba por nombre a estudiantes, **con su municipio y su empleador**
+- Una transcripción de clase de 123 minutos con cada intervención atribuida
+
+**Busque dentro del contenido, no solo en los títulos.**
+
+### 5.3 El sufijo del archivo miente
+
+Comprobado tres veces en un solo curso:
+
+| Caso | Lo que sugería | Lo que decía la fecha |
+|---|---|---|
+| `actividad_grupal.html` vs `_v3` | `_v3` es posterior | El sin sufijo era 44 min **posterior** |
+| `files_v2/` vs la raíz | `_v2` es la buena | 5 h más nueva y **2 KB menor** |
+| `..._v5_merged.html` | fusión de versiones | **Duplicado exacto**, sin fusión |
+
+**Fíese de la fecha y del hash, nunca del nombre.**
+
+### 5.4 Un detector que grita siempre enseña a ignorarlo
+
+El verificador dio falsos positivos cinco veces, y cada uno empujaba a romper algo bueno:
+
+- «na**vega**ción», «det**allan**», «brechas **reales**» marcados como nombres de estudiante
+- Autores de bibliografía (Núñez Rodríguez, Bonilla Sierra) confundidos con estudiantes
+- Citas de la Ley 7756 y de la sentencia C-239 marcadas como infracción de lenguaje
+- El `placeholder` de un formulario contado como correo real
+- La propia regla del README —«no *paciente terminal*»— marcada como infracción
+
+**Afine el detector hasta que solo suene cuando importa.** Y compruebe después que sigue
+mordiendo con datos de verdad.
+
+### 5.5 Distinga infracción de cita
+
+El lenguaje del curso se aplica a **la voz del curso**, no a lo que dice una norma. «Pacientes
+terminales» en la paráfrasis de la sentencia C-239/1997 **se conserva**: cambiarlo altera la cita.
+
+### 5.6 Ninguna URL compartida puede morir
+
+Si ya circuló un enlace, al mover el archivo se deja un *stub* de redirección en la ruta antigua.
+El precio es que git registra *añadido* en vez de *renombrado*. Se asume.
+
+**Un `.pdf` o un `.docx` no admite stub:** se serviría con el tipo MIME equivocado y no abriría.
+Esos archivos se quedan donde están.
+
+### 5.7 Rotule lo que no pueda verificar
+
+Aparecieron contradicciones factuales entre materiales del mismo curso: dos cifras distintas del
+promedio latinoamericano bajo la misma etiqueta, dos niveles del Atlas, dos tasas de servicios.
+
+**No se resuelven inventando.** Se rotulan `[DATO POR VERIFICAR]`, visibles en la página, y las
+decide el docente contra la fuente primaria. Una de ellas incluso mejoró la clase: la tensión se
+volvió material didáctico.
+
+### 5.8 Los gráficos: estáticos a SVG, interactivos con librería
+
+Un gráfico sin filtros ni reordenación se convierte a **SVG en línea** — más ligero, accesible y
+sin dependencias. Uno con botones que filtran necesita la **librería incrustada**. Confundirlos
+cuesta 200 KB o un gráfico roto.
+
+Y ojo: la fuente y los colores suelen estar **también dentro del JavaScript** del gráfico, no
+solo en el CSS.
+
+### 5.9 `.nojekyll` no es opcional
+
+Sin él, Jekyll descarta en silencio toda carpeta que empiece por guion bajo. `_shared/`
+desaparecería del sitio publicado **sin ningún error visible**.
+
+---
+
+## 6. Estructura de la carpeta
+
+```
+HANDOFF.md                 ← este documento
+README.md                  portada pública del repositorio
+index.html                 hub del seminario  (por construir)
+
+docs/
+  CRUCE-FUSION.md          qué material viene de cada asignatura
+  PROGRAMADOR-2026-II.md   las siete sesiones y el calendario
+  PLAN_MIGRACION_U1.md     cómo se condensan las 8 clases en 3
+  DISENO_UNIDAD_2.md       sesiones de modelos de atención
+  DISENO_UNIDAD_3.md       sesiones de bioética y manejo integral
+  METODO-reorganizar-asignatura.md   el procedimiento general
+
+sesiones/sNN-slug/         material por sesión
+_shared/                   tokens.css, base.css, bitacora.js, vendor/
+recursos/originales/       contenido programático oficial
+scripts/verificar.js       las cuatro comprobaciones previas a publicar
+config.example.js          plantilla de secretos → copiar a config.js
+.nojekyll                  imprescindible
+```
+
+### Sobre trabajar en Google Drive
+
+Esta carpeta es a la vez el archivo del curso **y** el repositorio de trabajo. Es decisión del
+docente y se respeta, pero conviene saber el riesgo: la sincronización de Drive puede corromper
+`.git`, y algunos archivos quedan bloqueados mientras están abiertos en otro programa.
+
+**Mitigación:** el remoto en GitHub es el respaldo real. **Commitee y empuje a menudo** — lo
+único irrecuperable sería trabajo sin empujar. Si `.git` se corrompe, se vuelve a clonar.
+
+---
+
+## 7. Lo que hay que confirmar con la dirección
+
+| # | Pregunta | Por qué bloquea |
+|---|---|---|
+| 1 | ¿El **sábado 8 de agosto** es sesión del seminario? | Cambia de 7 a 8 sesiones y con ello toda la distribución. Con 8, la telesalud recupera sesión propia |
+| 2 | Las **48 horas presenciales** declaradas frente a las 21 reales | 7 × 3 h = 21. El mismo desajuste existía en 2026-I (32 declaradas, 16 reales): la mitad exacta en ambos casos |
+| 3 | ¿Hay **estudiantes nuevos** en 2026-II? | La inducción del 31 de julio lo sugiere. Cambia el encuadre de la sesión 1 |
+| 4 | ¿La **Resolución 813** merece más espacio? | En 2026-I era una clase entera; aquí comparte sesión con toda la legislación |
+
+---
+
+## 8. Decisiones ya tomadas
+
+| # | Decisión | Cuándo |
+|---|---|---|
+| 1 | El material de Investigación CP se usa como **cantera** para U2 y U3, no como estructura | 5 ago 2026 |
+| 2 | **Repositorio nuevo.** Los dos anteriores se congelan como archivo de 2026-I | 5 ago 2026 |
+| 3 | El proyecto vive en **Google Drive**, no en `C:\repos\` | 15 ago 2026 |
+| 4 | Se reutiliza el **sistema de diseño** de las asignaturas anteriores | heredado |
+| 5 | Si hay que recortar sesiones, la variable de ajuste es **U1**, nunca U2 ni U3 | jul 2026 |
+
+---
+
+## 9. Por dónde seguir
+
+1. **Confirmar las cuatro preguntas del §7.** La primera cambia la estructura entera.
+2. **Condensar U1.** Es donde el trabajo está hecho: hay que decidir qué se dicta y qué pasa a
+   lectura previa. Tres clases de 2026-I por sesión de tres horas.
+3. **Construir el hub `index.html`**, con las siete sesiones documentadas aunque no estén
+   publicadas. Así el recorrido está completo desde el primer día.
+4. **U2 y U3.** Con los diseños de julio como guion y la cantera de Investigación como material.
+
+---
+
+*Fuente única de verdad del proyecto. Manténgalo actualizado: el próximo que lo lea puede ser
+usted, sin recordar nada de esto.*
