@@ -113,7 +113,18 @@ El tablero **sí** lleva un secreto: el `DASH_TOKEN`, que lee todas las entregas
 cp config.example.js config.js     # config.js está en .gitignore
 ```
 
-y rellenar `dashToken` y `appsScriptURL`. Abrir `tablero.html` con doble clic.
+y rellenar `dashToken` y `appsScriptURL` **en `config.js`**. Abrir `tablero.html` con doble clic.
+
+> 🔴 **El error fácil, y ya pasó una vez.** El 16 de agosto el `DASH_TOKEN` se escribió en
+> `config.example.js` en vez de en `config.js`. **La plantilla se versiona; la copia no.** Se
+> salvó porque todavía no se había hecho commit — el margen era un `git add -A`.
+>
+> `verificar.js` ahora lo detecta y bloquea: si en `config.example.js` hay un `dashToken` o un
+> `appsScriptURL` con valor real en lugar de un marcador, no deja publicar. Aun así, la regla
+> mental es la que vale: **`.example` = plantilla con marcadores; `config.js` = valores reales.**
+>
+> Si alguna vez se empuja de verdad, no basta con borrarlo del archivo: queda en el historial de
+> git. Hay que **rotar el token** ese mismo día (Propiedades del script → `DASH_TOKEN`).
 
 > 🔴 **`config.js` nunca se sube.** Si el `DASH_TOKEN` se filtra, cualquiera descarga las entregas
 > con nombre y correo. Para rotarlo: Apps Script → ⚙️ Configuración del proyecto → Propiedades del

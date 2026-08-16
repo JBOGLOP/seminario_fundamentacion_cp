@@ -169,8 +169,31 @@ titulo('3 · Rastros de datos personales  (§7.3)');
   // del archivo se revisa igual, así que un correo real fuera de un placeholder
   // sigue saltando.
   const sinPlaceholders = s => s.replace(/placeholder="[^"]*"/gi, 'placeholder=""');
+  let n0 = 0;
 
-  let n = 0, a = 0;
+  // El secreto rellenado en la PLANTILLA en vez de en config.js.
+  // Pasó de verdad el 16 de agosto: el DASH_TOKEN acabó en
+  // config.example.js —que sí se versiona— y se salvó porque aún no se
+  // había hecho commit. Con ese token se descargan todas las entregas,
+  // con nombre y correo, así que el margen era de un `git add -A`.
+  // La plantilla solo puede contener marcadores.
+  {
+    const plantilla = path.join(RAIZ, 'config.example.js');
+    if (fs.existsSync(plantilla)) {
+      const src = fs.readFileSync(plantilla, 'utf8');
+      for (const m of src.matchAll(/^\s*(\w*[Tt]oken|appsScriptURL)\s*:\s*'([^']*)'/gm)) {
+        const [, clave, valor] = m;
+        const esMarcador = /x{4,}|TU_|CAMBIAR|EJEMPLO|TU_ID_DE_DESPLIEGUE/i.test(valor);
+        if (esMarcador) continue;
+        console.log(rojo('  SECRETO') + `  config.example.js  —  «${clave}» tiene un valor real`);
+        console.log(gris('          → la plantilla se versiona. El valor va en config.js (ignorado).'));
+        console.log(gris('          → si ya se empujó, ROTE el token hoy mismo.'));
+        n0++;
+      }
+    }
+  }
+
+  let n = n0, a = 0;
   for (const f of textos) {
     if (rel(f).startsWith('scripts/')) continue;
     const src = sinPlaceholders(fs.readFileSync(f, 'utf8'));
