@@ -31,7 +31,7 @@ La regla: **se conversa lo que necesita discusión; se estudia antes lo que solo
 
 ### Se estudia antes · `clase.html`
 
-Veintiún pasos con todo el contenido del tema. **Autosuficiente desde el 16 de agosto**: ya no
+Veintiséis diapositivas con todo el contenido del tema. **Autosuficiente desde el 16 de agosto**: ya no
 manda a leer a ninguna parte. Incluye lo que antes se delegaba al repositorio de 2026-I —los
 hitos intermedios del hospicio (Garnier 1842, Dublín 1879, St Joseph's 1905), el episodio de
 David Tasma, el desarrollo de Kübler-Ross y la biografía del *pallium*.
@@ -105,7 +105,16 @@ primarias, no material de otra asignatura.
 
 Lo que se reconstruyó y antes se delegaba: los hitos intermedios del hospicio (Garnier 1842,
 Dublín 1879, St Joseph's 1905), el episodio de David Tasma, el desarrollo de Kübler-Ross y la
-biografía del *pallium*. Veintiún pasos en total.
+biografía del *pallium*.
+
+**Siete figuras en SVG propio**, no fotografías. Resuelve tres cosas a la vez: derechos (dibujo
+propio), portabilidad (unos KB frente a cientos de una foto incrustada) y proyector (vectorial,
+y sigue la paleta porque usa `var(--bosque)` y compañía). Cada una enseña algo que el texto solo
+afirma — el desplazamiento de la comunidad fuera del muro, la desproporción entre las cuatro
+dimensiones del dolor y lo que se mide, la brecha entre norma y datos.
+
+Si más adelante se quieren fotografías históricas, la vía limpia es la Wellcome Collection
+(mucho material en CC-BY) o dominio público, incrustado como data URI y citado al pie.
 
 ### Las cinco preguntas y qué evalúan
 

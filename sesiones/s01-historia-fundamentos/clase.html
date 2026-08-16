@@ -11,13 +11,21 @@
      Se estudia ANTES del encuentro. En el aula no se expone: sirve de apoyo
      puntual mientras se discuten los entregables del grupo.
 
-     AUTOSUFICIENTE POR DISEÑO. Desde el 16 de agosto de 2026 el seminario no
-     depende de material de cursos anteriores: todo el contenido que antes se
-     enviaba a leer al repositorio de 2026-I está aquí dentro.
+     AUTOSUFICIENTE POR DISEÑO. Todo el contenido está aquí dentro; no manda a
+     leer a ningún repositorio de cursos anteriores.
+
+     LAS FIGURAS SON SVG PROPIO, INCRUSTADO. Ni una imagen externa, y es
+     deliberado por tres razones a la vez:
+       · Derechos — dibujo propio, sin licencias de terceros que verificar.
+       · Portabilidad — unos pocos KB de texto; una fotografía incrustada como
+         data URI costaría cientos.
+       · Proyector — vectorial, nítido a cualquier tamaño, y usa las variables
+         de color del curso, así que sigue la paleta sin retocar nada.
+     Y sobre todo: cada figura tiene que ENSEÑAR algo que el texto solo afirma.
+     Si una figura solo decora, sobra.
 
      Portabilidad: paleta en línea, cero recursos externos. El JavaScript es
-     propio y va incrustado — mueve diapositivas, no carga nada. Abre con doble
-     clic y sin conexión.
+     propio y va incrustado — mueve diapositivas, no carga nada.
      =========================================================================== -->
 
 <style>
@@ -56,7 +64,7 @@ a{color:var(--acento-dark)}
 .deck{position:fixed;inset:0 0 62px 0}
 .d{
   position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;
-  padding:clamp(1.5rem,4.5vw,4rem) clamp(1.25rem,7vw,6.5rem);
+  padding:clamp(1.4rem,4vw,3.4rem) clamp(1.25rem,6vw,5.5rem);
   opacity:0;visibility:hidden;transition:opacity .28s ease;overflow-y:auto;
 }
 .d.on{opacity:1;visibility:visible}
@@ -67,122 +75,133 @@ a{color:var(--acento-dark)}
   color:var(--acento);margin:0 0 .7rem;
 }
 h1{font-size:clamp(1.9rem,5.2vw,3.4rem);line-height:1.08;letter-spacing:-.02em;margin:0 0 .8rem;max-width:20ch}
-h2{font-size:clamp(1.4rem,3.6vw,2.4rem);line-height:1.15;letter-spacing:-.015em;margin:0 0 .9rem;max-width:22ch;color:var(--acento-dark)}
-h3{font-size:clamp(1rem,1.9vw,1.2rem);margin:0 0 .4rem;color:var(--acento-dark)}
-p{font-size:clamp(.98rem,1.55vw,1.12rem);max-width:60ch;margin:0 0 .85em}
-.lead{font-size:clamp(1.05rem,2vw,1.35rem);color:var(--gris);max-width:52ch}
+h2{font-size:clamp(1.35rem,3.4vw,2.3rem);line-height:1.15;letter-spacing:-.015em;margin:0 0 .8rem;max-width:24ch;color:var(--acento-dark)}
+h3{font-size:clamp(.98rem,1.8vw,1.15rem);margin:0 0 .35rem;color:var(--acento-dark)}
+p{font-size:clamp(.96rem,1.5vw,1.1rem);max-width:60ch;margin:0 0 .8em}
+.lead{font-size:clamp(1.02rem,1.95vw,1.3rem);color:var(--gris);max-width:52ch}
 strong{color:var(--pizarra)}
-em{color:inherit}
 
-/* Portada */
+/* ── Figuras ──────────────────────────────────────────────────────────── */
+figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:.6rem}
+svg{max-width:100%;height:auto;display:block}
+/* La tipografia de las figuras se declara aqui y no como atributo de
+   presentacion: var() dentro de font-family= no resuelve en todos los
+   navegadores, y una figura sin fuente se ve rota en el proyector. */
+svg text{font-family:var(--sans)}
+svg .mono{font-family:var(--mono)}
+svg .serif{font-family:var(--serif);font-style:italic}
+figcaption{font-size:.85rem;color:var(--gris);max-width:56ch;text-align:center}
+/* Dos columnas: figura + texto, apiladas en pantalla estrecha */
+.conFigura{display:grid;gap:clamp(1rem,3vw,2.6rem);align-items:center;
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,19rem),1fr))}
+
+/* ── Portada ──────────────────────────────────────────────────────────── */
 .d--portada{background:linear-gradient(150deg,var(--lino) 0%,var(--bosque-soft) 100%)}
-.d--portada .meta{
-  display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.6rem;font-size:.85rem;
-}
+.d--portada .meta{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.5rem;font-size:.85rem}
 .d--portada .meta span{
   background:var(--blanco);border:1px solid rgba(34,40,42,.09);border-radius:999px;
   padding:.3rem .9rem;box-shadow:var(--shadow-soft);
 }
-.firma{margin-top:2rem;font-size:.86rem;color:var(--gris);max-width:44ch}
+.firma{margin-top:1.8rem;font-size:.85rem;color:var(--gris);max-width:44ch}
 
-/* Diapositiva de cita */
-.d--cita{background:linear-gradient(150deg,var(--bosque-deep) 0%,var(--bosque) 100%);color:var(--lino)}
-.d--cita h2,.d--cita .d__eyebrow{color:var(--bosque-soft)}
-.d--cita blockquote{
-  font-family:var(--serif);font-size:clamp(1.3rem,3.2vw,2.2rem);line-height:1.34;
-  margin:0;max-width:24ch;
+/* ── Separador de parte ───────────────────────────────────────────────── */
+.d--parte{background:var(--bosque-deep);color:var(--lino);justify-content:center}
+.d--parte .n{
+  font-family:var(--mono);font-size:clamp(3rem,11vw,7rem);font-weight:700;line-height:.9;
+  color:rgba(214,227,221,.28);letter-spacing:-.04em;margin:0 0 .4rem;
 }
-.d--cita figcaption{margin-top:1.2rem;font-size:.9rem;color:var(--bosque-soft);max-width:46ch}
+.d--parte h2{color:var(--blanco);max-width:18ch;font-size:clamp(1.6rem,4.6vw,3rem);margin-bottom:.6rem}
+.d--parte p{color:var(--bosque-soft);max-width:44ch;font-size:clamp(1rem,1.8vw,1.2rem);margin:0}
+
+/* ── Cita a toda página ───────────────────────────────────────────────── */
+.d--cita{background:linear-gradient(150deg,var(--bosque-deep) 0%,var(--bosque) 100%);color:var(--lino)}
+.d--cita .d__eyebrow{color:var(--bosque-soft)}
+.d--cita blockquote{
+  font-family:var(--serif);font-size:clamp(1.3rem,3.4vw,2.4rem);line-height:1.32;margin:0;max-width:24ch;
+}
+.d--cita figcaption{margin-top:1.1rem;font-size:.9rem;color:var(--bosque-soft);max-width:46ch;text-align:left}
 .d--cita .orig{display:block;margin-top:.6rem;font-style:italic;opacity:.72;font-size:.82rem}
 
-/* Dos columnas de contraste */
-.par{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));margin-top:.6rem}
-.par>div{
-  background:var(--blanco);border-radius:var(--radius);padding:1.05rem 1.2rem;
-  box-shadow:var(--shadow-soft);border-top:3px solid var(--acento);
+/* ── Afirmación grande ────────────────────────────────────────────────── */
+.d--golpe{background:var(--arcilla-soft)}
+.d--golpe .gran{
+  font-family:var(--serif);font-size:clamp(1.6rem,5.2vw,3.4rem);line-height:1.18;
+  color:var(--arcilla-deep);max-width:19ch;margin:0 0 1rem;
 }
+.d--golpe p{color:var(--arcilla-deep);opacity:.85;max-width:52ch}
+
+/* ── Componentes ──────────────────────────────────────────────────────── */
+.par{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));margin-top:.5rem}
+.par>div{background:var(--blanco);border-radius:var(--radius);padding:1rem 1.15rem;
+  box-shadow:var(--shadow-soft);border-top:3px solid var(--acento)}
 .par>div.otro{border-top-color:var(--arcilla)}
 .par>div.otro h3{color:var(--arcilla-deep)}
-.par .ep{font-family:var(--mono);font-size:.74rem;color:var(--gris-claro);margin:0 0 .5rem}
-.par ul{margin:0;padding-left:1.05rem;font-size:.92rem;color:var(--gris)}
-.par li{margin-bottom:.28rem}
+.par .ep{font-family:var(--mono);font-size:.74rem;color:var(--gris-claro);margin:0 0 .45rem}
+.par ul{margin:0;padding-left:1.05rem;font-size:.9rem;color:var(--gris)}
+.par li{margin-bottom:.26rem}
 
-/* Bloques / tarjetas */
-.bloques{display:grid;gap:.9rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));margin-top:.6rem}
-.bloque{background:var(--blanco);border-radius:var(--radius);padding:1rem 1.15rem;box-shadow:var(--shadow-soft);border-left:4px solid var(--acento)}
-.bloque .n{font-family:var(--mono);font-size:.74rem;color:var(--acento);font-weight:700;letter-spacing:.06em}
-.bloque p{font-size:.92rem;color:var(--gris);margin:.3rem 0 0}
+.bloques{display:grid;gap:.85rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,14rem),1fr));margin-top:.5rem}
+.bloque{background:var(--blanco);border-radius:var(--radius);padding:.95rem 1.1rem;box-shadow:var(--shadow-soft);border-left:4px solid var(--acento)}
+.bloque .n{font-family:var(--mono);font-size:.73rem;color:var(--acento);font-weight:700;letter-spacing:.06em;margin:0}
+.bloque h3{margin:.2rem 0 .25rem}
+.bloque p{font-size:.9rem;color:var(--gris);margin:0}
 
-/* Hito con año grande */
-.hito{display:flex;gap:clamp(1rem,3vw,2.4rem);align-items:flex-start;flex-wrap:wrap}
-.hito__anno{
-  font-family:var(--mono);font-size:clamp(2rem,6vw,4.4rem);font-weight:700;line-height:1;
-  color:var(--acento);letter-spacing:-.03em;flex-shrink:0;
-}
+.hito{display:flex;gap:clamp(1rem,3vw,2.2rem);align-items:flex-start;flex-wrap:wrap}
+.hito__anno{font-family:var(--mono);font-size:clamp(1.9rem,5.5vw,4rem);font-weight:700;line-height:1;
+  color:var(--acento);letter-spacing:-.03em;flex-shrink:0}
 .hito__txt{flex:1;min-width:min(100%,17rem)}
 
-/* Lista numerada destacada */
-.pasos{list-style:none;counter-reset:p;margin:.6rem 0 0;padding:0;display:grid;gap:.65rem;max-width:56ch}
-.pasos li{
-  counter-increment:p;background:var(--blanco);border-radius:var(--radius-sm);
-  padding:.8rem 1rem .8rem 3rem;box-shadow:var(--shadow-soft);position:relative;font-size:.95rem;
-}
-.pasos li::before{
-  content:counter(p);position:absolute;left:.9rem;top:.78rem;width:1.5rem;height:1.5rem;
+.pasos{list-style:none;counter-reset:p;margin:.5rem 0 0;padding:0;display:grid;gap:.6rem;max-width:56ch}
+.pasos li{counter-increment:p;background:var(--blanco);border-radius:var(--radius-sm);
+  padding:.75rem 1rem .75rem 2.9rem;box-shadow:var(--shadow-soft);position:relative;font-size:.94rem}
+.pasos li::before{content:counter(p);position:absolute;left:.85rem;top:.72rem;width:1.45rem;height:1.45rem;
   border-radius:50%;background:var(--acento);color:var(--blanco);font-family:var(--mono);
-  font-size:.8rem;font-weight:700;display:flex;align-items:center;justify-content:center;
-}
+  font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center}
 
-/* Tabla */
-.tabla{overflow-x:auto;margin-top:.6rem}
-table{border-collapse:collapse;width:100%;min-width:32rem;background:var(--blanco);border-radius:var(--radius-sm);overflow:hidden;box-shadow:var(--shadow-soft);font-size:.9rem}
-th,td{padding:.62rem .8rem;text-align:left;vertical-align:top;border-bottom:1px solid rgba(34,40,42,.07)}
-th{background:var(--acento-soft);color:var(--acento-dark);font-size:.82rem}
+.tabla{overflow-x:auto;margin-top:.5rem;width:100%}
+table{border-collapse:collapse;width:100%;min-width:30rem;background:var(--blanco);border-radius:var(--radius-sm);
+  overflow:hidden;box-shadow:var(--shadow-soft);font-size:.88rem}
+th,td{padding:.58rem .75rem;text-align:left;vertical-align:top;border-bottom:1px solid rgba(34,40,42,.07)}
+th{background:var(--acento-soft);color:var(--acento-dark);font-size:.8rem}
 tbody tr:last-child td{border-bottom:0}
 
-/* Pregunta / nota */
-.pregunta{
-  font-family:var(--serif);font-style:italic;font-size:clamp(1.1rem,2.5vw,1.6rem);
+.pregunta{font-family:var(--serif);font-style:italic;font-size:clamp(1.08rem,2.4vw,1.55rem);
   color:var(--acento-dark);border-left:4px solid var(--acento);padding:.4em 0 .4em 1em;
-  max-width:44ch;margin:.4rem 0 1rem;
-}
-.nota{
-  background:var(--blanco);border-left:4px solid var(--piedra);border-radius:var(--radius-sm);
-  padding:.9rem 1.1rem;box-shadow:var(--shadow-soft);font-size:.92rem;color:var(--gris);max-width:58ch;
-}
+  max-width:44ch;margin:.3rem 0 1rem}
+.nota{background:var(--blanco);border-left:4px solid var(--piedra);border-radius:var(--radius-sm);
+  padding:.85rem 1.05rem;box-shadow:var(--shadow-soft);font-size:.9rem;color:var(--gris);max-width:58ch}
 .nota strong{color:var(--pizarra)}
-.verificar{
-  background:var(--arcilla-soft);border-left:3px solid var(--arcilla);border-radius:var(--radius-sm);
-  padding:.55rem .85rem;margin-top:.7rem;font-size:.82rem;color:var(--arcilla-deep);max-width:56ch;
-}
-.verificar strong{font-family:var(--mono);font-size:.74rem;letter-spacing:.04em;color:var(--arcilla-deep)}
+.verificar{background:var(--arcilla-soft);border-left:3px solid var(--arcilla);border-radius:var(--radius-sm);
+  padding:.55rem .85rem;margin-top:.7rem;font-size:.81rem;color:var(--arcilla-deep);max-width:56ch}
+.verificar strong{font-family:var(--mono);font-size:.73rem;letter-spacing:.04em;color:var(--arcilla-deep)}
+.btn{display:inline-block;background:var(--acento);color:var(--blanco);text-decoration:none;
+  font-weight:600;border-radius:999px;padding:.6rem 1.5rem}
+.btn:hover{background:var(--acento-dark)}
 
 /* ── Barra de navegación ──────────────────────────────────────────────── */
-.nav{
-  position:fixed;left:0;right:0;bottom:0;height:62px;display:flex;align-items:center;
-  gap:.8rem;padding:0 clamp(.8rem,3vw,1.6rem);background:var(--pizarra);color:var(--lino);z-index:40;
-}
+.nav{position:fixed;left:0;right:0;bottom:0;height:62px;display:flex;align-items:center;
+  gap:.8rem;padding:0 clamp(.8rem,3vw,1.6rem);background:var(--pizarra);color:var(--lino);z-index:40}
 .nav__barra{position:absolute;top:0;left:0;height:3px;background:var(--acento);transition:width .28s ease}
 @media (prefers-reduced-motion:reduce){.nav__barra{transition:none}}
 .nav__t{flex:1;font-size:.84rem;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
 .nav__t small{display:block;font-weight:400;font-size:.72rem;color:var(--gris-claro)}
-.nav button{
-  width:38px;height:38px;border-radius:50%;border:1px solid rgba(250,248,244,.32);
-  background:transparent;color:var(--lino);font-size:1.05rem;cursor:pointer;line-height:1;flex-shrink:0;
-}
+.nav button{width:38px;height:38px;border-radius:50%;border:1px solid rgba(250,248,244,.32);
+  background:transparent;color:var(--lino);font-size:1.05rem;cursor:pointer;line-height:1;flex-shrink:0}
 .nav button:hover:not([disabled]){background:rgba(250,248,244,.14)}
 .nav button[disabled]{opacity:.28;cursor:default}
-.nav__n{font-family:var(--mono);font-size:.84rem;min-width:4.2rem;text-align:center;flex-shrink:0}
+.nav__n{font-family:var(--mono);font-size:.84rem;min-width:4.4rem;text-align:center;flex-shrink:0}
 .nav__pista{font-family:var(--mono);font-size:.7rem;opacity:.55;flex-shrink:0}
-@media (max-width:720px){.nav__pista{display:none}}
+@media (max-width:760px){.nav__pista{display:none}}
 
-/* ── Impresión: todas las diapositivas, uma tras otra ─────────────────── */
+/* ── Impresión ────────────────────────────────────────────────────────── */
 @media print{
   body{overflow:visible;background:var(--blanco)}
   .deck{position:static;inset:auto}
-  .d{position:static;opacity:1;visibility:visible;page-break-after:always;min-height:auto;padding:1.5rem 0}
-  .d--cita{background:none;color:var(--pizarra)}
-  .d--cita h2,.d--cita figcaption,.d--cita .d__eyebrow{color:var(--acento-dark)}
+  .d{position:static;opacity:1;visibility:visible;page-break-after:always;min-height:auto;padding:1.4rem 0}
+  .d--cita,.d--parte{background:none;color:var(--pizarra)}
+  .d--cita blockquote,.d--parte h2{color:var(--acento-dark)}
+  .d--cita figcaption,.d--parte p{color:var(--gris)}
+  .d--parte .n{color:var(--gris-claro)}
   .nav,.saltar{display:none}
 }
 </style>
@@ -191,27 +210,45 @@ tbody tr:last-child td{border-bottom:0}
 
 <main class="deck" id="deck">
 
-<!-- 1 ───────────────────────────────────────────────────────────────── -->
+<!-- 1 ─ Portada ────────────────────────────────────────────────────────── -->
 <section class="d d--portada" id="d1" aria-label="Portada">
-  <p class="d__eyebrow">Unidad 1 · Tema 1 · Material de estudio</p>
-  <h1>Antecedentes históricos y fundamentos filosóficos</h1>
-  <p class="lead">
-    Cómo el morir dejó de ser un asunto doméstico y pasó a ser un asunto médico, qué se perdió en
-    el traslado, y por qué el cuidado paliativo es menos una especialidad nueva que una corrección
-    histórica.
-  </p>
-  <div class="meta">
-    <span>Sesión 1</span>
-    <span>viernes 21 de agosto de 2026</span>
-    <span>Presencial · 8:00 a 11:00</span>
+  <div class="conFigura">
+    <div>
+      <p class="d__eyebrow">Unidad 1 · Tema 1 · Material de estudio</p>
+      <h1>Antecedentes históricos y fundamentos filosóficos</h1>
+      <p class="lead">
+        Cómo el morir dejó de ser un asunto doméstico y pasó a ser un asunto médico, qué se
+        perdió en el traslado, y por qué el cuidado paliativo es menos una especialidad nueva que
+        una corrección histórica.
+      </p>
+      <div class="meta">
+        <span>Sesión 1</span>
+        <span>viernes 21 de agosto de 2026</span>
+        <span>Presencial · 8:00 a 11:00</span>
+      </div>
+      <p class="firma">
+        Seminario de fundamentación en cuidados paliativos · 32264001<br>
+        Maestría en Cuidados Paliativos · Universidad Antonio Nariño · 2026-II
+      </p>
+    </div>
+    <figure>
+      <!-- El manto que da nombre al campo: cubre, no cura. -->
+      <svg viewBox="0 0 320 300" role="img" aria-labelledby="tPortada" width="320">
+        <title id="tPortada">Un manto cubre a una figura sentada</title>
+        <circle cx="160" cy="150" r="128" fill="var(--bosque-soft)" opacity=".55"/>
+        <path d="M160 96c-40 0-70 34-78 78-4 22-6 40-6 52h168c0-12-2-30-6-52-8-44-38-78-78-78z"
+              fill="var(--bosque)" opacity=".92"/>
+        <path d="M160 96c-14 0-26 4-36 11 10 30 22 68 26 119h20c4-51 16-89 26-119-10-7-22-11-36-11z"
+              fill="var(--bosque-dark)" opacity=".55"/>
+        <circle cx="160" cy="82" r="25" fill="var(--bosque-dark)"/>
+        <path d="M76 226h168" stroke="var(--bosque-deep)" stroke-width="3" stroke-linecap="round" opacity=".5"/>
+      </svg>
+      <figcaption><em>Pallium:</em> el manto que da nombre al campo.</figcaption>
+    </figure>
   </div>
-  <p class="firma">
-    Seminario de fundamentación en cuidados paliativos · 32264001<br>
-    Maestría en Cuidados Paliativos · Universidad Antonio Nariño · 2026-II
-  </p>
 </section>
 
-<!-- 2 ───────────────────────────────────────────────────────────────── -->
+<!-- 2 ─ Cómo funciona ──────────────────────────────────────────────────── -->
 <section class="d" aria-label="Cómo se usa este material">
   <p class="d__eyebrow">Antes de empezar</p>
   <h2>Esto se estudia antes del encuentro</h2>
@@ -220,17 +257,24 @@ tbody tr:last-child td{border-bottom:0}
     conversar sobre lo que cada quien haya escrito en el entregable previo.
   </p>
   <ol class="pasos">
-    <li>Recorra esta presentación con calma. Son veintiún pasos y no hay prisa.</li>
+    <li>Recorra la presentación con calma. Se avanza con las flechas, la barra espaciadora o deslizando en el celular.</li>
     <li>Responda el <strong>entregable previo</strong>: cinco preguntas sobre su propio terreno.</li>
     <li>El viernes ponemos en común lo escrito, en pantalla y sin nombres, y de ahí sale la sesión.</li>
   </ol>
-  <p class="nota" style="margin-top:1rem">
+  <p class="nota" style="margin-top:.9rem">
     <strong>Se puede leer sin conexión.</strong> Esta página no carga nada de internet: si la
     descarga, funciona igual con el wifi apagado. También se imprime completa.
   </p>
 </section>
 
-<!-- 3 ───────────────────────────────────────────────────────────────── -->
+<!-- 3 ─ Parte I ────────────────────────────────────────────────────────── -->
+<section class="d d--parte" aria-label="Primera parte">
+  <p class="n">I</p>
+  <h2>Dónde se moría, y quién mandaba</h2>
+  <p>Dos regímenes del morir, y el traslado que los separa.</p>
+</section>
+
+<!-- 4 ─ Apertura ───────────────────────────────────────────────────────── -->
 <section class="d" aria-label="Pregunta de apertura">
   <p class="d__eyebrow">La pregunta con la que abrimos</p>
   <h2>Antes de la historia formal, la historia propia</h2>
@@ -249,122 +293,229 @@ tbody tr:last-child td{border-bottom:0}
   </p>
 </section>
 
-<!-- 4 ───────────────────────────────────────────────────────────────── -->
-<section class="d" aria-label="La muerte doméstica">
-  <p class="d__eyebrow">Dos regímenes del morir · 1 de 2</p>
-  <h2>La muerte doméstica y ritualizada</h2>
+<!-- 5 ─ FIGURA · dos regímenes ─────────────────────────────────────────── -->
+<section class="d" aria-label="El desplazamiento del morir">
+  <p class="d__eyebrow">El traslado, en una imagen</p>
+  <h2>Quién está dentro de la habitación</h2>
+  <figure>
+    <svg viewBox="0 0 720 300" role="img" aria-labelledby="tRegimenes">
+      <title id="tRegimenes">A la izquierda, una casa con la persona que muere rodeada de su comunidad. A la derecha, un hospital donde la comunidad queda fuera del muro.</title>
+
+      <!-- ── Casa ── -->
+      <path d="M40 132 L150 52 L260 132" fill="none" stroke="var(--bosque)" stroke-width="3.5" stroke-linejoin="round"/>
+      <path d="M62 130 v122 h176 v-122" fill="none" stroke="var(--bosque)" stroke-width="3.5" stroke-linejoin="round"/>
+      <!-- cama y quien muere -->
+      <rect x="112" y="196" width="76" height="14" rx="6" fill="var(--bosque)" opacity=".28"/>
+      <circle cx="122" cy="188" r="10" fill="var(--bosque-dark)"/>
+      <!-- comunidad DENTRO -->
+      <circle cx="90"  cy="168" r="8" fill="var(--bosque)"/>
+      <circle cx="150" cy="160" r="8" fill="var(--bosque)"/>
+      <circle cx="196" cy="172" r="8" fill="var(--bosque)"/>
+      <circle cx="214" cy="212" r="8" fill="var(--bosque)"/>
+      <circle cx="92"  cy="216" r="8" fill="var(--bosque)"/>
+      <text x="150" y="282" text-anchor="middle" font-size="15" font-weight="700" fill="var(--bosque-dark)">La casa</text>
+
+      <!-- ── Flecha ── -->
+      <path d="M292 176 h116" stroke="var(--piedra)" stroke-width="3" stroke-linecap="round"/>
+      <path d="M400 168 l12 8 -12 8" fill="none" stroke="var(--piedra)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="350" y="160" text-anchor="middle" font-size="13" fill="var(--piedra-deep)">siglo XIX</text>
+
+      <!-- ── Hospital: muro recto, sin techo ── -->
+      <rect x="470" y="86" width="200" height="166" fill="none" stroke="var(--arcilla)" stroke-width="3.5"/>
+      <rect x="532" y="196" width="76" height="14" rx="6" fill="var(--arcilla)" opacity=".28"/>
+      <circle cx="542" cy="188" r="10" fill="var(--arcilla-dark)"/>
+      <!-- aparato -->
+      <path d="M622 150 v52" stroke="var(--arcilla)" stroke-width="2.5"/>
+      <rect x="610" y="132" width="24" height="20" rx="4" fill="var(--arcilla)" opacity=".5"/>
+      <path d="M566 188 h44" stroke="var(--arcilla)" stroke-width="2" stroke-dasharray="4 4"/>
+      <!-- comunidad FUERA del muro -->
+      <circle cx="440" cy="120" r="8" fill="var(--piedra)"/>
+      <circle cx="432" cy="164" r="8" fill="var(--piedra)"/>
+      <circle cx="446" cy="208" r="8" fill="var(--piedra)"/>
+      <circle cx="700" cy="140" r="8" fill="var(--piedra)"/>
+      <circle cx="702" cy="200" r="8" fill="var(--piedra)"/>
+      <text x="570" y="282" text-anchor="middle" font-size="15" font-weight="700" fill="var(--arcilla-dark)">El hospital</text>
+    </svg>
+    <figcaption>
+      No cambió solo el lugar. <strong>Cambió quién puede estar en la habitación</strong> — y con
+      ello, quién tiene autoridad sobre el proceso.
+    </figcaption>
+  </figure>
+</section>
+
+<!-- 6 ─ Muerte doméstica / hospitalaria ────────────────────────────────── -->
+<section class="d" aria-label="Los dos regímenes en detalle">
+  <p class="d__eyebrow">Los dos regímenes</p>
+  <h2>Qué se gana y qué se pierde</h2>
   <div class="par">
     <div>
       <p class="ep">Edad Media – siglo XVIII</p>
-      <h3>Cómo se moría</h3>
+      <h3>La muerte doméstica</h3>
       <ul>
         <li>Evento doméstico, familiar y comunitario</li>
         <li>Ocurría en casa, acompañada de rituales</li>
         <li>Muerte pública y anticipada</li>
         <li>Quien moría dirigía su propia despedida</li>
-        <li>Integrada al ciclo natural de la vida</li>
         <li>La medicina acompañaba; no pretendía vencer a la muerte</li>
       </ul>
     </div>
-    <div>
-      <h3>Qué implicaba</h3>
-      <p style="font-size:.93rem;color:var(--gris);margin:0">
-        La autoridad sobre el proceso estaba en quien moría y en los suyos. El médico, cuando lo
-        había, era un acompañante más. La muerte no era un problema técnico que alguien tuviera
-        que resolver: era un tránsito que la comunidad sabía acompañar.
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- 5 ───────────────────────────────────────────────────────────────── -->
-<section class="d" aria-label="La muerte hospitalaria">
-  <p class="d__eyebrow">Dos regímenes del morir · 2 de 2</p>
-  <h2>La muerte hospitalaria</h2>
-  <div class="par">
     <div class="otro">
       <p class="ep">siglo XIX – siglo XX</p>
-      <h3>Qué cambió</h3>
+      <h3>La muerte hospitalaria</h3>
       <ul>
         <li>Anestesia, antisepsia, cirugía, microbiología</li>
         <li>La muerte pasa a leerse como fracaso médico</li>
-        <li>El hospital se convierte en centro tecnológico</li>
         <li>De institución de acogida a laboratorio de intervenciones</li>
-        <li>La autoridad sobre el morir se desplaza a la medicina</li>
+        <li>La autoridad se desplaza a la medicina</li>
         <li>Morir en la soledad de una unidad de cuidado intensivo</li>
       </ul>
     </div>
-    <div class="otro">
-      <h3>Qué se ganó y qué se perdió</h3>
-      <p style="font-size:.93rem;color:var(--gris);margin:0">
-        Se ganaron décadas de vida y enfermedades que dejaron de matar. No es un retroceso, y
-        conviene no romantizar el pasado. Pero el precio fue que el morir salió de casa y entró
-        en una institución que no estaba pensada para acompañarlo, sino para impedirlo.
+  </div>
+  <p class="nota" style="margin-top:1rem">
+    <strong>Conviene no romantizar el pasado.</strong> Se ganaron décadas de vida y enfermedades
+    que dejaron de matar. El precio fue que el morir salió de casa y entró en una institución
+    pensada para impedirlo, no para acompañarlo.
+  </p>
+</section>
+
+<!-- 7 ─ GOLPE · la paradoja ────────────────────────────────────────────── -->
+<section class="d d--golpe" aria-label="La paradoja que abre el campo">
+  <p class="d__eyebrow" style="color:var(--arcilla-dark)">La pregunta sin respuesta institucional</p>
+  <p class="gran">¿Qué hacer con quienes no pueden curarse?</p>
+  <p>
+    El hospital del siglo XIX convirtió instituciones de acogida —hospicios, <em>hôtels-Dieu</em>—
+    en centros donde el objetivo era curar. Quien no podía curarse se volvió el caso que se
+    esconde al final del pasillo.
+  </p>
+  <p><strong>El cuidado paliativo nace como respuesta tardía a esa pregunta.</strong></p>
+</section>
+
+<!-- 8 ─ Parte II ───────────────────────────────────────────────────────── -->
+<section class="d d--parte" aria-label="Segunda parte">
+  <p class="n">II</p>
+  <h2>La biografía de una palabra</h2>
+  <p>Del <em>pallium</em> romano a un hospicio que además investigaba.</p>
+</section>
+
+<!-- 9 ─ El pallium ─────────────────────────────────────────────────────── -->
+<section class="d" aria-label="El pallium">
+  <div class="conFigura">
+    <div>
+      <p class="d__eyebrow">Fundamentos filosóficos</p>
+      <h2>El <em>pallium</em></h2>
+      <p class="lead">Del latín: manto. Un manto que cubre, que protege, que abriga.</p>
+      <p>
+        No cura: acompaña. Que el campo se llame así —y no, por ejemplo, «medicina del final de
+        la vida»— ya es una declaración filosófica. El nombre no describe una técnica ni un
+        momento: describe un gesto.
+      </p>
+      <p class="nota">
+        <strong>Conviene detenerse aquí.</strong> Buena parte de lo que sigue —los principios, el
+        dolor total, la insistencia en la familia— se deduce de haber elegido esa palabra.
       </p>
     </div>
+    <figure>
+      <svg viewBox="0 0 300 260" role="img" aria-labelledby="tPallium" width="280">
+        <title id="tPallium">Un manto cubre a una persona sin curarla: la protege del frío que la rodea</title>
+        <!-- el frío alrededor -->
+        <g stroke="var(--piedra)" stroke-width="2" stroke-linecap="round" opacity=".45">
+          <path d="M30 46 v34"/><path d="M270 46 v34"/><path d="M20 120 v34"/><path d="M280 120 v34"/>
+          <path d="M34 194 v30"/><path d="M266 194 v30"/>
+        </g>
+        <!-- persona -->
+        <circle cx="150" cy="88" r="24" fill="var(--bosque-dark)"/>
+        <path d="M150 116c-26 0-44 20-48 46h96c-4-26-22-46-48-46z" fill="var(--bosque-dark)" opacity=".75"/>
+        <!-- manto por encima -->
+        <path d="M150 70c-46 0-80 38-90 92-3 17-4 30-4 40h188c0-10-1-23-4-40-10-54-44-92-90-92z"
+              fill="var(--bosque)" opacity=".82"/>
+        <path d="M150 70c-16 0-30 5-42 14 12 34 24 76 28 118h28c4-42 16-84 28-118-12-9-26-14-42-14z"
+              fill="var(--bosque-deep)" opacity=".38"/>
+        <path d="M56 202h188" stroke="var(--bosque-deep)" stroke-width="3" stroke-linecap="round" opacity=".55"/>
+        <text x="150" y="238" text-anchor="middle" class="serif" font-size="17" fill="var(--bosque-dark)">cubre, no cura</text>
+      </svg>
+    </figure>
   </div>
 </section>
 
-<!-- 6 ───────────────────────────────────────────────────────────────── -->
-<section class="d" aria-label="La paradoja que abre el campo">
-  <p class="d__eyebrow">El punto de partida</p>
-  <h2>La paradoja que abre el campo</h2>
-  <p>
-    El hospital del siglo XIX transformó instituciones caritativas de acogida —hospicios,
-    <em>hôtels-Dieu</em>— en centros donde el objetivo era curar. Los beneficios fueron
-    innegables.
-  </p>
-  <p class="pregunta">Pero quedó una pregunta sin respuesta institucional:<br>¿qué hacer con quienes no pueden curarse?</p>
-  <p class="nota">
-    <strong>El cuidado paliativo nace como respuesta tardía a esa pregunta.</strong> No aparece
-    para competir con la medicina curativa, sino para ocuparse de aquello de lo que la medicina
-    curativa había dejado de ocuparse.
-  </p>
+<!-- 10 ─ FIGURA · línea de tiempo ──────────────────────────────────────── -->
+<section class="d" aria-label="Línea de tiempo del hospicio">
+  <p class="d__eyebrow">Ochocientos años en una línea</p>
+  <h2>Del refugio a la ciencia</h2>
+  <figure>
+    <svg viewBox="0 0 760 220" role="img" aria-labelledby="tLinea">
+      <title id="tLinea">Línea de tiempo: el hospicio nace como acogida, se interrumpe durante la era de la curación y renace en 1967 como centro que además investiga</title>
+
+      <!-- tramo vivo · acogida -->
+      <path d="M40 118 H210" stroke="var(--bosque)" stroke-width="5" stroke-linecap="round"/>
+      <!-- tramo interrumpido · el olvido -->
+      <path d="M210 118 H430" stroke="var(--gris-claro)" stroke-width="5" stroke-linecap="round" stroke-dasharray="3 13"/>
+      <!-- tramo vivo · renacimiento -->
+      <path d="M430 118 H720" stroke="var(--bosque)" stroke-width="5" stroke-linecap="round"/>
+
+      <g font-size="12.5" fill="var(--gris)" text-anchor="middle">
+        <!-- nodos -->
+        <circle cx="60"  cy="118" r="11" fill="var(--bosque)"/>
+        <text x="60" y="94"  font-weight="700" fill="var(--bosque-dark)" class="mono">s. IV</text>
+        <text x="60" y="152">hospitium</text>
+        <text x="60" y="169">acogida</text>
+
+        <circle cx="196" cy="118" r="11" fill="var(--bosque)"/>
+        <text x="196" y="94" font-weight="700" fill="var(--bosque-dark)" class="mono">1050</text>
+        <text x="196" y="152">Gran San</text>
+        <text x="196" y="169">Bernardo</text>
+
+        <text x="320" y="96" font-style="italic" fill="var(--gris-claro)">el olvido</text>
+        <text x="320" y="152" fill="var(--gris-claro)">la era de</text>
+        <text x="320" y="169" fill="var(--gris-claro)">la curación</text>
+
+        <circle cx="452" cy="118" r="11" fill="var(--bosque)"/>
+        <text x="452" y="94" font-weight="700" fill="var(--bosque-dark)" class="mono">1842</text>
+        <text x="452" y="152">Garnier ·</text>
+        <text x="452" y="169">los Calvarios</text>
+
+        <circle cx="576" cy="118" r="11" fill="var(--bosque)"/>
+        <text x="576" y="94" font-weight="700" fill="var(--bosque-dark)" class="mono">1948</text>
+        <text x="576" y="152">David</text>
+        <text x="576" y="169">Tasma</text>
+
+        <circle cx="700" cy="118" r="15" fill="var(--arcilla)"/>
+        <text x="700" y="90" font-weight="700" fill="var(--arcilla-dark)" class="mono">1967</text>
+        <text x="700" y="156" font-weight="700" fill="var(--arcilla-dark)">St Christopher's</text>
+        <text x="700" y="173" fill="var(--arcilla-dark)">cuidar + investigar</text>
+      </g>
+    </svg>
+    <figcaption>
+      El trazo se interrumpe donde la medicina dejó de ocuparse del morir. <strong>1967 no inventa
+      el hospicio: le añade la ciencia que le faltaba.</strong>
+    </figcaption>
+  </figure>
 </section>
 
-<!-- 7 ───────────────────────────────────────────────────────────────── -->
-<section class="d" aria-label="El pallium">
-  <p class="d__eyebrow">Fundamentos filosóficos</p>
-  <h2>El <em>pallium</em>: la biografía de una palabra</h2>
-  <p class="lead">
-    «Paliativo» viene del latín <em>pallium</em>: manto. Un manto que cubre, que protege, que
-    abriga. No cura: acompaña.
-  </p>
-  <p>
-    Que el campo se llame así —y no, por ejemplo, «medicina del final de la vida»— ya es una
-    declaración filosófica. El nombre no describe una técnica ni un momento: describe un gesto.
-  </p>
-  <p class="nota">
-    <strong>Conviene detenerse aquí.</strong> Buena parte de lo que sigue —los principios, la idea
-    de dolor total, la insistencia en la familia— se deduce de haber elegido esa palabra y no otra.
-  </p>
-</section>
-
-<!-- 8 ───────────────────────────────────────────────────────────────── -->
+<!-- 11 ─ hospitium ─────────────────────────────────────────────────────── -->
 <section class="d" aria-label="Siglos IV a XII">
-  <p class="d__eyebrow">Línea de tiempo · 1 de 5</p>
+  <p class="d__eyebrow">Línea de tiempo · el origen</p>
   <div class="hito">
     <span class="hito__anno">s. IV<br>–XII</span>
     <div class="hito__txt">
-      <h2 style="margin-bottom:.5rem">El origen · <em>hospitium</em></h2>
+      <h2 style="margin-bottom:.5rem">Hospitalidad, no tratamiento</h2>
       <p>
-        El <em>hospitium</em> era lugar de acogida, no de tratamiento: refugio en las rutas de
-        peregrinación para quien estaba cansado, enfermo o moribundo. No era un concepto médico,
-        era un gesto de hospitalidad.
+        El <em>hospitium</em> era lugar de acogida: refugio en las rutas de peregrinación para
+        quien estaba cansado, enfermo o moribundo. No era un concepto médico, era un gesto de
+        hospitalidad.
       </p>
       <p>
         El Hospice del Gran San Bernardo, en los Alpes, fundado hacia 1050, es el ejemplo que
-        suele citarse: allí no se curaba, se cuidaba.
+        suele citarse: <strong>allí no se curaba, se cuidaba.</strong>
       </p>
     </div>
   </div>
 </section>
 
-<!-- 9 ───────────────────────────────────────────────────────────────── -->
+<!-- 12 ─ el olvido ─────────────────────────────────────────────────────── -->
 <section class="d" aria-label="Siglos XVIII a XX">
-  <p class="d__eyebrow">Línea de tiempo · 2 de 5</p>
+  <p class="d__eyebrow">Línea de tiempo · la interrupción</p>
   <div class="hito">
-    <span class="hito__anno">s. XVIII<br>–XX</span>
+    <span class="hito__anno" style="color:var(--gris-claro)">s. XVIII<br>–XX</span>
     <div class="hito__txt">
       <h2 style="margin-bottom:.5rem">El olvido · la era de la curación</h2>
       <p>
@@ -372,80 +523,86 @@ tbody tr:last-child td{border-bottom:0}
         hospital deja de ser lugar de acogida y se vuelve laboratorio de intervenciones.
       </p>
       <p>
-        Quien no puede curarse pasa a ser el fracaso del sistema: el caso que se esconde al final
-        del pasillo. La deshumanización del morir llega a su punto crítico a mediados del siglo XX.
+        Quien no puede curarse pasa a ser el fracaso del sistema. La deshumanización del morir
+        llega a su punto crítico a mediados del siglo XX — y es de ahí, de la indignación ante
+        eso, de donde sale el movimiento moderno.
       </p>
     </div>
   </div>
 </section>
 
-<!-- 10 ──────────────────────────────────────────────────────────────── -->
+<!-- 13 ─ 1842–1905 ─────────────────────────────────────────────────────── -->
 <section class="d" aria-label="1842 a 1905">
-  <p class="d__eyebrow">Línea de tiempo · 3 de 5</p>
-  <div class="hito">
-    <span class="hito__anno">1842<br>–1905</span>
-    <div class="hito__txt">
-      <h2 style="margin-bottom:.5rem">El hospicio se vincula al morir</h2>
-      <div class="bloques">
-        <div class="bloque">
-          <p class="n">1842 · Lyon</p>
-          <h3>Jeanne Garnier</h3>
-          <p>Funda los «Calvarios», dedicados a mujeres con cáncer incurable. Primera vez que <em>hospice</em> se vincula al cuidado de quien va a morir.</p>
-        </div>
-        <div class="bloque">
-          <p class="n">1879 · Dublín</p>
-          <h3>Our Lady's Hospice</h3>
-          <p>Las Hermanas Irlandesas de la Caridad abren el hospicio de Nuestra Señora.</p>
-        </div>
-        <div class="bloque">
-          <p class="n">1905 · Londres</p>
-          <h3>St Joseph's Hospice</h3>
-          <p>La misma orden funda St Joseph's, donde años después trabajará Cicely Saunders.</p>
-        </div>
-      </div>
-      <p class="nota" style="margin-top:.9rem">
-        <strong>El cuidado era compasivo, pero no científico.</strong> Faltaba rigor clínico para
-        el control del dolor y de otros síntomas: se acompañaba bien y se aliviaba mal.
-      </p>
+  <p class="d__eyebrow">Línea de tiempo · el hospicio se vincula al morir</p>
+  <div class="bloques">
+    <div class="bloque">
+      <p class="n">1842 · Lyon</p>
+      <h3>Jeanne Garnier</h3>
+      <p>Funda los «Calvarios», dedicados a mujeres con cáncer incurable. Primera vez que <em>hospice</em> se vincula al cuidado de quien va a morir.</p>
+    </div>
+    <div class="bloque">
+      <p class="n">1879 · Dublín</p>
+      <h3>Our Lady's Hospice</h3>
+      <p>Las Hermanas Irlandesas de la Caridad abren el hospicio de Nuestra Señora.</p>
+    </div>
+    <div class="bloque">
+      <p class="n">1905 · Londres</p>
+      <h3>St Joseph's Hospice</h3>
+      <p>La misma orden funda St Joseph's, donde años después trabajará Cicely Saunders.</p>
     </div>
   </div>
+  <p class="nota" style="margin-top:1rem">
+    <strong>El cuidado era compasivo, pero no científico.</strong> Faltaba rigor clínico para el
+    control del dolor y de otros síntomas: se acompañaba bien y se aliviaba mal.
+  </p>
 </section>
 
-<!-- 11 ──────────────────────────────────────────────────────────────── -->
-<section class="d" aria-label="1948">
-  <p class="d__eyebrow">Línea de tiempo · 4 de 5</p>
-  <div class="hito">
-    <span class="hito__anno">1948</span>
-    <div class="hito__txt">
-      <h2 style="margin-bottom:.5rem">David Tasma y la ventana</h2>
+<!-- 14 ─ FIGURA · la ventana ───────────────────────────────────────────── -->
+<section class="d" aria-label="David Tasma">
+  <div class="conFigura">
+    <figure>
+      <svg viewBox="0 0 260 260" role="img" aria-labelledby="tVentana" width="240">
+        <title id="tVentana">Una ventana por la que entra luz a una habitación cerrada</title>
+        <rect x="20" y="20" width="220" height="220" rx="6" fill="var(--bosque-deep)"/>
+        <!-- luz que entra -->
+        <path d="M78 66 L182 66 L214 214 L46 214 Z" fill="var(--bosque-soft)" opacity=".22"/>
+        <!-- marco -->
+        <rect x="78" y="52" width="104" height="118" rx="4" fill="var(--lino)"/>
+        <path d="M130 52 v118 M78 111 h104" stroke="var(--bosque-deep)" stroke-width="5"/>
+        <rect x="78" y="52" width="104" height="118" rx="4" fill="none" stroke="var(--bosque-deep)" stroke-width="5"/>
+        <!-- figura mirando -->
+        <circle cx="130" cy="200" r="15" fill="var(--bosque-soft)" opacity=".85"/>
+        <path d="M130 219c-16 0-27 12-30 27h60c-3-15-14-27-30-27z" fill="var(--bosque-soft)" opacity=".85"/>
+      </svg>
+    </figure>
+    <div>
+      <p class="d__eyebrow">Línea de tiempo · 1948</p>
+      <h2 style="margin-bottom:.6rem">Una ventana en tu hogar</h2>
       <p>
         Cicely Saunders, entonces trabajadora social, acompaña a <strong>David Tasma</strong>, un
-        refugiado polaco judío que agonizaba de cáncer en un hospital de Londres. De esa relación
-        sale todo lo demás.
+        refugiado polaco judío que agonizaba de cáncer en un hospital de Londres.
       </p>
-      <p>
-        Tasma le dejó 500 libras esterlinas y una frase:
-      </p>
+      <p>Le dejó 500 libras esterlinas y una frase:</p>
       <p class="pregunta">«Quiero ser una ventana en tu hogar.»</p>
-      <p style="font-size:.95rem;color:var(--gris)">
-        Ese legado simbólico —una ventana, es decir luz y contacto con el mundo para quien está
-        encerrado muriéndose— es la semilla del St Christopher's Hospice.
+      <p style="font-size:.94rem;color:var(--gris)">
+        Luz y contacto con el mundo para quien está encerrado muriéndose. Ese legado simbólico es
+        la semilla del St Christopher's Hospice.
       </p>
     </div>
   </div>
 </section>
 
-<!-- 12 ──────────────────────────────────────────────────────────────── -->
-<section class="d" aria-label="1967">
-  <p class="d__eyebrow">Línea de tiempo · 5 de 5</p>
+<!-- 15 ─ 1967 ──────────────────────────────────────────────────────────── -->
+<section class="d" aria-label="1967 St Christopher's">
+  <p class="d__eyebrow">Línea de tiempo · 1967</p>
   <div class="hito">
-    <span class="hito__anno">1967</span>
+    <span class="hito__anno" style="color:var(--arcilla)">1967</span>
     <div class="hito__txt">
       <h2 style="margin-bottom:.5rem">St Christopher's Hospice</h2>
       <p>
-        Saunders abre St Christopher's en el sureste de Londres.
-        <strong>Lo revolucionario no fue abrir un hospicio —ya existían—</strong> sino que desde
-        el primer día fuera a la vez lugar de cuidado, de investigación y de enseñanza.
+        Saunders abre St Christopher's en el sureste de Londres. <strong>Lo revolucionario no fue
+        abrir un hospicio —ya existían—</strong> sino que desde el primer día fuera a la vez lugar
+        de cuidado, de investigación y de enseñanza.
       </p>
       <p>
         No un asilo de caridad donde ir a morir en paz: un centro académico que tomó en serio,
@@ -459,65 +616,101 @@ tbody tr:last-child td{border-bottom:0}
   </div>
 </section>
 
-<!-- 13 ──────────────────────────────────────────────────────────────── -->
+<!-- 16 ─ Parte III ─────────────────────────────────────────────────────── -->
+<section class="d d--parte" aria-label="Tercera parte">
+  <p class="n">III</p>
+  <h2>Qué dejaron dicho</h2>
+  <p>Los pioneros, el dolor total y las definiciones que se acumulan.</p>
+</section>
+
+<!-- 17 ─ Saunders ──────────────────────────────────────────────────────── -->
 <section class="d" aria-label="Cicely Saunders">
   <p class="d__eyebrow">Los pioneros · 1 de 2</p>
   <h2>Cicely Saunders · 1918–2005</h2>
   <p class="lead">Enfermera, trabajadora social y médica — en ese orden, y por necesidad.</p>
   <p>
-    Enfermera durante la Segunda Guerra Mundial en el St Thomas's Hospital; trabajadora social
-    desde 1947, tras una lesión de espalda que le impidió seguir en enfermería; médica desde 1957,
-    movida por el propósito de transformar el cuidado al final de la vida.
+    Enfermera durante la Segunda Guerra Mundial; trabajadora social desde 1947, tras una lesión de
+    espalda; médica desde 1957, movida por el propósito de transformar el cuidado al final de la
+    vida. <strong>Lo revolucionario fue integrar tres cosas que nadie había juntado:</strong>
   </p>
-  <p><strong>Lo revolucionario fue integrar tres cosas que nadie había juntado:</strong></p>
   <ol class="pasos">
     <li><strong>Investigó el dolor con rigor.</strong> Demostró que administrar analgésicos de forma regular —no «a demanda»— previene el sufrimiento en vez de perseguirlo. Hoy parece obvio; en los años sesenta era una herejía.</li>
-    <li><strong>Creó el concepto de dolor total.</strong> El dolor tiene dimensión física, emocional, social y espiritual. Tratar solo el cuerpo es tratar una cuarta parte del sufrimiento.</li>
+    <li><strong>Creó el concepto de dolor total.</strong> El dolor tiene cuatro dimensiones, no una.</li>
     <li><strong>Demostró que se podía hacer ciencia sin perder la humanidad.</strong> St Christopher's fue desde el principio lugar de investigación y de enseñanza.</li>
   </ol>
   <p class="verificar">
     <strong>[DATO POR VERIFICAR]</strong> Algunas fuentes indican que Saunders se graduó como
     médica «a los 33 años». Nacida en 1918 y graduada en 1957, habría cumplido 39. Pendiente de
-    contrastar con fuente primaria antes de fijar la edad.
+    contrastar con fuente primaria.
   </p>
 </section>
 
-<!-- 14 ──────────────────────────────────────────────────────────────── -->
+<!-- 18 ─ FIGURA · el dolor total ───────────────────────────────────────── -->
 <section class="d" aria-label="El dolor total">
   <p class="d__eyebrow">El concepto central</p>
   <h2>El dolor total</h2>
-  <p class="lead">
-    La idea que más ha viajado de todo el campo, y la que más se cita sin aplicar.
-  </p>
-  <div class="bloques">
-    <div class="bloque"><p class="n">Físico</p><p>Dolor, disnea, náusea, fatiga. Lo que la medicina sabe medir y tratar.</p></div>
-    <div class="bloque"><p class="n">Emocional</p><p>Miedo, tristeza, rabia, la ansiedad de lo que viene.</p></div>
-    <div class="bloque"><p class="n">Social</p><p>El trabajo perdido, la familia que se endeuda, el aislamiento, el cuidador agotado.</p></div>
-    <div class="bloque"><p class="n">Espiritual</p><p>El sentido, la culpa, la pregunta por lo que hubo y lo que queda.</p></div>
-  </div>
-  <p class="nota" style="margin-top:1rem">
-    <strong>Si el sufrimiento tiene cuatro dimensiones y el servicio solo mide una,</strong> la
-    conclusión no es que las otras tres no existan: es que no se están viendo. Vuelva sobre esto
-    en la pregunta 3 del entregable.
-  </p>
+  <figure>
+    <svg viewBox="0 0 640 330" role="img" aria-labelledby="tDolor">
+      <title id="tDolor">El sufrimiento tiene cuatro dimensiones: física, emocional, social y espiritual. El sistema de salud suele medir solo la física.</title>
+
+      <circle cx="320" cy="152" r="120" fill="var(--bosque-soft)" opacity=".35"/>
+
+      <!-- cuatro lóbulos -->
+      <g font-size="14" font-weight="700" text-anchor="middle">
+        <circle cx="320" cy="52"  r="52" fill="var(--arcilla)" opacity=".9"/>
+        <text x="320" y="50" fill="var(--blanco)">Físico</text>
+        <text x="320" y="68" fill="var(--blanco)" font-size="11" font-weight="400">dolor, disnea</text>
+
+        <circle cx="440" cy="152" r="52" fill="var(--bosque)" opacity=".82"/>
+        <text x="440" y="150" fill="var(--blanco)">Emocional</text>
+        <text x="440" y="168" fill="var(--blanco)" font-size="11" font-weight="400">miedo, tristeza</text>
+
+        <circle cx="320" cy="252" r="52" fill="var(--malva)" opacity=".82"/>
+        <text x="320" y="250" fill="var(--blanco)">Social</text>
+        <text x="320" y="268" fill="var(--blanco)" font-size="11" font-weight="400">trabajo, deudas</text>
+
+        <circle cx="200" cy="152" r="52" fill="var(--piedra)" opacity=".85"/>
+        <text x="200" y="150" fill="var(--blanco)">Espiritual</text>
+        <text x="200" y="168" fill="var(--blanco)" font-size="11" font-weight="400">sentido, culpa</text>
+
+        <circle cx="320" cy="152" r="42" fill="var(--bosque-deep)"/>
+        <text x="320" y="150" fill="var(--lino)" font-size="13">Sufri-</text>
+        <text x="320" y="166" fill="var(--lino)" font-size="13">miento</text>
+      </g>
+
+      <!-- lo que el sistema mide -->
+      <g font-size="12.5" fill="var(--arcilla-dark)">
+        <path d="M520 60 h60" stroke="var(--arcilla-dark)" stroke-width="2" stroke-dasharray="5 4"/>
+        <text x="586" y="56" font-weight="700">Lo que</text>
+        <text x="586" y="72" font-weight="700">se mide</text>
+      </g>
+      <g font-size="12.5" fill="var(--gris)">
+        <text x="42" y="300">Tratar solo el cuerpo</text>
+        <text x="42" y="318" font-weight="700" fill="var(--pizarra)">es tratar una cuarta parte.</text>
+      </g>
+    </svg>
+    <figcaption>
+      <strong>Si el sufrimiento tiene cuatro dimensiones y el servicio mide una,</strong> la
+      conclusión no es que las otras tres no existan: es que no se están viendo. Vuelva sobre esto
+      en la pregunta 3 del entregable.
+    </figcaption>
+  </figure>
 </section>
 
-<!-- 15 ──────────────────────────────────────────────────────────────── -->
+<!-- 19 ─ Kübler-Ross ───────────────────────────────────────────────────── -->
 <section class="d" aria-label="Elisabeth Kübler-Ross">
   <p class="d__eyebrow">Los pioneros · 2 de 2</p>
   <h2>Elisabeth Kübler-Ross · 1926–2004</h2>
-  <p class="lead">
-    Si Saunders profesionalizó el cuidado, Kübler-Ross profesionalizó la conversación.
-  </p>
+  <p class="lead">Si Saunders profesionalizó el cuidado, Kübler-Ross profesionalizó la conversación.</p>
   <p>
     Su libro <em>Sobre la muerte y los moribundos</em> (1969) fue un acto de desobediencia
     cultural. En una época en que la muerte era tabú médico, hizo algo radical: <strong>se sentó a
     escuchar a quienes se estaban muriendo</strong>, y publicó lo que decían.
   </p>
   <p>
-    Su aporte central no fueron las cinco etapas, sino demostrar que quien muere
-    <strong>tiene voz, tiene proceso y tiene dignidad</strong>, y que escucharlo no es debilidad
-    clínica sino responsabilidad profesional.
+    Su aporte central no fueron las cinco etapas, sino demostrar que quien muere <strong>tiene
+    voz, tiene proceso y tiene dignidad</strong>, y que escucharlo no es debilidad clínica sino
+    responsabilidad profesional.
   </p>
   <p class="nota">
     <strong>Un matiz que conviene traer discutido.</strong> El modelo de las cinco etapas ha sido
@@ -526,14 +719,10 @@ tbody tr:last-child td{border-bottom:0}
   </p>
 </section>
 
-<!-- 16 ──────────────────────────────────────────────────────────────── -->
+<!-- 20 ─ Colombia ──────────────────────────────────────────────────────── -->
 <section class="d" aria-label="El puente hacia Colombia">
   <p class="d__eyebrow">De Londres a aquí</p>
   <h2>El puente hacia Colombia</h2>
-  <p class="lead">
-    Estas ideas no se importaron solas: las trajeron personas concretas que las adaptaron a una
-    realidad distinta.
-  </p>
   <div class="bloques">
     <div class="bloque">
       <p class="n">Década de 1980</p>
@@ -543,87 +732,87 @@ tbody tr:last-child td{border-bottom:0}
     <div class="bloque">
       <p class="n">Década de 1990</p>
       <h3>Las clínicas de dolor</h3>
-      <p>Se crean las primeras clínicas de dolor en hospitales universitarios y la Asociación Colombiana de Cuidados Paliativos empieza a articular esfuerzos. Sigue siendo asunto de las grandes ciudades.</p>
+      <p>Primeras clínicas de dolor en hospitales universitarios; la Asociación Colombiana de Cuidados Paliativos articula esfuerzos. Sigue siendo asunto de las grandes ciudades.</p>
     </div>
     <div class="bloque">
       <p class="n">Siglo XXI</p>
       <h3>La Ley 1733 de 2014</h3>
-      <p>La Ley Consuelo Devis Saavedra regula el derecho a los cuidados paliativos en Colombia y marca un antes y un después. La brecha entre la ley y el territorio sigue siendo enorme.</p>
+      <p>La Ley Consuelo Devis Saavedra regula el derecho a los cuidados paliativos en Colombia. La brecha entre la ley y el territorio sigue siendo enorme.</p>
     </div>
   </div>
   <p class="verificar">
     <strong>[DATO POR VERIFICAR]</strong> Circulan atribuciones nominales sobre la figura pionera
-    de Medellín con datos que no concuerdan entre fuentes. Hasta contrastarlo con fuente
-    documental, aquí se describe el hito sin atribuirlo.
+    de Medellín con datos que no concuerdan entre fuentes. Hasta contrastarlo, aquí se describe el
+    hito sin atribuirlo.
   </p>
 </section>
 
-<!-- 17 ──────────────────────────────────────────────────────────────── -->
+<!-- 21 ─ FIGURA · tres definiciones ────────────────────────────────────── -->
 <section class="d" aria-label="Tres definiciones">
   <p class="d__eyebrow">Cómo se ha definido el campo</p>
-  <h2>Tres definiciones, tres capas</h2>
-  <p class="lead">
-    No se reemplazan entre sí: se acumulan. Cada una amplía a quién alcanza el cuidado — y cada
-    ampliación fue una discusión, no un consenso automático.
-  </p>
-  <div class="tabla">
-    <table>
-      <caption style="text-align:left;font-size:.82rem;color:var(--gris);padding-bottom:.4rem">Evolución de la definición de cuidados paliativos</caption>
-      <thead>
-        <tr><th scope="col">Hito</th><th scope="col">Énfasis</th><th scope="col">Aporte clave</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>OMS<br>1990</strong></td>
-          <td>Cuidado activo y total de la persona cuya enfermedad no responde a tratamiento curativo. Centrado en el control del dolor y otros síntomas.</td>
-          <td>Primera vez que un organismo internacional reconoce el cuidado de quien va a morir como disciplina legítima.</td>
-        </tr>
-        <tr>
-          <td><strong>OMS<br>2002</strong></td>
-          <td>Mejora la calidad de vida de la persona y su familia. Prevención y alivio del sufrimiento. Aplicable desde etapas tempranas.</td>
-          <td>Incluye a la familia. Amplía más allá del cáncer. Introduce la dimensión espiritual.</td>
-        </tr>
-        <tr>
-          <td><strong>IAHPC<br>2018–2020</strong></td>
-          <td>Cuidado holístico activo para personas de todas las edades con sufrimiento grave. Derecho humano universal.</td>
-          <td>Los CP como derecho. Todas las edades, incluida la pediatría. El sufrimiento serio como criterio, no solo el diagnóstico.</td>
-        </tr>
-      </tbody>
-    </table>
+  <h2>Tres definiciones que se acumulan</h2>
+  <div class="conFigura">
+    <figure>
+      <svg viewBox="0 0 340 300" role="img" aria-labelledby="tDefin" width="320">
+        <title id="tDefin">Tres círculos concéntricos: cada definición ensancha a quién alcanza el cuidado</title>
+        <circle cx="170" cy="150" r="140" fill="var(--malva)" opacity=".18"/>
+        <circle cx="170" cy="150" r="140" fill="none" stroke="var(--malva)" stroke-width="2.5"/>
+        <circle cx="170" cy="150" r="96"  fill="var(--bosque)" opacity=".22"/>
+        <circle cx="170" cy="150" r="96"  fill="none" stroke="var(--bosque)" stroke-width="2.5"/>
+        <circle cx="170" cy="150" r="52"  fill="var(--arcilla)" opacity=".3"/>
+        <circle cx="170" cy="150" r="52"  fill="none" stroke="var(--arcilla)" stroke-width="2.5"/>
+        <g class="mono" font-size="13" font-weight="700" text-anchor="middle">
+          <text x="170" y="148" fill="var(--arcilla-deep)">1990</text>
+          <text x="170" y="166" fill="var(--arcilla-deep)" font-size="10.5" font-weight="400">cáncer</text>
+          <text x="170" y="72"  fill="var(--bosque-dark)">2002</text>
+          <text x="170" y="88"  fill="var(--bosque-dark)" font-size="10.5" font-weight="400">+ familia</text>
+          <text x="170" y="28"  fill="var(--malva-dark)">2018–20</text>
+          <text x="170" y="44"  fill="var(--malva-dark)" font-size="10.5" font-weight="400">+ todas las edades · derecho</text>
+        </g>
+        <text x="170" y="288" text-anchor="middle" font-size="12.5" fill="var(--gris)">cada capa alcanza a más gente</text>
+      </svg>
+    </figure>
+    <div class="tabla">
+      <table>
+        <thead><tr><th scope="col">Hito</th><th scope="col">Aporte clave</th></tr></thead>
+        <tbody>
+          <tr><td><strong>OMS 1990</strong></td><td>Primera vez que un organismo internacional reconoce el cuidado de quien va a morir como disciplina legítima. Exige que la enfermedad no responda a tratamiento curativo.</td></tr>
+          <tr><td><strong>OMS 2002</strong></td><td>Incluye a la familia. Amplía más allá del cáncer. Aplicable desde etapas tempranas. Introduce la dimensión espiritual.</td></tr>
+          <tr><td><strong>IAHPC 2018–2020</strong></td><td>Los CP como derecho humano. Todas las edades, incluida la pediatría. El sufrimiento serio como criterio, no solo el diagnóstico.</td></tr>
+        </tbody>
+      </table>
+    </div>
   </div>
-  <p class="nota" style="margin-top:.9rem">
-    Cada salto amplía a quién alcanza el cuidado. <strong>La pregunta 2 del entregable es
-    justamente esta:</strong> ¿cuál de las tres opera de hecho en su servicio?
+  <p class="nota" style="margin-top:.8rem">
+    <strong>La pregunta 2 del entregable es justamente esta:</strong> ¿cuál de las tres opera de
+    hecho en su servicio, y a quién deja fuera?
   </p>
 </section>
 
-<!-- 18 ──────────────────────────────────────────────────────────────── -->
+<!-- 22 ─ Principios ────────────────────────────────────────────────────── -->
 <section class="d" aria-label="Los principios">
   <p class="d__eyebrow">Fundamentos filosóficos</p>
   <h2>Los principios, leídos como respuesta a una crisis</h2>
-  <p class="lead">
-    No son abstracciones: cada uno responde a algo concreto que salió mal. Leerlos así evita
-    memorizarlos.
+  <p class="lead" style="margin-bottom:.6rem">
+    No son abstracciones: cada uno responde a algo concreto que salió mal.
   </p>
   <div class="tabla">
     <table>
-      <thead>
-        <tr><th scope="col">Principio</th><th scope="col">Crisis a la que responde</th><th scope="col">Implicación práctica</th></tr>
-      </thead>
+      <thead><tr><th scope="col">Principio</th><th scope="col">Crisis a la que responde</th><th scope="col">Implicación práctica</th></tr></thead>
       <tbody>
-        <tr><td><strong>Autonomía</strong></td><td>Décadas de paternalismo médico en las que a la persona no se la consultaba sobre su propio cuerpo ni sobre su propio morir.</td><td>La persona decide. Se respetan las voluntades anticipadas y las decisiones informadas.</td></tr>
-        <tr><td><strong>Dignidad en el final de la vida</strong></td><td>La muerte tecnificada, aislada y deshumanizada de las unidades de cuidado intensivo del siglo XX.</td><td>Morir con sentido, acompañado, con control de síntomas y atención integral.</td></tr>
-        <tr><td><strong>Alivio del sufrimiento total</strong></td><td>Una medicina que solo trataba el dolor físico e ignoraba lo psicológico, lo social y lo espiritual.</td><td>El dolor total de Saunders: cuatro dimensiones, no una.</td></tr>
-        <tr><td><strong>Cuidado de la familia</strong></td><td>El hospital expulsaba a las familias del proceso de enfermedad y de muerte.</td><td>La unidad de cuidado es la persona <em>y</em> su familia. El duelo anticipatorio forma parte del tratamiento.</td></tr>
+        <tr><td><strong>Autonomía</strong></td><td>Décadas de paternalismo médico en las que a la persona no se la consultaba sobre su propio cuerpo ni sobre su propio morir.</td><td>La persona decide. Se respetan las voluntades anticipadas.</td></tr>
+        <tr><td><strong>Dignidad</strong></td><td>La muerte tecnificada, aislada y deshumanizada de las UCI del siglo XX.</td><td>Morir con sentido, acompañado, con control de síntomas.</td></tr>
+        <tr><td><strong>Alivio del sufrimiento total</strong></td><td>Una medicina que solo trataba el dolor físico e ignoraba lo psicológico, lo social y lo espiritual.</td><td>Las cuatro dimensiones, no una.</td></tr>
+        <tr><td><strong>Cuidado de la familia</strong></td><td>El hospital expulsaba a las familias del proceso de enfermedad y de muerte.</td><td>La unidad de cuidado es la persona <em>y</em> su familia.</td></tr>
       </tbody>
     </table>
   </div>
 </section>
 
-<!-- 19 ──────────────────────────────────────────────────────────────── -->
+<!-- 23 ─ Cita ──────────────────────────────────────────────────────────── -->
 <section class="d d--cita" aria-label="Cita de Cicely Saunders">
   <p class="d__eyebrow">La frase que fundó el campo</p>
-  <figure style="margin:0">
+  <figure style="align-items:flex-start">
     <blockquote>
       Usted importa porque es usted, y usted importa hasta el último momento de su vida.
     </blockquote>
@@ -637,7 +826,52 @@ tbody tr:last-child td{border-bottom:0}
   </figure>
 </section>
 
-<!-- 20 ──────────────────────────────────────────────────────────────── -->
+<!-- 24 ─ FIGURA · la brecha ────────────────────────────────────────────── -->
+<section class="d" aria-label="El hilo del seminario">
+  <p class="d__eyebrow">El hilo que atraviesa el semestre</p>
+  <h2>Hay norma y no hay datos</h2>
+  <div class="conFigura">
+    <figure>
+      <svg viewBox="0 0 340 280" role="img" aria-labelledby="tBrecha">
+        <title id="tBrecha">Una columna llena representa la norma existente; otra casi vacía, los datos disponibles</title>
+        <line x1="30" y1="238" x2="320" y2="238" stroke="var(--gris-claro)" stroke-width="2"/>
+        <!-- norma -->
+        <rect x="66" y="42" width="82" height="196" rx="6" fill="var(--bosque)" opacity=".9"/>
+        <text x="107" y="262" text-anchor="middle" font-size="14" font-weight="700" fill="var(--bosque-dark)">Norma</text>
+        <g font-size="10.5" fill="var(--lino)" text-anchor="middle">
+          <text x="107" y="76">Ley 1733</text>
+          <text x="107" y="104">Resoluciones</text>
+          <text x="107" y="132">Sentencias</text>
+          <text x="107" y="160">OMS · OPS</text>
+          <text x="107" y="188">Lineamientos</text>
+        </g>
+        <!-- datos -->
+        <rect x="196" y="42" width="82" height="196" rx="6" fill="none" stroke="var(--arcilla)" stroke-width="2.5" stroke-dasharray="7 6"/>
+        <rect x="196" y="214" width="82" height="24" rx="6" fill="var(--arcilla)" opacity=".85"/>
+        <text x="237" y="262" text-anchor="middle" font-size="14" font-weight="700" fill="var(--arcilla-dark)">Datos</text>
+        <text x="237" y="140" text-anchor="middle" class="serif" font-size="14" fill="var(--arcilla-dark)">¿cuántas</text>
+        <text x="237" y="160" text-anchor="middle" class="serif" font-size="14" fill="var(--arcilla-dark)">personas?</text>
+      </svg>
+    </figure>
+    <div>
+      <p>
+        Colombia tiene ley desde 2014, resoluciones, sentencias de la Corte y lineamientos
+        internacionales. Hay bastante norma.
+      </p>
+      <p>
+        Y sin embargo, si le preguntan cuántas personas con necesidad paliativa hay en su
+        municipio y cuántas están siendo atendidas, lo más probable es que <strong>el dato no
+        exista</strong>.
+      </p>
+      <p class="nota">
+        Sobre esa distancia trabaja el seminario entero. Cada unidad es un tramo del mismo
+        argumento.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- 25 ─ De la narrativa a la pregunta ─────────────────────────────────── -->
 <section class="d" aria-label="De la narrativa a la pregunta">
   <p class="d__eyebrow">El movimiento que define este seminario</p>
   <h2>De la narrativa a la pregunta</h2>
@@ -654,14 +888,14 @@ tbody tr:last-child td{border-bottom:0}
     <li>¿Cuándo llegaron <strong>a su municipio</strong>? ¿Hay algún registro que lo diga?</li>
     <li>Si no hay registro, ¿significa que no llegaron, o que nadie lo escribió?</li>
   </ol>
-  <p class="nota" style="margin-top:1rem">
+  <p class="nota" style="margin-top:.9rem">
     <strong>La ausencia de datos es un dato.</strong> Cuando una búsqueda seria no encuentra
     información publicada sobre el propio territorio, eso no es un fracaso de la búsqueda: es un
     hallazgo sobre el sistema, y se documenta como tal.
   </p>
 </section>
 
-<!-- 21 ──────────────────────────────────────────────────────────────── -->
+<!-- 26 ─ Lo que sigue ──────────────────────────────────────────────────── -->
 <section class="d" aria-label="Lo que sigue">
   <p class="d__eyebrow">Lo que sigue</p>
   <h2>El entregable previo</h2>
@@ -676,10 +910,10 @@ tbody tr:last-child td{border-bottom:0}
     <div class="bloque"><p class="n">Pregunta 5</p><p>Convierta una afirmación de este material en una pregunta de investigación respondible.</p></div>
   </div>
   <p style="margin-top:1.2rem">
-    <a href="preparacion.html" style="display:inline-block;background:var(--acento);color:var(--blanco);text-decoration:none;font-weight:600;border-radius:999px;padding:.6rem 1.5rem">Abrir el entregable</a>
+    <a class="btn" href="preparacion.html">Abrir el entregable</a>
     <span style="font-family:var(--mono);font-size:.82rem;color:var(--gris);margin-left:.9rem">cierra el viernes 21 a las 7:00</span>
   </p>
-  <p class="nota" style="margin-top:1.1rem">
+  <p class="nota" style="margin-top:1rem">
     <a href="index.html">Volver a la guía de la sesión</a> ·
     <a href="../../index.html">Portada del seminario</a>
   </p>
@@ -691,7 +925,7 @@ tbody tr:last-child td{border-bottom:0}
   <div class="nav__barra" id="barra"></div>
   <p class="nav__t" id="titulo">Sesión 1<small>Antecedentes históricos y fundamentos filosóficos</small></p>
   <button type="button" id="prev" aria-label="Diapositiva anterior">‹</button>
-  <span class="nav__n" id="cuenta">1 / 21</span>
+  <span class="nav__n" id="cuenta">1 / 26</span>
   <button type="button" id="next" aria-label="Diapositiva siguiente">›</button>
   <span class="nav__pista">← → · inicio · fin</span>
 </nav>
