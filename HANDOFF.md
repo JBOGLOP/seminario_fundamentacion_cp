@@ -327,6 +327,35 @@ config.example.js          plantilla de secretos → copiar a config.js
 obligatorio, §5.9— un `README.md` dentro de una carpeta no se renderiza: se sirve como texto plano
 o se descarga. Los `README.md` de las carpetas de sesión son notas de trabajo, no páginas.
 
+### 6.1 · El roster y el prefijo `PRIVADO_`
+
+**El grupo de 2026-II son 8 estudiantes.** La lista —nombres, códigos y correos— está en
+`PRIVADO_roster_2026-II.md`, con su gemelo `.tsv` listo para pegar en la pestaña `Roster` de la
+hoja. **Ninguno de los dos está en el repositorio**, y no pueden estarlo: son datos personales
+(Ley 1581 de 2012) y este repositorio es público e indexable.
+
+Tres redes lo sostienen, y conviene conocer las tres porque cada una tapa un hueco distinto:
+
+| Red | Qué hace | Dónde |
+|---|---|---|
+| `.gitignore` | El prefijo `PRIVADO_` nunca entra a git | `.gitignore` §PRIVADO |
+| `verificar.js` §3 | Un código `12262…` o un correo **fuera** de un archivo `PRIVADO_` bloquea la publicación | `scripts/verificar.js` |
+| El procedimiento | Al repositorio se copia **archivo por archivo**, nunca carpetas enteras | esta regla |
+
+El verificador **omite** los archivos `PRIVADO_` —si no, bloquearía siempre por datos que nadie
+va a ver— pero los **lista en pantalla** al hacerlo. Un verificador que calla lo que no mira
+enseña a confiar en él más de lo que merece. Comprobado el 16 de agosto: un código de estudiante
+en un archivo sin el prefijo sigue bloqueando.
+
+> ⚠️ **Los seudónimos de proyección no siguen el alfabeto, y es deliberado.** Si «A» fuera el
+> primer apellido del curso, cualquiera del grupo desharía el anonimato del tablero ordenando la
+> lista de clase. `asignarSeudonimos()` baraja antes de repartir por la misma razón.
+>
+> Y hay un límite honesto: con **ocho personas escribiendo cada una sobre su territorio**, la
+> primera pregunta las identifica casi sola. Lo que el tablero garantiza es que *no se proyecta
+> el nombre*, no que nadie sepa quién escribió. Conviene decirlo así en el encuadre y no
+> prometer más.
+
 ### Sobre trabajar en Google Drive
 
 Esta carpeta es a la vez el archivo del curso **y** el repositorio de trabajo. Es decisión del
@@ -386,8 +415,8 @@ git remote -v    # si no imprime nada, está en el clon huérfano
 ## 9. Por dónde seguir
 
 0. 🔴 **Instalar el motor** — `scripts/apps-script/INSTALACION.md`, unos quince minutos. **Sin
-   esto el entregable de la sesión 1 no recibe nada.** Incluye rellenar el roster con los correos
-   institucionales del grupo, pegar el token en `preparacion.html` y abrir la ventana de entrega.
+   esto el entregable de la sesión 1 no recibe nada.** El roster ya está listo para pegar (§6.1);
+   falta crear la hoja, pegar el token en `preparacion.html` y abrir la ventana de entrega.
    Después, publicar el enlace del entregable al grupo: cierra el **21 de agosto a las 7:00**.
 1. **Revisar la sesión 1 en el navegador, con el wifi apagado**, y a 375 px. Se dicta el
    **21 de agosto**. Es lo único que el verificador no puede comprobar. Compruebe también el

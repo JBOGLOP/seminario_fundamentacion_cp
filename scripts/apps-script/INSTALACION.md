@@ -36,11 +36,23 @@ Pestaña **`Roster`**, una fila por estudiante:
 
 | Correo | Nombre | Codigo | Seudonimo | Activo |
 |---|---|---|---|---|
-| `…@uan.edu.co` | APELLIDOS Nombres | documento | *(vacío)* | Sí |
+| `…@uan.edu.co` | APELLIDOS Nombres | documento | A, B, C… | Sí |
 
-- **`Correo` es la identidad.** Quien no esté aquí no puede entregar.
-- **`Seudonimo` se deja vacío**: ejecutar `asignarSeudonimos()` y se llena solo (A, B, C…).
-- Para dar de baja a alguien sin borrar su historial: `Activo` = `No`.
+- **`Correo` es la identidad.** Quien no esté aquí no puede entregar. El código no lo usa el
+  motor: está para cuadrar con las actas de la maestría.
+- **`Seudonimo`** es la letra con la que la persona sale proyectada en clase. Si se deja vacío,
+  `asignarSeudonimos()` lo rellena.
+- Para dar de baja a alguien sin borrar su historial: `Activo` = `No`. **No borre filas**: se
+  pierde el rastro de lo que ya entregó.
+
+> **Para 2026-II ya está preparado.** El grupo son 8 estudiantes y el roster, con sus seudónimos
+> ya repartidos, está en `PRIVADO_roster_2026-II.tsv` — listo para pegar desde la celda **A2**.
+> Ese archivo está fuera del repositorio por el prefijo `PRIVADO_` del `.gitignore`.
+> Si lo pega, **no** hace falta ejecutar `asignarSeudonimos()`.
+
+> ⚠️ **Las letras no siguen el alfabeto, y es deliberado.** Si «A» fuera el primer apellido del
+> curso, cualquiera del grupo desharía el anonimato de la proyección ordenando la lista de clase.
+> `asignarSeudonimos()` baraja antes de repartir por esa misma razón.
 
 > 🔴 **Esta pestaña no sale de la hoja jamás.** Son datos personales (Ley 1581 de 2012).
 > Nunca al repositorio, nunca a un CSV compartido, nunca al cliente.

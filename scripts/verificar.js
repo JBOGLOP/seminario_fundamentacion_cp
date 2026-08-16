@@ -32,8 +32,21 @@ function archivos(dir, filtro, acc = []) {
   return acc;
 }
 const rel = f => path.relative(RAIZ, f).replace(/\\/g, '/');
-const htmls = archivos(RAIZ, /\.html?$/i);
-const textos = archivos(RAIZ, /\.(html?|md|txt|js|css)$/i);
+
+// El prefijo PRIVADO_ está reservado en el .gitignore para lo que nunca sale
+// del disco: el roster, con nombres, códigos y correos. Esos archivos EXISTEN
+// en la carpeta —es su sitio— pero no se publican, así que revisarlos aquí
+// solo produce un bloqueo permanente por datos que nadie va a ver.
+//
+// Se omiten, pero se DICE cuáles. Un verificador que calla lo que no mira
+// enseña a confiar en él más de lo que merece. Y el resto del árbol se revisa
+// igual: un código de estudiante en un archivo sin el prefijo sigue saltando,
+// que es justo el error que esto tiene que atrapar.
+const esPrivado = f => /^privado_/i.test(path.basename(f));
+const omitidos = archivos(RAIZ, /\.(html?|md|txt|js|css|tsv|csv)$/i).filter(esPrivado);
+
+const htmls = archivos(RAIZ, /\.html?$/i).filter(f => !esPrivado(f));
+const textos = archivos(RAIZ, /\.(html?|md|txt|js|css)$/i).filter(f => !esPrivado(f));
 
 let bloquea = 0, avisa = 0;
 const titulo = t => console.log(`\n${'─'.repeat(66)}\n${t}\n${'─'.repeat(66)}`);
@@ -125,6 +138,12 @@ titulo('2 · Recursos externos que se cargan  (§7.2)');
 // van los patrones, nunca los nombres.
 titulo('3 · Rastros de datos personales  (§7.3)');
 {
+  if (omitidos.length) {
+    console.log(gris(`  omitidos por el prefijo PRIVADO_ (no se publican): ${omitidos.length}`));
+    omitidos.map(rel).sort().forEach(x => console.log(gris(`      ${x}`)));
+    // Si alguno dejara de estar ignorado por git, esto se vuelve un agujero.
+    console.log(gris('      → compruébelo: git check-ignore -v <archivo>'));
+  }
   // duro = bloquea; blando = solo avisa, porque la expresión puede
   // aparecer describiendo el problema en vez de cometiéndolo.
   const PATRONES = [

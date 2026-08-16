@@ -139,23 +139,40 @@ function verTokenDelTablero() {
   return t;
 }
 
-/** Asigna seudónimo a quien no lo tenga. Se puede reejecutar sin daño. */
+/**
+ * Asigna seudónimo a quien no lo tenga. Se puede reejecutar sin daño.
+ *
+ * ⚠️ BARAJA ANTES DE ASIGNAR, y eso no es un adorno. El roster está en orden
+ * alfabético; si las letras se repartieran en orden de fila, «A» sería el
+ * primer apellido del curso y cualquiera del grupo —que tiene la lista de
+ * clase— desharía el anonimato de la proyección en diez segundos. Una
+ * proyección que se descifra ordenando apellidos no es una proyección anónima.
+ */
 function asignarSeudonimos() {
   var hoja = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(HOJA_ROSTER);
   if (!hoja || hoja.getLastRow() < 2) return 'Roster vacío.';
   var filas = hoja.getRange(2, 1, hoja.getLastRow() - 1, 5).getValues();
-  var usados = {};
-  filas.forEach(function (f) { if (f[3]) usados[String(f[3]).trim()] = true; });
 
-  var n = 0;
-  for (var i = 0; i < filas.length; i++) {
-    if (filas[i][3] || !filas[i][0]) continue;
+  var usados = {}, pendientes = [];
+  filas.forEach(function (f, i) {
+    if (f[3]) usados[String(f[3]).trim()] = true;
+    else if (f[0]) pendientes.push(i);
+  });
+
+  // Fisher-Yates sobre las filas pendientes.
+  for (var k = pendientes.length - 1; k > 0; k--) {
+    var j = Math.floor(Math.random() * (k + 1));
+    var tmp = pendientes[k]; pendientes[k] = pendientes[j]; pendientes[j] = tmp;
+  }
+
+  pendientes.forEach(function (i) {
     var s = siguienteSeudonimo_(usados);
     usados[s] = true;
     hoja.getRange(i + 2, 4).setValue(s);
-    n++;
-  }
-  return 'Seudónimos asignados: ' + n;
+  });
+
+  return 'Seudónimos asignados: ' + pendientes.length +
+         (pendientes.length ? ' (repartidos al azar, no por orden alfabético).' : '.');
 }
 
 
