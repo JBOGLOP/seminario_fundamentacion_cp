@@ -77,6 +77,19 @@ h1{font-size:clamp(1.6rem,4.5vw,2.6rem);line-height:1.15;letter-spacing:-.015em;
 .epigrafe span{display:block;font-style:normal;font-family:var(--sans);
   font-size:.78rem;color:var(--gris);margin-top:.4em}
 
+/* Llamada al entregable previo. Es lo primero que hay que ver: sin
+   entrega no hay materia prima para la sesión. */
+.antes{background:var(--blanco);border-radius:var(--radius);padding:1.2rem 1.35rem;
+  box-shadow:var(--shadow-medium);border-left:5px solid var(--arena);margin-top:1.6rem;max-width:56ch}
+.antes__etq{font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;color:var(--arena-deep);
+  font-weight:700;margin:0 0 .4rem}
+.antes__txt{font-size:.95rem;color:var(--gris);margin:0 0 1rem}
+.antes__acciones{display:flex;flex-wrap:wrap;align-items:center;gap:.7rem 1rem;margin:0}
+.boton{display:inline-block;background:var(--acento-dark);color:var(--blanco);text-decoration:none;
+  font-weight:600;font-size:.92rem;border-radius:999px;padding:.5rem 1.3rem}
+.boton:hover{background:var(--salvia)}
+.antes__plazo{font-family:var(--mono);font-size:.8rem;color:var(--arena-deep)}
+
 section{padding:clamp(1.8rem,4vw,2.75rem) 0}
 h2{font-size:clamp(1.25rem,3vw,1.7rem);margin:0 0 .3rem;color:var(--charcoal);line-height:1.25}
 h3{font-size:1.02rem;margin:0 0 .35rem;color:var(--acento-dark)}
@@ -89,6 +102,8 @@ p{max-width:62ch}
   letter-spacing:.08em;text-transform:uppercase;color:var(--blanco);
   background:var(--acento-dark);border-radius:4px;padding:.2em .6em;margin-bottom:.6rem;
 }
+/* Lo que NO se expone en clase: se lee antes y se consulta después. */
+.bloque--consulta{background:var(--arena-deep)}
 
 /* Guion */
 .guion{list-style:none;margin:0;padding:0;display:grid;gap:.5rem}
@@ -233,6 +248,19 @@ footer p{margin:0 0 .5rem;max-width:62ch}
       <span class="chip">8:00 – 11:00</span>
       <span class="chip">Primer corte</span>
     </div>
+
+    <div class="antes">
+      <p class="antes__etq">Esto es un seminario, no una clase magistral</p>
+      <p class="antes__txt">
+        El trabajo va antes. Usted lee, responde cinco preguntas sobre su propio terreno y las
+        entrega. La sesión del viernes se construye contrastando lo que el grupo escribió —en
+        pantalla, sin nombres—. Si no entrega, la sesión pierde su materia prima.
+      </p>
+      <p class="antes__acciones">
+        <a class="boton" href="preparacion.html">Abrir el entregable previo</a>
+        <span class="antes__plazo">Cierra el viernes 21 de agosto a las 7:00</span>
+      </p>
+    </div>
     <p class="epigrafe">
       Curar a veces, aliviar a menudo, cuidar siempre.
       <span>Aforismo clásico de la medicina</span>
@@ -247,19 +275,27 @@ footer p{margin:0 0 .5rem;max-width:62ch}
   <div class="envoltura">
     <h2>Cómo transcurre la sesión</h2>
     <p class="intro">
-      Tres horas en tres bloques. Los tiempos son orientativos: si una pregunta se extiende
-      porque el grupo está realmente metido, eso es señal de que va bien, no un problema de
-      cronograma.
+      Nadie va a exponer el contenido: para eso están las lecturas, y se hacen antes. Las tres
+      horas se dedican a poner en común lo que cada quien escribió y a discutirlo. Los tiempos
+      son orientativos: si una discusión se extiende porque el grupo está metido, eso es señal de
+      que va bien, no un problema de cronograma.
     </p>
 
     <ol class="guion">
-      <li><span class="t">8:00–8:20</span><span><strong>Encuadre del seminario</strong><span class="d">Qué es este espacio, de dónde viene y cuál es su hilo.</span></span></li>
-      <li><span class="t">8:20–9:00</span><span><strong>Apertura · la historia propia</strong><span class="d">Antes de la historia formal, la del grupo. Sin diapositivas.</span></span></li>
-      <li><span class="t">9:00–9:50</span><span><strong>Bloque 1 · Antecedentes, desarrollo y tendencias</strong><span class="d">Dos regímenes del morir, del <em>hospitium</em> a St Christopher's, los pioneros y el puente a Colombia.</span></span></li>
-      <li class="pausa"><span class="t">9:50–10:00</span><span><strong>Pausa</strong><span class="d">—</span></span></li>
-      <li><span class="t">10:00–10:40</span><span><strong>Bloque 2 · Fundamentos filosóficos</strong><span class="d">El <em>pallium</em>, el dolor total y los principios leídos como respuesta a una crisis.</span></span></li>
-      <li><span class="t">10:40–11:00</span><span><strong>Cierre · de la narrativa a la pregunta</strong><span class="d">La capa investigativa y el encargo del primer corte.</span></span></li>
+      <li><span class="t">8:00–8:20</span><span><strong>Encuadre del seminario</strong><span class="d">Solo esta vez: qué es este espacio, de dónde viene y cuál es su hilo. Cómo se trabaja de aquí en adelante.</span></span></li>
+      <li><span class="t">8:20–9:20</span><span><strong>P1 y P2 · el mapa del grupo</strong><span class="d">Se proyectan las respuestas sobre el territorio propio y sobre la definición que opera de hecho. Entre todas sale un mapa de los territorios representados — y de sus huecos.</span></span></li>
+      <li class="pausa"><span class="t">9:20–9:30</span><span><strong>Pausa</strong><span class="d">—</span></span></li>
+      <li><span class="t">9:30–10:20</span><span><strong>P3 y P4 · del juicio al dato</strong><span class="d">El paso que define el seminario: qué convertiría una impresión en evidencia. Se contrastan los indicadores que cada quien leyó en el Atlas y lo que dejan invisible.</span></span></li>
+      <li><span class="t">10:20–10:50</span><span><strong>P5 · las preguntas del grupo</strong><span class="d">Se leen en voz alta las preguntas de investigación formuladas y se depuran entre todos. Salen de aquí las que alimentan el producto del corte.</span></span></li>
+      <li><span class="t">10:50–11:00</span><span><strong>Cierre</strong><span class="d">Qué quedó abierto y qué se lleva a la sesión 2.</span></span></li>
     </ol>
+
+    <p class="nota" style="margin-top:1.2rem">
+      <strong>Las respuestas se proyectan sin nombre.</strong> Cada quien aparece con una letra.
+      Se le está pidiendo que tome posición sobre lo que pasa donde trabaja, y eso solo se
+      escribe con franqueza si no queda expuesto en una pantalla. El docente sí sabe quién
+      escribió qué —hay nota—, pero el salón no.
+    </p>
   </div>
 </section>
 
@@ -317,11 +353,12 @@ footer p{margin:0 0 .5rem;max-width:62ch}
 <!-- ══════════════════════════ APERTURA ═════════════════════════════════ -->
 <section>
   <div class="envoltura">
-    <p class="bloque">8:20 – 9:00 · Apertura</p>
+    <p class="bloque">8:20 – 9:20 · Discusión de P1 y P2</p>
     <h2>Antes de la historia formal, la historia propia</h2>
     <p class="intro">
-      La clase no abre con una definición. Abre sin diapositivas, con dos preguntas cuyas
-      respuestas son el material de la primera parte.
+      La discusión no abre con el tablero encendido, sino con dos preguntas en voz alta. Lo que
+      el grupo conteste enlaza directamente con lo que cada quien escribió en la P1 — y entonces
+      sí se proyectan las respuestas.
     </p>
 
     <div class="provocadora">
@@ -352,8 +389,13 @@ footer p{margin:0 0 .5rem;max-width:62ch}
 <!-- ══════════════════════════ BLOQUE 1 ═════════════════════════════════ -->
 <section>
   <div class="envoltura">
-    <p class="bloque">9:00 – 9:50 · Bloque 1</p>
+    <p class="bloque bloque--consulta">Material de consulta · se lee antes</p>
     <h2>Aspectos históricos, desarrollo y tendencias</h2>
+    <p class="nota" style="margin-bottom:1.4rem">
+      <strong>Esto no se expone en clase.</strong> Es el contenido del tema, puesto aquí para
+      leerlo antes de responder el entregable y para volver sobre él después. En la sesión se
+      da por sabido: lo que se discute es lo que usted haya escrito con ello.
+    </p>
 
     <h3 style="margin-top:1.4rem;font-size:1.15rem">Dos regímenes del morir</h3>
     <p class="intro">
@@ -535,12 +577,13 @@ footer p{margin:0 0 .5rem;max-width:62ch}
 <!-- ══════════════════════════ BLOQUE 2 ═════════════════════════════════ -->
 <section>
   <div class="envoltura">
-    <p class="bloque">10:00 – 10:40 · Bloque 2</p>
+    <p class="bloque bloque--consulta">Material de consulta · se lee antes</p>
     <h2>Fundamentos filosóficos</h2>
     <p class="intro">
-      Aquí la sesión cambia de registro: deja de contar qué pasó y empieza a preguntar sobre qué
-      se sostiene. Los cuidados paliativos no son una especialidad más; son una corrección
-      histórica, y esa corrección tiene supuestos que conviene hacer explícitos.
+      Aquí el tema cambia de registro: deja de contar qué pasó y empieza a preguntar sobre qué se
+      sostiene. Los cuidados paliativos no son una especialidad más; son una corrección
+      histórica, y esa corrección tiene supuestos que conviene hacer explícitos. La pregunta 3
+      del entregable sale directamente de esta sección.
     </p>
 
     <h3 style="margin-top:1.4rem;font-size:1.15rem">El <em>pallium</em>: la biografía de una palabra</h3>
@@ -677,9 +720,9 @@ footer p{margin:0 0 .5rem;max-width:62ch}
 <!-- ══════════════════════ CAPA INVESTIGATIVA ═══════════════════════════ -->
 <section>
   <div class="envoltura">
-    <p class="bloque">10:40 – 11:00 · Cierre</p>
+    <p class="bloque">10:20 – 10:50 · Discusión de P5</p>
     <div class="investigativa">
-      <span class="n">Capa investigativa de la sesión</span>
+      <span class="n">El movimiento que define el seminario</span>
       <h2>De la narrativa histórica a la pregunta</h2>
       <p style="color:var(--gris)">
         Todo lo anterior es un relato, y un relato bien contado se siente completo. Pero un
@@ -714,64 +757,61 @@ footer p{margin:0 0 .5rem;max-width:62ch}
   </div>
 </section>
 
-<!-- ══════════════════════════ ACTIVIDAD ════════════════════════════════ -->
+<!-- ═══════════════════ EL ENTREGABLE PREVIO ════════════════════════════ -->
 <section>
   <div class="envoltura">
     <div class="actividad">
-      <h2>Encargo · primer insumo del producto del corte</h2>
-      <p style="color:var(--arena-deep);font-weight:600;margin:0 0 .3rem">
-        «Del cuidado personal al cuidado universal: historias, territorios y datos»
-      </p>
-      <p style="font-size:.93rem;color:var(--gris)">
-        Documento de <strong>máximo 2.000 palabras</strong>, con recurso visual. Así como Saunders
-        tuvo un «porqué» personal —David Tasma—, cada participante tiene el suyo. El encargo pide
-        tejer la historia propia con la historia formal del campo, y la del propio territorio con
-        la historia nacional. <strong>No se califica solo:</strong> es el primer insumo del
-        producto del primer corte, que se entrega el 18 de septiembre.
+      <h2>El entregable previo</h2>
+      <p style="font-size:.94rem;color:var(--gris)">
+        Cinco preguntas, todas sobre su propio terreno. Ninguna se responde con lo que dice la
+        lectura: la lectura es lo que le da con qué mirar. Se responde en línea, se guarda solo
+        mientras escribe —también sin conexión— y se puede corregir y reenviar hasta el cierre.
       </p>
 
       <div class="partes">
         <div class="parte">
-          <p class="peso">Parte A · 500–600 palabras</p>
-          <h3>Mi historia en la historia</h3>
-          <p style="font-size:.9rem;color:var(--gris);margin:0">Narrativa reflexiva en primera persona, no cuestionario.</p>
+          <p class="peso">Preguntas 1 y 2</p>
+          <h3>Su territorio y su servicio</h3>
           <ol>
-            <li><strong>El momento bisagra.</strong> ¿Qué experiencia o persona despertó el interés por los cuidados paliativos?</li>
-            <li><strong>Del porqué al para qué.</strong> ¿Qué idea equivocada sobre los CP tenía y cómo ha cambiado?</li>
-            <li><strong>El cuidado como vocación.</strong> ¿Cuándo sintió que el modelo curativo era insuficiente?</li>
-            <li><strong>Compromiso territorial.</strong> ¿Qué cambio concreto espera generar en su territorio?</li>
+            <li>¿Cuándo llegaron los cuidados paliativos a donde usted trabaja? Qué buscó, dónde, y qué <em>no</em> encontró.</li>
+            <li>¿Con qué definición de cuidado paliativo trabaja de hecho su institución, y a quién deja fuera?</li>
           </ol>
         </div>
         <div class="parte">
-          <p class="peso">Parte B · 600 palabras</p>
-          <h3>Cuidados paliativos en mi territorio</h3>
-          <p style="font-size:.9rem;color:var(--gris);margin:0">Investigación local, con al menos una fuente citada en APA 7.</p>
-          <ol>
-            <li><strong>Investigación histórica.</strong> ¿Cuándo llegaron los CP a su territorio? Instituciones pioneras, hitos.</li>
-            <li><strong>Radiografía actual.</strong> Recursos existentes, brechas, poblaciones excluidas, acceso a opioides.</li>
-            <li><strong>Qué no se pudo averiguar.</strong> Qué buscó, dónde buscó y qué no encontró. Esta parte cuenta igual que las otras.</li>
+          <p class="peso">Preguntas 3 a 5</p>
+          <h3>Del juicio al dato</h3>
+          <ol start="3">
+            <li>¿Qué dimensión del dolor total está peor atendida — y qué dato lo demostraría?</li>
+            <li>Un indicador del <em>Global Atlas</em>: qué mide, cómo se construye y qué deja invisible. <strong>Fuente en inglés.</strong></li>
+            <li>Convierta una afirmación de las lecturas en una pregunta de investigación respondible.</li>
           </ol>
         </div>
       </div>
 
+      <p class="antes__acciones" style="margin-top:1.2rem">
+        <a class="boton" href="preparacion.html">Abrir el entregable</a>
+        <span class="antes__plazo">Cierra el viernes 21 de agosto a las 7:00</span>
+      </p>
+
       <p class="nota" style="margin-top:1.1rem;background:var(--blanco)">
-        <strong>Cuatro ideas que el encargo pide desmontar:</strong> cuidados paliativos no es
-        igual a muerte; no es solo manejo del dolor; no es solo para personas con cáncer; y no
-        es «rendirse».
+        <strong>Cuenta para el primer corte.</strong> Los entregables previos son el seguimiento
+        del corte, y el producto que se entrega el 18 de septiembre los integra. No son tareas
+        sueltas: son los ladrillos de ese producto.
       </p>
 
       <p class="nota" style="margin-top:.8rem;background:var(--blanco)">
-        <strong>Punto de comparación nacional.</strong> Se sitúa el inicio formal de los cuidados
-        paliativos en Colombia en <strong>1985</strong>, en el Instituto Nacional de Cancerología
-        de Bogotá. Calcule cuántos años tardaron en llegar a su territorio — y si no hay
-        información publicada, documéntelo como hallazgo.
+        <strong>Sobre las fuentes y la IA.</strong> Toda fuente citada debe existir y decir lo que
+        se afirma que dice. Si usó inteligencia artificial para buscar, traducir o redactar, lo
+        declara en dos líneas dentro del propio entregable: qué herramienta y para qué.
+        Declararlo suma; una cita inventada resta. Verificar lo que se cita <em>es</em> la
+        competencia investigativa que este seminario evalúa.
       </p>
 
       <p class="nota" style="margin-top:.8rem;background:var(--blanco)">
-        <strong>Sobre las fuentes.</strong> Toda fuente citada debe existir y decir lo que se
-        afirma que dice. Si se usó inteligencia artificial para buscar o redactar, se declara al
-        final del documento, en dos líneas: qué herramienta y para qué. Declararlo suma; una cita
-        inventada resta.
+        <strong>Si la conexión falla.</strong> La página funciona sin internet: se lee, se escribe
+        y el borrador queda guardado en su navegador. El botón «Copiar todo» deja el entregable
+        listo para enviarlo por correo, y cuenta igual. La conectividad no puede ser el motivo
+        por el que alguien no entregue.
       </p>
     </div>
   </div>
@@ -782,9 +822,9 @@ footer p{margin:0 0 .5rem;max-width:62ch}
   <div class="envoltura">
     <h2>Lectura previa</h2>
     <p class="intro">
-      Esta sesión condensa tres horas de lo que en 2026-I fueron dos clases separadas. Lo que no
-      cabe en el aula no desaparece: se lee antes. Quien llegue con esto leído aprovechará mucho
-      más los bloques 1 y 2.
+      Nada de esto se expone en clase, así que leerlo no es opcional: es lo que permite responder
+      el entregable, y el entregable es lo que se discute el viernes. Las mismas lecturas están
+      dentro del entregable, junto a la pregunta que apoya cada una.
     </p>
 
     <ul class="lecturas">

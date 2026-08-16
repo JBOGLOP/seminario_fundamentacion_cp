@@ -370,6 +370,11 @@ git remote -v    # si no imprime nada, está en el clon huérfano
 
 | # | Decisión | Cuándo |
 |---|---|---|
+| 9 | **El seminario no tiene clase magistral.** El contenido se lee antes; cada sesión abre con un entregable individual previo y el encuentro se conduce contrastando lo entregado | 16 ago 2026 |
+| 10 | **Un solo proyecto de Apps Script** para las siete sesiones, con pestaña y token por sesión. La regla «instrumento nuevo = despliegue nuevo» protege claves de examen, y aquí no hay clave: son preguntas abiertas | 16 ago 2026 |
+| 11 | **El tablero proyecta sin nombres.** Cada estudiante es una letra estable. El docente ve la identidad en su panel; el salón no | 16 ago 2026 |
+| 12 | **Los entregables previos cuentan para el corte** como seguimiento, y el producto de cada corte los integra | 16 ago 2026 |
+| 13 | **El roster nunca llega al navegador.** El estudiante escribe su correo y el servidor lo valida. Un selector expondría la lista los días que el entregable está abierto | 16 ago 2026 |
 | 1 | El material de Investigación CP se usa como **cantera** para U2 y U3, no como estructura | 5 ago 2026 |
 | 2 | **Repositorio nuevo.** Los dos anteriores se congelan como archivo de 2026-I | 5 ago 2026 |
 | 3 | El proyecto vive en **Google Drive**, no en `C:\repos\` | 15 ago 2026 |
@@ -380,8 +385,13 @@ git remote -v    # si no imprime nada, está en el clon huérfano
 
 ## 9. Por dónde seguir
 
+0. 🔴 **Instalar el motor** — `scripts/apps-script/INSTALACION.md`, unos quince minutos. **Sin
+   esto el entregable de la sesión 1 no recibe nada.** Incluye rellenar el roster con los correos
+   institucionales del grupo, pegar el token en `preparacion.html` y abrir la ventana de entrega.
+   Después, publicar el enlace del entregable al grupo: cierra el **21 de agosto a las 7:00**.
 1. **Revisar la sesión 1 en el navegador, con el wifi apagado**, y a 375 px. Se dicta el
-   **21 de agosto**. Es lo único que el verificador no puede comprobar.
+   **21 de agosto**. Es lo único que el verificador no puede comprobar. Compruebe también el
+   **modo proyección** del tablero antes de compartir pantalla en clase.
 2. **Sesiones 2 y 3 de U1.** El molde ya existe: la sesión 1 muestra cómo se condensa y dónde va
    la capa investigativa. La 2 absorbe las clases 3, 4 y 5 de 2026-I; la 3, las clases 6, 7 y 8.
 3. **Confirmar las cuatro preguntas del §7.** La primera cambia la estructura entera. Con el

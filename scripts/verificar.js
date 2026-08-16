@@ -97,6 +97,19 @@ titulo('2 · Recursos externos que se cargan  (§7.2)');
       porDominio.get(dom).add(rel(f));
     }
   }
+  // Un backend NO es un recurso externo: la página no lo carga para poder
+  // dibujarse. El entregable se lee y se escribe sin conexión, y solo el envío
+  // necesita red. Aun así se listan aquí, porque un verificador que dice «cero
+  // recursos externos» mientras hay páginas hablando con un servidor esconde
+  // justo lo que hay que vigilar.
+  {
+    const backends = htmls.filter(f => /script\.google\.com/.test(fs.readFileSync(f, 'utf8')));
+    if (backends.length) {
+      console.log(gris('  backends declarados (no son recursos de carga):'));
+      backends.map(rel).sort().forEach(x => console.log(gris(`      ${x}`)));
+    }
+  }
+
   if (!porDominio.size) console.log(verde('  ✅ ningún recurso externo: portabilidad sin conexión intacta'));
   else {
     for (const [dom, fs_] of [...porDominio].sort((a, b) => b[1].size - a[1].size)) {
@@ -128,10 +141,20 @@ titulo('3 · Rastros de datos personales  (§7.3)');
     [/conformaci[oó]n de grupos/gi,           'sección «conformación de grupos»', 'blando'],
     [/integrantes\s*:/gi,                     'lista de integrantes',        'blando'],
   ];
+  // Los `placeholder` de formulario son ilustrativos por definición: enseñan
+  // el formato que se espera, no el dato de nadie. El de esta asignatura es
+  // «nombre@uan.edu.co» —el dominio real, que es lo útil de mostrar— y por
+  // eso la lista de dominios de relleno de arriba no lo atrapa.
+  // Es el falso positivo del §5.4 del HANDOFF: marcarlo entrena a ignorar los
+  // avisos de verdad. Se vacía el valor del atributo antes de buscar; el resto
+  // del archivo se revisa igual, así que un correo real fuera de un placeholder
+  // sigue saltando.
+  const sinPlaceholders = s => s.replace(/placeholder="[^"]*"/gi, 'placeholder=""');
+
   let n = 0, a = 0;
   for (const f of textos) {
     if (rel(f).startsWith('scripts/')) continue;
-    const src = fs.readFileSync(f, 'utf8');
+    const src = sinPlaceholders(fs.readFileSync(f, 'utf8'));
     for (const [re, etiqueta, sev] of PATRONES) {
       const m = src.match(re);
       if (!m) continue;

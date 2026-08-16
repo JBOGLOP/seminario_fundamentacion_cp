@@ -58,6 +58,61 @@ y verificar que se lee a 375 px de ancho.
 
 ---
 
+## El modelo pedagógico: seminario, no clase magistral
+
+**Esto decide cómo se construye cada sesión.** El contenido no se expone en el aula: se lee
+antes. Cada sesión tiene tres piezas y un orden fijo:
+
+1. **`index.html`** — la guía. Explica qué leer, qué se entrega y cómo transcurrirá el encuentro.
+   El contenido del tema está ahí, rotulado **«material de consulta · se lee antes»**.
+2. **`preparacion.html`** — el entregable previo, individual. Cinco preguntas que no se responden
+   con lo que dice la lectura: piden mirar el propio terreno con lo que la lectura dio.
+3. **`_shared/tablero.html`** — el tablero docente. Se abre en clase, proyecta lo entregado
+   **sin nombres** y la sesión se conduce contrastándolo.
+
+**Las preguntas del entregable no se resumen ni se recuerdan: se sostienen.** El patrón que se
+repite en las siete sesiones es *del juicio al dato*: se pide una posición y, acto seguido, qué
+dato la convertiría en evidencia y si ese dato existe. La ausencia de datos es un hallazgo, no
+un fracaso — es el hilo del seminario visto en el terreno de cada estudiante.
+
+Cada entregable lleva además: **una fuente en inglés** (competencia institucional de lectura en
+segunda lengua) y una **declaración de uso de IA** (declararlo suma; una cita inventada resta).
+
+> **Los entregables cuentan para el corte.** Son el seguimiento, y el producto de cada corte los
+> integra. No son tareas sueltas.
+
+## El motor
+
+Un solo proyecto de Apps Script para las siete sesiones, con una hoja y una pestaña de respuestas
+por sesión. Instalación completa en
+[`scripts/apps-script/INSTALACION.md`](scripts/apps-script/INSTALACION.md).
+
+| Pieza | Dónde | Secreto |
+|---|---|---|
+| Backend | `scripts/apps-script/Codigo.gs` | **Ninguno.** Los tokens viven en la hoja y en las Propiedades del script |
+| Token de escritura | dentro de cada `preparacion.html` | **Público por diseño.** Solo enruta; no lee nada |
+| Token de lectura | `config.js` (en `.gitignore`) | 🔴 **Secreto.** Con él se descargan todas las entregas |
+| Roster | pestaña `Roster` de la hoja | 🔴 **Nunca sale del servidor** |
+
+**Identidad sin exponer la lista.** El estudiante escribe su correo institucional y el servidor lo
+valida contra el roster. El navegador **nunca** recibe la lista del curso — que es lo que pasaría
+con un selector, y el entregable abre días antes de la sesión.
+
+**Seudónimos.** Cada estudiante tiene una letra estable. El tablero proyecta la letra; el docente
+ve la correspondencia en su panel. En un seminario donde se pide tomar posición, el anonimato al
+proyectar sube la franqueza de lo que se escribe.
+
+### Portabilidad y backend no se contradicen
+
+El entregable **se lee, se responde y se guarda sin conexión** (borrador en `localStorage`). Solo
+el envío necesita red, y si no la hay, «Copiar todo» deja el trabajo listo para mandarlo por
+correo. La regla 1 existe por los estudiantes que ejercen donde la conectividad no se da por
+supuesta: la conectividad no puede ser el motivo por el que alguien no entregue.
+
+Un backend **no es un recurso externo**: la página no lo carga para dibujarse. Aun así,
+`verificar.js` lista los backends declarados, porque un verificador que dice «cero recursos
+externos» mientras hay páginas hablando con un servidor esconde justo lo que hay que vigilar.
+
 ## Estructura
 
 ```
@@ -69,15 +124,15 @@ CLAUDE.md                  este archivo
 sesiones/
   _sesiones.json           ← LISTA CANÓNICA de las sesiones
   sNN-slug/
-    index.html             ficha pública de la sesión
+    index.html             guía de la sesión + material de consulta
+    preparacion.html       entregable previo del estudiante
     README.md              nota de trabajo del docente
-    clase.html             (cuando exista)
-    estudiante.html        (cuando exista)
 
 _shared/
   tokens.css               paleta y tipografía · fuente canónica, se copia en línea
   base.css                 componentes · fuente canónica, se copia en línea
   plantilla-sesion.html    molde del que nace cada ficha de sesión
+  tablero.html             TABLERO DOCENTE · sirve a las siete sesiones
   bitacora.js  vendor/     JS y librerías incrustadas
 
 docs/                      programador, cruce de la fusión, diseño de unidades, método
@@ -85,6 +140,8 @@ recursos/originales/       contenido programático oficial
 scripts/
   verificar.js             las cinco comprobaciones previas a publicar
   nueva-sesion.js          crea las carpetas de sesión que falten
+  generar-programador.py   genera el programador institucional .docx
+  apps-script/             Codigo.gs · appsscript.json · INSTALACION.md
 config.example.js          plantilla de secretos → copiar a config.js
 .nojekyll                  imprescindible · ver abajo
 ```

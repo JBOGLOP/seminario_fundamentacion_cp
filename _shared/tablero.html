@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="es">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tablero del seminario · uso docente</title>
+<meta name="robots" content="noindex,nofollow">
+
+<!-- ===========================================================================
+     TABLERO DOCENTE — se abre en clase y la clase se construye con él.
+
+     Sirve para las siete sesiones: se elige arriba. Lee las entregas del
+     Apps Script y las muestra pregunta por pregunta, que es como se conduce
+     la sesión: se proyecta lo que el grupo escribió y se contrasta.
+
+     ⚠️ ESTA PÁGINA NECESITA EL TOKEN DE LECTURA (DASH_TOKEN), que NO está
+     aquí ni puede estarlo: esto vive en un repositorio público. Se pone en
+     `config.js`, que está en .gitignore, o se teclea al abrir y no se guarda.
+
+     MODO PROYECCIÓN. Oculta nombres y correos y deja solo el seudónimo. Es lo
+     que se enchufa al proyector. Enciéndalo ANTES de compartir pantalla.
+     =========================================================================== -->
+
+<style>
+:root{
+  --terracota:#B85C3C; --terracota-dark:#9C4830; --terracota-soft:#EFD5C8;
+  --salvia:#7A8B6F;    --salvia-dark:#5C6E54;    --salvia-soft:#D9E0D2;
+  --arena:#C4A876;     --arena-dark:#8B7B5C;     --arena-deep:#6B5B40; --arena-soft:#F5EEDD;
+  --ambar:#D4A547;     --ambar-dark:#A07930;     --ambar-deep:#6B4F0F;  --ambar-soft:#F4E4BC;
+  --charcoal:#2D2D2D;  --gris:#595959;           --gris-claro:#8A8A8A;
+  --blanco:#FFFFFF;    --crema:#FAF6EF;
+  --shadow-soft:0 2px 8px rgba(45,45,45,.08);
+  --shadow-medium:0 6px 20px rgba(45,45,45,.12);
+  --radius:12px; --radius-sm:8px;
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif;
+  --mono:'Courier New',monospace;
+  --serif:Georgia,'Times New Roman',serif;
+  --acento:var(--salvia); --acento-dark:var(--salvia-dark); --acento-soft:var(--salvia-soft);
+  --escala:1;
+}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;font-family:var(--sans);color:var(--charcoal);background:var(--crema);line-height:1.6}
+:focus-visible{outline:3px solid var(--acento);outline-offset:2px}
+.envoltura{max-width:74rem;margin:0 auto;padding:0 1.1rem}
+
+/* ── Barra superior ─────────────────────────────────────────────── */
+.barra{background:var(--charcoal);color:var(--crema);padding:.6rem 0;position:sticky;top:0;z-index:30;
+  box-shadow:var(--shadow-medium)}
+.barra .envoltura{display:flex;flex-wrap:wrap;align-items:center;gap:.55rem}
+.barra__t{font-weight:700;font-size:.92rem;margin-right:auto}
+.barra__t small{display:block;font-weight:400;font-size:.74rem;color:var(--gris-claro)}
+select,.barra button,.barra input{font:inherit;font-size:.82rem;border-radius:999px;padding:.32rem .85rem;
+  border:1px solid rgba(255,255,255,.3);background:transparent;color:var(--crema);cursor:pointer}
+select option{color:var(--charcoal)}
+.barra button:hover{background:rgba(255,255,255,.14)}
+.barra button.on{background:var(--ambar);color:var(--charcoal);border-color:var(--ambar);font-weight:700}
+.cuentas{font-family:var(--mono);font-size:.8rem;color:var(--arena-soft);white-space:nowrap}
+
+/* ── Aviso de conexión / token ──────────────────────────────────── */
+.aviso{border-radius:var(--radius);padding:1rem 1.2rem;margin:1.2rem 0;background:var(--blanco);
+  box-shadow:var(--shadow-soft);border-left:4px solid var(--gris-claro);max-width:60ch}
+.aviso--malo{border-left-color:var(--terracota);background:var(--terracota-soft);color:var(--terracota-dark)}
+.aviso--ok{border-left-color:var(--salvia);background:var(--salvia-soft)}
+.aviso strong{display:block;margin-bottom:.25rem;color:var(--charcoal)}
+.aviso input{width:100%;font:inherit;padding:.5rem .7rem;border:1px solid #C9C4BA;border-radius:var(--radius-sm);
+  margin-top:.6rem;background:var(--blanco);color:var(--charcoal);border-radius:var(--radius-sm)}
+.aviso button{font:inherit;font-weight:600;margin-top:.6rem;cursor:pointer;border-radius:999px;
+  padding:.45rem 1.2rem;border:1px solid var(--acento-dark);background:var(--acento-dark);color:var(--blanco)}
+
+/* ── Navegador de preguntas ─────────────────────────────────────── */
+.preguntas{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.3rem 0 .4rem}
+.preguntas button{font:inherit;font-weight:700;cursor:pointer;border-radius:999px;padding:.45rem 1.1rem;
+  border:1px solid var(--acento);background:var(--blanco);color:var(--acento-dark);font-size:.9rem}
+.preguntas button:hover{background:var(--acento-soft)}
+.preguntas button.activa{background:var(--acento-dark);color:var(--blanco);border-color:var(--acento-dark)}
+.preguntas button .n{font-family:var(--mono);font-size:.72rem;opacity:.75;margin-left:.35rem}
+
+.titulo-pregunta{font-size:calc(1.25rem * var(--escala));margin:.8rem 0 .2rem;line-height:1.25}
+.sub{color:var(--gris);font-size:.88rem;margin:0 0 1rem}
+
+/* ── Respuestas ─────────────────────────────────────────────────── */
+.respuestas{display:grid;gap:.9rem;grid-template-columns:repeat(auto-fill,minmax(min(100%,26rem),1fr));
+  padding-bottom:3rem}
+.tarjeta{background:var(--blanco);border-radius:var(--radius);padding:1rem 1.15rem;
+  box-shadow:var(--shadow-soft);border-left:4px solid var(--acento);display:flex;flex-direction:column}
+.tarjeta.leida{border-left-color:var(--gris-claro);opacity:.62}
+.tarjeta__cab{display:flex;align-items:center;gap:.6rem;margin-bottom:.55rem;flex-wrap:wrap}
+.seudo{font-family:var(--mono);font-weight:700;font-size:1rem;background:var(--acento-soft);
+  color:var(--acento-dark);border-radius:var(--radius-sm);padding:.1rem .6rem;flex-shrink:0}
+.quien{font-size:.82rem;color:var(--gris);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.marca{font:inherit;font-size:.74rem;cursor:pointer;border-radius:999px;padding:.15rem .65rem;
+  border:1px solid var(--gris-claro);background:transparent;color:var(--gris);flex-shrink:0}
+.marca:hover{background:var(--arena-soft)}
+.tarjeta__txt{font-size:calc(.95rem * var(--escala));white-space:pre-wrap;word-wrap:break-word;margin:0;
+  font-family:var(--serif);line-height:1.55}
+.tarjeta__pie{font-family:var(--mono);font-size:.72rem;color:var(--gris-claro);margin:.7rem 0 0}
+.vacia{color:var(--gris-claro);font-style:italic;font-family:var(--sans)}
+
+/* ── Panel lateral: quién falta (solo modo docente) ─────────────── */
+.faltantes{background:var(--blanco);border-radius:var(--radius);padding:1rem 1.2rem;
+  box-shadow:var(--shadow-soft);border-left:4px solid var(--ambar);margin:1.2rem 0;max-width:60ch}
+.faltantes h2{font-size:1rem;margin:0 0 .5rem;color:var(--ambar-deep)}
+.faltantes ul{margin:0;padding-left:1.1rem;font-size:.88rem;color:var(--gris);columns:2;column-gap:1.5rem}
+.faltantes li{margin-bottom:.2rem;break-inside:avoid}
+
+/* En proyección desaparece todo lo que identifica. */
+body.proyeccion .quien,
+body.proyeccion .faltantes,
+body.proyeccion .tarjeta__pie,
+body.proyeccion .marca{display:none}
+body.proyeccion{background:var(--crema)}
+body.proyeccion .tarjeta{box-shadow:var(--shadow-medium)}
+
+.pie{color:var(--gris-claro);font-size:.8rem;padding:1.5rem 0 2.5rem;max-width:60ch}
+@media print{.barra,.preguntas,.marca{display:none}}
+</style>
+
+<div class="barra">
+  <div class="envoltura">
+    <p class="barra__t">Tablero del seminario<small>Fundamentación en cuidados paliativos · 2026-II</small></p>
+    <select id="sesion" aria-label="Sesión">
+      <option value="S01">S01 · Historia y fundamentos</option>
+      <option value="S02">S02 · Lineamientos y políticas</option>
+      <option value="S03">S03 · Marco legal y barreras</option>
+      <option value="S04">S04 · Modelos y telesalud</option>
+      <option value="S05">S05 · Enfoques diferenciales</option>
+      <option value="S06">S06 · Bioética</option>
+      <option value="S07">S07 · Equipo y redes</option>
+    </select>
+    <span class="cuentas" id="cuentas">—</span>
+    <button type="button" id="recargar" title="Volver a leer las entregas">Recargar</button>
+    <button type="button" id="menos" title="Letra más pequeña">A−</button>
+    <button type="button" id="mas" title="Letra más grande">A+</button>
+    <button type="button" id="proyeccion" title="Oculta nombres y correos">Modo proyección</button>
+  </div>
+</div>
+
+<div class="envoltura">
+  <div id="aviso" class="aviso" style="display:none"></div>
+  <div id="faltantes" class="faltantes" style="display:none"></div>
+  <div class="preguntas" id="preguntas"></div>
+  <h1 class="titulo-pregunta" id="titulo">—</h1>
+  <p class="sub" id="subtitulo"></p>
+  <div class="respuestas" id="respuestas"></div>
+  <p class="pie">
+    Uso docente. Las respuestas contienen datos personales: no proyecte esta página sin activar
+    el <strong>modo proyección</strong>, y no la comparta por pantalla compartida sin comprobarlo antes.
+  </p>
+</div>
+
+<!-- config.js NO está en el repositorio (.gitignore): lleva el token de
+     lectura. Si falta, el tablero lo pide por teclado y no lo guarda. -->
+<script src="../config.js" onerror="void 0"></script>
+<script>
+(function () {
+  'use strict';
+
+  var $ = function (id) { return document.getElementById(id); };
+  var CFG = (window.CONFIG || {});
+  var ENDPOINT = CFG.appsScriptURL || '';
+  var DASH = CFG.dashToken || '';
+
+  // Títulos legibles de cada pregunta. El servidor devuelve solo los ids
+  // (p1, p2…), porque no sabe —ni tiene por qué— cómo se llaman.
+  var TITULOS = {
+    S01: {
+      p1: '¿Cuándo llegaron los cuidados paliativos a donde usted trabaja?',
+      p2: '¿Con qué definición trabaja realmente su institución?',
+      p3: 'El dolor total, y qué haría falta para poder afirmarlo',
+      p4: 'Qué mide un indicador, y qué no mide (fuente en inglés)',
+      p5: 'Convierta una afirmación de las lecturas en algo investigable'
+    }
+  };
+
+  var datos = null, preguntaActiva = null;
+  var sesion = (new URLSearchParams(location.search).get('sesion') || 'S01').toUpperCase();
+  $('sesion').value = sesion;
+
+  /* ── Marcas de «ya discutida» ────────────────────────────────────
+     Viven solo en este navegador: son el rastro de por dónde va la
+     clase, no un dato del curso.                                    */
+  function claveMarca() { return 'SEM_CP_tablero_leidas_' + sesion; }
+  function leidas() {
+    try { return JSON.parse(localStorage.getItem(claveMarca()) || '{}'); }
+    catch (err) { return {}; }
+  }
+  function alternarMarca(id) {
+    var m = leidas();
+    m[id] ? delete m[id] : m[id] = 1;
+    try { localStorage.setItem(claveMarca(), JSON.stringify(m)); } catch (err) { /* sin persistencia */ }
+    pintarRespuestas();
+  }
+
+  /* ── Aviso ──────────────────────────────────────────────────────── */
+  function aviso(clase, titulo, texto, conCampo) {
+    var el = $('aviso');
+    el.style.display = 'block';
+    el.className = 'aviso ' + (clase || '');
+    el.textContent = '';
+    var s = document.createElement('strong'); s.textContent = titulo; el.appendChild(s);
+    el.appendChild(document.createTextNode(texto));
+    if (!conCampo) return;
+
+    var campoUrl = document.createElement('input');
+    campoUrl.placeholder = 'URL /exec del Apps Script';
+    campoUrl.value = ENDPOINT;
+    var campoTok = document.createElement('input');
+    campoTok.placeholder = 'DASH_TOKEN';
+    campoTok.value = DASH;
+    campoTok.type = 'password';
+    var boton = document.createElement('button');
+    boton.textContent = 'Conectar';
+    boton.onclick = function () {
+      ENDPOINT = campoUrl.value.trim();
+      DASH = campoTok.value.trim();
+      if (ENDPOINT && DASH) cargar();
+    };
+    el.appendChild(campoUrl);
+    el.appendChild(campoTok);
+    el.appendChild(boton);
+  }
+
+  /* ── Carga ──────────────────────────────────────────────────────── */
+  function cargar() {
+    if (!ENDPOINT || !DASH) {
+      aviso('', 'Falta la conexión.',
+        ' No se encontró config.js con la URL y el token de lectura. Escríbalos aquí — no se guardan.',
+        true);
+      return;
+    }
+    $('aviso').style.display = 'none';
+    $('cuentas').textContent = 'cargando…';
+
+    var url = ENDPOINT + '?action=tablero&dash=' + encodeURIComponent(DASH) +
+              '&sesion=' + encodeURIComponent(sesion) + '&t=' + Date.now();
+    fetch(url)
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        if (!d.ok) {
+          datos = null;
+          $('cuentas').textContent = '—';
+          aviso('aviso--malo', 'El servidor rechazó la consulta.',
+            d.error === 'no_autorizado'
+              ? ' El DASH_TOKEN no es correcto. Está en Apps Script → Configuración del proyecto → Propiedades del script.'
+              : ' ' + (d.error || 'error desconocido') + '.',
+            d.error === 'no_autorizado');
+          pintarPreguntas(); pintarRespuestas();
+          return;
+        }
+        datos = d;
+        if (d.preguntas.length && (!preguntaActiva || d.preguntas.indexOf(preguntaActiva) === -1)) {
+          preguntaActiva = d.preguntas[0];
+        }
+        $('cuentas').textContent = d.entregas + '/' + d.inscritos + ' entregas';
+        pintarFaltantes(); pintarPreguntas(); pintarRespuestas();
+      })
+      .catch(function () {
+        $('cuentas').textContent = '—';
+        aviso('aviso--malo', 'No se pudo conectar.',
+          ' Revise la conexión y la URL del despliegue.', true);
+      });
+  }
+
+  /* ── Pintado ────────────────────────────────────────────────────── */
+  function pintarFaltantes() {
+    var el = $('faltantes');
+    if (!datos || !datos.faltantes || !datos.faltantes.length) { el.style.display = 'none'; return; }
+    el.style.display = 'block';
+    el.textContent = '';
+    var h = document.createElement('h2');
+    h.textContent = 'Sin entregar · ' + datos.faltantes.length;
+    el.appendChild(h);
+    var ul = document.createElement('ul');
+    datos.faltantes.forEach(function (p) {
+      var li = document.createElement('li');
+      li.textContent = p.nombre || p.correo;
+      ul.appendChild(li);
+    });
+    el.appendChild(ul);
+  }
+
+  function pintarPreguntas() {
+    var cont = $('preguntas');
+    cont.textContent = '';
+    if (!datos || !datos.preguntas.length) return;
+
+    datos.preguntas.forEach(function (id) {
+      var conCuantas = datos.respuestas.filter(function (r) {
+        return String(r.respuestas[id] || '').trim();
+      }).length;
+      var b = document.createElement('button');
+      b.textContent = id.toUpperCase();
+      var n = document.createElement('span');
+      n.className = 'n';
+      n.textContent = conCuantas;
+      b.appendChild(n);
+      if (id === preguntaActiva) b.className = 'activa';
+      b.onclick = function () { preguntaActiva = id; pintarPreguntas(); pintarRespuestas(); };
+      cont.appendChild(b);
+    });
+  }
+
+  function pintarRespuestas() {
+    var cont = $('respuestas');
+    cont.textContent = '';
+
+    if (!datos) { $('titulo').textContent = '—'; $('subtitulo').textContent = ''; return; }
+    if (!datos.entregas) {
+      $('titulo').textContent = 'Todavía no hay entregas';
+      $('subtitulo').textContent = datos.inscritos + ' estudiante(s) en el roster de ' + datos.sesion + '.';
+      return;
+    }
+
+    var titulos = TITULOS[datos.sesion] || {};
+    $('titulo').textContent = titulos[preguntaActiva] || preguntaActiva.toUpperCase();
+    var marcadas = leidas();
+    var conTexto = datos.respuestas.filter(function (r) { return String(r.respuestas[preguntaActiva] || '').trim(); });
+    $('subtitulo').textContent =
+      conTexto.length + ' de ' + datos.entregas + ' respondieron esta pregunta · ' +
+      datos.sesion + ' · ' + datos.titulo;
+
+    datos.respuestas.forEach(function (r) {
+      var texto = String(r.respuestas[preguntaActiva] || '').trim();
+      var idMarca = r.seudonimo + '|' + preguntaActiva;
+
+      var t = document.createElement('article');
+      t.className = 'tarjeta' + (marcadas[idMarca] ? ' leida' : '');
+
+      var cab = document.createElement('div');
+      cab.className = 'tarjeta__cab';
+      var s = document.createElement('span');
+      s.className = 'seudo';
+      s.textContent = r.seudonimo;
+      cab.appendChild(s);
+      var q = document.createElement('span');
+      q.className = 'quien';
+      q.textContent = r.nombre + ' · ' + r.correo;
+      cab.appendChild(q);
+      var m = document.createElement('button');
+      m.className = 'marca';
+      m.textContent = marcadas[idMarca] ? 'discutida' : 'marcar';
+      m.onclick = function () { alternarMarca(idMarca); };
+      cab.appendChild(m);
+      t.appendChild(cab);
+
+      var p = document.createElement('p');
+      p.className = 'tarjeta__txt' + (texto ? '' : ' vacia');
+      p.textContent = texto || 'Sin responder';
+      t.appendChild(p);
+
+      var pie = document.createElement('p');
+      pie.className = 'tarjeta__pie';
+      pie.textContent = 'v' + r.version + ' · ' + r.timestamp +
+        (r.minutos ? ' · ' + r.minutos + ' min' : '') +
+        (r.declaracionIA ? ' · declaró IA' : '');
+      t.appendChild(pie);
+
+      cont.appendChild(t);
+    });
+  }
+
+  /* ── Controles ──────────────────────────────────────────────────── */
+  var escala = 1;
+  function aplicarEscala() { document.documentElement.style.setProperty('--escala', escala.toFixed(2)); }
+  $('mas').onclick   = function () { escala = Math.min(2.4, escala + 0.12); aplicarEscala(); };
+  $('menos').onclick = function () { escala = Math.max(0.8, escala - 0.12); aplicarEscala(); };
+  $('recargar').onclick = cargar;
+  $('proyeccion').onclick = function () {
+    var on = document.body.classList.toggle('proyeccion');
+    this.classList.toggle('on', on);
+    this.textContent = on ? 'Proyección ACTIVA' : 'Modo proyección';
+  };
+  $('sesion').onchange = function () {
+    sesion = this.value;
+    preguntaActiva = null;
+    history.replaceState(null, '', '?sesion=' + sesion);
+    cargar();
+  };
+
+  // Flechas para pasar de pregunta sin soltar el puntero del proyector.
+  document.addEventListener('keydown', function (e) {
+    if (!datos || !datos.preguntas.length) return;
+    if (/^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName)) return;
+    var i = datos.preguntas.indexOf(preguntaActiva);
+    if (e.key === 'ArrowRight' && i < datos.preguntas.length - 1) { preguntaActiva = datos.preguntas[i + 1]; pintarPreguntas(); pintarRespuestas(); }
+    if (e.key === 'ArrowLeft'  && i > 0)                          { preguntaActiva = datos.preguntas[i - 1]; pintarPreguntas(); pintarRespuestas(); }
+  });
+
+  cargar();
+})();
+</script>
+</html>
