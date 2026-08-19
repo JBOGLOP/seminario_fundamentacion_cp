@@ -124,7 +124,55 @@ la hora, que no es lo mismo que terminar.
 
 ---
 
-## 4 · Plan B: si llegan pocas entregas
+## 4 · Preparar el guion la noche antes
+
+```bash
+node scripts/resumir-entregas.js --sesion S01
+```
+
+Baja las entregas, pide a **Ollama en local** una síntesis y una cita por respuesta, y escribe
+`PRIVADO_guion-S01.md` — fuera del repositorio por el prefijo. Unos **30 segundos** para nueve
+respuestas con `qwen2.5:7b`; un grupo completo de 8 × 5 no debería pasar de tres minutos.
+
+Por cada respuesta deja: **síntesis** de una frase, **datos** extraídos (fechas, cifras,
+instituciones) y una **cita literal**, más la respuesta completa plegada en un desplegable. Y
+antes de cada pregunta, las mismas señales del tablero.
+
+Opciones: `--modelo llama3.1:8b` para cambiar de modelo, `--sin-ia` para generar solo las señales
+y los textos, sin llamar a Ollama.
+
+### Las citas se verifican, no se creen
+
+Todo lo que el modelo devuelve como cita **se busca en el texto original**. Si no aparece —aunque
+sea por una palabra— se descarta y el guion lo dice. Y cuando sí aparece, se copia el fragmento
+**del original**, no el que escribió el modelo: lo que se proyecta son las palabras de la persona,
+con sus tildes y su puntuación.
+
+> **No es una precaución teórica.** En la primera pasada real, sobre nueve respuestas, el modelo
+> propuso **una cita que no era literal** y quedó descartada. Ocho pasaron.
+
+### 🔴 Es un borrador para preparar, no material de clase
+
+Las síntesis son de la máquina. **Léalas y corríjalas antes de usar nada.** En un seminario que
+evalúa verificar lo que se cita, proyectar una paráfrasis automática de lo que escribió un
+estudiante sería contradecir el curso con la herramienta del curso.
+
+Lo que sí puede proyectarse sin reservas son **las citas verificadas** y las **fijadas a mano**
+desde el tablero: unas y otras son palabras del estudiante, no de un modelo.
+
+### Protección de datos
+
+Ollama corre en su equipo: **las respuestas no salen de ahí.** Eso encaja con lo que se les
+declaró —«no se publican ni se comparten con terceros»—. Mandarlas a una API en la nube no
+estaría cubierto por esa declaración y habría que avisarles antes.
+
+Un detalle técnico que ahorra un rato: el **403 de Ollama** que aparece al llamarlo desde una
+página abierta como archivo solo afecta al navegador. Este script corre en Node, no manda
+cabecera `Origin`, y por eso **no hay que configurar `OLLAMA_ORIGINS`**.
+
+---
+
+## 5 · Plan B: si llegan pocas entregas
 
 Puede pasar, sobre todo en la primera. **Decídalo la noche antes, no a las 8:05.**
 
@@ -140,7 +188,7 @@ atención.
 
 ---
 
-## 5 · Lista de comprobación · diez minutos antes
+## 6 · Lista de comprobación · diez minutos antes
 
 - [ ] Tablero abierto **desde el archivo local**, con la sesión correcta seleccionada
 - [ ] El contador muestra las entregas esperadas
@@ -149,3 +197,4 @@ atención.
 - [ ] La tabla letra → apellido a mano (otra ventana o impresa)
 - [ ] Decidido con qué pregunta abre
 - [ ] Las respuestas leídas por usted antes de entrar
+- [ ] Si corrió `resumir-entregas.js`, el guion **leído y corregido**
