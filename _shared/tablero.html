@@ -97,6 +97,45 @@ select option{color:var(--pizarra)}
 .tarjeta__pie{font-family:var(--mono);font-size:.72rem;color:var(--gris-claro);margin:.7rem 0 0}
 .vacia{color:var(--gris-claro);font-style:italic;font-family:var(--sans)}
 
+/* ── Lectura: plegado, resaltado, señales y citas ───────────────── */
+.tarjeta__txt{position:relative}
+.tarjeta__txt.plegado{max-height:10em;overflow:hidden}
+.tarjeta__txt.plegado::after{content:'';position:absolute;left:0;right:0;bottom:0;height:3.4em;
+  background:linear-gradient(rgba(255,255,255,0),var(--blanco))}
+.desplegar{font:inherit;font-size:.76rem;cursor:pointer;border:0;background:none;padding:.45rem 0 0;
+  color:var(--acento-dark);font-weight:700;text-align:left;align-self:flex-start}
+.desplegar:hover{text-decoration:underline}
+
+/* El resaltado no decora: marca lo que se busca al conducir la sesión. */
+mark{background:none;padding:0 .1em;border-radius:3px}
+mark.r-aus{background:var(--arcilla-soft);color:var(--arcilla-deep);font-weight:700}
+mark.r-num{background:var(--piedra-soft);color:var(--piedra-deep);font-weight:700}
+mark.r-fue{background:var(--bosque-soft);color:var(--bosque-dark)}
+
+.senales{display:flex;flex-wrap:wrap;gap:.5rem;margin:0 0 1.1rem}
+.senal{font-size:.78rem;border-radius:999px;padding:.26rem .85rem;background:var(--blanco);
+  box-shadow:var(--shadow-soft);border:1px solid rgba(34,40,42,.08);color:var(--gris)}
+.senal b{font-family:var(--mono);color:var(--pizarra)}
+.senal--aus{background:var(--arcilla-soft);color:var(--arcilla-deep);border-color:var(--arcilla)}
+.senal--aus b{color:var(--arcilla-deep)}
+
+.citas{background:var(--pizarra);color:var(--lino);border-radius:var(--radius);
+  padding:1.1rem 1.3rem;margin:0 0 1.3rem}
+.citas h2{font-size:.9rem;margin:0 0 .8rem;color:var(--piedra-soft);letter-spacing:.06em;text-transform:uppercase}
+.citas blockquote{font-family:var(--serif);font-size:calc(1.08rem * var(--escala));margin:0 0 1rem;
+  padding-left:1rem;border-left:3px solid var(--piedra);line-height:1.45}
+.citas blockquote:last-child{margin-bottom:0}
+.citas .de{display:block;font-family:var(--mono);font-size:.78rem;color:var(--piedra-soft);margin-top:.4rem}
+.citas .quitar{font:inherit;font-size:.7rem;cursor:pointer;border:1px solid rgba(250,248,244,.28);
+  background:none;color:var(--gris-claro);border-radius:999px;padding:.08rem .6rem;margin-left:.5rem}
+.citas .quitar:hover{background:rgba(250,248,244,.12)}
+#fijar{position:fixed;z-index:60;font:inherit;font-size:.8rem;font-weight:600;cursor:pointer;border:0;
+  border-radius:999px;padding:.42rem 1.05rem;background:var(--bosque);color:var(--blanco);
+  box-shadow:var(--shadow-medium);display:none}
+
+/* En proyección se ocultan los botones, no las citas: son para proyectar. */
+body.proyeccion .desplegar,body.proyeccion #fijar,body.proyeccion .citas .quitar{display:none}
+
 /* ── Panel lateral: quién falta (solo modo docente) ─────────────── */
 .faltantes{background:var(--blanco);border-radius:var(--radius);padding:1rem 1.2rem;
   box-shadow:var(--shadow-soft);border-left:4px solid var(--piedra);margin:1.2rem 0;max-width:60ch}
@@ -142,6 +181,8 @@ body.proyeccion .tarjeta{box-shadow:var(--shadow-medium)}
   <div class="preguntas" id="preguntas"></div>
   <h1 class="titulo-pregunta" id="titulo">—</h1>
   <p class="sub" id="subtitulo"></p>
+  <div class="senales" id="senales"></div>
+  <section class="citas" id="citas" style="display:none" aria-label="Citas fijadas"></section>
   <div class="respuestas" id="respuestas"></div>
   <p class="pie">
     Uso docente. Las respuestas contienen datos personales: no proyecte esta página sin activar
@@ -151,6 +192,8 @@ body.proyeccion .tarjeta{box-shadow:var(--shadow-medium)}
 
 <!-- config.js NO está en el repositorio (.gitignore): lleva el token de
      lectura. Si falta, el tablero lo pide por teclado y no lo guarda. -->
+<button type="button" id="fijar">Fijar cita</button>
+
 <script src="../config.js" onerror="void 0"></script>
 <script>
 (function () {
@@ -190,6 +233,158 @@ body.proyeccion .tarjeta{box-shadow:var(--shadow-medium)}
     m[id] ? delete m[id] : m[id] = 1;
     try { localStorage.setItem(claveMarca(), JSON.stringify(m)); } catch (err) { /* sin persistencia */ }
     pintarRespuestas();
+  }
+
+  /* ── Resaltado ────────────────────────────────────────────────────
+     Se construye con NODOS, nunca con innerHTML: el texto lo escribe un
+     estudiante y podría contener etiquetas. textContent más <mark> creados
+     a mano lo dejan inerte.
+
+     No es decoración. Marca las tres cosas que se buscan al conducir:
+     la ausencia de dato —que en este seminario es el hallazgo—, las cifras
+     verificables y las señales de que hay una fuente detrás.            */
+  var PATRONES = [
+    ['r-aus', /(?:no\s+(?:encontr\w+|hay|existe\w*|aparece\w*|figura\w*|est[áa]\s+(?:document|registr)\w*|se\s+(?:encontr|report|registr|document)\w*|pude\s+\w+)|sin\s+(?:registro|datos?|informaci[óo]n|evidencia)\w*|ausencia\s+de\s+\w+|no\s+se\s+conoce)/gi],
+    ['r-num', /(?:\d{1,3}(?:[.,]\d+)?\s?%|(?:19|20)\d{2}|\d{1,3}(?:[.,]\d{3})+|\b\d{3,}\b)/g],
+    ['r-fue', /(?:seg[úu]n\s+\w+|p[áa]g(?:ina)?\.?\s*\d+|OCCP|OMS|WHO|IAHPC|OPS|WHPCA|Atlas|Ley\s+\d+|Resoluci[óo]n\s+\d+|Sentencia\s+[CT]-\d+|https?:\/\/\S+)/gi]
+  ];
+
+  function resaltar(texto) {
+    var frag = document.createDocumentFragment(), hits = [];
+    PATRONES.forEach(function (par) {
+      var re = new RegExp(par[0] && par[1].source, par[1].flags), m;
+      while ((m = re.exec(texto)) !== null) {
+        if (m[0]) hits.push({ i: m.index, f: m.index + m[0].length, c: par[0] });
+        if (m.index === re.lastIndex) re.lastIndex++;
+      }
+    });
+    // Orden de aparición; si dos se solapan gana el que empieza antes, y a
+    // igual inicio el más largo. El resto se descarta.
+    hits.sort(function (a, b) { return a.i - b.i || b.f - a.f; });
+    var pos = 0;
+    hits.forEach(function (h) {
+      if (h.i < pos) return;
+      if (h.i > pos) frag.appendChild(document.createTextNode(texto.slice(pos, h.i)));
+      var mk = document.createElement('mark');
+      mk.className = h.c;
+      mk.textContent = texto.slice(h.i, h.f);
+      frag.appendChild(mk);
+      pos = h.f;
+    });
+    if (pos < texto.length) frag.appendChild(document.createTextNode(texto.slice(pos)));
+    return frag;
+  }
+
+  function palabras(t) { t = (t || '').trim(); return t ? t.split(/\s+/).length : 0; }
+  var LIMITE_PLEGADO = 70;   // palabras antes de plegar la tarjeta
+
+  /* ── Citas fijadas ────────────────────────────────────────────────
+     Son literales por construcción: salen de seleccionar el texto tal como
+     lo escribió la persona. Nada las parafrasea.                       */
+  function claveCitas() { return 'SEM_CP_tablero_citas_' + sesion; }
+  function citas() {
+    try { return JSON.parse(localStorage.getItem(claveCitas()) || '[]'); }
+    catch (err) { return []; }
+  }
+  function guardarCitas(lista) {
+    try { localStorage.setItem(claveCitas(), JSON.stringify(lista)); } catch (err) { /* sin persistencia */ }
+    pintarCitas();
+  }
+  function anadirCita(texto, seudo, pregunta) {
+    var lista = citas();
+    lista.push({ t: texto, s: seudo, p: pregunta });
+    guardarCitas(lista);
+  }
+
+  function pintarCitas() {
+    var el = $('citas');
+    var lista = citas().filter(function (c) { return c.p === preguntaActiva; });
+    if (!lista.length) { el.style.display = 'none'; return; }
+    el.style.display = 'block';
+    el.textContent = '';
+    var h = document.createElement('h2');
+    h.textContent = 'Citas fijadas · ' + lista.length;
+    el.appendChild(h);
+    lista.forEach(function (c) {
+      var bq = document.createElement('blockquote');
+      bq.appendChild(document.createTextNode('«' + c.t + '»'));
+      var de = document.createElement('span');
+      de.className = 'de';
+      de.textContent = '— ' + c.s;
+      var quitar = document.createElement('button');
+      quitar.className = 'quitar';
+      quitar.textContent = 'quitar';
+      quitar.onclick = function () {
+        guardarCitas(citas().filter(function (x) { return !(x.t === c.t && x.s === c.s && x.p === c.p); }));
+      };
+      de.appendChild(quitar);
+      bq.appendChild(de);
+      el.appendChild(bq);
+    });
+  }
+
+  /* Botón flotante al seleccionar texto dentro de una tarjeta. */
+  (function () {
+    var btn = $('fijar');
+    document.addEventListener('mouseup', function () {
+      var sel = window.getSelection();
+      var txt = sel ? String(sel).trim() : '';
+      var nodo = sel && sel.anchorNode;
+      var tarjeta = null;
+      while (nodo && nodo !== document) {
+        if (nodo.nodeType === 1 && nodo.classList && nodo.classList.contains('tarjeta')) { tarjeta = nodo; break; }
+        nodo = nodo.parentNode;
+      }
+      if (!txt || txt.length < 15 || !tarjeta || document.body.classList.contains('proyeccion')) {
+        btn.style.display = 'none';
+        return;
+      }
+      var r = sel.getRangeAt(0).getBoundingClientRect();
+      btn.style.display = 'block';
+      btn.style.left = Math.max(8, Math.min(window.innerWidth - 130, r.left)) + 'px';
+      btn.style.top = Math.max(8, r.top - 44) + 'px';
+      btn.onclick = function () {
+        anadirCita(txt, tarjeta.getAttribute('data-seudo') || '?', preguntaActiva);
+        btn.style.display = 'none';
+        sel.removeAllRanges();
+      };
+    });
+    document.addEventListener('scroll', function () { btn.style.display = 'none'; }, true);
+  })();
+
+  /* ── Señales de la pregunta ───────────────────────────────────────
+     Cuentan lo que importa antes de leer: cuántas reportan ausencia de
+     dato, cuántas apoyan en fuente, y cuánto hay que leer.            */
+  function pintarSenales() {
+    var el = $('senales');
+    el.textContent = '';
+    if (!datos || !datos.entregas) return;
+
+    var conTexto = datos.respuestas
+      .map(function (r) { return String(r.respuestas[preguntaActiva] || '').trim(); })
+      .filter(Boolean);
+    if (!conTexto.length) return;
+
+    var reAus = new RegExp(PATRONES[0][1].source, 'i');
+    var reFue = new RegExp(PATRONES[2][1].source, 'i');
+    var nAus = conTexto.filter(function (t) { return reAus.test(t); }).length;
+    var nFue = conTexto.filter(function (t) { return reFue.test(t); }).length;
+    var largos = conTexto.map(palabras).sort(function (a, b) { return a - b; });
+    var mediana = largos[Math.floor(largos.length / 2)];
+
+    function senal(txt, valor, clase) {
+      var s = document.createElement('span');
+      s.className = 'senal' + (clase ? ' ' + clase : '');
+      var b = document.createElement('b');
+      b.textContent = valor;
+      s.appendChild(b);
+      s.appendChild(document.createTextNode(' ' + txt));
+      el.appendChild(s);
+    }
+    senal('respondieron', conTexto.length + '/' + datos.inscritos);
+    if (nAus) senal('reportan que NO encontraron el dato', nAus, 'senal--aus');
+    senal('se apoyan en una fuente', nFue);
+    senal('palabras de mediana', mediana);
   }
 
   /* ── Aviso ──────────────────────────────────────────────────────── */
@@ -305,6 +500,8 @@ body.proyeccion .tarjeta{box-shadow:var(--shadow-medium)}
     var cont = $('respuestas');
     cont.textContent = '';
 
+    $('senales').textContent = '';
+    $('citas').style.display = 'none';
     if (!datos) { $('titulo').textContent = '—'; $('subtitulo').textContent = ''; return; }
     if (!datos.entregas) {
       $('titulo').textContent = 'Todavía no hay entregas';
@@ -319,6 +516,8 @@ body.proyeccion .tarjeta{box-shadow:var(--shadow-medium)}
     $('subtitulo').textContent =
       conTexto.length + ' de ' + datos.entregas + ' respondieron esta pregunta · ' +
       datos.sesion + ' · ' + datos.titulo;
+    pintarSenales();
+    pintarCitas();
 
     datos.respuestas.forEach(function (r) {
       var texto = String(r.respuestas[preguntaActiva] || '').trim();
@@ -326,6 +525,7 @@ body.proyeccion .tarjeta{box-shadow:var(--shadow-medium)}
 
       var t = document.createElement('article');
       t.className = 'tarjeta' + (marcadas[idMarca] ? ' leida' : '');
+      t.setAttribute('data-seudo', r.seudonimo);
 
       var cab = document.createElement('div');
       cab.className = 'tarjeta__cab';
@@ -345,9 +545,28 @@ body.proyeccion .tarjeta{box-shadow:var(--shadow-medium)}
       t.appendChild(cab);
 
       var p = document.createElement('p');
-      p.className = 'tarjeta__txt' + (texto ? '' : ' vacia');
-      p.textContent = texto || 'Sin responder';
+      if (texto) {
+        p.className = 'tarjeta__txt';
+        p.appendChild(resaltar(texto));
+      } else {
+        p.className = 'tarjeta__txt vacia';
+        p.textContent = 'Sin responder';
+      }
       t.appendChild(p);
+
+      // Las respuestas largas llegan plegadas: ocho abiertas a la vez no se
+      // leen. Se despliega la que se va a discutir.
+      if (palabras(texto) > LIMITE_PLEGADO) {
+        p.classList.add('plegado');
+        var abrir = document.createElement('button');
+        abrir.className = 'desplegar';
+        abrir.textContent = 'Desplegar · ' + palabras(texto) + ' palabras';
+        abrir.onclick = function () {
+          var plegado = p.classList.toggle('plegado');
+          abrir.textContent = plegado ? 'Desplegar · ' + palabras(texto) + ' palabras' : 'Plegar';
+        };
+        t.appendChild(abrir);
+      }
 
       var pie = document.createElement('p');
       pie.className = 'tarjeta__pie';
