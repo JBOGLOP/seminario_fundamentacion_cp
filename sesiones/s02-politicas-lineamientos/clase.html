@@ -120,6 +120,30 @@ th,td{padding:.58rem .75rem;text-align:left;vertical-align:top;border-bottom:1px
 th{background:var(--acento-soft);color:var(--acento-dark);font-size:.8rem}
 tbody tr:last-child td{border-bottom:0}
 
+/* ── Acordeón de normas ───────────────────────────────────────────────
+   <details> nativo: sin una línea de JavaScript, navegable con teclado y
+   anunciado por el lector de pantalla. La ficha completa de cada norma vive
+   plegada para que la diapositiva siga siendo legible en proyector, y quien
+   quiera el detalle lo abre.                                             */
+details{background:var(--blanco);border-radius:var(--radius-sm);box-shadow:var(--shadow-soft);
+  border-left:4px solid var(--acento);padding:.7rem 1rem;max-width:62ch;margin:.7rem 0 0}
+summary{cursor:pointer;font-weight:700;font-size:.9rem;color:var(--acento-dark);list-style:none}
+summary::-webkit-details-marker{display:none}
+summary::before{content:'▸';font-family:var(--mono);margin-right:.5em;display:inline-block}
+details[open] summary::before{content:'▾'}
+details[open] summary{margin-bottom:.5rem}
+details dl{margin:0;font-size:.87rem}
+details dt{font-weight:700;color:var(--pizarra);margin-top:.6rem;font-size:.83rem;
+  letter-spacing:.02em;text-transform:uppercase}
+details dt:first-child{margin-top:0}
+details dd{margin:.2rem 0 0;color:var(--gris);line-height:1.5}
+details dd ul{margin:.3rem 0 0;padding-left:1.05rem}
+details dd li{margin-bottom:.22rem}
+details .cita-norma{font-family:var(--serif);font-style:italic;color:var(--acento-dark);
+  border-left:3px solid var(--acento-soft);padding:.15em 0 .15em .8em;margin:.35rem 0 0}
+/* Al imprimir se abre todo: un acordeón cerrado en papel es texto perdido. */
+@media print{details{page-break-inside:avoid}details>*{display:block !important}}
+
 .pregunta{font-family:var(--serif);font-style:italic;font-size:clamp(1.08rem,2.4vw,1.55rem);
   color:var(--acento-dark);border-left:4px solid var(--acento);padding:.4em 0 .4em 1em;
   max-width:44ch;margin:.3rem 0 1rem}
@@ -332,6 +356,41 @@ tbody tr:last-child td{border-bottom:0}
         <em>solicita</em>, <em>recomienda</em>. No dice «obliga». Ese matiz es el primer peldaño de
         la escalera, y explica por qué doce años después la brecha sigue abierta.
       </p>
+
+      <details>
+        <summary>Ver la ficha de la resolución</summary>
+        <dl>
+          <dt>Qué es</dt>
+          <dd>Resolución de la <strong>67.ª Asamblea Mundial de la Salud</strong>, mayo de 2014.
+            La Asamblea es el órgano de decisión de la OMS, donde participan los Estados miembros.</dd>
+
+          <dt>Título</dt>
+          <dd class="cita-norma">«Strengthening of palliative care as a component of comprehensive
+            care throughout the life course»</dd>
+          <dd>En español suele citarse como «Fortalecimiento de los cuidados paliativos como parte
+            del tratamiento integral a lo largo de la vida».</dd>
+
+          <dt>Qué pide a los Estados miembros</dt>
+          <dd>
+            <ul>
+              <li>Desarrollar y fortalecer <strong>políticas nacionales</strong> de cuidado paliativo, integradas en el sistema de salud y en todos sus niveles.</li>
+              <li>Garantizar <strong>financiación adecuada</strong> y su inclusión en los planes de beneficios.</li>
+              <li>Asegurar la <strong>disponibilidad de medicamentos esenciales</strong>, incluidos los opioides para el alivio del dolor.</li>
+              <li>Incorporar el cuidado paliativo a la <strong>formación</strong> de los profesionales de la salud.</li>
+            </ul>
+          </dd>
+
+          <dt>Por qué es el instrumento de referencia</dt>
+          <dd>Es la primera vez que la Asamblea dedica una resolución entera al cuidado paliativo
+            y lo enmarca <em>a lo largo de todo el curso de la vida</em>, no solo al final. De ahí
+            en adelante, casi toda política nacional la cita.</dd>
+
+          <dt>Su límite</dt>
+          <dd>Una resolución de la Asamblea <strong>no es un tratado</strong>: compromete
+            políticamente, no jurídicamente. Ningún Estado puede ser demandado por incumplirla.
+            Ese es exactamente el primer peldaño de la escalera.</dd>
+        </dl>
+      </details>
     </div>
   </div>
 </section>
@@ -525,8 +584,8 @@ tbody tr:last-child td{border-bottom:0}
         <text x="105" y="98"  font-size="12">2014 · mundo</text>
         <text x="285" y="146" font-size="14" font-weight="700" class="mono">Ley 1733</text>
         <text x="285" y="164" font-size="12">2014 · Colombia</text>
-        <text x="465" y="212" font-size="14" font-weight="700" class="mono">Res. 3280</text>
-        <text x="465" y="230" font-size="12">2018 · RIAS</text>
+        <text x="465" y="212" font-size="14" font-weight="700" class="mono">RIAS</text>
+        <text x="465" y="230" font-size="12">¿cuál para CP?</text>
       </g>
       <text x="645" y="278" text-anchor="middle" font-size="15" font-weight="700" fill="var(--arcilla-dark)">su municipio</text>
       <text x="645" y="296" text-anchor="middle" font-size="19" font-weight="700" fill="var(--arcilla-dark)">?</text>
@@ -543,8 +602,10 @@ tbody tr:last-child td{border-bottom:0}
       <text x="30" y="26" font-size="12.5" class="serif" fill="var(--bosque-dark)">el mismo año arriba y abajo — y once años después</text>
     </svg>
     <figcaption>
-      La ley colombiana es del <strong>mismo año</strong> que la resolución mundial. El país llegó
-      a tiempo al papel. La pregunta es dónde se detuvo la cadena.
+      La ley colombiana es del <strong>mismo año</strong> que la resolución mundial: el país llegó
+      a tiempo al papel. El tercer peldaño lleva interrogante a propósito —
+      <strong>qué ruta operativa tiene el cuidado paliativo es la pregunta abierta de esta
+      sesión</strong>, no un dato que le vayamos a dar.
     </figcaption>
   </figure>
 </section>
@@ -571,6 +632,42 @@ tbody tr:last-child td{border-bottom:0}
         conserva su texto</strong>: cambiar la palabra alteraría la cita. Esa distinción va a
         aparecer en todos los trabajos de la Unidad 1.
       </p>
+
+      <details>
+        <summary>Ver la ficha de la ley</summary>
+        <dl>
+          <dt>Nombre completo</dt>
+          <dd class="cita-norma">Ley 1733 de 2014 — «Ley Consuelo Devis Saavedra, mediante la cual
+            se regulan los servicios de cuidados paliativos para el manejo integral de pacientes
+            con enfermedades terminales, crónicas, degenerativas e irreversibles en cualquier fase
+            de la enfermedad de alto impacto en la calidad de vida».</dd>
+
+          <dt>Qué reconoce</dt>
+          <dd>
+            <ul>
+              <li><strong>El derecho al cuidado paliativo</strong> para quien tenga esas condiciones, y para su familia.</li>
+              <li><strong>Derecho a la información</strong> clara y comprensible sobre el diagnóstico, el pronóstico y las alternativas de tratamiento.</li>
+              <li><strong>Derecho a una segunda opinión</strong> médica.</li>
+              <li><strong>Derecho a desistir</strong> de tratamientos y procedimientos, y a suscribir un documento de voluntad anticipada.</li>
+              <li>Obligaciones para aseguradores y prestadores en la garantía del servicio.</li>
+            </ul>
+          </dd>
+
+          <dt>Por qué importa en la escalera</dt>
+          <dd>Es el peldaño que <strong>crea un derecho exigible</strong>. A diferencia de la
+            resolución mundial, esta sí obliga al Estado colombiano y puede reclamarse — por
+            tutela, entre otras vías.</dd>
+
+          <dt>Lo que no hace</dt>
+          <dd>No dice con qué recursos, ni en qué municipios, ni con qué equipo. Crear el derecho
+            y construir el servicio son dos cosas distintas, y entre una y otra hay once años.</dd>
+
+          <dt>Dónde encontrarla</dt>
+          <dd>Es norma pública: está en el Diario Oficial, en el sitio del Ministerio de Salud y
+            en los buscadores de normativa del Estado. <strong>La pregunta 1 del entregable pide
+            buscarla — y buscar si llegó a algún papel de su institución.</strong></dd>
+        </dl>
+      </details>
     </div>
   </div>
 </section>
@@ -580,23 +677,53 @@ tbody tr:last-child td{border-bottom:0}
   <p class="d__eyebrow">El peldaño operativo</p>
   <h2>Resolución 3280 de 2018 · las RIAS</h2>
   <p class="lead">
-    Donde el derecho se convierte —o debería convertirse— en una ruta con responsables.
+    Las <strong>RIAS</strong> son el mecanismo con el que el sistema colombiano convierte un
+    derecho en una ruta: qué debe pasar, en qué orden y a cargo de quién.
   </p>
   <p>
-    Las <strong>Rutas Integrales de Atención en Salud</strong> definen qué debe pasar, en qué
-    orden y a cargo de quién, a lo largo del curso de vida. Es el instrumento que traduce la ley a
-    algo que un servicio puede ejecutar.
+    La Resolución 3280 es el ejemplo mejor conocido de ese mecanismo. Pero conviene mirarla de
+    cerca, porque <strong>lo que adopta no es una ruta de cuidado paliativo</strong> — y esa
+    diferencia es el corazón de la sesión.
   </p>
-  <p class="nota">
-    <strong>La pregunta que abre la sesión siguiente:</strong> si existe la ruta, ¿por qué hay
-    municipios sin ningún servicio? La sesión 3 se ocupa de eso — <em>barreras de acceso</em>.
-  </p>
+
+  <details>
+    <summary>Ver la ficha de la resolución — y el matiz que importa</summary>
+    <dl>
+      <dt>Qué adopta exactamente</dt>
+      <dd>Los lineamientos técnicos y operativos de la <strong>Ruta Integral de Atención para la
+        Promoción y Mantenimiento de la Salud</strong> y de la <strong>Ruta Integral de Atención
+        en Salud para la Población Materno Perinatal</strong>, con las directrices para su
+        operación.</dd>
+
+      <dt>Léalo otra vez</dt>
+      <dd><strong>Ninguna de esas dos rutas es la de cuidado paliativo.</strong> La 3280 muestra
+        cómo se construye el peldaño operativo en Colombia —es un ejemplo excelente del
+        mecanismo— pero no es el peldaño operativo <em>del cuidado paliativo</em>.</dd>
+
+      <dt>Entonces, ¿qué instrumento operativo tiene el cuidado paliativo?</dt>
+      <dd>Esa es exactamente la pregunta abierta de esta sesión, y no se la vamos a responder:
+        se la vamos a pedir. Puede que exista una ruta, un lineamiento o una guía específica y
+        el curso no la tenga localizada; puede que el peldaño esté vacío.</dd>
+
+      <dt>Por qué está en la presentación de todos modos</dt>
+      <dd>Porque enseña la forma del peldaño. Y porque el hábito de citar «la 3280» como respaldo
+        de cualquier cosa relacionada con rutas es frecuente — <strong>y es el tipo de cita que
+        este seminario enseña a verificar.</strong></dd>
+    </dl>
+  </details>
+
   <p class="verificar">
-    <strong>[DATO POR VERIFICAR]</strong> El contenido programático nombra <strong>PAIS</strong> y
-    un «Modelo Preventivo y resolutivo» junto a las RIAS. El marco de política de atención integral
-    ha cambiado de nombre y de énfasis varias veces en los últimos años (PAIS, MAITE y sucesivos).
-    <strong>Cuál es el marco vigente en 2026 está pendiente de confirmar contra fuente oficial</strong>,
-    y así se dice en clase en vez de afirmar uno.
+    <strong>[DATO POR VERIFICAR] · dos cosas</strong><br>
+    <strong>1.</strong> Cuál es el instrumento operativo específico del cuidado paliativo en
+    Colombia —ruta, lineamiento o guía— si es que existe. El curso no lo tiene localizado.<br>
+    <strong>2.</strong> El contenido programático nombra <strong>PAIS</strong> y un «Modelo
+    Preventivo y resolutivo». Ese marco ha cambiado de nombre y énfasis varias veces (PAIS, MAITE
+    y sucesivos) y <strong>cuál rige en 2026 está sin confirmar</strong> contra fuente oficial.
+  </p>
+
+  <p class="nota" style="margin-top:.8rem">
+    <strong>La pregunta que abre la sesión siguiente:</strong> aunque exista la ruta, ¿por qué hay
+    municipios sin ningún servicio? La sesión 3 se ocupa de eso — <em>barreras de acceso</em>.
   </p>
 </section>
 
