@@ -135,6 +135,11 @@ mark.r-fue{background:var(--bosque-soft);color:var(--bosque-dark)}
 
 /* En proyección se ocultan los botones, no las citas: son para proyectar. */
 body.proyeccion .desplegar,body.proyeccion #fijar,body.proyeccion .citas .quitar{display:none}
+/* …y la respuesta se despliega entera. El plegado sirve para que el docente
+   recorra ocho tarjetas en su pantalla; en el proyector se lee todo. Y como
+   el botón de desplegar no está, dejarla cortada sería peor que no plegarla. */
+body.proyeccion .tarjeta__txt.plegado{max-height:none}
+body.proyeccion .tarjeta__txt.plegado::after{content:none}
 
 /* ── Panel lateral: quién falta (solo modo docente) ─────────────── */
 .faltantes{background:var(--blanco);border-radius:var(--radius);padding:1rem 1.2rem;
