@@ -44,7 +44,7 @@ siete ya están publicadas; el material se construye una a una.
 | # | Fecha | Sesión | Unidad |
 |---|---|---|---|
 | 1 | 21 ago | [Antecedentes históricos y fundamentos filosóficos](sesiones/s01-historia-fundamentos/) — [presentación](sesiones/s01-historia-fundamentos/clase.html) · [entregable](sesiones/s01-historia-fundamentos/preparacion.html) | U1 |
-| 2 | 4 sep | [Lineamientos y políticas: mundo, región, Colombia](sesiones/s02-politicas-lineamientos/) | U1 |
+| 2 | 4 sep | [Lineamientos y políticas: mundo, región, Colombia](sesiones/s02-politicas-lineamientos/) — [presentación](sesiones/s02-politicas-lineamientos/clase.html) · [entregable](sesiones/s02-politicas-lineamientos/preparacion.html) | U1 |
 | 3 | 18 sep | [Marco legal, enfoque de derechos y barreras de acceso](sesiones/s03-marco-legal-barreras/) | U1 · entrega 35 % |
 | 4 | 2 oct | [Modelos de atención y telesalud](sesiones/s04-modelos-telesalud/) | U2 |
 | 5 | 16 oct | [Enfoques diferenciales](sesiones/s05-enfoques-diferenciales/) | U2 · entrega 35 % |
@@ -58,8 +58,8 @@ La lista canónica vive en [`sesiones/_sesiones.json`](sesiones/_sesiones.json),
 
 ## Estado
 
-El sitio y el motor de entregables están completos y **la sesión 1 está construida**. Faltan las
-sesiones 2 a 7. El semestre arranca el **21 de agosto de 2026**.
+El sitio y el motor de entregables están completos. **Las sesiones 1 y 2 están construidas** y
+la 1 ya se dictó. Faltan las sesiones 3 a 7.
 
 > **¿Va a trabajar en este repositorio?** Empiece por [`HANDOFF.md`](HANDOFF.md): tiene el
 > contexto completo, las reglas del proyecto y lo que costó caro aprender.

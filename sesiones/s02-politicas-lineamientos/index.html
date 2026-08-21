@@ -3,26 +3,19 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>02 · Lineamientos y políticas: mundo, región, Colombia — Seminario de fundamentación en CP</title>
-<meta name="description" content="Sesión 2 del Seminario de fundamentación en cuidados paliativos (32264001), Maestría en Cuidados Paliativos, Universidad Antonio Nariño. Lineamientos y políticas: mundo, región, Colombia.">
+<meta name="description" content="Sesión 2 del Seminario de fundamentación en cuidados paliativos (32264001), Universidad Antonio Nariño. Qué estudiar antes, qué entregar y cómo transcurre el encuentro sincrónico del 4 de septiembre de 2026.">
 
 <!-- ===========================================================================
-     PLANTILLA DE SESIÓN — no se edita para una sesión concreta.
+     GUÍA DE LA SESIÓN 2 · viernes 4 de septiembre de 2026 · sincrónico · 3 h
 
-     La usa scripts/nueva-sesion.js para crear cada carpeta sesiones/sNN-slug/.
-     Los marcadores van en formato de plantilla JS —llave con dólar delante— a
-     propósito: scripts/verificar.js ya omite esa forma en la comprobación de
-     enlaces, así que la plantilla convive con el verificador sin excepciones.
-     Por eso mismo aquí no se escribe ninguno de ejemplo: el generador lo leería
-     como un marcador de verdad y lo daría por huérfano.
+     Esta página dice qué hacer y cuándo. El contenido del tema está en
+     clase.html (presentación) y el trabajo previo en preparacion.html.
 
-     Portabilidad (regla 1 del HANDOFF): tokens en línea, cero recursos
-     externos, cero JavaScript. Abre con doble clic y sin conexión.
+     Portabilidad: paleta en línea, cero recursos externos, cero JavaScript.
      =========================================================================== -->
 
 <style>
-/* --- tokens.css en línea · FUENTE CANÓNICA: _shared/tokens.css -------------
-   Se copia, no se enlaza: la página debe abrir sin servidor. Si un valor
-   cambia en tokens.css, hay que propagarlo aquí.                          --- */
+/* --- tokens.css en línea · FUENTE CANÓNICA: _shared/tokens.css ----------- */
 :root{
   --bosque:#2F5D50;    --bosque-dark:#234639;    --bosque-deep:#17302A;  --bosque-soft:#D6E3DD;
   --arcilla:#C4714F;   --arcilla-dark:#A2563A;   --arcilla-deep:#6F3823; --arcilla-soft:#F3DCD1;
@@ -37,175 +30,281 @@
   --mono:'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace;
   --serif:Georgia,'Times New Roman',serif;
 
-  /* Acento de la unidad; el generador lo sustituye */
-  --acento:      var(--bosque);
-  --acento-dark: var(--bosque-deep);
-  --acento-soft: var(--bosque-soft);
+  /* Unidad 1 → bosque */
+  --acento:var(--bosque); --acento-dark:var(--bosque-deep); --acento-soft:var(--bosque-soft);
 }
-
 *,*::before,*::after{box-sizing:border-box}
-body{
-  margin:0; font-family:var(--sans); color:var(--pizarra);
-  background:var(--lino); line-height:1.55;
-}
-.envoltura{max-width:64rem; margin:0 auto; padding:0 clamp(1rem,4vw,2.5rem)}
-
-/* Salto al contenido: la navegación por teclado es requisito, no adorno. */
-.saltar{
-  position:absolute; left:-9999px; top:0; background:var(--pizarra);
-  color:var(--blanco); padding:.6rem 1rem; z-index:100; border-radius:0 0 var(--radius-sm) 0;
-}
-.saltar:focus{left:0}
-:focus-visible{outline:3px solid var(--acento); outline-offset:2px}
-
-/* --- Cabecera ----------------------------------------------------------- */
-.cabecera{
-  background:linear-gradient(160deg,var(--lino) 0%,var(--acento-soft) 100%);
-  border-bottom:4px solid var(--acento); padding:clamp(2rem,6vw,3.5rem) 0 clamp(1.5rem,4vw,2.5rem);
-}
-.migas{font-size:.85rem; color:var(--gris); margin-bottom:1.2rem}
-.migas a{color:var(--acento-dark)}
-.eyebrow{
-  font-size:.78rem; letter-spacing:.14em; text-transform:uppercase;
-  color:var(--acento-dark); font-weight:700; margin-bottom:.4rem;
-}
-h1{
-  font-size:clamp(1.7rem,4vw,2.7rem); line-height:1.15; letter-spacing:-.02em;
-  margin:0 0 .6rem; max-width:22ch;
-}
-.numero{
-  font-family:var(--mono); font-size:.9rem; color:var(--gris);
-  display:block; margin-bottom:.3rem;
-}
-.chips{display:flex; flex-wrap:wrap; gap:.5rem; margin-top:1.2rem}
-.chip{
-  background:var(--blanco); border:1px solid var(--acento-soft); color:var(--pizarra);
-  border-radius:999px; padding:.32rem .9rem; font-size:.85rem; box-shadow:var(--shadow-soft);
-}
-.chip--entrega{background:var(--piedra-soft); border-color:var(--piedra); color:var(--piedra-deep); font-weight:600}
-
-/* --- Secciones ---------------------------------------------------------- */
-main{padding:clamp(2rem,5vw,3rem) 0}
-section{margin-bottom:clamp(2rem,5vw,3rem)}
-h2{
-  font-size:clamp(1.2rem,2.4vw,1.6rem); color:var(--acento-dark);
-  margin:0 0 .8rem; line-height:1.25;
-}
-p{margin:0 0 1em; max-width:68ch}
-ul{max-width:68ch; padding-left:1.2rem}
-li{margin-bottom:.45rem}
+body{margin:0;font-family:var(--sans);color:var(--pizarra);background:var(--lino);line-height:1.62}
+:focus-visible{outline:3px solid var(--acento);outline-offset:2px}
 a{color:var(--acento-dark)}
+.envoltura{max-width:52rem;margin:0 auto;padding:0 1.25rem}
+.saltar{position:absolute;left:-9999px;background:var(--pizarra);color:var(--lino);padding:.6rem 1rem;z-index:10}
+.saltar:focus{left:0}
 
-.temas{list-style:none; padding:0; max-width:68ch}
-.temas li{
-  background:var(--blanco); border-radius:var(--radius-sm); box-shadow:var(--shadow-soft);
-  border-left:3px solid var(--acento); padding:.75rem 1rem; margin-bottom:.6rem;
-}
+.nav-sesion{background:var(--pizarra);color:var(--lino);padding:.55rem 1rem;font-size:.82rem;
+  display:flex;flex-wrap:wrap;align-items:center;gap:.3rem .9rem;line-height:1.6}
+.nav-sesion a{color:var(--bosque-soft);text-decoration:none;border-bottom:1px solid transparent}
+.nav-sesion a:hover,.nav-sesion a:focus{border-bottom-color:var(--piedra)}
+.nav-sesion .ns-curso{font-weight:700}
+.nav-sesion .ns-meta{color:var(--gris-claro)}
+@media print{.nav-sesion{display:none}}
 
-/* Estado del material. Mientras diga «en preparación» no hay enlace que
-   pueda romperse: el estado se dice, no se finge con un enlace muerto. */
-.estado{
-  background:var(--blanco); border-radius:var(--radius); box-shadow:var(--shadow-soft);
-  border-top:3px solid var(--gris-claro); padding:1.1rem 1.25rem; max-width:68ch;
-}
-.estado__etq{
-  display:inline-block; font-size:.7rem; font-weight:700; letter-spacing:.06em;
-  text-transform:uppercase; padding:.15em .55em; border-radius:4px;
-  background:var(--piedra-soft); color:var(--piedra-deep); margin-bottom:.6rem;
-}
-.estado p:last-child{margin-bottom:0}
+.hero{background:linear-gradient(155deg,var(--lino) 0%,var(--bosque-soft) 100%);
+  padding:clamp(2rem,6vw,3.4rem) 0 clamp(1.5rem,4vw,2.4rem);border-bottom:1px solid rgba(34,40,42,.07)}
+.hero__eyebrow{font-size:.74rem;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--acento);font-weight:700;margin:0 0 .5rem}
+h1{font-size:clamp(1.6rem,4.4vw,2.6rem);line-height:1.13;letter-spacing:-.018em;margin:0 0 .6rem}
+.hero__sub{font-size:1.02rem;color:var(--gris);max-width:54ch;margin:0}
+.meta{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:1.2rem}
+.chip{background:var(--blanco);border:1px solid rgba(34,40,42,.09);border-radius:999px;
+  padding:.28rem .85rem;font-size:.82rem;box-shadow:var(--shadow-soft)}
+.epigrafe{font-family:var(--serif);font-style:italic;color:var(--acento-dark);
+  margin:1.4rem 0 0;font-size:1.05rem;max-width:46ch}
+.epigrafe span{display:block;font-style:normal;font-family:var(--sans);
+  font-size:.78rem;color:var(--gris);margin-top:.4em}
 
-.procedencia{
-  font-family:var(--serif); font-style:italic; color:var(--gris);
-  border-left:4px solid var(--acento-soft); padding:.4em 0 .4em 1em; max-width:60ch;
-}
+section{padding:clamp(1.8rem,4vw,2.7rem) 0}
+h2{font-size:clamp(1.25rem,3vw,1.7rem);margin:0 0 .3rem;line-height:1.24}
+h3{font-size:1.02rem;margin:0 0 .35rem;color:var(--acento-dark)}
+p{max-width:62ch}
+.intro{color:var(--gris);max-width:62ch;margin:0 0 1.4rem}
 
-/* --- Pie ---------------------------------------------------------------- */
-footer{
-  border-top:1px solid var(--gris-claro); background:var(--blanco);
-  padding:2rem 0; font-size:.88rem; color:var(--gris);
-}
-footer p{max-width:68ch}
-footer a{color:var(--acento-dark)}
+/* Las dos piezas: material y entregable */
+.piezas{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,18rem),1fr))}
+.pieza{background:var(--blanco);border-radius:var(--radius);padding:1.2rem 1.35rem;
+  box-shadow:var(--shadow-medium);border-top:4px solid var(--acento);display:flex;flex-direction:column}
+.pieza--entrega{border-top-color:var(--arcilla)}
+.pieza--entrega h3{color:var(--arcilla-deep)}
+.pieza__n{font-family:var(--mono);font-size:.73rem;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--gris);margin:0 0 .3rem}
+.pieza h3{font-size:1.14rem;color:var(--acento-dark);margin-bottom:.5rem}
+.pieza p{font-size:.93rem;color:var(--gris);margin:0 0 1rem;flex:1}
+.boton{display:inline-block;background:var(--acento);color:var(--blanco);text-decoration:none;
+  font-weight:600;font-size:.93rem;border-radius:999px;padding:.55rem 1.35rem;align-self:flex-start}
+.boton:hover{background:var(--acento-dark)}
+.boton--entrega{background:var(--arcilla-dark)}
+.boton--entrega:hover{background:var(--arcilla-deep)}
+.plazo{font-family:var(--mono);font-size:.79rem;color:var(--arcilla-deep);margin:.7rem 0 0}
 
-@media print{
-  .saltar,.migas{display:none}
-  body{background:var(--blanco)}
-}
+/* Guion */
+.guion{list-style:none;margin:0;padding:0;display:grid;gap:.5rem}
+.guion li{display:flex;gap:.9rem;background:var(--blanco);border-radius:var(--radius-sm);
+  padding:.75rem 1rem;box-shadow:var(--shadow-soft);border-left:3px solid var(--acento);font-size:.94rem}
+.guion li.pausa{border-left-color:var(--piedra);background:var(--piedra-soft)}
+.guion .t{font-family:var(--mono);font-size:.79rem;color:var(--gris);white-space:nowrap;min-width:5.6rem;padding-top:.12rem}
+.guion .d{display:block;color:var(--gris);font-size:.88rem}
+
+/* Preguntas del entregable */
+.preguntas{list-style:none;padding:0;margin:1rem 0 0;display:grid;gap:.55rem;max-width:62ch}
+.preguntas li{background:var(--blanco);border-radius:var(--radius-sm);padding:.8rem 1rem;
+  box-shadow:var(--shadow-soft);border-left:3px solid var(--arcilla);font-size:.93rem}
+.preguntas .n{font-family:var(--mono);font-size:.72rem;font-weight:700;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--arcilla-deep);display:block;margin-bottom:.15rem}
+
+/* Lecturas */
+.lecturas{list-style:none;padding:0;margin:1rem 0 0;display:grid;gap:.55rem;max-width:62ch}
+.lecturas li{background:var(--blanco);border-radius:var(--radius-sm);padding:.8rem 1rem;
+  box-shadow:var(--shadow-soft);border-left:3px solid var(--piedra);font-size:.92rem}
+.lecturas .tipo{display:block;font-family:var(--mono);font-size:.71rem;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--piedra-deep);font-weight:700;margin-bottom:.2rem}
+
+.nota{background:var(--blanco);border-left:4px solid var(--piedra);border-radius:var(--radius-sm);
+  padding:1rem 1.2rem;box-shadow:var(--shadow-soft);font-size:.92rem;color:var(--gris);max-width:62ch}
+.nota strong{color:var(--pizarra)}
+
+footer{background:var(--pizarra);color:var(--lino);margin-top:2rem;padding:2rem 0;font-size:.87rem}
+footer a{color:var(--bosque-soft)}
+footer p{margin:0 0 .5rem;max-width:62ch}
+.footer__legal{color:#A8AEAB;font-size:.8rem;margin-top:.9rem}
+@media print{body{background:var(--blanco)}.saltar{display:none}}
 </style>
 
 <a class="saltar" href="#contenido">Saltar al contenido</a>
 
-<header class="cabecera">
+<nav class="nav-sesion" aria-label="Navegación del seminario">
+  <a class="ns-curso" href="../../index.html">← Seminario de fundamentación en CP</a>
+  <a href="../s01-historia-fundamentos/">← Sesión anterior</a>
+  <span class="ns-meta">Sesión 2 · 4 sep 2026 · Unidad 1</span>
+  <a href="../s03-marco-legal-barreras/">Siguiente sesión →</a>
+</nav>
+
+<header class="hero">
   <div class="envoltura">
-    <nav class="migas" aria-label="Ruta de navegación">
-      <a href="../../index.html">Seminario de fundamentación en CP</a> · Sesión 2
-    </nav>
-    <p class="eyebrow">Unidad 1 · Contexto histórico-filosófico y lineamientos sociopolíticos</p>
-    <span class="numero">Sesión 02</span>
+    <p class="hero__eyebrow">Unidad 1 · Tema 2 · Sesión sincrónica</p>
     <h1>Lineamientos y políticas: mundo, región, Colombia</h1>
-    <ul class="chips">
-      <li class="chip">viernes 4 de septiembre de 2026</li>
-      <li class="chip">Sincrónico</li>
-      <li class="chip">3 horas</li>
-      <li class="chip">Primer corte</li>
-      
-    </ul>
+    <p class="hero__sub">
+      Hay resoluciones, leyes, rutas y modelos. Esta sesión pregunta qué hace cada uno de esos
+      instrumentos, en qué se diferencian, y en qué punto de la cadena deja de haber algo.
+    </p>
+    <div class="meta">
+      <span class="chip">viernes 4 de septiembre de 2026</span>
+      <span class="chip">Sincrónico · 8:00 a 11:00</span>
+      <span class="chip">Primer corte</span>
+    </div>
+    <p class="epigrafe">
+      Un lineamiento no abre un servicio: vuelve exigible lo que antes era discrecional.
+      <span>El punto de la sesión</span>
+    </p>
   </div>
 </header>
 
 <main id="contenido">
+
+<section>
   <div class="envoltura">
+    <h2>Lo que hay que hacer antes del viernes</h2>
+    <p class="intro">
+      Dos cosas, en este orden. La primera toma alrededor de una hora; la segunda, unas dos.
+    </p>
 
-    <section aria-labelledby="h-temas">
-      <h2 id="h-temas">Qué se trabaja</h2>
-      <ul class="temas">
-        <li>Políticas mundiales: OMS, Banco Mundial, BID, OCDE, IAHPC, SECPAL</li>
-        <li>Políticas latinoamericanas: OPS, CEPAL, ALCP</li>
-        <li>Políticas colombianas: PAIS y RIAS</li>
-      </ul>
-    </section>
-
-    <section aria-labelledby="h-material">
-      <h2 id="h-material">Material de la sesión</h2>
-      <div class="estado">
-        <p class="estado__etq">En preparación</p>
+    <div class="piezas">
+      <article class="pieza">
+        <p class="pieza__n">Primero</p>
+        <h3>Estudiar la presentación</h3>
         <p>
-          Todavía no hay material publicado para esta sesión. Cuando lo haya, aparecerá
-          aquí y en la <a href="../../index.html">portada del seminario</a>.
+          Veinte diapositivas con <strong>cuatro figuras</strong>: la escalera que va de la
+          resolución mundial al servicio, el mapa de organismos según la palanca que usan
+          —norma, dinero, comparación, ciencia—, la cadena colombiana, y lo que un lineamiento
+          no hace. Se lee sin conexión y se imprime completa.
         </p>
+        <a class="boton" href="clase.html">Abrir la presentación</a>
+      </article>
+
+      <article class="pieza pieza--entrega">
+        <p class="pieza__n">Después</p>
+        <h3>Responder el entregable</h3>
         <p>
-          Mientras tanto, esta ficha existe para que el recorrido del seminario esté
-          completo desde el primer día: se sabe qué se va a trabajar y cuándo, aunque
-          la clase no esté construida.
+          <strong>Cuatro preguntas, y cada una dice dónde buscar.</strong> Es el cambio que
+          trajo la sesión pasada: sin una fuente señalada, el dato no aparece. Se guarda solo
+          mientras escribe —también sin conexión— y se puede corregir y reenviar hasta el cierre.
         </p>
-      </div>
-    </section>
+        <a class="boton boton--entrega" href="preparacion.html">Abrir el entregable</a>
+        <p class="plazo">Cierra el viernes 4 de septiembre a las 7:00</p>
+      </article>
+    </div>
 
-    <section aria-labelledby="h-procedencia">
-      <h2 id="h-procedencia">De dónde sale</h2>
-      <p class="procedencia">Clases 3, 4 y 5 de Contexto Histórico y Legal (2026-I)</p>
-    </section>
-
+    <p class="nota" style="margin-top:1.4rem">
+      <strong>Cuenta para el primer corte.</strong> Es el segundo de los tres entregables que el
+      producto del 18 de septiembre integra. Lo que escriba sobre la cadena normativa de su
+      territorio le sirve directamente para ese producto.
+    </p>
   </div>
+</section>
+
+<section>
+  <div class="envoltura">
+    <h2>Cómo transcurre la sesión</h2>
+    <p class="intro">
+      Esta vez es <strong>sincrónica</strong>: nos vemos por videollamada. El contenido llega
+      leído, así que las tres horas se dedican a poner en común lo que cada quien escribió. Las
+      respuestas se comparten por pantalla, sin nombres.
+    </p>
+
+    <ol class="guion">
+      <li><span class="t">8:00–8:15</span><span><strong>Lo que encontró el grupo</strong><span class="d">Se abre con el resultado de la sesión 1: dónde hubo fuente y dónde no, y por qué eso ya es un hallazgo.</span></span></li>
+      <li><span class="t">8:15–9:15</span><span><strong>Preguntas 1 y 2 · la cadena</strong><span class="d">Qué llegó al papel de cada institución, y qué compromete de verdad la resolución de 2014. De ahí sale el mapa de en qué peldaño se detuvo la cadena en cada territorio.</span></span></li>
+      <li class="pausa"><span class="t">9:15–9:25</span><span><strong>Pausa</strong><span class="d">—</span></span></li>
+      <li><span class="t">9:25–10:15</span><span><strong>Pregunta 3 · las búsquedas</strong><span class="d">Qué encontró cada quien —o no— sobre BID, OCDE y CEPAL. Se comparan los términos de búsqueda: aquí se aprende método, no contenido.</span></span></li>
+      <li><span class="t">10:15–10:45</span><span><strong>Pregunta 4 · las preguntas del grupo</strong><span class="d">Se leen y se depuran entre todos. Las mejores alimentan el producto del corte.</span></span></li>
+      <li><span class="t">10:45–11:00</span><span><strong>Cierre</strong><span class="d">Qué queda abierto y qué se lleva a la sesión 3, que es la de barreras de acceso.</span></span></li>
+    </ol>
+
+    <p class="nota" style="margin-top:1.2rem">
+      <strong>Al ser sincrónica, dos cosas prácticas.</strong> Conéctese unos minutos antes: la
+      sesión empieza a las 8:00 en punto y el primer bloque es corto. Y tenga el entregable propio
+      abierto en otra ventana — va a querer volver sobre lo que escribió mientras se comparan las
+      respuestas.
+    </p>
+
+    <p class="nota" style="margin-top:.9rem">
+      <strong>Las respuestas se proyectan sin nombre:</strong> cada quien aparece con una letra.
+      La idea es que pueda escribir con franqueza sobre lo que pasa donde trabaja. El docente sí
+      sabe quién escribió qué —hay nota de por medio—, pero el grupo no.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="envoltura">
+    <h2>Las cuatro preguntas</h2>
+    <p class="intro">
+      Van aquí para que sepa hacia dónde mirar mientras estudia. Se responden dentro del
+      entregable. <strong>Todas dicen dónde buscar</strong>; si busca donde se indica y no
+      encuentra nada, eso es una respuesta completa.
+    </p>
+    <ol class="preguntas">
+      <li><span class="n">Pregunta 1 · del papel nacional al de su servicio</span>¿La Ley 1733 de 2014 o la Resolución 3280 de 2018 aparecen nombradas en algún documento interno de su institución? Qué buscó, dónde, y qué <em>no</em> encontró.</li>
+      <li><span class="n">Pregunta 2 · lectura de fuente en inglés</span>Lea la resolución <strong>WHA67.19</strong> y elija un compromiso concreto. Fíjese en el verbo. ¿Hay algún instrumento colombiano que responda a él?</li>
+      <li><span class="n">Pregunta 3 · una búsqueda de resultado incierto</span>Busque un documento del BID, la OCDE o la CEPAL sobre cuidado paliativo. Encontrarlo y demostrar que no está valen lo mismo, si la búsqueda está descrita.</li>
+      <li><span class="n">Pregunta 4 · de la afirmación a la pregunta</span>Convierta un instrumento de esta sesión en una pregunta de investigación respondible.</li>
+    </ol>
+  </div>
+</section>
+
+<section>
+  <div class="envoltura">
+    <h2>Fuentes de apoyo</h2>
+    <p class="intro">
+      La presentación es autosuficiente para entender la cadena. Estas tres sostienen preguntas
+      concretas y no hay que leerlas enteras — solo lo que la pregunta pide.
+    </p>
+    <ul class="lecturas">
+      <li>
+        <span class="tipo">Necesaria para la pregunta 2 · en inglés</span>
+        <strong>Resolución WHA67.19 (2014)</strong> — «Strengthening of palliative care as a
+        component of comprehensive care throughout the life course». Corta y estructurada en
+        verbos.
+        <a href="https://apps.who.int/gb/ebwha/pdf_files/WHA67/A67_R19-en.pdf">apps.who.int</a>
+      </li>
+      <li>
+        <span class="tipo">Necesaria para la pregunta 1</span>
+        <strong>Ley 1733 de 2014</strong> y <strong>Resolución 3280 de 2018</strong>. Documentos
+        públicos del Ministerio de Salud.
+        <a href="https://www.minsalud.gov.co/">minsalud.gov.co</a>
+      </li>
+      <li>
+        <span class="tipo">Necesaria para la pregunta 3</span>
+        <strong>Repositorios del BID, la OCDE y la CEPAL.</strong> Los tres publican en abierto.
+        La pregunta es justamente si hay algo sobre cuidado paliativo en ellos.
+        <a href="https://repositorio.cepal.org/">repositorio.cepal.org</a>
+      </li>
+    </ul>
+
+    <p class="nota" style="margin-top:1.4rem">
+      <strong>Qué se lleva a la sesión 3.</strong> Aquí se ve que la cadena normativa existe y
+      dónde suele detenerse. La sesión 3 se ocupa de la pregunta que queda: <em>barreras de
+      acceso</em> — qué se interpone en concreto entre el derecho escrito y la persona que lo
+      necesita.
+    </p>
+  </div>
+</section>
+
 </main>
 
 <footer>
   <div class="envoltura">
     <p>
-      <strong>Seminario de fundamentación en cuidados paliativos</strong> ·
-      código 32264001 · plan 3660 · 3 créditos<br>
-      Maestría en Cuidados Paliativos · Facultad de Enfermería ·
-      Universidad Antonio Nariño · 2026-II
+      <strong>Sesión 2 · Lineamientos y políticas: mundo, región, Colombia</strong><br>
+      Seminario de fundamentación en cuidados paliativos · código 32264001 · plan 3660 ·
+      3 créditos<br>
+      Maestría en Cuidados Paliativos · Facultad de Enfermería · Universidad Antonio Nariño ·
+      2026-II
     </p>
     <p>
       Docente: Jorge Wilhem Bogoya López ·
       <a href="mailto:jbogoya63@uan.edu.co">jbogoya63@uan.edu.co</a>
     </p>
     <p>
-      Material docente de acceso abierto. Las normas y sentencias citadas son documentos
-      públicos; el material de terceros se referencia, no se reproduce.
-      <a href="../../index.html">Volver a la portada</a>.
+      <a href="clase.html">Presentación</a> ·
+      <a href="preparacion.html">Entregable</a> ·
+      <a href="../../index.html">Portada del seminario</a>
+    </p>
+    <p class="footer__legal">
+      Material docente de acceso abierto, preparado para abrirse sin conexión. Las normas y
+      sentencias citadas son documentos públicos; el material de terceros se referencia en APA 7,
+      no se reproduce. Los datos rotulados <strong>[DATO POR VERIFICAR]</strong> están pendientes
+      de contraste con fuente primaria y se señalan en vez de resolverse por conjetura. Este sitio
+      no publica datos de estudiantes.
     </p>
   </div>
 </footer>

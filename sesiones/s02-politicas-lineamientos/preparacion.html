@@ -1,0 +1,739 @@
+<!doctype html>
+<html lang="es">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Entregable previo · Sesión 2 — Seminario de fundamentación en CP</title>
+<meta name="description" content="Entregable previo a la sesión 2 del Seminario de fundamentación en cuidados paliativos (32264001), Universidad Antonio Nariño. Lineamientos y políticas: mundo, región y Colombia.">
+
+<!-- ===========================================================================
+     ENTREGABLE PREVIO · SESIÓN 2
+     Se entrega antes del viernes 4 de septiembre de 2026, 7:00.
+
+     CUATRO PREGUNTAS, NO CINCO, y cada una dice DÓNDE BUSCAR. Las dos cosas
+     salen de medir la sesión 1: la carga real fue de 240 minutos de mediana
+     frente a los 180 anunciados, y la pregunta que no señalaba una fuente
+     (P3) se quedó sin una sola respuesta anclada en evidencia — 0 de 7—
+     mientras la que sí la señalaba (P4) las tuvo todas.
+
+     PORTABILIDAD (regla 1 del HANDOFF). Esta página se lee, se responde y se
+     guarda SIN CONEXIÓN: el texto se autoguarda en el navegador y no se pierde
+     al cerrar. Solo el envío final necesita red, y si no la hay, el botón
+     «Copiar todo» deja el trabajo listo para mandarlo por otro medio.
+     Cero recursos externos: ni fuentes, ni librerías, ni imágenes remotas.
+
+     DATOS PERSONALES. Esta página no lleva la lista del curso. El estudiante
+     escribe su correo y el servidor lo valida contra el roster, que nunca sale
+     de la hoja. Ver scripts/apps-script/Codigo.gs.
+
+     ENDPOINT y TOKEN son públicos por diseño: viajan dentro de una página
+     pública y solo enrutan. Quien no esté en el roster no entra aunque los
+     tenga. El token que sí es secreto —el de lectura del tablero— no está aquí.
+     =========================================================================== -->
+
+<style>
+:root{
+  --bosque:#2F5D50;    --bosque-dark:#234639;    --bosque-deep:#17302A;  --bosque-soft:#D6E3DD;
+  --arcilla:#C4714F;   --arcilla-dark:#A2563A;   --arcilla-deep:#6F3823; --arcilla-soft:#F3DCD1;
+  --malva:#7A5C8A;     --malva-dark:#5F4570;     --malva-deep:#402C4D;   --malva-soft:#E4DAEA;
+  --piedra:#8A8578;    --piedra-dark:#6B6659;    --piedra-deep:#4E4A40;  --piedra-soft:#EFEBE3;
+  --pizarra:#22282A;   --gris:#565E5C;           --gris-claro:#9AA09D;
+  --blanco:#FFFFFF;    --lino:#FAF8F4;
+  --shadow-soft:0 2px 8px rgba(34,40,42,.07);
+  --shadow-medium:0 6px 20px rgba(34,40,42,.11);
+  --radius:14px; --radius-sm:9px;
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif;
+  --mono:'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace;
+  --serif:Georgia,'Times New Roman',serif;
+
+  /* Unidad 1 → bosque */
+  --acento:var(--bosque); --acento-dark:var(--bosque-deep); --acento-soft:var(--bosque-soft);
+}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;font-family:var(--sans);color:var(--pizarra);background:var(--lino);line-height:1.62}
+:focus-visible{outline:3px solid var(--acento);outline-offset:2px}
+a{color:var(--acento-dark)}
+.envoltura{max-width:48rem;margin:0 auto;padding:0 1.25rem}
+.saltar{position:absolute;left:-9999px;background:var(--pizarra);color:var(--lino);padding:.6rem 1rem;z-index:20}
+.saltar:focus{left:0}
+
+.nav-sesion{background:var(--pizarra);color:var(--lino);padding:.55rem 1rem;font-size:.82rem;
+  display:flex;flex-wrap:wrap;align-items:center;gap:.3rem .9rem}
+.nav-sesion a{color:var(--piedra-soft);text-decoration:none;border-bottom:1px solid transparent}
+.nav-sesion a:hover,.nav-sesion a:focus{border-bottom-color:var(--piedra)}
+.nav-sesion .ns-curso{font-weight:700}
+@media print{.nav-sesion,.saltar{display:none}}
+
+.hero{background:linear-gradient(160deg,var(--lino) 0%,var(--bosque-soft) 100%);
+  padding:clamp(1.8rem,5vw,3rem) 0 clamp(1.3rem,3vw,2rem);border-bottom:1px solid rgba(45,45,45,.08)}
+.hero__eyebrow{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--acento-dark);font-weight:700;margin:0 0 .5rem}
+h1{font-size:clamp(1.5rem,4vw,2.3rem);line-height:1.15;letter-spacing:-.015em;margin:0 0 .6rem}
+.hero__sub{font-size:1rem;color:var(--gris);max-width:52ch;margin:0}
+.meta{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:1.1rem}
+.chip{background:var(--blanco);border:1px solid rgba(45,45,45,.1);border-radius:999px;
+  padding:.28rem .85rem;font-size:.82rem;box-shadow:var(--shadow-soft)}
+
+section{padding:clamp(1.5rem,3.5vw,2.4rem) 0}
+h2{font-size:clamp(1.15rem,2.6vw,1.5rem);margin:0 0 .3rem;line-height:1.25}
+h3{font-size:1rem;margin:0 0 .35rem;color:var(--acento-dark)}
+p{max-width:60ch}
+.intro{color:var(--gris);max-width:60ch;margin:0 0 1.2rem}
+
+/* Estado de la entrega */
+.estado{border-radius:var(--radius);padding:.9rem 1.15rem;margin:1.2rem 0 0;
+  font-size:.92rem;border-left:4px solid var(--gris-claro);background:var(--blanco);
+  box-shadow:var(--shadow-soft);max-width:60ch}
+.estado--ok{border-left-color:var(--bosque);background:var(--bosque-soft)}
+.estado--aviso{border-left-color:var(--piedra);background:var(--piedra-soft);color:var(--piedra-deep)}
+.estado--malo{border-left-color:var(--arcilla);background:var(--arcilla-soft);color:var(--arcilla-dark)}
+.estado strong{display:block;margin-bottom:.2rem}
+
+/* Cómo funciona */
+.pasos{list-style:none;padding:0;margin:1rem 0 0;display:grid;gap:.55rem;max-width:60ch;counter-reset:p}
+.pasos li{background:var(--blanco);border-radius:var(--radius-sm);padding:.75rem 1rem .75rem 2.6rem;
+  box-shadow:var(--shadow-soft);position:relative;font-size:.94rem}
+.pasos li::before{counter-increment:p;content:counter(p);position:absolute;left:.85rem;top:.75rem;
+  width:1.3rem;height:1.3rem;border-radius:50%;background:var(--acento);color:var(--blanco);
+  font-size:.75rem;font-weight:700;display:flex;align-items:center;justify-content:center}
+
+/* Identidad */
+.identidad{background:var(--blanco);border-radius:var(--radius);padding:1.1rem 1.25rem;
+  box-shadow:var(--shadow-soft);border-top:3px solid var(--acento);max-width:60ch}
+.campo{margin-bottom:.9rem}
+.campo:last-child{margin-bottom:0}
+label{display:block;font-size:.85rem;font-weight:600;margin-bottom:.3rem}
+.pista{font-size:.8rem;color:var(--gris);font-weight:400;margin:.15rem 0 .4rem}
+input[type=text],input[type=email],input[type=number],textarea{
+  width:100%;font:inherit;font-size:.95rem;padding:.55rem .7rem;border:1px solid #C9C4BA;
+  border-radius:var(--radius-sm);background:var(--blanco);color:var(--pizarra)}
+textarea{min-height:9rem;resize:vertical;line-height:1.6}
+input:focus,textarea:focus{border-color:var(--acento)}
+
+/* Preguntas */
+.pregunta{background:var(--blanco);border-radius:var(--radius);padding:1.2rem 1.35rem;
+  box-shadow:var(--shadow-soft);border-left:4px solid var(--acento);margin-bottom:1.3rem}
+.pregunta__n{font-family:var(--mono);font-size:.75rem;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--acento-dark);margin:0 0 .3rem}
+.pregunta h3{font-size:1.08rem;color:var(--pizarra);margin-bottom:.5rem;line-height:1.3}
+.pregunta__ctx{font-size:.93rem;color:var(--gris);margin:0 0 .8rem;max-width:58ch}
+.pregunta__q{font-family:var(--serif);font-size:1.04rem;color:var(--acento-dark);
+  border-left:3px solid var(--acento-soft);padding:.3em 0 .3em .9em;margin:0 0 .9rem;max-width:56ch}
+.espera{background:var(--piedra-soft);border-radius:var(--radius-sm);padding:.7rem .9rem;
+  font-size:.86rem;color:var(--piedra-deep);margin:0 0 .9rem;max-width:58ch}
+.espera strong{display:block;margin-bottom:.2rem}
+.espera ul{margin:.3rem 0 0;padding-left:1.05rem}
+.espera li{margin-bottom:.2rem}
+.contador{font-family:var(--mono);font-size:.78rem;color:var(--gris);text-align:right;margin:.35rem 0 0}
+.contador.corto{color:var(--piedra-deep)}
+.contador.bien{color:var(--bosque-dark);font-weight:700}
+
+/* Envío */
+.envio{background:var(--blanco);border-radius:var(--radius);padding:1.2rem 1.35rem;
+  box-shadow:var(--shadow-medium);border-top:4px solid var(--piedra)}
+.botones{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1rem}
+button{font:inherit;font-weight:600;cursor:pointer;border-radius:999px;padding:.55rem 1.3rem;
+  border:1px solid var(--acento);background:var(--blanco);color:var(--acento-dark)}
+button:hover{background:var(--acento-soft)}
+button.primario{background:var(--acento-dark);color:var(--blanco);border-color:var(--acento-dark)}
+button.primario:hover{background:var(--bosque)}
+button[disabled]{opacity:.5;cursor:default}
+.autoguardado{font-size:.8rem;color:var(--gris);margin:.7rem 0 0;font-family:var(--mono)}
+
+.nota{background:var(--blanco);border-left:4px solid var(--piedra);border-radius:var(--radius-sm);
+  padding:.95rem 1.15rem;box-shadow:var(--shadow-soft);font-size:.9rem;color:var(--gris);max-width:60ch}
+.nota strong{color:var(--pizarra)}
+
+.lecturas{list-style:none;padding:0;margin:1rem 0 0;display:grid;gap:.55rem;max-width:60ch}
+.lecturas li{background:var(--blanco);border-radius:var(--radius-sm);padding:.8rem 1rem;
+  box-shadow:var(--shadow-soft);border-left:3px solid var(--piedra);font-size:.92rem}
+.lecturas .tipo{display:block;font-family:var(--mono);font-size:.71rem;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--piedra-deep);font-weight:700;margin-bottom:.2rem}
+
+footer{background:var(--pizarra);color:var(--lino);margin-top:2rem;padding:2rem 0;font-size:.86rem}
+footer a{color:var(--piedra-soft)}
+footer p{margin:0 0 .5rem;max-width:60ch}
+.footer__legal{color:#B8B8B8;font-size:.79rem;margin-top:.9rem}
+@media (prefers-reduced-motion:reduce){*{transition:none !important}}
+</style>
+
+<a class="saltar" href="#formulario">Saltar al formulario</a>
+
+<nav class="nav-sesion" aria-label="Navegación del seminario">
+  <a class="ns-curso" href="../../index.html">← Seminario de fundamentación en CP</a>
+  <a href="index.html">Guía de la sesión</a>
+  <a href="clase.html">Presentación</a>
+</nav>
+
+<header class="hero">
+  <div class="envoltura">
+    <p class="hero__eyebrow">Sesión 2 · Entregable previo · Individual</p>
+    <h1>Antes de la sesión 2</h1>
+    <p class="hero__sub">
+      Cuatro preguntas sobre lineamientos y políticas. Esta vez <strong>cada una dice dónde
+      buscar</strong>: la sesión pasada quedó claro que sin una fuente señalada el dato no
+      aparece, y eso es un problema del sistema, no de quien responde.
+    </p>
+    <div class="meta">
+      <span class="chip">Cierra: viernes 4 de septiembre, 7:00</span>
+      <span class="chip">4 preguntas</span>
+      <span class="chip">≈ 3 horas y media</span>
+      <span class="chip">Cuenta para el primer corte</span>
+    </div>
+    <div id="estado" class="estado">
+      <strong>Comprobando el plazo…</strong>
+      Si no hay conexión, no pasa nada: puede leer y escribir igual, y enviar cuando la tenga.
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section>
+  <div class="envoltura">
+    <h2>Cómo funciona</h2>
+    <ol class="pasos">
+      <li><strong>Empiece por la presentación de la sesión.</strong> Está enlazada abajo. Trae la escalera que va de la resolución mundial al servicio, y sin ella las preguntas se responden a medias.</li>
+      <li><strong>Escriba aquí mismo.</strong> El texto se guarda solo en su navegador. Puede cerrar y volver, y puede trabajar sin internet.</li>
+      <li><strong>Envíe antes del viernes a las 7:00.</strong> Puede reenviar cuantas veces quiera hasta esa hora: cada envío reemplaza al anterior. Volver sobre lo escrito es parte del trabajo, no una corrección de última hora.</li>
+      <li><strong>El viernes ponemos en común lo escrito, sin nombres.</strong> Cada quien aparece con una letra. Comparamos las respuestas y de ahí sale la sesión.</li>
+    </ol>
+
+    <p class="nota" style="margin-top:1.2rem">
+      <strong>Lo que ustedes escribieron construyó la sesión 1.</strong> De las respuestas del
+      grupo salió un resultado que abre esta: en la pregunta que señalaba una fuente anclaron las
+      siete; en la que pedía mirar el propio servicio, ninguna. Eso no fue un fallo de nadie — fue
+      el primer dato del seminario sobre el sistema en el que trabajan.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="envoltura">
+    <h2>Qué estudiar antes de responder</h2>
+    <p class="intro">
+      La presentación de la sesión da el mapa completo. Las otras tres fuentes sostienen preguntas
+      concretas y están señaladas con la pregunta a la que sirven — no hay que leerlas enteras.
+    </p>
+    <ul class="lecturas">
+      <li>
+        <span class="tipo">Primero · material de la sesión</span>
+        <strong>Lineamientos y políticas: mundo, región, Colombia</strong> — la presentación
+        completa: la escalera de la resolución al servicio, el mapa de organismos por el tipo de
+        palanca que usan, y la cadena colombiana.
+        <a href="clase.html">Abrir la presentación</a>
+      </li>
+      <li>
+        <span class="tipo">Para la pregunta 2 · en inglés</span>
+        <strong>Resolución WHA67.19 (2014)</strong> — «Strengthening of palliative care as a
+        component of comprehensive care throughout the life course». Es corta. Búsquela en el
+        repositorio de documentos de la Asamblea Mundial de la Salud.
+        <a href="https://apps.who.int/gb/ebwha/pdf_files/WHA67/A67_R19-en.pdf">apps.who.int</a>
+      </li>
+      <li>
+        <span class="tipo">Para la pregunta 1</span>
+        <strong>Ley 1733 de 2014</strong> y <strong>Resolución 3280 de 2018</strong>. Documentos
+        públicos: se encuentran en el sitio del Ministerio de Salud y en el sistema único de
+        información normativa.
+        <a href="https://www.minsalud.gov.co/">minsalud.gov.co</a>
+      </li>
+      <li>
+        <span class="tipo">Para la pregunta 3</span>
+        <strong>Los buscadores institucionales del BID, la OCDE y la CEPAL.</strong> Los tres
+        publican sus documentos en abierto. La pregunta es precisamente si encuentra algo sobre
+        cuidado paliativo en ellos.
+        <a href="https://repositorio.cepal.org/">repositorio.cepal.org</a>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section id="formulario">
+  <div class="envoltura">
+    <h2>Quién entrega</h2>
+    <div class="identidad">
+      <div class="campo">
+        <label for="correo">Correo institucional</label>
+        <p class="pista">El que la maestría tiene registrado. Es su identificación: no hay contraseña.</p>
+        <input type="email" id="correo" autocomplete="email" placeholder="nombre@uan.edu.co">
+      </div>
+      <div class="campo">
+        <label for="nombre">Nombre completo</label>
+        <input type="text" id="nombre" autocomplete="name" placeholder="Apellidos y nombres">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="envoltura">
+    <h2>Las cuatro preguntas</h2>
+    <p class="intro">
+      Cada una dice dónde buscar. Si busca donde se le indica y no encuentra nada,
+      <strong>eso es una respuesta completa</strong> — cuéntelo así, con lo que buscó y dónde. La
+      ausencia documentada vale igual que el hallazgo.
+    </p>
+
+    <!-- ── P1 ───────────────────────────────────────────────────────── -->
+    <article class="pregunta">
+      <p class="pregunta__n">Pregunta 1 · del papel nacional al papel de su institución</p>
+      <h3>¿La norma llegó a algún documento de su servicio?</h3>
+      <p class="pregunta__ctx">
+        Colombia tiene la <strong>Ley 1733 de 2014</strong>, que crea el derecho, y la
+        <strong>Resolución 3280 de 2018</strong>, que define rutas de atención. Son dos peldaños
+        de la escalera. El siguiente peldaño es el papel interno: un protocolo, una ruta, un
+        instructivo, una guía de manejo, cualquier documento de su institución que las cite.
+      </p>
+      <p class="pregunta__q">
+        Busque si alguno de esos dos instrumentos aparece nombrado en algún documento interno de
+        su servicio. ¿Qué encontró, dónde, y qué buscó sin encontrar?
+      </p>
+      <div class="espera">
+        <strong>Qué hace buena a esta respuesta</strong>
+        <ul>
+          <li>Dice <em>dónde</em> buscó: intranet, calidad, la carpeta del comité, preguntarle a alguien.</li>
+          <li>Distingue «existe el documento» de «la gente sabe que existe». Son dos hallazgos distintos.</li>
+          <li><strong>Si no hay nada, dígalo.</strong> Una ley de 2014 que en once años no bajó a ningún papel de su institución es, en sí, el resultado más interesante que puede traer.</li>
+        </ul>
+      </div>
+      <textarea id="p1" data-min="200" placeholder="Qué buscó, dónde, qué encontró y qué no…"></textarea>
+      <p class="contador" data-para="p1">0 palabras</p>
+    </article>
+
+    <!-- ── P2 ───────────────────────────────────────────────────────── -->
+    <article class="pregunta">
+      <p class="pregunta__n">Pregunta 2 · lectura de fuente en inglés</p>
+      <h3>Qué compromete de verdad la resolución de 2014</h3>
+      <p class="pregunta__ctx">
+        La <strong>WHA67.19</strong> es el instrumento global que se cita en casi toda discusión
+        de política del campo. Léala en el original: es breve y está estructurada en verbos
+        —<em>urges</em>, <em>requests</em>, <em>recommends</em>—. Esos verbos son el contenido real
+        del documento.
+      </p>
+      <p class="pregunta__q">
+        Elija <strong>un</strong> compromiso concreto del texto, cítelo, y diga si conoce algún
+        instrumento colombiano que responda a él. Si no lo conoce, dígalo: no es una pregunta
+        capciosa.
+      </p>
+      <div class="espera">
+        <strong>Qué hace buena a esta respuesta</strong>
+        <ul>
+          <li>Cita el fragmento con su ubicación, para poder ir a comprobarlo.</li>
+          <li>Se fija en <em>el verbo</em>. No es lo mismo instar a un Estado que obligarlo, y de esa diferencia depende media discusión del seminario.</li>
+          <li>Al buscar el instrumento colombiano equivalente, dice qué buscó — no solo si lo encontró.</li>
+        </ul>
+      </div>
+      <textarea id="p2" data-min="180" placeholder="El compromiso citado, su verbo, y qué hay o no hay en Colombia que responda…"></textarea>
+      <p class="contador" data-para="p2">0 palabras</p>
+    </article>
+
+    <!-- ── P3 ───────────────────────────────────────────────────────── -->
+    <article class="pregunta">
+      <p class="pregunta__n">Pregunta 3 · una búsqueda con resultado incierto</p>
+      <h3>¿Qué dicen el BID, la OCDE o la CEPAL sobre cuidado paliativo?</h3>
+      <p class="pregunta__ctx">
+        El contenido programático de este seminario nombra al <strong>BID</strong> y a la
+        <strong>OCDE</strong> entre los organismos de referencia, y a la <strong>CEPAL</strong> en
+        el bloque regional. Aquí va una confesión del curso: <em>no tenemos localizado un documento
+        de esos tres específicamente sobre cuidado paliativo.</em> Puede que exista y no lo hayamos
+        encontrado; puede que no exista.
+      </p>
+      <p class="pregunta__q">
+        Elija <strong>uno</strong> de los tres, busque en su repositorio institucional y cuente qué
+        pasó. Si encuentra algo, resúmalo y cítelo. Si no, describa la búsqueda: qué términos usó,
+        cuántos resultados, qué apareció en su lugar.
+      </p>
+      <div class="espera">
+        <strong>Qué hace buena a esta respuesta</strong>
+        <ul>
+          <li><strong>Las dos salidas valen lo mismo.</strong> Encontrar el documento y demostrar que no está son igual de útiles, siempre que la búsqueda esté descrita.</li>
+          <li>Los términos de búsqueda se anotan. «Busqué y no había» no es una búsqueda; «busqué <em>palliative</em>, <em>end of life</em> y <em>cuidados paliativos</em> en el repositorio X y obtuve N resultados, todos sobre Y» sí lo es.</li>
+          <li>Si aparece algo cercano pero no exacto —envejecimiento, cuidados de largo plazo, enfermedades crónicas— dígalo: ese desplazamiento del tema es un hallazgo.</li>
+        </ul>
+      </div>
+      <textarea id="p3" data-min="180" placeholder="Qué organismo eligió, qué términos buscó, cuántos resultados y qué concluye…"></textarea>
+      <p class="contador" data-para="p3">0 palabras</p>
+    </article>
+
+    <!-- ── P4 ───────────────────────────────────────────────────────── -->
+    <article class="pregunta">
+      <p class="pregunta__n">Pregunta 4 · de la afirmación a la pregunta</p>
+      <h3>Convierta un instrumento en algo investigable</h3>
+      <p class="pregunta__ctx">
+        Es el mismo movimiento de la sesión 1, ahora sobre política. Los instrumentos vienen con
+        afirmaciones incorporadas: «la ruta está definida desde 2018», «el derecho existe desde
+        2014», «Colombia adoptó los lineamientos internacionales». Todas pueden ser ciertas y
+        ninguna, tal como está escrita, se puede responder con datos.
+      </p>
+      <p class="pregunta__q">
+        Elija un instrumento de esta sesión y formule una pregunta de investigación sobre si
+        cambió algo. Diga qué dato la respondería, quién debería tenerlo, y si cree que existe.
+      </p>
+      <div class="espera">
+        <strong>Qué hace buena a esta respuesta</strong>
+        <ul>
+          <li>La pregunta tiene sujeto, lugar y periodo. «¿Mejoró el acceso?» no sirve; «¿cuántas personas con criterio paliativo fueron remitidas según la ruta en tal departamento entre 2019 y 2025?» sí.</li>
+          <li>Nombra a quién le correspondería tener el dato: la EPS, la secretaría de salud, el prestador, el ministerio.</li>
+          <li>Si la conclusión es que <strong>no se puede saber porque nadie lo registra</strong>, esa es una respuesta fuerte — y probablemente la más frecuente. Sosténgala.</li>
+        </ul>
+      </div>
+      <textarea id="p4" data-min="200" placeholder="El instrumento, la pregunta investigable, el dato que la respondería y quién lo tendría…"></textarea>
+      <p class="contador" data-para="p4">0 palabras</p>
+    </article>
+  </div>
+</section>
+
+<section>
+  <div class="envoltura">
+    <h2>Antes de enviar</h2>
+    <div class="identidad" style="margin-bottom:1.3rem">
+      <div class="campo">
+        <label for="ia">Declaración de uso de inteligencia artificial</label>
+        <p class="pista">
+          Qué herramienta usó y para qué: buscar, ordenar ideas, traducir, redactar, nada.
+          <strong>Declararlo suma; una fuente inventada resta.</strong> Verificar lo que se cita
+          es exactamente la competencia que este seminario evalúa.
+        </p>
+        <textarea id="ia" style="min-height:5rem" placeholder="Ej.: usé un asistente para traducir fragmentos del Atlas y para ordenar el borrador de la P5. Las fuentes las verifiqué una por una en el documento original."></textarea>
+      </div>
+      <div class="campo">
+        <label for="minutos">¿Cuántos minutos le llevó en total?</label>
+        <p class="pista">Sirve para calibrar la carga de las siguientes sesiones. No afecta la nota.</p>
+        <input type="number" id="minutos" min="0" max="1500" step="10" placeholder="180">
+      </div>
+    </div>
+
+    <div class="envio">
+      <h3 style="margin-top:0">Enviar el entregable</h3>
+      <p style="font-size:.92rem;color:var(--gris);margin:0">
+        Puede reenviar cuantas veces quiera hasta el viernes a las 7:00. Cada envío reemplaza al
+        anterior y queda registrado como una versión nueva.
+      </p>
+      <div class="botones">
+        <button type="button" id="enviar" class="primario">Enviar</button>
+        <button type="button" id="copiar">Copiar todo</button>
+        <button type="button" id="borrar">Borrar el borrador</button>
+      </div>
+      <div id="resultado" class="estado" style="display:none"></div>
+      <p class="autoguardado" id="autoguardado">Borrador vacío</p>
+
+      <p class="nota" style="margin-top:1.1rem">
+        <strong>Si no tiene conexión.</strong> «Copiar todo» pone el entregable completo en el
+        portapapeles, con sus respuestas y sus datos. Péguelo en un correo a
+        <a href="mailto:jbogoya63@uan.edu.co">jbogoya63@uan.edu.co</a> y cuenta igual. Si la red
+        falla el día del cierre, tiene esa salida y no se queda sin entregar.
+      </p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="envoltura">
+    <p>
+      <strong>Entregable previo · Sesión 2 · Lineamientos y políticas: mundo, región, Colombia</strong><br>
+      Seminario de fundamentación en cuidados paliativos · código 32264001 ·
+      Maestría en Cuidados Paliativos · Facultad de Enfermería · Universidad Antonio Nariño · 2026-II
+    </p>
+    <p>
+      Docente: Jorge Wilhem Bogoya López ·
+      <a href="mailto:jbogoya63@uan.edu.co">jbogoya63@uan.edu.co</a> ·
+      <a href="index.html">Guía de la sesión</a>
+    </p>
+    <p class="footer__legal">
+      <strong>Tratamiento de datos.</strong> Se recogen su nombre, su correo institucional y sus
+      respuestas, con la única finalidad de desarrollar y evaluar este espacio académico. Se
+      guardan en una hoja de cálculo privada del docente y no se publican ni se comparten con
+      terceros (Ley 1581 de 2012 y Decreto 1377 de 2013). En clase las respuestas se proyectan
+      <strong>sin nombre ni correo</strong>, identificadas solo por una letra. Puede pedir
+      consulta, corrección o supresión escribiendo al correo del docente.
+    </p>
+  </div>
+</footer>
+
+<script>
+/* ===========================================================================
+   CONFIGURACIÓN — rellenar tras desplegar el Apps Script.
+   Ver scripts/apps-script/INSTALACION.md, pasos 6 y 7.
+
+   Los dos valores son PÚBLICOS POR DISEÑO: viajan dentro de una página
+   pública y solo enrutan la entrega a su sesión. No abren nada: quien no
+   esté en el roster no entra aunque los copie. El token que sí es secreto
+   —el de lectura del tablero— no está en este archivo ni puede estarlo.
+   =========================================================================== */
+var CONFIG = {
+  ENDPOINT: 'https://script.google.com/macros/s/AKfycbw6_slQHCvXK5X-J5y3A7yEPB7BfVVDBgCV9eZ03Cl2dTruJ9WBGbXoophVKnN8Xd2u/exec',
+  TOKEN:    'S02_SEM_CP_2026II_47ejkf',
+  SESION:   'S02',
+  CIERRE_LEGIBLE: 'viernes 4 de septiembre, 7:00'
+};
+
+(function () {
+  'use strict';
+
+  var CLAVE = 'SEM_CP_2026II_S02_borrador';
+  var IDS_TEXTO = ['p1', 'p2', 'p3', 'p4'];
+  var IDS_TODOS = IDS_TEXTO.concat(['correo', 'nombre', 'ia', 'minutos']);
+  var $ = function (id) { return document.getElementById(id); };
+
+  var configurado = CONFIG.ENDPOINT.indexOf('http') === 0 &&
+                    CONFIG.TOKEN.indexOf('PEGAR') !== 0;
+
+  /* ── Borrador local ─────────────────────────────────────────────────
+     Sin esto, media hora de escritura se pierde al cerrar la pestaña.
+     Es también lo que permite trabajar sin conexión.                  */
+  function guardar() {
+    var d = {};
+    IDS_TODOS.forEach(function (id) { var el = $(id); if (el) d[id] = el.value; });
+    try {
+      localStorage.setItem(CLAVE, JSON.stringify({ datos: d, cuando: Date.now() }));
+      var h = new Date().toLocaleTimeString('es-CO', { hour: '2-digit', minute: '2-digit' });
+      $('autoguardado').textContent = 'Borrador guardado en este navegador · ' + h;
+    } catch (err) {
+      $('autoguardado').textContent = 'No se pudo guardar el borrador en este navegador.';
+    }
+  }
+
+  function restaurar() {
+    var crudo;
+    try { crudo = localStorage.getItem(CLAVE); } catch (err) { return; }
+    if (!crudo) return;
+    try {
+      var d = JSON.parse(crudo).datos || {};
+      IDS_TODOS.forEach(function (id) { var el = $(id); if (el && d[id]) el.value = d[id]; });
+      $('autoguardado').textContent = 'Borrador recuperado de este navegador.';
+    } catch (err) { /* borrador ilegible: se ignora */ }
+  }
+
+  /* ── Contadores de palabras ─────────────────────────────────────── */
+  function contar(t) {
+    var limpio = (t || '').trim();
+    return limpio ? limpio.split(/\s+/).length : 0;
+  }
+
+  function actualizarContador(id) {
+    var area = $(id);
+    var salida = document.querySelector('.contador[data-para="' + id + '"]');
+    if (!area || !salida) return;
+    var n = contar(area.value);
+    var min = parseInt(area.getAttribute('data-min'), 10) || 0;
+    salida.textContent = n + (n === 1 ? ' palabra' : ' palabras') +
+      (n < min ? ' · orientativo: ' + min + '+' : '');
+    salida.className = 'contador' + (n === 0 ? '' : n < min ? ' corto' : ' bien');
+  }
+
+  /* ── Estado del plazo ───────────────────────────────────────────── */
+  function pintarEstado(clase, titulo, texto) {
+    var el = $('estado');
+    el.className = 'estado ' + clase;
+    el.innerHTML = '<strong></strong>';
+    el.firstChild.textContent = titulo;
+    el.appendChild(document.createTextNode(' ' + texto));
+  }
+
+  function consultarEstado() {
+    if (!configurado) {
+      pintarEstado('estado--aviso', 'Entregable todavía sin conectar.',
+        'Puede leerlo y escribir; el envío se habilitará cuando el docente publique la conexión. ' +
+        'Mientras tanto, «Copiar todo» funciona.');
+      return;
+    }
+    if (!navigator.onLine) {
+      pintarEstado('estado--aviso', 'Sin conexión.',
+        'Puede leer y escribir con normalidad: el borrador se guarda en este navegador. ' +
+        'Envíelo cuando recupere la red, o use «Copiar todo». Cierra el ' + CONFIG.CIERRE_LEGIBLE + '.');
+      return;
+    }
+    var url = CONFIG.ENDPOINT + '?action=estado&token=' + encodeURIComponent(CONFIG.TOKEN);
+    fetch(url)
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        if (!d.ok) {
+          pintarEstado('estado--malo', 'El servidor no reconoce este entregable.', 'Avísele al docente: ' + (d.error || '') + '.');
+        } else if (d.abierta) {
+          pintarEstado('estado--ok', 'Entrega abierta.', 'Cierra el ' + CONFIG.CIERRE_LEGIBLE + '. Puede reenviar hasta esa hora.');
+        } else if (!d.activa) {
+          pintarEstado('estado--aviso', 'Todavía no está habilitada.', 'El docente la abre unos días antes de la sesión.');
+        } else if (d.apertura && d.ahora && d.ahora < d.apertura) {
+          // Antes de la apertura NO es «fuera de plazo»: es que aún no empieza.
+          // Las dos fechas vienen del servidor como «yyyy-MM-dd HH:mm», así que
+          // se comparan como texto sin ambigüedad de zona horaria.
+          pintarEstado('estado--aviso', 'Todavía no abre.',
+            'La entrega se habilita el ' + d.apertura + ' y cierra el ' + d.cierre +
+            '. Puede ir leyendo y escribiendo desde ya: el borrador se guarda solo.');
+        } else {
+          pintarEstado('estado--malo', 'El plazo se cerró.',
+            'La ventana era ' + (d.apertura || '') + ' – ' + (d.cierre || '') + '. Escríbale al docente.');
+        }
+      })
+      .catch(function () {
+        pintarEstado('estado--aviso', 'No se pudo comprobar el plazo.',
+          'Puede escribir igual: el borrador se guarda aquí. Intente enviar más tarde, o use «Copiar todo».');
+      });
+  }
+
+  /* ── Envío ──────────────────────────────────────────────────────── */
+  function mostrarResultado(clase, titulo, texto) {
+    var el = $('resultado');
+    el.style.display = 'block';
+    el.className = 'estado ' + clase;
+    el.innerHTML = '<strong></strong>';
+    el.firstChild.textContent = titulo;
+    el.appendChild(document.createTextNode(' ' + texto));
+  }
+
+  var ERRORES = {
+    token_invalido:       'El entregable no está bien conectado. Avísele al docente.',
+    sesion_cerrada:       'La entrega de esta sesión no está habilitada.',
+    aun_no_abre:          'La entrega todavía no abre.',
+    plazo_vencido:        'El plazo se cerró. Escríbale al docente.',
+    correo_no_reconocido: 'Ese correo no aparece en la lista del curso. Revise que sea el institucional registrado; si está bien, avísele al docente.',
+    sin_respuestas:       'No se envió ninguna respuesta.',
+    ocupado:              'El servidor estaba ocupado. Vuelva a intentarlo.'
+  };
+
+  function enviar() {
+    var correo = $('correo').value.trim();
+    var nombre = $('nombre').value.trim();
+
+    if (!correo || correo.indexOf('@') < 1) { mostrarResultado('estado--malo', 'Falta el correo.', 'Escriba su correo institucional arriba.'); $('correo').focus(); return; }
+    if (!nombre)                            { mostrarResultado('estado--malo', 'Falta el nombre.', 'Escriba su nombre completo arriba.'); $('nombre').focus(); return; }
+
+    var vacias = IDS_TEXTO.filter(function (id) { return !contar($(id).value); });
+    if (vacias.length === IDS_TEXTO.length) { mostrarResultado('estado--malo', 'Está todo vacío.', 'Responda al menos una pregunta antes de enviar.'); return; }
+    if (vacias.length && !confirm('Quedan ' + vacias.length + ' pregunta(s) sin responder (' + vacias.join(', ') + ').\n\n¿Enviar de todas formas? Podrá reenviar hasta el cierre.')) return;
+
+    if (!configurado) { mostrarResultado('estado--aviso', 'El envío no está conectado todavía.', 'Use «Copiar todo» y mándelo por correo.'); return; }
+
+    var respuestas = {};
+    IDS_TEXTO.forEach(function (id) { respuestas[id] = $(id).value.trim(); });
+
+    var boton = $('enviar');
+    boton.disabled = true;
+    boton.textContent = 'Enviando…';
+    mostrarResultado('estado', 'Enviando…', 'No cierre la página.');
+
+    fetch(CONFIG.ENDPOINT, {
+      method: 'POST',
+      // text/plain evita la petición CORS de comprobación previa, que
+      // Apps Script no responde. El servidor lo parsea como JSON igual.
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify({
+        token: CONFIG.TOKEN,
+        sesion: CONFIG.SESION,
+        correo: correo,
+        nombre: nombre,
+        minutos: $('minutos').value,
+        declaracionIA: $('ia').value.trim(),
+        respuestas: respuestas
+      })
+    })
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        if (d.ok) {
+          mostrarResultado('estado--ok',
+            d.version > 1 ? 'Entrega actualizada (versión ' + d.version + ').' : 'Entrega registrada.',
+            'Quedó a nombre de ' + d.nombre + '. En clase aparecerá como «' + d.seudonimo +
+            '», sin su nombre. Puede seguir corrigiendo y reenviar hasta el cierre.');
+        } else {
+          mostrarResultado('estado--malo', 'No se pudo registrar.',
+            ERRORES[d.error] || ('Error: ' + (d.error || 'desconocido') + '.'));
+        }
+      })
+      .catch(function () {
+        mostrarResultado('estado--malo', 'No se pudo conectar.',
+          'Su borrador está guardado aquí. Intente de nuevo, o use «Copiar todo» y mándelo por correo.');
+      })
+      .finally(function () {
+        boton.disabled = false;
+        boton.textContent = 'Enviar';
+      });
+  }
+
+  /* ── Copiar todo · salida de emergencia sin conexión ────────────── */
+  function textoPlano() {
+    var l = [];
+    l.push('ENTREGABLE PREVIO · SESIÓN 2 · Lineamientos y políticas: mundo, región, Colombia');
+    l.push('Seminario de fundamentación en cuidados paliativos · 32264001 · UAN · 2026-II');
+    l.push('');
+    l.push('Nombre: ' + $('nombre').value.trim());
+    l.push('Correo: ' + $('correo').value.trim());
+    l.push('Minutos dedicados: ' + ($('minutos').value || '—'));
+    l.push('');
+    var titulos = {
+      p1: 'P1 · ¿La norma llegó a algún documento de su servicio?',
+      p2: 'P2 · Qué compromete de verdad la resolución WHA67.19 (en inglés)',
+      p3: 'P3 · ¿Qué dicen el BID, la OCDE o la CEPAL sobre cuidado paliativo?',
+      p4: 'P4 · Convierta un instrumento en algo investigable'
+    };
+    IDS_TEXTO.forEach(function (id) {
+      l.push('─────────────────────────────────────────────');
+      l.push(titulos[id]);
+      l.push('');
+      l.push($(id).value.trim() || '(sin responder)');
+      l.push('');
+    });
+    l.push('─────────────────────────────────────────────');
+    l.push('Declaración de uso de IA:');
+    l.push($('ia').value.trim() || '(sin declarar)');
+    return l.join('\n');
+  }
+
+  function copiar() {
+    var texto = textoPlano();
+    var listo = function () {
+      mostrarResultado('estado--ok', 'Copiado.',
+        'Péguelo en un correo a jbogoya63@uan.edu.co y cuenta como entrega.');
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(texto).then(listo, respaldoCopiar);
+    } else {
+      respaldoCopiar();
+    }
+    function respaldoCopiar() {
+      // Sin API de portapapeles (o sin permiso): se selecciona para copiar a mano.
+      var ta = document.createElement('textarea');
+      ta.value = texto;
+      ta.style.position = 'fixed';
+      ta.style.top = '-1000px';
+      document.body.appendChild(ta);
+      ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (err) { ok = false; }
+      document.body.removeChild(ta);
+      ok ? listo() : mostrarResultado('estado--aviso', 'No se pudo copiar solo.',
+        'Seleccione sus respuestas con el ratón y cópielas a mano.');
+    }
+  }
+
+  /* ── Arranque ───────────────────────────────────────────────────── */
+  restaurar();
+  IDS_TEXTO.forEach(actualizarContador);
+
+  IDS_TODOS.forEach(function (id) {
+    var el = $(id);
+    if (!el) return;
+    el.addEventListener('input', function () {
+      if (IDS_TEXTO.indexOf(id) !== -1) actualizarContador(id);
+      clearTimeout(el._t);
+      el._t = setTimeout(guardar, 700);
+    });
+  });
+
+  $('enviar').addEventListener('click', enviar);
+  $('copiar').addEventListener('click', copiar);
+  $('borrar').addEventListener('click', function () {
+    if (!confirm('Esto borra el borrador guardado en este navegador y vacía el formulario.\n\nSi ya envió, la entrega registrada NO se borra.')) return;
+    try { localStorage.removeItem(CLAVE); } catch (err) { /* nada que borrar */ }
+    IDS_TODOS.forEach(function (id) { var el = $(id); if (el) el.value = ''; });
+    IDS_TEXTO.forEach(actualizarContador);
+    $('autoguardado').textContent = 'Borrador vacío';
+    mostrarResultado('estado', 'Borrador borrado.', 'El formulario quedó en blanco.');
+  });
+
+  window.addEventListener('online', consultarEstado);
+  window.addEventListener('offline', consultarEstado);
+  consultarEstado();
+})();
+</script>
+</html>

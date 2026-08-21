@@ -3,27 +3,91 @@
 **viernes 4 de septiembre de 2026** · Sincrónico · 3 horas · Primer corte
 Unidad 1 — Contexto histórico-filosófico y lineamientos sociopolíticos
 
-> Nota de trabajo de la sesión. La ficha pública es [`index.html`](index.html);
-> este archivo es para el docente y no pretende ser bonito.
+> Nota de trabajo del docente. Las páginas públicas son [`index.html`](index.html),
+> [`clase.html`](clase.html) y [`preparacion.html`](preparacion.html).
 
-## Qué se trabaja
+---
 
-- Políticas mundiales: OMS, Banco Mundial, BID, OCDE, IAHPC, SECPAL
-- Políticas latinoamericanas: OPS, CEPAL, ALCP
-- Políticas colombianas: PAIS y RIAS
+## Qué cambió respecto de la sesión 1, y por qué
 
-## De dónde sale
+Las dos decisiones salen de **medir** la primera sesión, no de intuición.
 
-Clases 3, 4 y 5 de Contexto Histórico y Legal (2026-I)
+| Dato de la sesión 1 | Qué se cambió aquí |
+|---|---|
+| Carga real **240 min** de mediana frente a 180 anunciados | **Cuatro preguntas, no cinco.** Y se anuncian «3 horas y media», que es honesto |
+| **P4**: 7 de 7 se apoyaron en una fuente · **P3**: 0 de 7 | **Todas las preguntas nombran dónde buscar.** La P3 falló porque pedía una posición sin dar ruta al dato |
+
+La sesión abre devolviéndole al grupo ese resultado. No es un adorno motivacional: es el primer
+dato del seminario sobre el sistema en el que trabajan, y lo produjeron ellos.
+
+---
+
+## El argumento de la sesión
+
+La sesión 1 dejó **«hay norma y no hay datos»**. Esta pregunta qué es exactamente esa «norma»,
+porque no es una sola cosa:
+
+```
+Resolución internacional  →  compromete políticamente
+Ley nacional              →  crea un derecho
+Resolución operativa      →  define una ruta
+El servicio               →  existe o no existe
+```
+
+Los cuatro se citan como equivalentes. **Solo el último se puede visitar.** «Aquí ya está
+resuelto, existe la ley» es saltarse tres peldaños, y esa es la frase que la sesión desmonta.
+
+El cierre entrega la pregunta de la sesión 3: *una política sin registro es indistinguible de una
+política que no se cumple.*
+
+---
+
+## Las cuatro preguntas
+
+| # | Pregunta | Ruta que se le da | Qué mide |
+|---|---|---|---|
+| P1 | ¿La norma llegó a algún papel de su servicio? | Ley 1733/2014 y Res. 3280/2018 + documentos internos | El último peldaño de la cadena, observable por el estudiante |
+| P2 | Qué compromete de verdad la WHA67.19 | El documento, en inglés | **Lectura en segunda lengua** + atención al verbo (insta ≠ obliga) |
+| P3 | ¿Qué dicen BID, OCDE o CEPAL? | Sus repositorios abiertos | **Método de búsqueda.** El resultado negativo vale igual |
+| P4 | De la afirmación a la pregunta | — | La competencia investigativa, ya reconocible del formato |
+
+**La P3 es deliberadamente de resultado incierto.** El contenido programático nombra al BID y a la
+OCDE, y el curso no tiene localizado un documento suyo sobre cuidado paliativo. Se dice así en la
+diapositiva 10 y en la propia pregunta. Si el grupo encuentra algo, el curso gana una fuente que
+le faltaba; si no, queda documentado que el programa cita organismos sin respaldo localizable.
+Las dos salidas sirven.
+
+---
+
+## Rótulos [DATO POR VERIFICAR] en el material
+
+1. **BID** — el programa lo nombra; no hay documento suyo localizado sobre cuidado paliativo
+   (diapositiva 10). La P3 lo convierte en tarea.
+2. **PAIS / «Modelo Preventivo y resolutivo»** — el marco de política de atención integral cambió
+   de nombre y énfasis varias veces (PAIS, MAITE y sucesivos). **Cuál rige en 2026 está sin
+   confirmar** contra fuente oficial, y así se dice en la diapositiva 17 en vez de afirmar uno.
+
+---
 
 ## Estado
 
-- [ ] Decidir qué se dicta y qué pasa a lectura previa
-- [ ] Construir la clase (`clase.html`)
-- [ ] Construir el material de estudiante (`estudiante.html`)
-- [ ] Enlazar desde `index.html` de la sesión y desde la portada del seminario
-- [ ] Pasar `node scripts/verificar.js` en verde
+- [x] Presentación (`clase.html`) · 20 diapositivas, 4 figuras
+- [x] Entregable (`preparacion.html`) · 4 preguntas, token S02 verificado contra el servidor
+- [x] Guía (`index.html`) · guion sincrónico
+- [x] Títulos de las preguntas en `_shared/tablero.html`
+- [x] Enlazada desde la portada y el README
+- [x] `node scripts/verificar.js` en verde
+- [ ] 🔴 **Abrir la ventana** en la pestaña `Config` de la hoja: fila `S02`, `Apertura`
+      `2026-08-28 12:00`, `Cierre` `2026-09-04 07:00`, `Activa` `Sí`
+- [ ] **Abrir con el wifi apagado** y revisar a 375 px
+- [ ] Enviar el correo al grupo (≈ 28 de agosto, para dar una semana)
+- [ ] Confirmar el marco PAIS/MAITE vigente y quitar el rótulo si se resuelve
 
 ## Pendientes propios
 
-_(sin pendientes registrados)_
+- El contenido programático nombra **SECPAL** y el material solo la menciona de pasada. Si se
+  quiere darle peso, hace falta una fuente concreta.
+- La **P3 puede volverse frustrante** si nadie encuentra nada. En clase conviene enmarcarla desde
+  el principio como método —cómo se documenta una búsqueda— y no como caza del documento.
+- Si la carga vuelve a salir por encima de lo anunciado, la sesión 3 debería bajar a tres
+  preguntas. El campo «minutos» lo dirá.

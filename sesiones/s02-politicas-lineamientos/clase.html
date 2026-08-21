@@ -1,0 +1,725 @@
+<!doctype html>
+<html lang="es">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sesión 2 · Lineamientos y políticas: mundo, región, Colombia — Seminario de fundamentación en CP</title>
+<meta name="description" content="Material de estudio de la sesión 2 del Seminario de fundamentación en cuidados paliativos (32264001), Universidad Antonio Nariño. De la resolución mundial al servicio que existe o no existe.">
+
+<!-- ===========================================================================
+     MATERIAL DE ESTUDIO · SESIÓN 2 · presentación autocontenida
+     viernes 4 de septiembre de 2026 · sincrónico
+
+     Se estudia ANTES del encuentro. Ver docs/CONDUCIR-LA-SESION.md.
+
+     Figuras en SVG propio, incrustado. Cada una enseña algo que el texto
+     solo afirma; si solo decora, sobra.
+
+     RIGOR DE LAS FUENTES. Lo que se afirma aquí sobre instrumentos concretos
+     está acotado a lo verificable. Lo que el contenido programático nombra
+     pero el curso todavía no ha podido documentar con fuente primaria va
+     rotulado [DATO POR VERIFICAR], visible, y no se disimula: en un
+     seminario que evalúa verificar lo que se cita, el material no puede
+     hacer lo contrario.
+     =========================================================================== -->
+
+<style>
+/* --- tokens.css en línea · FUENTE CANÓNICA: _shared/tokens.css ----------- */
+:root{
+  --bosque:#2F5D50;    --bosque-dark:#234639;    --bosque-deep:#17302A;  --bosque-soft:#D6E3DD;
+  --arcilla:#C4714F;   --arcilla-dark:#A2563A;   --arcilla-deep:#6F3823; --arcilla-soft:#F3DCD1;
+  --malva:#7A5C8A;     --malva-dark:#5F4570;     --malva-deep:#402C4D;   --malva-soft:#E4DAEA;
+  --piedra:#8A8578;    --piedra-dark:#6B6659;    --piedra-deep:#4E4A40;  --piedra-soft:#EFEBE3;
+  --pizarra:#22282A;   --gris:#565E5C;           --gris-claro:#9AA09D;
+  --blanco:#FFFFFF;    --lino:#FAF8F4;
+  --shadow-soft:0 2px 8px rgba(34,40,42,.07);
+  --shadow-medium:0 6px 20px rgba(34,40,42,.11);
+  --radius:14px; --radius-sm:9px;
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif;
+  --mono:'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace;
+  --serif:Georgia,'Times New Roman',serif;
+
+  /* Unidad 1 → bosque */
+  --acento:var(--bosque); --acento-dark:var(--bosque-deep); --acento-soft:var(--bosque-soft);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;font-family:var(--sans);color:var(--pizarra);background:var(--lino);
+  line-height:1.5;overflow:hidden}
+:focus-visible{outline:3px solid var(--acento);outline-offset:3px}
+a{color:var(--acento-dark)}
+.saltar{position:absolute;left:-9999px;background:var(--pizarra);color:var(--lino);padding:.6rem 1rem;z-index:99}
+.saltar:focus{left:0}
+
+.deck{position:fixed;inset:0 0 62px 0}
+.d{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;
+  padding:clamp(1.4rem,4vw,3.4rem) clamp(1.25rem,6vw,5.5rem);
+  opacity:0;visibility:hidden;transition:opacity .28s ease;overflow-y:auto}
+.d.on{opacity:1;visibility:visible}
+@media (prefers-reduced-motion:reduce){.d{transition:none}}
+
+.d__eyebrow{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;
+  color:var(--acento);margin:0 0 .7rem}
+h1{font-size:clamp(1.9rem,5.2vw,3.4rem);line-height:1.08;letter-spacing:-.02em;margin:0 0 .8rem;max-width:20ch}
+h2{font-size:clamp(1.35rem,3.4vw,2.3rem);line-height:1.15;letter-spacing:-.015em;margin:0 0 .8rem;max-width:24ch;color:var(--acento-dark)}
+h3{font-size:clamp(.98rem,1.8vw,1.15rem);margin:0 0 .35rem;color:var(--acento-dark)}
+p{font-size:clamp(.96rem,1.5vw,1.1rem);max-width:60ch;margin:0 0 .8em}
+.lead{font-size:clamp(1.02rem,1.95vw,1.3rem);color:var(--gris);max-width:52ch}
+strong{color:var(--pizarra)}
+
+figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:.6rem}
+svg{max-width:100%;height:auto;display:block}
+svg text{font-family:var(--sans)}
+svg .mono{font-family:var(--mono)}
+svg .serif{font-family:var(--serif);font-style:italic}
+figcaption{font-size:.85rem;color:var(--gris);max-width:58ch;text-align:center}
+.conFigura{display:grid;gap:clamp(1rem,3vw,2.6rem);align-items:center;
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,19rem),1fr))}
+
+.d--portada{background:linear-gradient(150deg,var(--lino) 0%,var(--bosque-soft) 100%)}
+.d--portada .meta{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.5rem;font-size:.85rem}
+.d--portada .meta span{background:var(--blanco);border:1px solid rgba(34,40,42,.09);border-radius:999px;
+  padding:.3rem .9rem;box-shadow:var(--shadow-soft)}
+.firma{margin-top:1.8rem;font-size:.85rem;color:var(--gris);max-width:44ch}
+
+.d--parte{background:var(--bosque-deep);color:var(--lino);justify-content:center}
+.d--parte .n{font-family:var(--mono);font-size:clamp(3rem,11vw,7rem);font-weight:700;line-height:.9;
+  color:rgba(214,227,221,.28);letter-spacing:-.04em;margin:0 0 .4rem}
+.d--parte h2{color:var(--blanco);max-width:18ch;font-size:clamp(1.6rem,4.6vw,3rem);margin-bottom:.6rem}
+.d--parte p{color:var(--bosque-soft);max-width:44ch;font-size:clamp(1rem,1.8vw,1.2rem);margin:0}
+
+.d--golpe{background:var(--arcilla-soft)}
+.d--golpe .gran{font-family:var(--serif);font-size:clamp(1.6rem,5.2vw,3.4rem);line-height:1.18;
+  color:var(--arcilla-deep);max-width:19ch;margin:0 0 1rem}
+.d--golpe p{color:var(--arcilla-deep);opacity:.85;max-width:52ch}
+
+.bloques{display:grid;gap:.85rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,14rem),1fr));margin-top:.5rem}
+.bloque{background:var(--blanco);border-radius:var(--radius);padding:.95rem 1.1rem;box-shadow:var(--shadow-soft);border-left:4px solid var(--acento)}
+.bloque .n{font-family:var(--mono);font-size:.73rem;color:var(--acento);font-weight:700;letter-spacing:.06em;margin:0}
+.bloque h3{margin:.2rem 0 .25rem}
+.bloque p{font-size:.9rem;color:var(--gris);margin:0}
+.bloque--otro{border-left-color:var(--arcilla)}
+.bloque--otro .n,.bloque--otro h3{color:var(--arcilla-deep)}
+
+.hito{display:flex;gap:clamp(1rem,3vw,2.2rem);align-items:flex-start;flex-wrap:wrap}
+.hito__anno{font-family:var(--mono);font-size:clamp(1.9rem,5.5vw,4rem);font-weight:700;line-height:1;
+  color:var(--acento);letter-spacing:-.03em;flex-shrink:0}
+.hito__txt{flex:1;min-width:min(100%,17rem)}
+
+.pasos{list-style:none;counter-reset:p;margin:.5rem 0 0;padding:0;display:grid;gap:.6rem;max-width:56ch}
+.pasos li{counter-increment:p;background:var(--blanco);border-radius:var(--radius-sm);
+  padding:.75rem 1rem .75rem 2.9rem;box-shadow:var(--shadow-soft);position:relative;font-size:.94rem}
+.pasos li::before{content:counter(p);position:absolute;left:.85rem;top:.72rem;width:1.45rem;height:1.45rem;
+  border-radius:50%;background:var(--acento);color:var(--blanco);font-family:var(--mono);
+  font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center}
+
+.tabla{overflow-x:auto;margin-top:.5rem;width:100%}
+table{border-collapse:collapse;width:100%;min-width:30rem;background:var(--blanco);border-radius:var(--radius-sm);
+  overflow:hidden;box-shadow:var(--shadow-soft);font-size:.88rem}
+th,td{padding:.58rem .75rem;text-align:left;vertical-align:top;border-bottom:1px solid rgba(34,40,42,.07)}
+th{background:var(--acento-soft);color:var(--acento-dark);font-size:.8rem}
+tbody tr:last-child td{border-bottom:0}
+
+.pregunta{font-family:var(--serif);font-style:italic;font-size:clamp(1.08rem,2.4vw,1.55rem);
+  color:var(--acento-dark);border-left:4px solid var(--acento);padding:.4em 0 .4em 1em;
+  max-width:44ch;margin:.3rem 0 1rem}
+.nota{background:var(--blanco);border-left:4px solid var(--piedra);border-radius:var(--radius-sm);
+  padding:.85rem 1.05rem;box-shadow:var(--shadow-soft);font-size:.9rem;color:var(--gris);max-width:58ch}
+.nota strong{color:var(--pizarra)}
+.verificar{background:var(--arcilla-soft);border-left:3px solid var(--arcilla);border-radius:var(--radius-sm);
+  padding:.55rem .85rem;margin-top:.7rem;font-size:.81rem;color:var(--arcilla-deep);max-width:56ch}
+.verificar strong{font-family:var(--mono);font-size:.73rem;letter-spacing:.04em;color:var(--arcilla-deep)}
+.btn{display:inline-block;background:var(--acento);color:var(--blanco);text-decoration:none;
+  font-weight:600;border-radius:999px;padding:.6rem 1.5rem}
+.btn:hover{background:var(--acento-dark)}
+
+.nav{position:fixed;left:0;right:0;bottom:0;height:62px;display:flex;align-items:center;
+  gap:.8rem;padding:0 clamp(.8rem,3vw,1.6rem);background:var(--pizarra);color:var(--lino);z-index:40}
+.nav__barra{position:absolute;top:0;left:0;height:3px;background:var(--acento);transition:width .28s ease}
+@media (prefers-reduced-motion:reduce){.nav__barra{transition:none}}
+.nav__t{flex:1;font-size:.84rem;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.nav__t small{display:block;font-weight:400;font-size:.72rem;color:var(--gris-claro)}
+.nav button{width:38px;height:38px;border-radius:50%;border:1px solid rgba(250,248,244,.32);
+  background:transparent;color:var(--lino);font-size:1.05rem;cursor:pointer;line-height:1;flex-shrink:0}
+.nav button:hover:not([disabled]){background:rgba(250,248,244,.14)}
+.nav button[disabled]{opacity:.28;cursor:default}
+.nav__n{font-family:var(--mono);font-size:.84rem;min-width:4.4rem;text-align:center;flex-shrink:0}
+.nav__pista{font-family:var(--mono);font-size:.7rem;opacity:.55;flex-shrink:0}
+@media (max-width:760px){.nav__pista{display:none}}
+
+@media print{
+  body{overflow:visible;background:var(--blanco)}
+  .deck{position:static;inset:auto}
+  .d{position:static;opacity:1;visibility:visible;page-break-after:always;min-height:auto;padding:1.4rem 0}
+  .d--parte{background:none;color:var(--pizarra)}
+  .d--parte h2{color:var(--acento-dark)}
+  .d--parte p{color:var(--gris)}
+  .d--parte .n{color:var(--gris-claro)}
+  .nav,.saltar{display:none}
+}
+</style>
+
+<a class="saltar" href="#d1">Saltar al contenido</a>
+
+<main class="deck" id="deck">
+
+<!-- 1 ─ Portada ────────────────────────────────────────────────────────── -->
+<section class="d d--portada" id="d1" aria-label="Portada">
+  <div class="conFigura">
+    <div>
+      <p class="d__eyebrow">Unidad 1 · Tema 2 · Material de estudio</p>
+      <h1>Lineamientos y políticas: mundo, región, Colombia</h1>
+      <p class="lead">
+        Hay resoluciones, leyes, rutas y modelos. Esta sesión pregunta qué hace cada uno de esos
+        instrumentos, en qué se diferencian, y en qué punto de la cadena deja de haber algo.
+      </p>
+      <div class="meta">
+        <span>Sesión 2</span>
+        <span>viernes 4 de septiembre de 2026</span>
+        <span>Sincrónico · 8:00 a 11:00</span>
+      </div>
+      <p class="firma">
+        Seminario de fundamentación en cuidados paliativos · 32264001<br>
+        Maestría en Cuidados Paliativos · Universidad Antonio Nariño · 2026-II
+      </p>
+    </div>
+    <figure>
+      <svg viewBox="0 0 300 300" role="img" aria-labelledby="tPortada2" width="300">
+        <title id="tPortada2">Documentos apilados sobre los que se apoya, o no, un servicio</title>
+        <circle cx="150" cy="150" r="126" fill="var(--bosque-soft)" opacity=".5"/>
+        <g stroke="var(--bosque)" stroke-width="3" fill="var(--blanco)">
+          <rect x="72" y="70"  width="150" height="40" rx="5"/>
+          <rect x="86" y="122" width="122" height="40" rx="5"/>
+          <rect x="100" y="174" width="94" height="40" rx="5"/>
+        </g>
+        <g stroke="var(--bosque)" stroke-width="2.5" opacity=".55">
+          <path d="M92 84 h72 M92 96 h44"/><path d="M106 136 h58 M106 148 h34"/>
+          <path d="M120 188 h44 M120 200 h26"/>
+        </g>
+        <rect x="114" y="226" width="66" height="40" rx="5" fill="none"
+              stroke="var(--arcilla)" stroke-width="3" stroke-dasharray="7 6"/>
+        <text x="147" y="252" text-anchor="middle" class="serif" font-size="20" fill="var(--arcilla-dark)">?</text>
+      </svg>
+      <figcaption>Tres documentos, y abajo la pregunta.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- 2 ─ Cómo funciona + devolución de la sesión 1 ──────────────────────── -->
+<section class="d" aria-label="Cómo se usa este material">
+  <p class="d__eyebrow">Antes de empezar</p>
+  <h2>Lo que ustedes encontraron en la sesión 1</h2>
+  <p class="lead">
+    La sesión pasada la construyeron ustedes. Y de sus respuestas salió un resultado que da pie a
+    esta.
+  </p>
+  <div class="tabla">
+    <table>
+      <thead><tr><th scope="col">Pregunta de la sesión 1</th><th scope="col">Se apoyaron en una fuente</th></tr></thead>
+      <tbody>
+        <tr><td><strong>P4</strong> · un indicador del <em>Global Atlas</em></td><td><strong>7 de 7</strong></td></tr>
+        <tr><td><strong>P3</strong> · qué dimensión del dolor total está peor atendida en su servicio</td><td><strong>0 de 7</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="margin-top:1rem">
+    Las mismas siete personas. Cuando la pregunta señalaba una fuente, todas anclaron en evidencia.
+    Cuando pedía mirar el propio servicio, ninguna pudo — <strong>porque el dato no está</strong>.
+  </p>
+  <p class="nota">
+    Esta sesión toma ese hallazgo en serio. Todas las preguntas del entregable dicen
+    <strong>dónde buscar</strong>. Si aun así no aparece el dato, eso vuelve a ser el hallazgo.
+  </p>
+</section>
+
+<!-- 3 ─ Parte I ────────────────────────────────────────────────────────── -->
+<section class="d d--parte" aria-label="Primera parte">
+  <p class="n">I</p>
+  <h2>«Hay norma» no es una sola cosa</h2>
+  <p>Cuatro peldaños que se confunden todo el tiempo, y no hacen lo mismo.</p>
+</section>
+
+<!-- 4 ─ FIGURA · la escalera ───────────────────────────────────────────── -->
+<section class="d" aria-label="De la resolución al servicio">
+  <p class="d__eyebrow">La cadena completa</p>
+  <h2>De la resolución al servicio</h2>
+  <figure>
+    <svg viewBox="0 0 760 330" role="img" aria-labelledby="tEscalera">
+      <title id="tEscalera">Cuatro peldaños descendentes —resolución internacional, ley nacional, resolución operativa y servicio— cada uno con menos alcance que el anterior</title>
+
+      <g stroke-width="0">
+        <rect x="20"  y="52"  width="170" height="62" rx="8" fill="var(--bosque)" opacity=".92"/>
+        <rect x="200" y="118" width="170" height="62" rx="8" fill="var(--bosque)" opacity=".78"/>
+        <rect x="380" y="184" width="170" height="62" rx="8" fill="var(--bosque)" opacity=".62"/>
+        <rect x="560" y="250" width="170" height="62" rx="8" fill="none" stroke="var(--arcilla)" stroke-width="3" stroke-dasharray="8 6"/>
+      </g>
+
+      <g text-anchor="middle" fill="var(--blanco)">
+        <text x="105" y="78"  font-size="14" font-weight="700">Resolución</text>
+        <text x="105" y="96"  font-size="14" font-weight="700">internacional</text>
+        <text x="285" y="144" font-size="14" font-weight="700">Ley nacional</text>
+        <text x="465" y="210" font-size="14" font-weight="700">Resolución</text>
+        <text x="465" y="228" font-size="14" font-weight="700">operativa</text>
+      </g>
+      <text x="645" y="286" text-anchor="middle" font-size="15" font-weight="700" fill="var(--arcilla-dark)">¿el servicio?</text>
+
+      <g stroke="var(--gris-claro)" stroke-width="2.5" fill="none">
+        <path d="M190 96 h10 l0 22"/><path d="M370 162 h10 l0 22"/><path d="M550 228 h10 l0 22"/>
+      </g>
+
+      <g font-size="11.5" fill="var(--gris)" text-anchor="middle">
+        <text x="105" y="132">compromete políticamente</text>
+        <text x="285" y="198">crea un derecho</text>
+        <text x="465" y="264">define una ruta</text>
+        <text x="645" y="308" fill="var(--arcilla-dark)">existe o no existe</text>
+      </g>
+
+      <text x="30" y="26" font-size="12.5" class="serif" fill="var(--bosque-dark)">cada peldaño alcanza menos que el anterior</text>
+    </svg>
+    <figcaption>
+      Los cuatro se citan como si fueran lo mismo. <strong>Solo el último se puede visitar.</strong>
+    </figcaption>
+  </figure>
+</section>
+
+<!-- 5 ─ Los peldaños ───────────────────────────────────────────────────── -->
+<section class="d" aria-label="Qué hace cada peldaño">
+  <p class="d__eyebrow">La distinción que hay que llevarse</p>
+  <h2>Qué hace, y qué no hace, cada instrumento</h2>
+  <div class="tabla">
+    <table>
+      <thead><tr><th scope="col">Instrumento</th><th scope="col">Qué hace</th><th scope="col">Qué NO hace</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Resolución de un organismo internacional</strong></td><td>Compromete políticamente a los Estados y fija una agenda. Da lenguaje y legitimidad.</td><td>No obliga jurídicamente ni asigna un peso.</td></tr>
+        <tr><td><strong>Ley nacional</strong></td><td>Crea un derecho exigible y obliga al Estado.</td><td>No dice con qué recursos, ni dónde, ni quién lo presta.</td></tr>
+        <tr><td><strong>Resolución o norma operativa</strong></td><td>Define rutas, responsables y procedimientos. Baja la ley a la operación.</td><td>No construye el servicio ni forma al equipo.</td></tr>
+        <tr><td><strong>El servicio</strong></td><td>Atiende a alguien, un martes, en un municipio.</td><td>— es lo único que se puede visitar y contar.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="nota" style="margin-top:.9rem">
+    <strong>Cuando alguien dice «en Colombia sí hay cuidados paliativos porque existe la ley»,</strong>
+    está saltándose tres peldaños. Esta sesión es aprender a preguntar en cuál se quedó la cadena.
+  </p>
+</section>
+
+<!-- 6 ─ Parte II ───────────────────────────────────────────────────────── -->
+<section class="d d--parte" aria-label="Segunda parte">
+  <p class="n">II</p>
+  <h2>El mundo</h2>
+  <p>Quién dice qué, y con cuánta fuerza.</p>
+</section>
+
+<!-- 7 ─ 2014 · WHA67.19 ────────────────────────────────────────────────── -->
+<section class="d" aria-label="Resolución WHA67.19">
+  <p class="d__eyebrow">El instrumento global de referencia</p>
+  <div class="hito">
+    <span class="hito__anno">2014</span>
+    <div class="hito__txt">
+      <h2 style="margin-bottom:.5rem">Resolución WHA67.19</h2>
+      <p>
+        La <strong>Asamblea Mundial de la Salud</strong> —el órgano de decisión de la OMS, donde
+        están los Estados miembros— aprueba una resolución dedicada al fortalecimiento de los
+        cuidados paliativos como componente del tratamiento integral <em>a lo largo de todo el
+        curso de la vida</em>.
+      </p>
+      <p>
+        Es el documento que se cita en casi toda discusión de política del campo. Conviene leerlo
+        de primera mano al menos una vez: es corto.
+      </p>
+      <p class="nota">
+        <strong>Fíjese en el verbo.</strong> Una resolución de la Asamblea <em>insta</em>,
+        <em>solicita</em>, <em>recomienda</em>. No dice «obliga». Ese matiz es el primer peldaño de
+        la escalera, y explica por qué doce años después la brecha sigue abierta.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- 8 ─ FIGURA · quién es quién ────────────────────────────────────────── -->
+<section class="d" aria-label="Mapa de organismos">
+  <p class="d__eyebrow">El mapa</p>
+  <h2>Quién es quién, y con qué palanca</h2>
+  <figure>
+    <svg viewBox="0 0 720 320" role="img" aria-labelledby="tMapa">
+      <title id="tMapa">Los organismos agrupados por el tipo de palanca que usan: normativa, financiera, comparativa y científica</title>
+
+      <g stroke-width="0">
+        <rect x="20"  y="40" width="160" height="240" rx="12" fill="var(--bosque)" opacity=".14"/>
+        <rect x="200" y="40" width="160" height="240" rx="12" fill="var(--arcilla)" opacity=".14"/>
+        <rect x="380" y="40" width="160" height="240" rx="12" fill="var(--malva)" opacity=".14"/>
+        <rect x="560" y="40" width="140" height="240" rx="12" fill="var(--piedra)" opacity=".16"/>
+      </g>
+
+      <g text-anchor="middle" font-size="13.5" font-weight="700">
+        <text x="100" y="68" fill="var(--bosque-dark)">Norma</text>
+        <text x="280" y="68" fill="var(--arcilla-dark)">Dinero</text>
+        <text x="460" y="68" fill="var(--malva-dark)">Comparación</text>
+        <text x="630" y="68" fill="var(--piedra-deep)">Ciencia</text>
+      </g>
+
+      <g text-anchor="middle" font-size="15" font-weight="700" fill="var(--pizarra)">
+        <text x="100" y="112">OMS</text>
+        <text x="100" y="150">OPS</text>
+        <text x="280" y="112">Banco Mundial</text>
+        <text x="280" y="150">BID</text>
+        <text x="460" y="112">OCDE</text>
+        <text x="460" y="150">CEPAL</text>
+        <text x="630" y="112">IAHPC</text>
+        <text x="630" y="150">SECPAL</text>
+        <text x="630" y="188">ALCP</text>
+      </g>
+
+      <g text-anchor="middle" font-size="11" fill="var(--gris)">
+        <text x="100" y="200">resoluciones,</text><text x="100" y="216">guías, listas</text>
+        <text x="100" y="232">de medicamentos</text>
+        <text x="280" y="200">préstamos y</text><text x="280" y="216">cooperación:</text>
+        <text x="280" y="232">mueven presupuesto</text>
+        <text x="460" y="200">indicadores que</text><text x="460" y="216">ponen a los países</text>
+        <text x="460" y="232">uno al lado del otro</text>
+        <text x="630" y="220">definiciones,</text><text x="630" y="236">atlas, consensos</text>
+      </g>
+
+      <text x="360" y="308" text-anchor="middle" font-size="12.5" class="serif" fill="var(--pizarra)">
+        Ninguno presta el servicio. Todos influyen en que exista.
+      </text>
+    </svg>
+    <figcaption>
+      Citarlos todos como «lineamientos internacionales» borra la diferencia.
+      <strong>Una lista de medicamentos esenciales y un préstamo no operan igual.</strong>
+    </figcaption>
+  </figure>
+</section>
+
+<!-- 9 ─ OMS ────────────────────────────────────────────────────────────── -->
+<section class="d" aria-label="La OMS">
+  <p class="d__eyebrow">Palanca normativa</p>
+  <h2>OMS · Organización Mundial de la Salud</h2>
+  <p class="lead">La que fija el lenguaje con el que todos los demás hablan.</p>
+  <div class="bloques">
+    <div class="bloque"><p class="n">Define</p><p>La definición de cuidado paliativo que usan los sistemas de salud, y que ya vimos evolucionar de 1990 a 2002.</p></div>
+    <div class="bloque"><p class="n">Compromete</p><p>La resolución WHA67.19 (2014), que pone el cuidado paliativo en la agenda de los Estados miembros.</p></div>
+    <div class="bloque"><p class="n">Habilita</p><p>La Lista de Medicamentos Esenciales, donde la morfina figura como esencial. Un país que no la garantiza está incumpliendo un estándar propio.</p></div>
+  </div>
+  <p class="nota" style="margin-top:1rem">
+    <strong>Lo que no hace:</strong> no financia servicios, no forma equipos y no puede obligar a
+    ningún Estado. Su fuerza es la del lenguaje compartido y la comparación entre pares.
+  </p>
+</section>
+
+<!-- 10 ─ Dinero ────────────────────────────────────────────────────────── -->
+<section class="d" aria-label="Banco Mundial y BID">
+  <p class="d__eyebrow">Palanca financiera</p>
+  <h2>Banco Mundial y BID</h2>
+  <p class="lead">
+    No escriben normas de salud: financian reformas. Y lo que se financia es lo que termina
+    existiendo.
+  </p>
+  <p>
+    Su influencia sobre el cuidado paliativo es <strong>indirecta pero real</strong>: pasa por
+    cómo se diseñan los planes de beneficios, qué se considera coste-efectivo y qué entra en el
+    paquete que un sistema garantiza.
+  </p>
+  <p class="verificar">
+    <strong>[DATO POR VERIFICAR]</strong> El contenido programático nombra al <strong>BID</strong>
+    entre los organismos de referencia, pero este curso todavía no tiene localizado un documento
+    del BID específico sobre cuidados paliativos. <strong>La pregunta 3 del entregable pide
+    buscarlo.</strong> Si no aparece, esa ausencia también es un resultado.
+  </p>
+</section>
+
+<!-- 11 ─ Comparación ───────────────────────────────────────────────────── -->
+<section class="d" aria-label="OCDE y CEPAL">
+  <p class="d__eyebrow">Palanca comparativa</p>
+  <h2>OCDE y CEPAL</h2>
+  <p class="lead">Ponen a los países uno al lado del otro. Eso mueve más de lo que parece.</p>
+  <div class="bloques">
+    <div class="bloque">
+      <p class="n">OCDE</p>
+      <h3>Indicadores de sistemas de salud</h3>
+      <p>Compara desempeño entre países. Colombia es miembro desde 2020, así que sus indicadores nos incluyen y nos exponen.</p>
+    </div>
+    <div class="bloque">
+      <p class="n">CEPAL</p>
+      <h3>Envejecimiento y cuidados</h3>
+      <p>Trabaja la región desde lo social y demográfico: quién cuida, con qué carga, y qué política de cuidados hace falta ante el envejecimiento.</p>
+    </div>
+  </div>
+  <p class="nota" style="margin-top:1rem">
+    <strong>Por qué importa la comparación.</strong> Un país tolera su propia brecha mucho mejor
+    cuando no la ve al lado de la del vecino. El indicador comparado es, en sí mismo, un
+    instrumento de política.
+  </p>
+</section>
+
+<!-- 12 ─ Ciencia ───────────────────────────────────────────────────────── -->
+<section class="d" aria-label="IAHPC, SECPAL y ALCP">
+  <p class="d__eyebrow">Palanca científica</p>
+  <h2>Las sociedades del campo</h2>
+  <div class="bloques">
+    <div class="bloque">
+      <p class="n">IAHPC</p>
+      <h3>Asociación internacional</h3>
+      <p>De ella salió el consenso 2018–2020 que definió el cuidado paliativo por el <em>sufrimiento grave</em> y como derecho humano, para todas las edades.</p>
+    </div>
+    <div class="bloque">
+      <p class="n">SECPAL</p>
+      <h3>Sociedad Española de CP</h3>
+      <p>Referencia en lengua española: guías, formación y publicaciones que circulan mucho en Latinoamérica.</p>
+    </div>
+    <div class="bloque">
+      <p class="n">ALCP</p>
+      <h3>Asociación Latinoamericana</h3>
+      <p>Produce el <em>Atlas de Cuidados Paliativos en Latinoamérica</em>, la fuente regional por excelencia para comparar países vecinos.</p>
+    </div>
+  </div>
+  <p class="nota" style="margin-top:1rem">
+    <strong>No tienen poder normativo, y aun así mandan mucho.</strong> Fijan qué se considera
+    buena práctica, y los ministerios acaban citándolas.
+  </p>
+</section>
+
+<!-- 13 ─ Parte III ─────────────────────────────────────────────────────── -->
+<section class="d d--parte" aria-label="Tercera parte">
+  <p class="n">III</p>
+  <h2>La región y Colombia</h2>
+  <p>Dónde se rompe la cadena, y con qué instrumentos contamos aquí.</p>
+</section>
+
+<!-- 14 ─ OPS ───────────────────────────────────────────────────────────── -->
+<section class="d" aria-label="OPS">
+  <p class="d__eyebrow">El puente regional</p>
+  <h2>OPS · Organización Panamericana de la Salud</h2>
+  <p class="lead">
+    Es la oficina regional de la OMS para las Américas — y también un organismo con historia
+    propia, anterior a la OMS.
+  </p>
+  <p>
+    Su papel es traducir los compromisos globales a la realidad del continente y acompañar a los
+    ministerios. Cuando un documento colombiano cita «lineamientos internacionales», muy a menudo
+    lo que hay detrás es una publicación de la OPS.
+  </p>
+  <p class="nota">
+    <strong>Un detalle útil al citar.</strong> OMS y OPS no son intercambiables. Confundirlas en un
+    trabajo académico es el tipo de imprecisión que este seminario sí revisa.
+  </p>
+</section>
+
+<!-- 15 ─ FIGURA · la escalera colombiana ───────────────────────────────── -->
+<section class="d" aria-label="La cadena colombiana">
+  <p class="d__eyebrow">La misma escalera, aquí</p>
+  <h2>La cadena colombiana</h2>
+  <figure>
+    <svg viewBox="0 0 760 330" role="img" aria-labelledby="tColombia">
+      <title id="tColombia">La cadena aplicada a Colombia: resolución mundial de 2014, Ley 1733 de 2014, Resolución 3280 de 2018 con las RIAS, y al final el servicio con signo de interrogación</title>
+
+      <g stroke-width="0">
+        <rect x="20"  y="52"  width="170" height="62" rx="8" fill="var(--bosque)" opacity=".92"/>
+        <rect x="200" y="118" width="170" height="62" rx="8" fill="var(--bosque)" opacity=".78"/>
+        <rect x="380" y="184" width="170" height="62" rx="8" fill="var(--bosque)" opacity=".62"/>
+        <rect x="560" y="250" width="170" height="62" rx="8" fill="none" stroke="var(--arcilla)" stroke-width="3" stroke-dasharray="8 6"/>
+      </g>
+
+      <g text-anchor="middle" fill="var(--blanco)">
+        <text x="105" y="80"  font-size="14" font-weight="700" class="mono">WHA67.19</text>
+        <text x="105" y="98"  font-size="12">2014 · mundo</text>
+        <text x="285" y="146" font-size="14" font-weight="700" class="mono">Ley 1733</text>
+        <text x="285" y="164" font-size="12">2014 · Colombia</text>
+        <text x="465" y="212" font-size="14" font-weight="700" class="mono">Res. 3280</text>
+        <text x="465" y="230" font-size="12">2018 · RIAS</text>
+      </g>
+      <text x="645" y="278" text-anchor="middle" font-size="15" font-weight="700" fill="var(--arcilla-dark)">su municipio</text>
+      <text x="645" y="296" text-anchor="middle" font-size="19" font-weight="700" fill="var(--arcilla-dark)">?</text>
+
+      <g stroke="var(--gris-claro)" stroke-width="2.5" fill="none">
+        <path d="M190 96 h10 l0 22"/><path d="M370 162 h10 l0 22"/><path d="M550 228 h10 l0 22"/>
+      </g>
+
+      <g font-size="11.5" fill="var(--gris)" text-anchor="middle">
+        <text x="105" y="132">insta a los Estados</text>
+        <text x="285" y="198">crea el derecho</text>
+        <text x="465" y="264">define la ruta</text>
+      </g>
+      <text x="30" y="26" font-size="12.5" class="serif" fill="var(--bosque-dark)">el mismo año arriba y abajo — y once años después</text>
+    </svg>
+    <figcaption>
+      La ley colombiana es del <strong>mismo año</strong> que la resolución mundial. El país llegó
+      a tiempo al papel. La pregunta es dónde se detuvo la cadena.
+    </figcaption>
+  </figure>
+</section>
+
+<!-- 16 ─ Ley 1733 ──────────────────────────────────────────────────────── -->
+<section class="d" aria-label="Ley 1733 de 2014">
+  <p class="d__eyebrow">El peldaño que crea el derecho</p>
+  <div class="hito">
+    <span class="hito__anno">1733</span>
+    <div class="hito__txt">
+      <h2 style="margin-bottom:.5rem">Ley 1733 de 2014</h2>
+      <p>
+        Conocida como <strong>Ley Consuelo Devis Saavedra</strong>. Regula el derecho a los
+        cuidados paliativos de las personas con enfermedades terminales, crónicas, degenerativas e
+        irreversibles.
+      </p>
+      <p>
+        Consagra, entre otras cosas, el derecho al cuidado paliativo, a la información sobre el
+        diagnóstico y el pronóstico, y a decidir sobre los tratamientos.
+      </p>
+      <p class="nota">
+        <strong>Sobre el lenguaje.</strong> La ley dice «enfermos terminales». En la voz de este
+        seminario decimos «persona con enfermedad avanzada» — pero <strong>al citar la ley se
+        conserva su texto</strong>: cambiar la palabra alteraría la cita. Esa distinción va a
+        aparecer en todos los trabajos de la Unidad 1.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- 17 ─ Res. 3280 y RIAS ──────────────────────────────────────────────── -->
+<section class="d" aria-label="Resolución 3280 y RIAS">
+  <p class="d__eyebrow">El peldaño operativo</p>
+  <h2>Resolución 3280 de 2018 · las RIAS</h2>
+  <p class="lead">
+    Donde el derecho se convierte —o debería convertirse— en una ruta con responsables.
+  </p>
+  <p>
+    Las <strong>Rutas Integrales de Atención en Salud</strong> definen qué debe pasar, en qué
+    orden y a cargo de quién, a lo largo del curso de vida. Es el instrumento que traduce la ley a
+    algo que un servicio puede ejecutar.
+  </p>
+  <p class="nota">
+    <strong>La pregunta que abre la sesión siguiente:</strong> si existe la ruta, ¿por qué hay
+    municipios sin ningún servicio? La sesión 3 se ocupa de eso — <em>barreras de acceso</em>.
+  </p>
+  <p class="verificar">
+    <strong>[DATO POR VERIFICAR]</strong> El contenido programático nombra <strong>PAIS</strong> y
+    un «Modelo Preventivo y resolutivo» junto a las RIAS. El marco de política de atención integral
+    ha cambiado de nombre y de énfasis varias veces en los últimos años (PAIS, MAITE y sucesivos).
+    <strong>Cuál es el marco vigente en 2026 está pendiente de confirmar contra fuente oficial</strong>,
+    y así se dice en clase en vez de afirmar uno.
+  </p>
+</section>
+
+<!-- 18 ─ GOLPE ─────────────────────────────────────────────────────────── -->
+<section class="d d--golpe" aria-label="Lo que un lineamiento no hace">
+  <p class="d__eyebrow" style="color:var(--arcilla-dark)">El punto de la sesión</p>
+  <p class="gran">Un lineamiento no abre un servicio.</p>
+  <p>
+    Ni contrata un equipo, ni compra morfina, ni recorre los cuarenta kilómetros que separan a
+    alguien del hospital más cercano. Hace algo distinto y necesario: <strong>vuelve exigible lo
+    que antes era discrecional.</strong>
+  </p>
+  <p>
+    Confundir las dos cosas es lo que produce la frase «aquí ya está resuelto, existe la ley».
+  </p>
+</section>
+
+<!-- 19 ─ De la narrativa a la pregunta ─────────────────────────────────── -->
+<section class="d" aria-label="De la narrativa a la pregunta">
+  <p class="d__eyebrow">El movimiento de siempre</p>
+  <h2>Del instrumento al dato</h2>
+  <p class="lead">
+    Igual que en la sesión 1, el contenido se cierra preguntando qué de esto es verificable.
+  </p>
+  <p>Tome una afirmación de esta sesión: <em>«Colombia tiene una ruta de atención definida desde 2018»</em>. Es cierta. Y aun así:</p>
+  <ol class="pasos">
+    <li>¿Alguien en su institución ha visto esa ruta escrita, o solo sabe que existe?</li>
+    <li>¿Qué tendría que registrarse para saber si la ruta se cumple?</li>
+    <li>Si el registro no existe, ¿el problema es la ruta o el registro?</li>
+  </ol>
+  <p class="nota" style="margin-top:.9rem">
+    <strong>Esa tercera pregunta es la buena.</strong> Una política sin registro es indistinguible
+    de una política que no se cumple — y esa indistinguibilidad, por sí sola, ya es un hallazgo
+    investigable.
+  </p>
+</section>
+
+<!-- 20 ─ Lo que sigue ──────────────────────────────────────────────────── -->
+<section class="d" aria-label="Lo que sigue">
+  <p class="d__eyebrow">Lo que sigue</p>
+  <h2>El entregable previo</h2>
+  <p class="lead">
+    <strong>Cuatro preguntas</strong>, una menos que la vez pasada. Y todas dicen dónde buscar.
+  </p>
+  <div class="bloques">
+    <div class="bloque"><p class="n">Pregunta 1</p><p>¿La Ley 1733 o la Resolución 3280 aparecen en algún papel de su institución? Busque y diga qué encontró.</p></div>
+    <div class="bloque"><p class="n">Pregunta 2</p><p>Lea la resolución <span class="mono">WHA67.19</span> y elija un compromiso concreto. <strong>Fuente en inglés.</strong></p></div>
+    <div class="bloque"><p class="n">Pregunta 3</p><p>Busque un documento del BID, la OCDE o la CEPAL sobre cuidado paliativo. Si no lo encuentra, documente la búsqueda.</p></div>
+    <div class="bloque bloque--otro"><p class="n">Pregunta 4</p><p>Convierta un instrumento de esta sesión en una pregunta de investigación respondible.</p></div>
+  </div>
+  <p style="margin-top:1.2rem">
+    <a class="btn" href="preparacion.html">Abrir el entregable</a>
+    <span style="font-family:var(--mono);font-size:.82rem;color:var(--gris);margin-left:.9rem">cierra el viernes 4 de septiembre a las 7:00</span>
+  </p>
+  <p class="nota" style="margin-top:1rem">
+    <a href="index.html">Volver a la guía de la sesión</a> ·
+    <a href="../../index.html">Portada del seminario</a>
+  </p>
+</section>
+
+</main>
+
+<nav class="nav" aria-label="Navegación de la presentación">
+  <div class="nav__barra" id="barra"></div>
+  <p class="nav__t" id="titulo">Sesión 2<small>Lineamientos y políticas: mundo, región, Colombia</small></p>
+  <button type="button" id="prev" aria-label="Diapositiva anterior">‹</button>
+  <span class="nav__n" id="cuenta">1 / 20</span>
+  <button type="button" id="next" aria-label="Diapositiva siguiente">›</button>
+  <span class="nav__pista">← → · inicio · fin</span>
+</nav>
+
+<script>
+(function () {
+  'use strict';
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.d'));
+  var total = slides.length;
+  var i = 0;
+  var elPrev = document.getElementById('prev');
+  var elNext = document.getElementById('next');
+  var elCuenta = document.getElementById('cuenta');
+  var elBarra = document.getElementById('barra');
+
+  function mostrar(n, conFoco) {
+    i = Math.max(0, Math.min(total - 1, n));
+    slides.forEach(function (s, k) { s.classList.toggle('on', k === i); });
+    elCuenta.textContent = (i + 1) + ' / ' + total;
+    elBarra.style.width = ((i + 1) / total * 100) + '%';
+    elPrev.disabled = i === 0;
+    elNext.disabled = i === total - 1;
+    if (conFoco) { slides[i].setAttribute('tabindex', '-1'); slides[i].focus({ preventScroll: true }); }
+    slides[i].scrollTop = 0;
+    if (history.replaceState) history.replaceState(null, '', '#' + (i + 1));
+  }
+
+  elPrev.addEventListener('click', function () { mostrar(i - 1, true); });
+  elNext.addEventListener('click', function () { mostrar(i + 1, true); });
+
+  document.addEventListener('keydown', function (e) {
+    if (/^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName)) return;
+    switch (e.key) {
+      case 'ArrowRight': case 'PageDown': mostrar(i + 1, true); break;
+      case 'ArrowLeft':  case 'PageUp':   mostrar(i - 1, true); break;
+      case ' ':          mostrar(i + (e.shiftKey ? -1 : 1), true); e.preventDefault(); break;
+      case 'Home':       mostrar(0, true); break;
+      case 'End':        mostrar(total - 1, true); break;
+      default: return;
+    }
+  });
+
+  var x0 = null, y0 = null;
+  document.addEventListener('touchstart', function (e) {
+    x0 = e.changedTouches[0].clientX; y0 = e.changedTouches[0].clientY;
+  }, { passive: true });
+  document.addEventListener('touchend', function (e) {
+    if (x0 === null) return;
+    var dx = e.changedTouches[0].clientX - x0;
+    var dy = e.changedTouches[0].clientY - y0;
+    if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) mostrar(i + (dx < 0 ? 1 : -1), false);
+    x0 = y0 = null;
+  }, { passive: true });
+
+  var inicial = parseInt((location.hash || '').replace('#', ''), 10);
+  mostrar(isNaN(inicial) ? 0 : inicial - 1, false);
+})();
+</script>
+</html>
