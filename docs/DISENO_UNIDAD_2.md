@@ -4,9 +4,32 @@
 **Programa:** Maestría en Cuidados Paliativos · UAN · Facultad de Enfermería
 **Docente:** Jorge Wilhem Bogoya López
 **Fecha:** 21 de julio de 2026
-**Sesiones:** 7, 8 y 9 de 12 · Segundo corte (35%)
+**Sesiones:** ~~7, 8 y 9 de 12~~ → **4 y 5 de 7** · Segundo corte (35%)
 
 **Resultado de aprendizaje declarado:** *"Interpreta los Modelos de atención en cuidados paliativos desde la investigación."*
+
+---
+
+> ## ⚠️ RECONCILIADO AL CALENDARIO REAL — 22 de agosto de 2026
+>
+> **Escrito en julio para 3 sesiones (7, 8, 9). El calendario da 2** (sesiones **4 y 5** de 7).
+> Fuente canónica: [`sesiones/_sesiones.json`](../sesiones/_sesiones.json).
+>
+> El contenido diseñado aquí sigue siendo válido; se comprime en dos sesiones en vez de tres:
+>
+> | Este documento | Realidad (7 ses.) | Qué implica |
+> |---|---|---|
+> | Sesión 7 · Modelos tradicionales vs. alternativos | **Sesión 4** · vie 2 oct · Sincrónico | Modelos **y telesalud en la misma sesión** |
+> | Sesión 8 · Telesalud y tecnologías digitales | **Sesión 4** (comparte) | ↑ |
+> | Sesión 9 · Enfoques diferenciales | **Sesión 5** · vie 16 oct · Presencial · **entrega 35 %** | Sin cambio de contenido |
+>
+> **La compresión que duele:** modelos (§2) y telesalud (§3) caen en una sola sesión de 3 h. El
+> caso Basch→PRO-TECT —el mejor material investigativo de la unidad— ya no tiene sesión propia.
+> Hay que decidir qué se dicta y qué pasa a lectura previa, o llevarlo al entregable individual.
+>
+> **Si la Dirección confirma la sesión del sábado 8 de agosto** (`PROGRAMADOR-2026-II.md` §3), U2
+> recupera su tercera sesión y **la telesalud vuelve a tener sesión propia** — es la razón principal
+> para preferir esa distribución. Hasta que se confirme, rige la de 2 sesiones.
 
 ---
 

@@ -8,6 +8,34 @@
 
 ---
 
+> ## ⚠️ RECONCILIADO AL CALENDARIO REAL — 22 de agosto de 2026
+>
+> **Este documento se escribió en julio suponiendo 12 sesiones. El calendario oficial da 7.**
+> La cifra de 12 fue un estimado *antes* de tener el calendario (192 h ÷ 4). Contra
+> `HORARIOS 2026 - II.pdf` resultan **siete viernes de 3 h**. La fuente canónica es
+> [`sesiones/_sesiones.json`](../sesiones/_sesiones.json); el análisis, [`PROGRAMADOR-2026-II.md`](PROGRAMADOR-2026-II.md).
+>
+> **El contenido y el mapa de condensación de este documento siguen siendo válidos.** Lo que
+> cambia es la distribución: la Unidad 1 pasa de 6 sesiones a **3**, y la condensación deja de ser
+> 8→5 para ser **8→3**.
+>
+> | Este documento (12 ses.) | Realidad (7 ses.) | Contenido |
+> |---|---|---|
+> | Sesiones 1 + 2 | **Sesión 1** · vie 21 ago · Presencial | Encuadre + U1·T1 (historia y filosofía). Absorbe Clases 1+2 |
+> | Sesiones 3 + 4 | **Sesión 2** · vie 4 sep · Sincrónico | U1·T2 políticas: mundo, región, Colombia. Absorbe Clases 3+4+5 |
+> | Sesiones 5 + 6 | **Sesión 3** · vie 18 sep · Presencial · **entrega 35 %** | U1·T3 legal + derechos + barreras. Absorbe Clases 6+7+8, incl. Res. 813 |
+>
+> **Consecuencia dura:** tres clases de 2026-I por sesión = **una hora por clase**. No es resumir,
+> es recortar: elegir qué se dicta y qué pasa a lectura previa (`PROGRAMADOR-2026-II.md` §4).
+>
+> **La actividad de DVA ya no está en U1.** En este documento se anticipó su salida a U3; en la
+> estructura de 7 cae en la **Sesión 6** (U3·T1), junto con la bioética. Ver `DISENO_UNIDAD_3.md`.
+>
+> Las tablas de §1 («12 encuentros») y §2 («las 12 sesiones») de abajo quedan **superadas** por
+> esta caja. Se conservan como registro del razonamiento de julio, no como plan vigente.
+
+---
+
 ## 1. El cambio de escala
 
 | | Contexto Histórico y Legal (2026-I) | Seminario de fundamentación (2026-II) |

@@ -4,9 +4,32 @@
 **Programa:** Maestría en Cuidados Paliativos · UAN · Facultad de Enfermería
 **Docente:** Jorge Wilhem Bogoya López
 **Fecha:** 21 de julio de 2026
-**Sesiones:** 10, 11 y 12 de 12 · Tercer corte (30%) · Cierre del seminario
+**Sesiones:** ~~10, 11 y 12 de 12~~ → **6 y 7 de 7** · Tercer corte (30%) · Cierre del seminario
 
 **Resultado de aprendizaje declarado:** *"Analiza estrategias de atención y acompañamiento en los aspectos bioéticos y de comunicación en cuidado paliativo centradas en la dignidad humana."*
+
+---
+
+> ## ⚠️ RECONCILIADO AL CALENDARIO REAL — 22 de agosto de 2026
+>
+> **Escrito en julio para 3 sesiones (10, 11, 12). El calendario da 2** (sesiones **6 y 7** de 7).
+> Fuente canónica: [`sesiones/_sesiones.json`](../sesiones/_sesiones.json).
+>
+> El contenido diseñado aquí sigue siendo válido; se comprime en dos sesiones en vez de tres:
+>
+> | Este documento | Realidad (7 ses.) | Qué implica |
+> |---|---|---|
+> | Sesión 10 · Aspectos bioéticos y dilemas | **Sesión 6** · vie 30 oct · Sincrónico | Bioética **y DVA en la misma sesión** |
+> | Sesión 11 · Planificación anticipada y DVA | **Sesión 6** (comparte) | ↑ |
+> | Sesión 12 · Equipo, comunicación y cierre | **Sesión 7** · vie 20 nov · Presencial · **producto final 30 %** | Sin cambio de contenido |
+>
+> **La compresión que duele:** la deliberación de un caso por el método de Gracia (§2.4) y todo el
+> tratamiento del DVA (§3) caen en una sola sesión de 3 h, además **sincrónica**. Hay que decidir
+> qué se trabaja en vivo y qué se traslada al entregable individual previo y a la lectura.
+>
+> **🔴 La prioridad de esta unidad no cambia con la reconciliación:** auditar el material de DVA
+> heredado contra las normas vigentes **antes** de la Sesión 6. Dos normas que probablemente cita
+> —Res. 1216/2015 y Res. 1051/2016— están **derogadas** (ver §2.2). Sigue siendo lo primero.
 
 ---
 
