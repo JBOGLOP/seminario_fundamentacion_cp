@@ -15,7 +15,7 @@ Las dos decisiones salen de **medir** la primera sesión, no de intuición.
 | Dato de la sesión 1 | Qué se cambió aquí |
 |---|---|
 | Carga real **240 min** de mediana frente a 180 anunciados | **Cuatro preguntas, no cinco.** Y se anuncian «3 horas y media», que es honesto |
-| **P4**: 7 de 7 se apoyaron en una fuente · **P3**: 0 de 7 | **Todas las preguntas nombran dónde buscar.** La P3 falló porque pedía una posición sin dar ruta al dato |
+| Anclaje por pregunta: **P1** 4/7 · **P2** 4/7 · **P3** 0/7 · **P4** 7/7 | **Todas las preguntas nombran dónde buscar.** La P4 fue la única que nombró un documento —el *Global Atlas*— y la única con todas ancladas |
 
 La sesión abre devolviéndole al grupo ese resultado. No es un adorno motivacional: es el primer
 dato del seminario sobre el sistema en el que trabajan, y lo produjeron ellos.
