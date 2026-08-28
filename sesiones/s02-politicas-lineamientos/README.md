@@ -112,10 +112,12 @@ es texto perdido).
 - [x] **Ventana abierta.** Comprobado contra el servidor el 28 de agosto a las 9:50:
       `abierta: true` · apertura real `2026-08-27 00:00` (un día antes de lo previsto) ·
       cierre `2026-09-04 07:00`
-- [ ] 🔴 **Enviar el correo al grupo** — borrador listo en
-      [`../../docs/CORREO-S02.md`](../../docs/CORREO-S02.md). **Falta pegarle el enlace de la
-      videollamada.** Al 28 de agosto: 0 de 8 entregas, y la ventana lleva un día abierta sin
-      que nadie lo sepa
+- [x] **Correo de apertura enviado** el 28 de agosto. Texto en
+      [`../../docs/CORREO-S02.md`](../../docs/CORREO-S02.md). Salió con 0 de 8 entregas y la
+      ventana ya abierta desde el 27
+- [ ] **Recordatorio a quienes falten** — martes 1 o miércoles 2 de septiembre. En la sesión 1 el
+      recordatorio salió con 2 de 8 y se cerró en 7 de 8: funciona. Lista de faltantes en el
+      tablero, panel «Sin entregar»
 - [ ] **Abrir con el wifi apagado** y revisar a 375 px
 - [ ] Confirmar el marco PAIS/MAITE vigente y quitar el rótulo si se resuelve
 
