@@ -1,0 +1,78 @@
+<!-- ===========================================================================
+     ESQUELETO DE UNA PREGUNTA · entregable previo
+     Referencia de la skill `redactar-entregable`. NO es una página: es el
+     bloque que se repite dentro de <section> «Las N preguntas».
+
+     Las clases y la estructura vienen de sesiones/s02-politicas-lineamientos/
+     preparacion.html, que es el molde vigente. Si el molde cambia, gana el
+     molde: este archivo se actualiza detrás, no al revés.
+
+     Lo que va entre ⟦ ⟧ se sustituye. Lo demás se conserva literal.
+     =========================================================================== -->
+
+<article class="pregunta">
+
+  <!-- 1 · RÓTULO — «Pregunta N» y el ángulo, en minúscula.
+          Ejemplos reales: «el territorio propio», «lectura de fuente en
+          inglés», «una búsqueda con resultado incierto», «del juicio al
+          dato», «de la afirmación a la pregunta».                        -->
+  <p class="pregunta__n">Pregunta ⟦N⟧ · ⟦el ángulo, en minúscula⟧</p>
+
+  <!-- 2 · TÍTULO — la pregunta en una línea, legible sin leer el contexto.
+          Es también lo que se copia a TITULOS en _shared/tablero.html.    -->
+  <h3>⟦La pregunta en una línea⟧</h3>
+
+  <!-- 3 · CONTEXTO — el dato sobre el que se pregunta.
+          🔴 AQUÍ ES DONDE SE MIENTE SIN QUERER. Toda afirmación factual de
+          este párrafo tiene que estar rastreada a documento localizado,
+          rotulada [DATO POR VERIFICAR] visible, o convertida en la pregunta
+          misma. No hay cuarta opción. Ver SKILL.md §2.                    -->
+  <p class="pregunta__ctx">
+    ⟦Qué existe, con su nombre y su año. Qué peldaño ocupa en el argumento de
+    la sesión. Si el curso no lo tiene localizado, se dice aquí — en el texto
+    que lee el estudiante, no en un comentario.⟧
+  </p>
+
+  <!-- 4 · CONSIGNA — qué hay que hacer. Verbo imperativo.
+          SIEMPRE dice dónde buscar: en la sesión 1, la pregunta que señalaba
+          una fuente tuvo 7 de 7 respuestas ancladas; la que no, 0 de 7.    -->
+  <p class="pregunta__q">
+    ⟦Busque / Elija / Formule…⟧ ⟦dónde buscar: el repositorio, el documento,
+    la carpeta de calidad, a quién preguntar⟧. ⟦Qué hay que contar: qué
+    encontró, dónde, y qué buscó sin encontrar.⟧
+  </p>
+
+  <!-- 5 · EXPECTATIVA — tres viñetas. No es una rúbrica: es lo que separa
+          una respuesta trabajada de una respuesta rápida.
+          · la primera suele pedir el DÓNDE o la UBICACIÓN de la cita
+          · la segunda, una distinción fina que el seminario quiere enseñar
+          · la tercera es el permiso explícito de no encontrar nada         -->
+  <div class="espera">
+    <strong>Qué hace buena a esta respuesta</strong>
+    <ul>
+      <li>⟦Dice dónde buscó / cita el fragmento con su ubicación, para poder ir a comprobarlo.⟧</li>
+      <li>⟦La distinción fina: «existe el documento» ≠ «la gente sabe que existe»; instar ≠ obligar.⟧</li>
+      <li><strong>⟦Si no hay nada, dígalo.⟧</strong> ⟦Por qué esa ausencia es, en sí, el resultado más interesante que puede traer.⟧</li>
+    </ul>
+  </div>
+
+  <!-- 6 · CAMPO — data-min entre 180 y 200 palabras. ORIENTATIVO: el
+          contador avisa, nunca bloquea el envío.
+          El placeholder enumera lo que se espera; es lo último que se lee
+          antes de escribir.                                               -->
+  <textarea id="p⟦N⟧" data-min="⟦200⟧" placeholder="⟦Qué buscó, dónde, qué encontró y qué no…⟧"></textarea>
+  <p class="contador" data-para="p⟦N⟧">0 palabras</p>
+
+</article>
+
+<!-- ===========================================================================
+     DESPUÉS DE AÑADIR O QUITAR UNA PREGUNTA — cuatro sitios, o se rompe algo:
+
+       1 · IDS_TEXTO   en el <script> de esta misma página
+       2 · TITULOS.SNN en _shared/tablero.html  (si no, el tablero proyecta «P1»)
+       3 · el chip «N preguntas» del <hero>
+       4 · la mediana de minutos anunciada, si el número cambió
+
+     Y el hueco entre preguntas se cierra: los ids van p1, p2, p3… seguidos.
+     Quitar la P3 y dejar p1, p2, p4 desordena el tablero en clase.
+     =========================================================================== -->
