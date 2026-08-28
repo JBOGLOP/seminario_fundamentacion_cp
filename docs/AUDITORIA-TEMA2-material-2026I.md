@@ -51,8 +51,19 @@ rotulado cuál rige. El material de 2026-I lo resuelve:
 
 PDF en `5. Clase 5. Colombia y América Latina/Referencias/Resolución No. 2626 de 2019.pdf`.
 
-**PAIS es la política; MAITE es el modelo** que la operativiza desde 2019. Queda por confirmar si
-MAITE sigue vigente en 2026 o si hubo un cambio posterior — el rótulo se estrecha, no desaparece.
+**PAIS es la política; MAITE es el modelo** que la operativiza desde 2019.
+
+**Ampliación del 28 de agosto — el marco cambió y el material de 2026-I no lo recoge.** El «Modelo
+Preventivo y resolutivo» que nombra el contenido programático es el **Modelo de Salud Preventivo,
+Predictivo y Resolutivo**, adoptado por el **Decreto 858 de 2025** (30 de julio de 2025), que
+sustituye la parte 11 del Libro 2 del Decreto 780 de 2016. Se apoya en atención primaria y se
+articula mediante las **RIITS**. Su periodo de transición **terminó el 29 de julio de 2026**, tres
+semanas antes de que empezara este semestre.
+
+Lo que queda abierto es fino y conviene sostenerlo: MAITE queda **desplazado en la práctica**, pero
+no está confirmado que la Resolución 2626 de 2019 haya sido **derogada formalmente** — un decreto
+que sustituye parte de otro decreto no deroga por sí solo una resolución. *Desplazado* y *derogado*
+no son lo mismo.
 
 ---
 
