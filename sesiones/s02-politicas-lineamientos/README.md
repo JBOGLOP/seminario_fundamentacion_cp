@@ -109,10 +109,14 @@ es texto perdido).
 - [x] Títulos de las preguntas en `_shared/tablero.html`
 - [x] Enlazada desde la portada y el README
 - [x] `node scripts/verificar.js` en verde
-- [ ] 🔴 **Abrir la ventana** en la pestaña `Config` de la hoja: fila `S02`, `Apertura`
-      `2026-08-28 12:00`, `Cierre` `2026-09-04 07:00`, `Activa` `Sí`
+- [x] **Ventana abierta.** Comprobado contra el servidor el 28 de agosto a las 9:50:
+      `abierta: true` · apertura real `2026-08-27 00:00` (un día antes de lo previsto) ·
+      cierre `2026-09-04 07:00`
+- [ ] 🔴 **Enviar el correo al grupo** — borrador listo en
+      [`../../docs/CORREO-S02.md`](../../docs/CORREO-S02.md). **Falta pegarle el enlace de la
+      videollamada.** Al 28 de agosto: 0 de 8 entregas, y la ventana lleva un día abierta sin
+      que nadie lo sepa
 - [ ] **Abrir con el wifi apagado** y revisar a 375 px
-- [ ] Enviar el correo al grupo (≈ 28 de agosto, para dar una semana)
 - [ ] Confirmar el marco PAIS/MAITE vigente y quitar el rótulo si se resuelve
 
 ## Pendientes propios
