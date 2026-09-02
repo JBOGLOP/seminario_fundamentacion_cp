@@ -115,11 +115,30 @@ es texto perdido).
 - [x] **Correo de apertura enviado** el 28 de agosto. Texto en
       [`../../docs/CORREO-S02.md`](../../docs/CORREO-S02.md). Salió con 0 de 8 entregas y la
       ventana ya abierta desde el 27
-- [ ] **Recordatorio a quienes falten** — martes 1 o miércoles 2 de septiembre. En la sesión 1 el
-      recordatorio salió con 2 de 8 y se cerró en 7 de 8: funciona. Lista de faltantes en el
-      tablero, panel «Sin entregar»
+- [ ] 🔴 **Recordatorio a quienes falten** — vence hoy. Borrador listo en
+      [`../../docs/CORREO-RECORDATORIO-S02.md`](../../docs/CORREO-RECORDATORIO-S02.md).
+      Al miércoles 2 de septiembre 15:56: **4 de 8 entregas**, quedan ~39 h. En la sesión 1 el
+      recordatorio salió con 2 de 8 y se cerró en 7 de 8
 - [ ] **Abrir con el wifi apagado** y revisar a 375 px
 - [ ] Confirmar el marco PAIS/MAITE vigente y quitar el rótulo si se resuelve
+
+## Carga medida · calibra la sesión 3
+
+| | Anunciado | Mediana real |
+|---|---|---|
+| Sesión 1 | 180 min | **240** |
+| Sesión 2 | 210 min (3 h 30) | **180** — con 4 de 8 entregas, al 2 sep |
+
+**Por primera vez la carga sale por debajo de lo anunciado.** Valores recibidos: 120 · 180 · 180 ·
+300. La regla de la skill —bajar una pregunta si se supera lo anunciado— **no se dispara**, así que
+la sesión 3 podría mantener cuatro preguntas.
+
+Pero el 18 de septiembre el estudiante entrega **dos cosas**: el entregable previo y el producto del
+primer corte. Ese argumento sigue empujando hacia tres. **Decisión al cerrar el 4 de septiembre**,
+con las 8 entregas.
+
+Señal secundaria buena: hay versiones 1, 2, 3 y 4 entre las cuatro entregas. El mecanismo de
+reenvío se está usando, que era justo la intención.
 
 ## Pendientes propios
 
