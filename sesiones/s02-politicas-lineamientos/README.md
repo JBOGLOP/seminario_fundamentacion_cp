@@ -120,7 +120,9 @@ es texto perdido).
       Al miércoles 2 de septiembre 15:56: **4 de 8 entregas**, quedan ~39 h. En la sesión 1 el
       recordatorio salió con 2 de 8 y se cerró en 7 de 8
 - [ ] **Abrir con el wifi apagado** y revisar a 375 px
-- [ ] Confirmar el marco PAIS/MAITE vigente y quitar el rótulo si se resuelve
+- [x] **Marco PAIS/MAITE resuelto** (2 sep). El modelo vigente es el del **Decreto 858 de 2025**;
+      transición cerrada el 29 de julio de 2026. Queda el rótulo fino: MAITE está desplazado, no
+      consta que la Res. 2626 de 2019 se derogara formalmente
 
 ## Carga medida · calibra la sesión 3
 
