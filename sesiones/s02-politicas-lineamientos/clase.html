@@ -183,12 +183,38 @@ details .cita-norma{font-family:var(--serif);font-style:italic;color:var(--acent
 }
 </style>
 
+<noscript>
+  <!-- Respaldo sin JavaScript. Si el script no corre —red que bloquea scripts,
+       navegador restringido, extension de privacidad— el mazo se vuelve un
+       documento continuo en vez de una pagina en blanco. Son las mismas reglas
+       que usa @media print. -->
+  <style>
+    body{overflow:auto}
+    .deck{position:static;inset:auto}
+    .d{position:static;opacity:1;visibility:visible;min-height:auto;
+       padding:2.2rem clamp(1.25rem,6vw,5.5rem);border-bottom:1px solid var(--bosque-soft)}
+    .d--parte{background:var(--lino);color:var(--pizarra)}
+    .d--parte h2{color:var(--acento-dark)}
+    .d--parte p{color:var(--gris)}
+    .d--parte .n{color:var(--gris-claro)}
+    .nav{display:none}
+    .sinjs{display:block !important}
+  </style>
+</noscript>
+<p class="sinjs" style="display:none;background:#F3DCD1;border-left:4px solid #C4714F;
+   color:#6F3823;padding:.9rem 1.1rem;margin:0;font-size:.92rem">
+  <strong>Su navegador tiene JavaScript desactivado o bloqueado.</strong> La presentacion se
+  muestra abajo como documento continuo: baje con la rueda o la barra espaciadora. El contenido
+  es exactamente el mismo; solo se pierde la navegacion por diapositivas.
+</p>
+
+
 <a class="saltar" href="#d1">Saltar al contenido</a>
 
 <main class="deck" id="deck">
 
 <!-- 1 ─ Portada ────────────────────────────────────────────────────────── -->
-<section class="d d--portada" id="d1" aria-label="Portada">
+<section class="d on d--portada" id="d1" aria-label="Portada">
   <div class="conFigura">
     <div>
       <p class="d__eyebrow">Unidad 1 · Tema 2 · Material de estudio</p>
