@@ -147,3 +147,7 @@ node_modules/
 # El contenido programático oficial vive en recursos/originales/.
 # Esta regla evita que se cuele un duplicado en la raíz.
 /Seminario de fundamentación en cuidados paliativos.*
+
+# PDF de referencia de cada sesión (normas, informes de la OCDE y la CEPAL): material de terceros,
+# pesado. Se enlaza la fuente oficial, no se reproduce (regla 4).
+sesiones/*/ref/

@@ -115,6 +115,12 @@ a{color:var(--acento-dark)}
 }
 .estado p:last-child{margin-bottom:0}
 
+.material{list-style:none;padding:0;max-width:68ch;display:grid;gap:.6rem}
+.material li{background:var(--blanco);border-radius:var(--radius-sm);box-shadow:var(--shadow-soft);
+  border-left:3px solid var(--acento);padding:.8rem 1rem}
+.material a{font-weight:700}
+.material span{display:block;color:var(--gris);font-size:.9rem;margin-top:.15rem}
+.material li.pendiente{border-left-color:var(--gris-claro)}
 .procedencia{
   font-family:var(--serif); font-style:italic; color:var(--gris);
   border-left:4px solid var(--acento-soft); padding:.4em 0 .4em 1em; max-width:60ch;
@@ -168,18 +174,16 @@ footer a{color:var(--acento-dark)}
 
     <section aria-labelledby="h-material">
       <h2 id="h-material">Material de la sesión</h2>
-      <div class="estado">
-        <p class="estado__etq">En preparación</p>
-        <p>
-          Todavía no hay material publicado para esta sesión. Cuando lo haya, aparecerá
-          aquí y en la <a href="../../index.html">portada del seminario</a>.
-        </p>
-        <p>
-          Mientras tanto, esta ficha existe para que el recorrido del seminario esté
-          completo desde el primer día: se sabe qué se va a trabajar y cuándo, aunque
-          la clase no esté construida.
-        </p>
-      </div>
+      <ul class="material">
+        <li><a href="clase.html">Presentación de la sesión 3</a>
+          <span>Marco legal colombiano, enfoque de derechos y las cuatro barreras de acceso. Se estudia antes del encuentro.</span></li>
+        <li><a href="clase_s02_s03.html">Presentación combinada · sesiones 2 y 3</a>
+          <span>La sesión 2 no llegó a hacerse; esta versión recorre las dos seguidas para que el argumento no se parta. Es la que se usa en el encuentro del 18 de septiembre.</span></li>
+        <li><a href="leyes_construir/index.html">Biblioteca de normas</a>
+          <span>Ley 1733 de 2014, Ley 1384 de 2010, Resolución 2665 de 2018 y Resolución 3280 de 2018, cada una en su ficha: artículo por artículo, obligaciones, vigencia y uso en la práctica.</span></li>
+        <li class="pendiente"><strong>Entregable previo</strong>
+          <span>En preparación. Se publica aquí cuando se abra su ventana de entrega.</span></li>
+      </ul>
     </section>
 
     <section aria-labelledby="h-procedencia">

@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Resolución 2665 de 2018 · Ficha normativa didáctica</title>
+<meta name="description" content="Análisis didáctico de la Resolución 2665 de 2018 sobre el Documento de Voluntad Anticipada y su vigencia frente a la Resolución 813 de 2026.">
+<style>
+:root{
+  --paper:#fbfaf7; --panel:#ffffff; --ink:#16202e; --ink-2:#41505f; --muted:#6b7a89;
+  --line:#e3e0d9; --line-2:#cfcabf;
+  --ley:#1b3a6b; --ley-soft:#eaf0f9;
+  --res:#0f6152; --res-soft:#e6f2ef;
+  --warn:#9a5b06; --warn-soft:#fdf3e3;
+  --alert:#8c2230; --alert-soft:#faecec;
+  --doc:#5b3a8c; --doc-soft:#f1ecf8;
+  --serif:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --sans:"DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --accent:var(--ley); --accent-soft:var(--ley-soft);
+}
+html[data-theme="dark"]{
+  --paper:#12161c; --panel:#1a1f27; --ink:#eef1f5; --ink-2:#c3ccd6; --muted:#93a1b0;
+  --line:#2b323c; --line-2:#3a434f;
+  --ley:#8fb3e8; --ley-soft:#1b2534; --res:#6fc8b3; --res-soft:#142623;
+  --warn:#e0a458; --warn-soft:#2a2115; --alert:#e08b93; --alert-soft:#2b1a1d;
+  --doc:#b79ae0; --doc-soft:#221b30;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+  font-size:17px;line-height:1.65;-webkit-text-size-adjust:100%}
+.wrap{max-width:1060px;margin:0 auto;padding:0 20px}
+a{color:var(--accent);text-underline-offset:3px}
+h1,h2,h3,h4,.ui{font-family:var(--sans)}
+h1{font-size:clamp(1.6rem,4.2vw,2.5rem);line-height:1.15;letter-spacing:-.02em;margin:.2em 0 .3em}
+h2{font-size:clamp(1.25rem,2.8vw,1.6rem);line-height:1.25;margin:2.2rem 0 .6rem;letter-spacing:-.01em}
+h3{font-size:1.08rem;margin:1.6rem 0 .4rem;color:var(--ink)}
+h4{font-size:.95rem;margin:1.2rem 0 .3rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+p{margin:.7em 0}
+small,.small{font-size:.86rem}
+/* top bar */
+.topbar{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--paper) 92%,transparent);
+  backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.topbar .wrap{display:flex;gap:12px;align-items:center;justify-content:space-between;
+  padding-block:10px;flex-wrap:wrap}
+.brand{font-family:var(--sans);font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--muted);text-decoration:none}
+.tools{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.btn{font-family:var(--sans);font-size:.78rem;padding:6px 11px;border-radius:999px;
+  border:1px solid var(--line-2);background:var(--panel);color:var(--ink-2);cursor:pointer;
+  text-decoration:none;display:inline-flex;gap:6px;align-items:center}
+.btn:hover{border-color:var(--accent);color:var(--accent)}
+.btn[aria-pressed="true"]{background:var(--doc-soft);border-color:var(--doc);color:var(--doc)}
+/* hero */
+header.hero{padding:36px 0 10px;border-bottom:1px solid var(--line)}
+.kicker{font-family:var(--sans);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--accent);font-weight:600}
+.lead{font-size:1.12rem;color:var(--ink-2);max-width:64ch}
+/* chips */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.chip{font-family:var(--sans);font-size:.76rem;padding:4px 10px;border-radius:999px;
+  border:1px solid var(--line-2);color:var(--ink-2);background:var(--panel)}
+.chip.ok{background:var(--res-soft);border-color:var(--res);color:var(--res)}
+.chip.warn{background:var(--warn-soft);border-color:var(--warn);color:var(--warn)}
+.chip.alert{background:var(--alert-soft);border-color:var(--alert);color:var(--alert)}
+.chip.info{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+/* stat row */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:22px 0}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.stat b{display:block;font-family:var(--sans);font-size:1.55rem;line-height:1.1;color:var(--accent)}
+.stat span{font-family:var(--sans);font-size:.78rem;color:var(--muted);display:block;margin-top:4px}
+/* tabs */
+.tabs{display:flex;gap:6px;overflow-x:auto;padding:14px 0 0;border-bottom:1px solid var(--line);
+  position:sticky;top:49px;background:var(--paper);z-index:30}
+.tabs button{font-family:var(--sans);font-size:.82rem;white-space:nowrap;border:none;background:none;
+  color:var(--muted);padding:8px 12px;border-bottom:2px solid transparent;cursor:pointer;border-radius:6px 6px 0 0}
+.tabs button:hover{color:var(--ink)}
+.tabs button[aria-selected="true"]{color:var(--accent);border-bottom-color:var(--accent);font-weight:600}
+.panel[hidden]{display:none}
+.panel{padding-top:8px;animation:fade .22s ease}
+@keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+/* cards & boxes */
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:14px 0}
+.card h3{margin-top:0}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.art{border-left:3px solid var(--accent);background:var(--panel);border-radius:0 12px 12px 0;
+  padding:14px 18px;margin:12px 0;border-top:1px solid var(--line);border-right:1px solid var(--line);
+  border-bottom:1px solid var(--line)}
+.art .num{font-family:var(--sans);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--accent);font-weight:700}
+.art h3{margin:.2rem 0 .4rem;font-size:1rem}
+.note{border-left:3px solid var(--warn);background:var(--warn-soft);padding:12px 16px;border-radius:0 10px 10px 0;margin:14px 0}
+.crit{border-left:3px solid var(--alert);background:var(--alert-soft);padding:12px 16px;border-radius:0 10px 10px 0;margin:14px 0}
+.thesis{font-size:1.05rem;font-style:italic;border-left:3px solid var(--accent);padding:10px 18px;
+  margin:18px 0;color:var(--ink-2)}
+blockquote{margin:18px 0;padding:14px 20px;border-left:3px solid var(--line-2);background:var(--panel);
+  border-radius:0 10px 10px 0;font-style:italic;color:var(--ink-2)}
+blockquote cite{display:block;font-style:normal;font-family:var(--sans);font-size:.8rem;color:var(--muted);margin-top:8px}
+/* tables */
+.tablewrap{overflow-x:auto;margin:16px 0;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;min-width:520px}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--sans);font-size:.76rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);
+  background:color-mix(in srgb,var(--accent-soft) 60%,transparent)}
+tr:last-child td{border-bottom:none}
+/* timeline */
+.tl{list-style:none;margin:18px 0;padding:0 0 0 22px;border-left:2px solid var(--line-2)}
+.tl li{position:relative;margin:0 0 16px;padding-left:14px}
+.tl li::before{content:"";position:absolute;left:-29px;top:8px;width:10px;height:10px;border-radius:50%;
+  background:var(--accent);border:2px solid var(--paper)}
+.tl .y{font-family:var(--sans);font-size:.78rem;letter-spacing:.06em;color:var(--accent);font-weight:700}
+/* detail */
+details{border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:0 16px;margin:10px 0}
+details summary{font-family:var(--sans);font-size:.92rem;cursor:pointer;padding:12px 0;font-weight:500}
+details[open] summary{border-bottom:1px solid var(--line);margin-bottom:8px}
+details > *:last-child{margin-bottom:12px}
+/* docente */
+.docente{display:none;border:1px dashed var(--doc);background:var(--doc-soft);border-radius:12px;
+  padding:14px 18px;margin:14px 0}
+body.modo-docente .docente{display:block}
+.docente::before{content:"Nota reservada al docente";display:block;font-family:var(--sans);font-size:.72rem;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--doc);font-weight:700;margin-bottom:6px}
+.docente-flag{display:none}
+body.modo-docente .docente-flag{display:inline}
+/* footer */
+footer{margin-top:50px;border-top:1px solid var(--line);padding:24px 0 50px;color:var(--muted);font-size:.86rem}
+footer a{color:var(--ink-2)}
+.srcs{font-size:.84rem;color:var(--muted)}
+.srcs li{margin-bottom:6px}
+@media print{
+  .topbar,.tabs,.btn{display:none!important}
+  .panel[hidden]{display:block!important}
+  body{font-size:11pt;background:#fff}
+  .card,.art,details{break-inside:avoid}
+}
+
+:root{--accent:var(--res);--accent-soft:var(--res-soft)}
+</style>
+<noscript><style>
+/* Sin JavaScript las pestañas no pueden abrirse: se muestran todos los paneles, uno tras otro. */
+.panel[hidden]{display:block!important}.tabs{display:none!important}
+</style></noscript>
+</head>
+<body>
+<div class="topbar"><div class="wrap">
+<a class="brand" href="index.html">&larr; Índice del módulo normativo</a>
+<div class="tools"><a class="btn" href="ley-1384-2010.html">&larr; Ley 1384 de 2010</a>
+<button class="btn" id="btn-tema" type="button">Tema claro/oscuro</button>
+<button class="btn" id="btn-docente" type="button" aria-pressed="false">Modo docente</button>
+</div></div></div>
+<header class="hero"><div class="wrap">
+<p class="kicker">Ficha normativa 04 &middot; Resolución ministerial</p>
+<h1>Resolución 2665 de 2018</h1>
+<p class="lead">«Por medio de la cual se reglamenta parcialmente la Ley 1733 de 2014 en cuanto al derecho a suscribir el Documento de Voluntad Anticipada». Es la única reglamentación expresa que ha recibido la Ley 1733 en doce años &mdash;y la Resolución 813 de 2026 la mantuvo en pie.</p>
+<div class="chips">
+<span class="chip info">25 de junio de 2018</span>
+<span class="chip ok">Vigente</span>
+<span class="chip">17 artículos</span>
+<span class="chip ok">Preservada por la Resolución 813 de 2026</span>
+</div>
+<div class="stats">
+<div class="stat"><b>17</b><span>artículos</span></div>
+<div class="stat"><b>3</b><span>modalidades de formalización</span></div>
+<div class="stat"><b>14</b><span>años: edad desde la que se puede suscribir</span></div>
+<div class="stat"><b>54 %</b><span>de profesionales desconocía que existiera esta norma (2022)</span></div>
+</div>
+</div></header>
+
+<div class="wrap">
+<div class="tabs" role="tablist">
+<button data-tab="panorama" role="tab">1 &middot; Panorama</button>
+<button data-tab="articulado" role="tab">2 &middot; Articulado</button>
+<button data-tab="formalizacion" role="tab">3 &middot; Cómo se suscribe</button>
+<button data-tab="ciclo" role="tab">4 &middot; Ciclo de vida del DVA</button>
+<button data-tab="vigencia" role="tab">5 &middot; Vigencia y Resolución 813</button>
+<button data-tab="practica" role="tab">6 &middot; Uso en la práctica</button>
+</div>
+
+<!-- 1 -->
+<section class="panel" id="p-panorama" hidden>
+<h2>El eslabón que conecta la ley con la práctica</h2>
+<p>El numeral 4 del artículo 5 de la Ley 1733 reconoció el derecho a suscribir un Documento de Voluntad Anticipada, y su parágrafo delegó la reglamentación en el Ministerio. Esa reglamentación llegó <strong>tres años y tres meses después</strong> del plazo legal, con esta resolución. Es, hasta hoy, lo único de la Ley 1733 que tiene reglamento propio.</p>
+<div class="grid2">
+<div class="card"><h3>Lo que resuelve</h3>
+<ul>
+<li>Quién puede suscribir un DVA y desde qué edad (art. 3).</li>
+<li>Qué debe contener como mínimo (art. 4).</li>
+<li>Tres modalidades de formalización, a elección del otorgante (arts. 5 a 8).</li>
+<li>Qué hacer con quien no sabe leer o escribir, o no domina el castellano (art. 9).</li>
+<li>Cómo se modifica, se sustituye y se revoca (arts. 10 y 11).</li>
+<li>Qué debe hacer el médico tratante con el documento (arts. 12 a 15).</li>
+</ul></div>
+<div class="card"><h3>Lo que no resuelve</h3>
+<ul>
+<li>No crea un registro nacional de DVA: no existe una base donde consultar si un paciente tiene uno.</li>
+<li>No fija indicador de cobertura ni meta de suscripción.</li>
+<li>No prevé sanción por desconocer el documento; solo seguimiento de la Supersalud (art. 16).</li>
+<li>No resuelve el conflicto entre el DVA y la decisión familiar en el momento crítico: lo deja al criterio del equipo tratante.</li>
+</ul></div>
+</div>
+<p class="thesis">La norma más conocida de la voluntad anticipada es la que menos se aplica: sin registro, un documento que nadie sabe que existe no cambia ninguna decisión clínica.</p>
+</section>
+
+<!-- 2 -->
+<section class="panel" id="p-articulado" hidden>
+<h2>Los 17 artículos</h2>
+<p class="small">Síntesis fiel del contenido normativo. Verificar contra el texto oficial antes de citar en un documento formal o en un formato institucional.</p>
+<div class="tablewrap"><table>
+<thead><tr><th>Art.</th><th>Epígrafe</th><th>Contenido</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Objeto</td><td>Regula los requisitos y las formas del DVA para la persona capaz que declara no querer someterse a medios innecesarios que prolonguen la vida.</td></tr>
+<tr><td>2</td><td>Definiciones</td><td>El DVA es una declaración libre, consciente e informada de una persona capaz sobre esa voluntad.</td></tr>
+<tr><td>3</td><td>Capacidad para suscribirlo</td><td>Mayores de edad en pleno uso de sus facultades. <strong>Excepción: adolescentes entre 14 y 18 años</strong> pueden manifestar su decisión mediante DVA.</td></tr>
+<tr><td>4</td><td>Contenido mínimo</td><td>Ciudad y fecha, identificación del otorgante, declaración de capacidad mental, manifestación clara de las preferencias de cuidado y firma.</td></tr>
+<tr><td>5</td><td>Formalización</td><td>Tres modalidades <strong>a elección del otorgante</strong>: ante notario, ante dos testigos o ante el médico tratante.</td></tr>
+<tr><td>6</td><td>Ante notario</td><td>Escritura pública; es una <strong>opción</strong>, no un requisito. Ningún tercero puede exigirla para dar validez al contenido.</td></tr>
+<tr><td>7</td><td>Ante dos testigos</td><td>Dos testigos identificados que suscriben. Inhábiles: menores, personas con interdicción, quienes no comprendan el idioma, condenados a pena de prisión mayor de cuatro años, extranjeros no domiciliados y quienes tengan vínculo laboral o patrimonial con el otorgante.</td></tr>
+<tr><td>8</td><td>Ante el médico tratante</td><td>El médico formaliza con nombres, apellidos, registro médico, identificación y firma. <strong>No requiere testigos.</strong></td></tr>
+<tr><td>9</td><td>Circunstancias especiales</td><td>Quien no sabe leer o escribir: firman dos testigos o un familiar, con huella dactilar. Sin dominio del castellano: traductor que firma y deja constancia escrita.</td></tr>
+<tr><td>10</td><td>Modificación, sustitución y revocación</td><td>En cualquier momento. Modificar es cambiar una parte; sustituir es reemplazarlo por uno nuevo; revocar es dejarlo sin efectos sin otorgar otro.</td></tr>
+<tr><td>11</td><td>Contenido de esos actos</td><td>Ciudad y fecha, identificación, fecha del DVA original, modalidad anterior, expresión clara de la voluntad de cambio y firma.</td></tr>
+<tr><td>12</td><td>Existencia del documento</td><td>Cualquier persona puede informar que el DVA existe o allegarlo en original o copia para que el equipo lo considere.</td></tr>
+<tr><td>13</td><td>Incorporación a la historia clínica</td><td>El médico tratante consigna la voluntad del paciente en la historia clínica y <strong>anexa copia del documento</strong>.</td></tr>
+<tr><td>14</td><td>Consulta del documento</td><td>El médico <strong>debe preguntar</strong> al paciente o a su familia si existe un DVA y solicitarlo. Los profesionales deben reconocerlo como ejercicio de autonomía.</td></tr>
+<tr><td>15</td><td>Confidencialidad</td><td>Quienes conozcan el documento por razón de sus funciones están obligados a guardar reserva.</td></tr>
+<tr><td>16</td><td>Cumplimiento</td><td>La Superintendencia Nacional de Salud hace seguimiento para garantizar el cumplimiento de la voluntad del paciente.</td></tr>
+<tr><td>17</td><td>Vigencia</td><td>Rige desde su publicación y <strong>deroga la Resolución 1051 de 2016</strong>.</td></tr>
+</tbody></table></div>
+</section>
+
+<!-- 3 -->
+<section class="panel" id="p-formalizacion" hidden>
+<h2>Tres caminos, ninguno obligatorio</h2>
+<p>El error más frecuente en la práctica &mdash;y el que más documentos invalida de hecho&mdash; es creer que el DVA requiere notaría. No la requiere: la escritura pública es una de tres opciones y la elige el otorgante.</p>
+<div class="grid2">
+<div class="card"><h3>Ante notario (art. 6)</h3><p>Escritura pública protocolizada. Opción exclusiva del otorgante. Ningún tercero &mdash;EPS, IPS, familia&mdash; puede exigirla para dar validez al contenido.</p></div>
+<div class="card"><h3>Ante dos testigos (art. 7)</h3><p>Dos testigos identificados que suscriben el documento. Atención a las inhabilidades: excluye a quien tenga vínculo laboral o patrimonial con el otorgante &mdash;lo que deja fuera a buena parte del personal de la institución&mdash;.</p></div>
+<div class="card"><h3>Ante el médico tratante (art. 8)</h3><p>El más simple y el más olvidado: el médico formaliza el documento con sus datos, registro médico y firma, <strong>sin testigos</strong>. Convierte la consulta de cuidado paliativo en el lugar natural para suscribirlo.</p></div>
+</div>
+<div class="note"><p><strong>Implicación para el servicio.</strong> Si el artículo 8 permite formalizar el DVA en la consulta, el cuello de botella no es jurídico sino de proceso: hace falta un formato institucional, un momento definido de la trayectoria del paciente para ofrecerlo y un lugar en la historia clínica donde quede visible.</p></div>
+<div class="docente">
+<p>Ejercicio de 15 minutos: pedir a cada estudiante que redacte un DVA propio cumpliendo el contenido mínimo del art. 4 y que elija modalidad. El dato de Álvarez Acuña y Gomezese Ribero (2022) &mdash;solo el 11,7 % de los profesionales encuestados lo había suscrito&mdash; suele reproducirse en el aula y abre la discusión sobre por qué recomendamos lo que no hacemos.</p>
+</div>
+</section>
+
+<!-- 4 -->
+<section class="panel" id="p-ciclo" hidden>
+<h2>Del papel a la decisión clínica</h2>
+<ul class="tl">
+<li><span class="y">Suscripción</span><br>Persona capaz, mayor de edad o adolescente entre 14 y 18 años (art. 3); contenido mínimo del art. 4; una de las tres modalidades del art. 5.</li>
+<li><span class="y">Cambio de voluntad</span><br>Modificación, sustitución o revocación en cualquier momento (art. 10), con el contenido del art. 11. La voluntad vigente es siempre la última expresada.</li>
+<li><span class="y">Llegada al sistema</span><br>Cualquier persona puede informar su existencia o allegarlo en original o copia (art. 12). No hay registro nacional: el documento entra si alguien lo trae.</li>
+<li><span class="y">Historia clínica</span><br>El médico tratante consigna la voluntad y anexa copia (art. 13). Sin este paso, el documento no existe para el equipo que atiende la urgencia.</li>
+<li><span class="y">Consulta activa</span><br>El médico debe preguntar si existe un DVA y solicitarlo (art. 14). Es una obligación de búsqueda, no de espera.</li>
+<li><span class="y">Reserva y seguimiento</span><br>Confidencialidad para todo el que lo conozca por sus funciones (art. 15); seguimiento de la Supersalud al cumplimiento de la voluntad (art. 16).</li>
+</ul>
+<div class="crit"><p><strong>El punto de falla.</strong> Toda la cadena depende del artículo 13. Un DVA notariado, perfecto en su forma, que no fue incorporado a la historia clínica, no llega al servicio de urgencias a las tres de la mañana. La calidad jurídica del documento no sustituye el registro clínico.</p></div>
+</section>
+
+<!-- 5 -->
+<section class="panel" id="p-vigencia" hidden>
+<h2>Vigencia verificada a septiembre de 2026</h2>
+<p><strong>La Resolución 2665 de 2018 está vigente.</strong> Las compilaciones normativas no registran derogatoria ni modificación posterior, y la Resolución 813 de 2026 no solo no la derogó: <strong>remite expresamente a ella</strong>.</p>
+<div class="tablewrap"><table>
+<thead><tr><th>Operación de la Resolución 813 de 2026</th><th>Normas afectadas</th></tr></thead>
+<tbody>
+<tr><td>Deroga</td><td>Resolución 825 de 2018 (eutanasia en NNA) y Resolución 971 de 2021 (eutanasia en adultos)</td></tr>
+<tr><td>Modifica parcialmente</td><td>Resolución 13437 de 1991 (comités de ética hospitalaria), arts. 2 y 3</td></tr>
+<tr><td><strong>Preserva</strong></td><td><strong>Resolución 2665 de 2018</strong>, integrada como uno de los cinco medios de manifestación de la voluntad (art. 9)</td></tr>
+</tbody></table></div>
+<p>El artículo 9, numeral 9.4, de la Resolución 813 define el DVA y precisa que los documentos «deben cumplir con los requisitos de formalidad establecidos en la Resolución 2665 de 2018 o normativa vigente». Es una remisión normativa: la 813 necesita a la 2665 para operar.</p>
+<div class="note"><p><strong>Lectura conjunta obligada.</strong> Desde abril de 2026, el DVA no se estudia solo con la Resolución 2665: sus requisitos de forma siguen aquí, pero su lugar dentro del proceso de decisión &mdash;junto con los otros cuatro medios de manifestación de la voluntad&mdash; está en el artículo 9 de la Resolución 813. Ver el <a href="../clase_s02_s03.html#19">análisis de la Resolución 813</a>.</p></div>
+<div class="note"><p><strong>Pendiente de verificación literal.</strong> No fue posible leer en línea el artículo final de vigencias y derogatorias de la Resolución 813 (los PDF accesibles se truncan antes del cierre del articulado). La conclusión se apoya en el artículo 9.4, que sí pudo leerse, y en fuentes secundarias coincidentes. Confirmar en el Diario Oficial antes de citarlo en un documento formal.</p></div>
+</section>
+
+<!-- 6 -->
+<section class="panel" id="p-practica" hidden>
+<h2>Cómo se usa esta resolución</h2>
+<div class="grid2">
+<div class="card"><h3>En la consulta</h3>
+<ul>
+<li>Preguntar activamente por el DVA es obligación del art. 14, no cortesía.</li>
+<li>Si no existe y el paciente quiere suscribirlo, el art. 8 permite formalizarlo en la misma consulta.</li>
+<li>Consignar en la historia clínica la voluntad y anexar copia (art. 13) es el paso que hace útil el documento.</li>
+<li>Registrar también las modificaciones o revocaciones: vale la última voluntad expresada.</li>
+</ul></div>
+<div class="card"><h3>En la institución</h3>
+<ul>
+<li>Formato institucional de DVA con el contenido mínimo del art. 4 y las tres modalidades del art. 5.</li>
+<li>Ubicación fija y visible en la historia clínica electrónica, accesible desde urgencias.</li>
+<li>Capacitación del equipo sobre las inhabilidades de testigos del art. 7 &mdash;el personal de la institución suele estar inhabilitado&mdash;.</li>
+<li>Procedimiento de reserva conforme al art. 15.</li>
+</ul></div>
+</div>
+<h3>Preguntas guía para el estudio autónomo</h3>
+<ol>
+<li>¿Cuántos DVA hay registrados en la historia clínica de su servicio? Si no lo sabe, ¿qué dice eso sobre el artículo 13?</li>
+<li>El artículo 8 permite formalizar el documento ante el médico tratante. ¿Por qué casi nadie lo hace así?</li>
+<li>Si no existe un registro nacional de DVA, ¿qué mecanismo local podría suplirlo en su institución?</li>
+<li>Un paciente llega inconsciente con un DVA en el bolsillo y la familia pide reanimación. ¿Qué artículos resuelven el caso y cuáles no?</li>
+</ol>
+<h3>Fuentes de esta ficha</h3>
+<ul class="srcs">
+<li>Ministerio de Salud y Protección Social. (2018, 25 de junio). <em>Resolución 2665 de 2018</em>. <a href="https://www.minsalud.gov.co/Normatividad_Nuevo/Resoluci%C3%B3n%20No.%202665%20de%202018.pdf">Texto oficial (PDF)</a> &middot; <a href="https://normograma.supersalud.gov.co/compilacion/docs/resolucion_minsaludps_2665_2018.htm">compilación jurídica SuperSalud</a></li>
+<li>Ministerio de Salud y Protección Social. (s. f.). <em>ABECÉ. Documento de Voluntad Anticipada</em>. <a href="https://www.minsalud.gov.co/sites/rid/lists/bibliotecadigital/ride/vs/pp/abece-voluntad-anticipada.pdf">Minsalud</a></li>
+<li>Ministerio de Salud y Protección Social. (2026, 28 de abril). <em>Resolución 813 de 2026</em>, art. 9, num. 9.4.</li>
+<li>Álvarez Acuña, A. M., &amp; Gomezese Ribero, Ó. F. (2022). Advance Directives Document: knowledge and experiences of healthcare professionals in Colombia. <em>Colombian Journal of Anesthesiology, 50</em>(2). <a href="https://www.revcolanest.com.co/index.php/rca/article/view/1012">revcolanest.com.co</a></li>
+</ul>
+</section>
+</div>
+<footer><div class="wrap">
+<p><strong>Universidad Antonio Nari&ntilde;o</strong> &middot; Facultad de Enfermer&iacute;a &middot; Maestr&iacute;a en Cuidados Paliativos<br>
+Material aut&oacute;nomo de consulta &middot; Docente: Jorge Wilhem Bogoya L&oacute;pez &middot; Actualizado: 11 de septiembre de 2026</p>
+<p class="small">Modo docente: <code>?docente=true</code> en la URL o <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>D</kbd>.
+Las notas reservadas no se imprimen ni se muestran a los estudiantes por defecto.</p>
+<p class="small">Elaborado con asistencia de Claude (Anthropic) sobre fuentes primarias verificadas el 11 de septiembre de 2026. Espa&ntilde;ol acad&eacute;mico &middot; APA 7.</p>
+</div></footer>
+<script>
+(function(){
+  var root=document.documentElement;
+  try{var t=sessionStorage.getItem('tema');if(t)root.setAttribute('data-theme',t);}catch(e){}
+  function toggleTema(){
+    var d=root.getAttribute('data-theme')==='dark'?'light':'dark';
+    root.setAttribute('data-theme',d);
+    try{sessionStorage.setItem('tema',d);}catch(e){}
+  }
+  function setDocente(on){
+    document.body.classList.toggle('modo-docente',on);
+    var b=document.getElementById('btn-docente');
+    if(b){b.setAttribute('aria-pressed',on?'true':'false');
+      b.textContent=on?'Modo docente activo':'Modo docente';}
+    try{sessionStorage.setItem('docente',on?'1':'0');}catch(e){}
+  }
+  document.addEventListener('DOMContentLoaded',function(){
+    var p=new URLSearchParams(location.search);
+    var on=p.get('docente')==='true'||p.get('docente')==='1';
+    try{if(!on&&sessionStorage.getItem('docente')==='1')on=true;}catch(e){}
+    setDocente(on);
+    var bd=document.getElementById('btn-docente');
+    if(bd)bd.addEventListener('click',function(){setDocente(!document.body.classList.contains('modo-docente'));});
+    var bt=document.getElementById('btn-tema');
+    if(bt)bt.addEventListener('click',toggleTema);
+    document.addEventListener('keydown',function(e){
+      if(e.ctrlKey&&e.shiftKey&&(e.key==='D'||e.key==='d')){
+        e.preventDefault();setDocente(!document.body.classList.contains('modo-docente'));}
+    });
+    // tabs
+    var tabs=document.querySelectorAll('.tabs button');
+    function activar(id){
+      tabs.forEach(function(b){
+        var sel=b.dataset.tab===id;b.setAttribute('aria-selected',sel?'true':'false');
+        var pn=document.getElementById('p-'+b.dataset.tab);if(pn)pn.hidden=!sel;
+      });
+      try{history.replaceState(null,'','#'+id);}catch(e){}
+    }
+    tabs.forEach(function(b){b.addEventListener('click',function(){activar(b.dataset.tab);
+      window.scrollTo({top:document.querySelector('.tabs').offsetTop-60,behavior:'smooth'});});});
+    var h=location.hash.replace('#','');
+    if(h&&document.getElementById('p-'+h))activar(h);else if(tabs.length)activar(tabs[0].dataset.tab);
+  });
+})();
+</script>
+</body>
+</html>

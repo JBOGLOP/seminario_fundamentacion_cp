@@ -165,9 +165,11 @@ septiembre diga lo contrario.
 - [x] Argumento de la sesión definido
 - [x] Marco colombiano verificado, con las dos normas derogadas identificadas
 - [x] Rúbrica del corte — [`../../docs/RUBRICA-C1.md`](../../docs/RUBRICA-C1.md)
-- [ ] Construir la presentación (`clase.html`)
+- [x] Presentación (`clase.html`) · corregida el 11 sep contra el registro del Tema 3
+- [x] Presentación combinada (`clase_s02_s03.html`) · la que se usa el 18 de septiembre
+- [x] Biblioteca de normas (`leyes_construir/`) · índice y cuatro fichas, enlazadas desde las dos presentaciones
 - [ ] Construir el entregable (`preparacion.html`) — **después** de calibrar el 4 de septiembre
-- [ ] Construir la guía (`index.html`) — **después** de las dos anteriores: las enlaza
+- [x] Guía (`index.html`) · enlaza las dos presentaciones y la biblioteca; el entregable figura como pendiente
 - [ ] Títulos de las preguntas en `_shared/tablero.html` y `<option>` de la sesión
 - [ ] Abrir la ventana en la pestaña `Config`: fila `S03`
 - [ ] `node scripts/verificar.js` en verde

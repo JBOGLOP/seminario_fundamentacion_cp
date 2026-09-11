@@ -42,7 +42,17 @@ const rel = f => path.relative(RAIZ, f).replace(/\\/g, '/');
 // enseña a confiar en él más de lo que merece. Y el resto del árbol se revisa
 // igual: un código de estudiante en un archivo sin el prefijo sigue saltando,
 // que es justo el error que esto tiene que atrapar.
-const esPrivado = f => /^privado_/i.test(path.basename(f));
+// Tampoco se revisa lo que git ya ignora (transcripciones, config.js, carpetas ref/): no se
+// publica, y revisarlo solo produce bloqueos por datos que nadie va a ver. Se lista igual, por la
+// misma razón que el prefijo. Sin git disponible, solo cuenta el prefijo.
+let ignoradosGit = new Set();
+try {
+  const salida = require('child_process').execSync(
+    'git ls-files -z --others --ignored --exclude-standard',
+    { cwd: RAIZ, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] });
+  ignoradosGit = new Set(salida.split('\0').filter(Boolean));
+} catch (e) { /* sin git: solo el prefijo PRIVADO_ */ }
+const esPrivado = f => /^privado_/i.test(path.basename(f)) || ignoradosGit.has(rel(f));
 const omitidos = archivos(RAIZ, /\.(html?|md|txt|js|css|tsv|csv)$/i).filter(esPrivado);
 
 const htmls = archivos(RAIZ, /\.html?$/i).filter(f => !esPrivado(f));
@@ -139,7 +149,7 @@ titulo('2 · Recursos externos que se cargan  (§7.2)');
 titulo('3 · Rastros de datos personales  (§7.3)');
 {
   if (omitidos.length) {
-    console.log(gris(`  omitidos por el prefijo PRIVADO_ (no se publican): ${omitidos.length}`));
+    console.log(gris(`  omitidos por el prefijo PRIVADO_ o por el .gitignore (no se publican): ${omitidos.length}`));
     omitidos.map(rel).sort().forEach(x => console.log(gris(`      ${x}`)));
     // Si alguno dejara de estar ignorado por git, esto se vuelve un agujero.
     console.log(gris('      → compruébelo: git check-ignore -v <archivo>'));

@@ -1,0 +1,967 @@
+<!doctype html>
+<html lang="es">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sesión 3 · Marco legal, enfoque de derechos y barreras de acceso — Seminario de fundamentación en CP</title>
+<meta name="description" content="Material de estudio de la sesión 3 del Seminario de fundamentación en cuidados paliativos (32264001), Universidad Antonio Nariño. Del derecho escrito a la persona que puede ejercerlo: marco legal colombiano y barreras de acceso.">
+
+<!-- ===========================================================================
+     MATERIAL DE ESTUDIO · SESIÓN 3 · presentación autocontenida
+     viernes 18 de septiembre de 2026 · presencial · cierre del primer corte
+
+     Se estudia ANTES del encuentro. Ver docs/CONDUCIR-LA-SESION.md.
+
+     RIGOR DE LAS FUENTES. La línea jurisprudencial y normativa colombiana de
+     esta sesión se verificó contra fuente primaria (Corte Constitucional,
+     MinSalud, SUIN-Juriscol). Registro vigente, con las correcciones del 11 de
+     septiembre de 2026: docs/INVESTIGACION-TEMA3-marco-legal-barreras.md.
+
+     CUATRO NORMAS DEROGADAS aparecen a propósito en la diapositiva 9, rotuladas
+     como tales: son el mejor material didáctico disponible para el criterio de
+     anclaje del corte. No se citan como vigentes en ningún otro punto.
+
+     Lo que el curso no ha podido documentar con fuente primaria va rotulado
+     [DATO POR VERIFICAR], visible. En un seminario que evalúa verificar lo que
+     se cita, el material no puede hacer lo contrario.
+     =========================================================================== -->
+
+<style>
+/* --- tokens.css en línea · FUENTE CANÓNICA: _shared/tokens.css ----------- */
+:root{
+  --bosque:#2F5D50;    --bosque-dark:#234639;    --bosque-deep:#17302A;  --bosque-soft:#D6E3DD;
+  --arcilla:#C4714F;   --arcilla-dark:#A2563A;   --arcilla-deep:#6F3823; --arcilla-soft:#F3DCD1;
+  --malva:#7A5C8A;     --malva-dark:#5F4570;     --malva-deep:#402C4D;   --malva-soft:#E4DAEA;
+  --piedra:#8A8578;    --piedra-dark:#6B6659;    --piedra-deep:#4E4A40;  --piedra-soft:#EFEBE3;
+  --pizarra:#22282A;   --gris:#565E5C;           --gris-claro:#9AA09D;
+  --blanco:#FFFFFF;    --lino:#FAF8F4;
+  --shadow-soft:0 2px 8px rgba(34,40,42,.07);
+  --shadow-medium:0 6px 20px rgba(34,40,42,.11);
+  --radius:14px; --radius-sm:9px;
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif;
+  --mono:'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace;
+  --serif:Georgia,'Times New Roman',serif;
+
+  /* Unidad 1 → bosque */
+  --acento:var(--bosque); --acento-dark:var(--bosque-deep); --acento-soft:var(--bosque-soft);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;font-family:var(--sans);color:var(--pizarra);background:var(--lino);
+  line-height:1.5;overflow:hidden}
+:focus-visible{outline:3px solid var(--acento);outline-offset:3px}
+a{color:var(--acento-dark)}
+.saltar{position:absolute;left:-9999px;background:var(--pizarra);color:var(--lino);padding:.6rem 1rem;z-index:99}
+.saltar:focus{left:0}
+
+.deck{position:fixed;inset:0 0 62px 0}
+.d{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;
+  padding:clamp(1.4rem,4vw,3.4rem) clamp(1.25rem,6vw,5.5rem);
+  opacity:0;visibility:hidden;transition:opacity .28s ease;overflow-y:auto}
+.d.on{opacity:1;visibility:visible}
+@media (prefers-reduced-motion:reduce){.d{transition:none}}
+
+.d__eyebrow{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;
+  color:var(--acento);margin:0 0 .7rem}
+h1{font-size:clamp(1.9rem,5.2vw,3.4rem);line-height:1.08;letter-spacing:-.02em;margin:0 0 .8rem;max-width:20ch}
+h2{font-size:clamp(1.35rem,3.4vw,2.3rem);line-height:1.15;letter-spacing:-.015em;margin:0 0 .8rem;max-width:24ch;color:var(--acento-dark)}
+h3{font-size:clamp(.98rem,1.8vw,1.15rem);margin:0 0 .35rem;color:var(--acento-dark)}
+p{font-size:clamp(.96rem,1.5vw,1.1rem);max-width:60ch;margin:0 0 .8em}
+.lead{font-size:clamp(1.02rem,1.95vw,1.3rem);color:var(--gris);max-width:52ch}
+strong{color:var(--pizarra)}
+
+figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:.6rem}
+svg{max-width:100%;height:auto;display:block}
+svg text{font-family:var(--sans)}
+svg .mono{font-family:var(--mono)}
+svg .serif{font-family:var(--serif);font-style:italic}
+figcaption{font-size:.85rem;color:var(--gris);max-width:58ch;text-align:center}
+.conFigura{display:grid;gap:clamp(1rem,3vw,2.6rem);align-items:center;
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,19rem),1fr))}
+
+.d--portada{background:linear-gradient(150deg,var(--lino) 0%,var(--bosque-soft) 100%)}
+.d--portada .meta{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.5rem;font-size:.85rem}
+.d--portada .meta span{background:var(--blanco);border:1px solid rgba(34,40,42,.09);border-radius:999px;
+  padding:.3rem .9rem;box-shadow:var(--shadow-soft)}
+.firma{margin-top:1.8rem;font-size:.85rem;color:var(--gris);max-width:44ch}
+
+.d--parte{background:var(--bosque-deep);color:var(--lino);justify-content:center}
+.d--parte .n{font-family:var(--mono);font-size:clamp(3rem,11vw,7rem);font-weight:700;line-height:.9;
+  color:rgba(214,227,221,.28);letter-spacing:-.04em;margin:0 0 .4rem}
+.d--parte h2{color:var(--blanco);max-width:18ch;font-size:clamp(1.6rem,4.6vw,3rem);margin-bottom:.6rem}
+.d--parte p{color:var(--bosque-soft);max-width:44ch;font-size:clamp(1rem,1.8vw,1.2rem);margin:0}
+
+.d--golpe{background:var(--arcilla-soft)}
+.d--golpe .gran{font-family:var(--serif);font-size:clamp(1.6rem,5.2vw,3.4rem);line-height:1.18;
+  color:var(--arcilla-deep);max-width:19ch;margin:0 0 1rem}
+.d--golpe p{color:var(--arcilla-deep);opacity:.85;max-width:52ch}
+
+.bloques{display:grid;gap:.85rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,14rem),1fr));margin-top:.5rem}
+.bloque{background:var(--blanco);border-radius:var(--radius);padding:.95rem 1.1rem;box-shadow:var(--shadow-soft);border-left:4px solid var(--acento)}
+.bloque .n{font-family:var(--mono);font-size:.73rem;color:var(--acento);font-weight:700;letter-spacing:.06em;margin:0}
+.bloque h3{margin:.2rem 0 .25rem}
+.bloque p{font-size:.9rem;color:var(--gris);margin:0}
+.bloque--otro{border-left-color:var(--arcilla)}
+.bloque--otro .n,.bloque--otro h3{color:var(--arcilla-deep)}
+
+.hito{display:flex;gap:clamp(1rem,3vw,2.2rem);align-items:flex-start;flex-wrap:wrap}
+.hito__anno{font-family:var(--mono);font-size:clamp(1.9rem,5.5vw,4rem);font-weight:700;line-height:1;
+  color:var(--acento);letter-spacing:-.03em;flex-shrink:0}
+.hito__txt{flex:1;min-width:min(100%,17rem)}
+
+.pasos{list-style:none;counter-reset:p;margin:.5rem 0 0;padding:0;display:grid;gap:.6rem;max-width:56ch}
+.pasos li{counter-increment:p;background:var(--blanco);border-radius:var(--radius-sm);
+  padding:.75rem 1rem .75rem 2.9rem;box-shadow:var(--shadow-soft);position:relative;font-size:.94rem}
+.pasos li::before{content:counter(p);position:absolute;left:.85rem;top:.72rem;width:1.45rem;height:1.45rem;
+  border-radius:50%;background:var(--acento);color:var(--blanco);font-family:var(--mono);
+  font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center}
+
+.tabla{overflow-x:auto;margin-top:.5rem;width:100%}
+table{border-collapse:collapse;width:100%;min-width:30rem;background:var(--blanco);border-radius:var(--radius-sm);
+  overflow:hidden;box-shadow:var(--shadow-soft);font-size:.88rem}
+th,td{padding:.58rem .75rem;text-align:left;vertical-align:top;border-bottom:1px solid rgba(34,40,42,.07)}
+th{background:var(--acento-soft);color:var(--acento-dark);font-size:.8rem}
+tbody tr:last-child td{border-bottom:0}
+td.derogada{color:var(--arcilla-deep);font-weight:700}
+
+/* ── Acordeón de normas ───────────────────────────────────────────────
+   <details> nativo: sin una línea de JavaScript, navegable con teclado y
+   anunciado por el lector de pantalla.                                   */
+details{background:var(--blanco);border-radius:var(--radius-sm);box-shadow:var(--shadow-soft);
+  border-left:4px solid var(--acento);padding:.7rem 1rem;max-width:62ch;margin:.7rem 0 0}
+details.derogada{border-left-color:var(--arcilla)}
+details.derogada summary{color:var(--arcilla-deep)}
+summary{cursor:pointer;font-weight:700;font-size:.9rem;color:var(--acento-dark);list-style:none}
+summary::-webkit-details-marker{display:none}
+summary::before{content:'▸';font-family:var(--mono);margin-right:.5em;display:inline-block}
+details[open] summary::before{content:'▾'}
+details[open] summary{margin-bottom:.5rem}
+details dl{margin:0;font-size:.87rem}
+details dt{font-weight:700;color:var(--pizarra);margin-top:.6rem;font-size:.83rem;
+  letter-spacing:.02em;text-transform:uppercase}
+details dt:first-child{margin-top:0}
+details dd{margin:.2rem 0 0;color:var(--gris);line-height:1.5}
+details dd ul{margin:.3rem 0 0;padding-left:1.05rem}
+details dd li{margin-bottom:.22rem}
+details .cita-norma{font-family:var(--serif);font-style:italic;color:var(--acento-dark);
+  border-left:3px solid var(--acento-soft);padding:.15em 0 .15em .8em;margin:.35rem 0 0}
+/* Al imprimir se abre todo: un acordeón cerrado en papel es texto perdido. */
+@media print{details{page-break-inside:avoid}details>*{display:block !important}}
+
+.pregunta{font-family:var(--serif);font-style:italic;font-size:clamp(1.08rem,2.4vw,1.55rem);
+  color:var(--acento-dark);border-left:4px solid var(--acento);padding:.4em 0 .4em 1em;
+  max-width:44ch;margin:.3rem 0 1rem}
+.nota{background:var(--blanco);border-left:4px solid var(--piedra);border-radius:var(--radius-sm);
+  padding:.85rem 1.05rem;box-shadow:var(--shadow-soft);font-size:.9rem;color:var(--gris);max-width:58ch}
+.nota strong{color:var(--pizarra)}
+.verificar{background:var(--arcilla-soft);border-left:3px solid var(--arcilla);border-radius:var(--radius-sm);
+  padding:.55rem .85rem;margin-top:.7rem;font-size:.81rem;color:var(--arcilla-deep);max-width:56ch}
+.verificar strong{font-family:var(--mono);font-size:.73rem;letter-spacing:.04em;color:var(--arcilla-deep)}
+.btn{display:inline-block;background:var(--acento);color:var(--blanco);text-decoration:none;
+  font-weight:600;border-radius:999px;padding:.6rem 1.5rem}
+.btn:hover{background:var(--acento-dark)}
+.btn--otro{background:var(--arcilla-dark)}
+.btn--otro:hover{background:var(--arcilla-deep)}
+
+.nav{position:fixed;left:0;right:0;bottom:0;height:62px;display:flex;align-items:center;
+  gap:.8rem;padding:0 clamp(.8rem,3vw,1.6rem);background:var(--pizarra);color:var(--lino);z-index:40}
+.nav__barra{position:absolute;top:0;left:0;height:3px;background:var(--acento);transition:width .28s ease}
+@media (prefers-reduced-motion:reduce){.nav__barra{transition:none}}
+.nav__t{flex:1;font-size:.84rem;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.nav__t small{display:block;font-weight:400;font-size:.72rem;color:var(--gris-claro)}
+.nav button{width:38px;height:38px;border-radius:50%;border:1px solid rgba(250,248,244,.32);
+  background:transparent;color:var(--lino);font-size:1.05rem;cursor:pointer;line-height:1;flex-shrink:0}
+.nav button:hover:not([disabled]){background:rgba(250,248,244,.14)}
+.nav button[disabled]{opacity:.28;cursor:default}
+.nav__n{font-family:var(--mono);font-size:.84rem;min-width:4.4rem;text-align:center;flex-shrink:0}
+.nav__pista{font-family:var(--mono);font-size:.7rem;opacity:.55;flex-shrink:0}
+@media (max-width:760px){.nav__pista{display:none}}
+
+@media print{
+  body{overflow:visible;background:var(--blanco)}
+  .deck{position:static;inset:auto}
+  .d{position:static;opacity:1;visibility:visible;page-break-after:always;min-height:auto;padding:1.4rem 0}
+  .d--parte{background:none;color:var(--pizarra)}
+  .d--parte h2{color:var(--acento-dark)}
+  .d--parte p{color:var(--gris)}
+  .d--parte .n{color:var(--gris-claro)}
+  .nav,.saltar{display:none}
+}
+</style>
+
+<noscript>
+  <!-- Respaldo sin JavaScript. Si el script no corre —red que bloquea scripts,
+       navegador restringido, extension de privacidad— el mazo se vuelve un
+       documento continuo en vez de una pagina en blanco. Son las mismas reglas
+       que usa @media print. -->
+  <style>
+    body{overflow:auto}
+    .deck{position:static;inset:auto}
+    .d{position:static;opacity:1;visibility:visible;min-height:auto;
+       padding:2.2rem clamp(1.25rem,6vw,5.5rem);border-bottom:1px solid var(--bosque-soft)}
+    .d--parte{background:var(--lino);color:var(--pizarra)}
+    .d--parte h2{color:var(--acento-dark)}
+    .d--parte p{color:var(--gris)}
+    .d--parte .n{color:var(--gris-claro)}
+    .nav{display:none}
+    .sinjs{display:block !important}
+  </style>
+</noscript>
+<p class="sinjs" style="display:none;background:#F3DCD1;border-left:4px solid #C4714F;
+   color:#6F3823;padding:.9rem 1.1rem;margin:0;font-size:.92rem">
+  <strong>Su navegador tiene JavaScript desactivado o bloqueado.</strong> La presentacion se
+  muestra abajo como documento continuo: baje con la rueda o la barra espaciadora. El contenido
+  es exactamente el mismo; solo se pierde la navegación por diapositivas.
+</p>
+
+
+<a class="saltar" href="#d1">Saltar al contenido</a>
+
+<main class="deck" id="deck">
+
+<!-- 1 ─ Portada ────────────────────────────────────────────────────────── -->
+<section class="d on d--portada" id="d1" aria-label="Portada">
+  <div class="conFigura">
+    <div>
+      <p class="d__eyebrow">Unidad 1 · Tema 3 · Material de estudio</p>
+      <h1>Marco legal, derechos y barreras de acceso</h1>
+      <p class="lead">
+        Colombia tiene uno de los marcos legales más avanzados del mundo en cuidado paliativo.
+        Y hay municipios sin un opioide disponible. Las dos cosas son ciertas a la vez, y esta
+        sesión se ocupa de esa distancia.
+      </p>
+      <div class="meta">
+        <span>Sesión 3</span>
+        <span>viernes 18 de septiembre de 2026</span>
+        <span>Presencial · 8:00 a 11:00</span>
+        <span>Cierre del primer corte</span>
+      </div>
+      <p class="firma">
+        Seminario de fundamentación en cuidados paliativos · 32264001<br>
+        Maestría en Cuidados Paliativos · Universidad Antonio Nariño · 2026-II
+      </p>
+    </div>
+    <figure>
+      <svg viewBox="0 0 300 300" role="img" aria-labelledby="tPortada3" width="300">
+        <title id="tPortada3">Un documento sellado arriba y una casa lejana abajo, separados por una distancia punteada</title>
+        <circle cx="150" cy="150" r="126" fill="var(--bosque-soft)" opacity=".5"/>
+        <rect x="88" y="52" width="124" height="74" rx="6" fill="var(--blanco)" stroke="var(--bosque)" stroke-width="3"/>
+        <g stroke="var(--bosque)" stroke-width="2.5" opacity=".55">
+          <path d="M104 74 h74 M104 88 h74 M104 102 h46"/>
+        </g>
+        <circle cx="186" cy="112" r="15" fill="none" stroke="var(--bosque)" stroke-width="2.5"/>
+        <text x="186" y="118" text-anchor="middle" font-size="13" font-weight="700" fill="var(--bosque)">§</text>
+        <path d="M150 134 V 196" stroke="var(--arcilla)" stroke-width="3" stroke-dasharray="7 7"/>
+        <text x="162" y="170" class="serif" font-size="14" fill="var(--arcilla-dark)">¿?</text>
+        <path d="M112 248 L150 214 L188 248 Z" fill="none" stroke="var(--bosque)" stroke-width="3"/>
+        <rect x="124" y="248" width="52" height="30" fill="none" stroke="var(--bosque)" stroke-width="3"/>
+      </svg>
+      <figcaption>Arriba el derecho. Abajo la casa. En medio, la pregunta de la sesión.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- 2 ─ Devolución de la sesión 2 ──────────────────────────────────────── -->
+<section class="d" aria-label="De dónde viene esta sesión">
+  <p class="d__eyebrow">Antes de empezar</p>
+  <h2>Dónde nos dejó la sesión 2</h2>
+  <p class="lead">
+    La sesión pasada terminó con una frase que conviene tener a mano, porque esta sesión la lleva
+    hasta el final.
+  </p>
+  <p class="pregunta">
+    Una política sin registro es indistinguible de una política que no se cumple.
+  </p>
+  <p>
+    Vimos cuatro peldaños —resolución internacional, ley nacional, norma operativa, servicio— y
+    aprendimos a preguntar en cuál se detuvo la cadena. Esta sesión añade el peldaño que faltaba,
+    que no es un documento: <strong>la persona que accede o no accede.</strong>
+  </p>
+  <p class="nota">
+    <strong>Qué trae de nuevo esta sesión.</strong> Primero, el marco legal colombiano completo
+    —que es excepcional en el mundo y conviene conocer bien—. Segundo, el concepto que organiza
+    el producto del corte: <strong>barrera de acceso</strong>.
+  </p>
+</section>
+
+<!-- 3 ─ Parte I ────────────────────────────────────────────────────────── -->
+<section class="d d--parte" aria-label="Primera parte">
+  <p class="n">I</p>
+  <h2>El marco colombiano</h2>
+  <p>Veinticinco años de jurisprudencia y norma. Es más de lo que casi cualquier país tiene.</p>
+</section>
+
+<!-- 4 ─ FIGURA · la línea de tiempo ────────────────────────────────────── -->
+<section class="d" aria-label="Línea de tiempo del marco legal colombiano">
+  <p class="d__eyebrow">Verificado contra fuente primaria</p>
+  <h2>De 1997 a 2026</h2>
+  <figure>
+    <svg viewBox="0 0 780 300" role="img" aria-labelledby="tLinea">
+      <title id="tLinea">Línea de tiempo con seis hitos del marco legal colombiano en cuidado paliativo y derecho a morir dignamente, entre 1997 y 2026</title>
+
+      <line x1="40" y1="150" x2="740" y2="150" stroke="var(--bosque)" stroke-width="3"/>
+
+      <!-- hitos arriba: jurisprudencia -->
+      <g fill="var(--bosque)">
+        <circle cx="90"  cy="150" r="9"/>
+        <circle cx="410" cy="150" r="9"/>
+        <circle cx="530" cy="150" r="9"/>
+      </g>
+      <g stroke="var(--bosque)" stroke-width="2">
+        <path d="M90 141 V 108"/><path d="M410 141 V 108"/><path d="M530 141 V 82"/>
+      </g>
+      <g text-anchor="middle">
+        <text x="90"  y="98" font-size="13" font-weight="700" fill="var(--bosque-dark)">C-239</text>
+        <text x="90"  y="82" class="mono" font-size="12" fill="var(--gris)">1997</text>
+        <text x="410" y="98" font-size="13" font-weight="700" fill="var(--bosque-dark)">C-233</text>
+        <text x="410" y="82" class="mono" font-size="12" fill="var(--gris)">2021</text>
+        <text x="530" y="72" font-size="13" font-weight="700" fill="var(--bosque-dark)">C-164</text>
+        <text x="530" y="56" class="mono" font-size="12" fill="var(--gris)">2022</text>
+      </g>
+      <text x="90" y="42" text-anchor="middle" class="serif" font-size="12" fill="var(--bosque)">jurisprudencia</text>
+
+      <!-- hitos abajo: norma -->
+      <g fill="var(--piedra-dark)">
+        <circle cx="240" cy="150" r="9"/>
+        <circle cx="340" cy="150" r="9"/>
+        <circle cx="470" cy="150" r="9"/>
+        <circle cx="690" cy="150" r="9"/>
+      </g>
+      <g stroke="var(--piedra-dark)" stroke-width="2">
+        <path d="M240 159 V 192"/><path d="M340 159 V 218"/><path d="M470 159 V 192"/><path d="M690 159 V 192"/>
+      </g>
+      <g text-anchor="middle">
+        <text x="240" y="208" font-size="13" font-weight="700" fill="var(--piedra-deep)">Ley 1733</text>
+        <text x="240" y="224" class="mono" font-size="12" fill="var(--gris)">2014</text>
+        <text x="340" y="234" font-size="13" font-weight="700" fill="var(--piedra-deep)">Res. 2665</text>
+        <text x="340" y="250" class="mono" font-size="12" fill="var(--gris)">2018</text>
+        <text x="470" y="208" font-size="13" font-weight="700" fill="var(--piedra-deep)">Res. 971</text>
+        <text x="470" y="224" class="mono" font-size="12" fill="var(--arcilla-dark)">2021 · derogada</text>
+        <text x="690" y="208" font-size="13" font-weight="700" fill="var(--piedra-deep)">Res. 813</text>
+        <text x="690" y="224" class="mono" font-size="12" fill="var(--gris)">2026</text>
+      </g>
+      <text x="240" y="272" text-anchor="middle" class="serif" font-size="12" fill="var(--piedra-dark)">norma administrativa</text>
+
+      <text x="740" y="140" text-anchor="end" class="serif" font-size="12.5" fill="var(--bosque-dark)">y sin embargo…</text>
+    </svg>
+    <figcaption>
+      Arriba la Corte Constitucional; abajo el Ejecutivo. <strong>Dos motores distintos que se
+      empujan mutuamente.</strong>
+    </figcaption>
+  </figure>
+</section>
+
+<!-- 5 ─ Hard law / soft law ────────────────────────────────────────────── -->
+<section class="d" aria-label="Hard law y soft law">
+  <p class="d__eyebrow">Lectura previa · se usa, no se explica en el aula</p>
+  <h2>Qué obliga y qué solo compromete</h2>
+  <p class="lead">
+    La distinción viene de la sesión 2 y aquí se aplica al plano jurídico. Es la herramienta con la
+    que se lee cualquier instrumento.
+  </p>
+  <div class="tabla">
+    <table>
+      <thead><tr><th scope="col">Tipo</th><th scope="col">Ejemplos</th><th scope="col">Fuerza</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Hard law</strong><br><span style="font-size:.82rem;color:var(--gris)">derecho duro</span></td>
+          <td>Constitución · leyes · sentencias de la Corte Constitucional · resoluciones del Ministerio</td>
+          <td>Obliga. Su incumplimiento es exigible ante un juez —en Colombia, por tutela.</td>
+        </tr>
+        <tr>
+          <td><strong>Soft law</strong><br><span style="font-size:.82rem;color:var(--gris)">derecho blando</span></td>
+          <td>Resoluciones de la Asamblea Mundial de la Salud · declaraciones · recomendaciones de organismos</td>
+          <td>Compromete políticamente y da lenguaje. No se puede reclamar ante un juez.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="nota" style="margin-top:.9rem">
+    <strong>Por qué importa para el producto del corte.</strong> Cuando en su territorio le digan
+    «eso está garantizado», la primera pregunta es de qué tipo es el instrumento que lo garantiza.
+    La respuesta cambia por completo lo que se puede exigir.
+  </p>
+</section>
+
+<!-- 6 ─ Los dos artículos ──────────────────────────────────────────────── -->
+<section class="d" aria-label="Dos artículos del Código Penal, dos sentencias">
+  <p class="d__eyebrow">La distinción que casi nadie hace</p>
+  <h2>Dos artículos, dos procedimientos</h2>
+  <p class="lead">
+    Eutanasia y suicidio médicamente asistido no son lo mismo, y en Colombia no llegaron por la
+    misma vía. Son dos artículos distintos del Código Penal y dos sentencias distintas.
+  </p>
+  <div class="tabla">
+    <table>
+      <thead><tr><th scope="col"></th><th scope="col">Eutanasia</th><th scope="col">Suicidio médicamente asistido</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Artículo</strong></td><td class="mono">Art. 106 · homicidio por piedad</td><td class="mono">Art. 107 inc. 2 · inducción o ayuda al suicidio</td></tr>
+        <tr><td><strong>Quién ejecuta</strong></td><td>El profesional de medicina</td><td>La propia persona, con asistencia médica</td></tr>
+        <tr><td><strong>Sentencia fundacional</strong></td><td>C-239 de 1997</td><td>C-164 de 2022</td></tr>
+        <tr><td><strong>Ampliación</strong></td><td>C-233 de 2021 — sustituye el requisito de enfermedad terminal por el de intenso sufrimiento</td><td>—</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="nota" style="margin-top:.9rem">
+    <strong>Y ninguno de los dos es cuidado paliativo.</strong> Coexisten legalmente con él y se
+    confunden todo el tiempo en la conversación pública. Distinguirlos es parte de lo que se espera
+    de un magíster en esta área.
+  </p>
+</section>
+
+<!-- 7 ─ Acordeón · la línea del derecho a morir dignamente ─────────────── -->
+<section class="d" aria-label="Fichas de las tres sentencias">
+  <p class="d__eyebrow">Las tres sentencias, en detalle</p>
+  <h2>El derecho a morir dignamente</h2>
+  <p>
+    Colombia fue el <strong>primer país de América Latina</strong> en abrir la eutanasia, y
+    lo hizo por vía judicial, no legislativa —sin despenalizarla: la Corte dejó el delito en el
+    Código y creó una causal de justificación para el médico—. La Corte exhortó al Congreso a regular en 1997 y
+    todavía no hay ley: lo que existe se construyó a base de sentencias y resoluciones.
+  </p>
+
+  <details>
+    <summary>C-239 de 1997 — la que abrió todo</summary>
+    <dl>
+      <dt>Qué se examinó</dt>
+      <dd>El artículo 326 del Decreto 100 de 1980 —el Código Penal de entonces—, que tipificaba el
+        <strong>homicidio por piedad</strong>. Magistrado ponente: Carlos Gaviria Díaz.</dd>
+      <dt>Qué decidió</dt>
+      <dd>Declaró el artículo <strong>exequible</strong>, con la advertencia de que, en el caso de
+        enfermos terminales en que concurra la voluntad libre de la persona, no puede derivarse
+        responsabilidad para el médico autor, porque la conducta está justificada. Y reconoció que
+        el derecho a una vida digna implica el <strong>derecho a morir dignamente</strong>.
+        <p class="cita-norma">«Enfermos terminales» se conserva porque es la formulación de la
+          sentencia. En la voz del curso decimos persona con enfermedad avanzada.</p></dd>
+      <dt>Una precisión que importa</dt>
+      <dd>La C-239 <strong>no despenalizó</strong>: el delito sigue en el Código. Creó una causal de
+        justificación. Es la misma técnica que la Corte usará en 2022 con el suicidio asistido.</dd>
+      <dt>Qué dejó pendiente</dt>
+      <dd>Exhortó al Congreso a regular la materia «cuanto antes». <strong>Esa ley todavía no
+        existe</strong> — y ese vacío es, en sí mismo, un objeto de investigación.</dd>
+      <dt>Fecha</dt>
+      <dd>20 de mayo de 1997.</dd>
+    </dl>
+  </details>
+
+  <details>
+    <summary>C-233 de 2021 — la que amplió el acceso</summary>
+    <dl>
+      <dt>Qué cambió</dt>
+      <dd>Sustituyó el requisito de <strong>enfermedad terminal</strong> por el de intenso sufrimiento. Extendió el acceso a quien
+        padece lesión corporal o enfermedad grave e incurable acompañada de intenso sufrimiento,
+        mediando consentimiento libre e informado y con un profesional de medicina como sujeto
+        activo.</dd>
+      <dt>Por qué importa clínicamente</dt>
+      <dd>Desplaza el criterio <strong>del pronóstico al sufrimiento</strong>. Es el mismo
+        movimiento que la unidad 2 encontrará en los modelos de atención: dejar de preguntar cuánto
+        le queda y empezar a preguntar qué padece.</dd>
+      <dt>Norma analizada</dt>
+      <dd>Artículo 106 de la Ley 599 de 2000.</dd>
+    </dl>
+  </details>
+
+  <details>
+    <summary>C-164 de 2022 — la del suicidio médicamente asistido</summary>
+    <dl>
+      <dt>Qué se demandó</dt>
+      <dd>El inciso segundo del <strong>artículo 107 de la Ley 599 de 2000</strong> — inducción o
+        ayuda al suicidio— cuando la conducta se dirige a poner fin a intensos sufrimientos
+        provenientes de lesión corporal o enfermedad grave e incurable.</dd>
+      <dt>Qué decidió</dt>
+      <dd><strong>Exequibilidad condicionada.</strong> La norma se mantiene en el ordenamiento, pero
+        se entiende que no hay delito de ayuda al suicidio cuando concurren tres condiciones.</dd>
+      <dt>Las tres condiciones · resolutivo textual</dt>
+      <dd><p class="cita-norma">«…en el entendido de que no se incurre en el delito de ayuda al
+        suicidio, cuando la conducta: (i) se realice por un médico, (ii) con el consentimiento
+        libre, consciente e informado, previo o posterior al diagnóstico, del sujeto pasivo del acto,
+        y siempre que (iii) el paciente padezca un intenso sufrimiento físico o psíquico, proveniente
+        de lesión corporal o enfermedad grave e incurable.»</p>
+        <p style="font-size:.82rem;margin-top:.4rem">Una versión anterior de esta ficha listaba
+        «cuatro requisitos»: eran los que pedía la demanda, no los que fijó la Corte.</p></dd>
+      <dt>Datos de la sentencia</dt>
+      <dd>11 de mayo de 2022 · magistrado ponente Antonio José Lizarazo Ocampo · expediente
+        D-14.389.</dd>
+    </dl>
+  </details>
+</section>
+
+<!-- 8 ─ Ley 1733 ───────────────────────────────────────────────────────── -->
+<section class="d" aria-label="Ley 1733 de 2014">
+  <div class="hito">
+    <p class="hito__anno">2014</p>
+    <div class="hito__txt">
+      <p class="d__eyebrow">La ley propia del cuidado paliativo</p>
+      <h2>Ley 1733 · Consuelo Devis Saavedra</h2>
+      <p>
+        Es la norma que crea el derecho. Todo lo demás —rutas, resoluciones, procedimientos— cuelga
+        de ella o debería colgar.
+      </p>
+    </div>
+  </div>
+
+  <details>
+    <summary>Ver la ficha de la ley</summary>
+    <dl>
+      <dt>Qué regula</dt>
+      <dd>Los servicios de cuidado paliativo para el manejo integral de personas con enfermedades
+        terminales, crónicas, degenerativas e irreversibles, en cualquier fase de alto impacto en la
+        calidad de vida.</dd>
+
+      <dt>Qué derechos crea</dt>
+      <dd>
+        <ul>
+          <li>Recibir atención en cuidado paliativo: control del dolor y demás síntomas, con apoyo
+            psicológico, social y espiritual, extendido a la familia y al duelo.</li>
+          <li><strong>Declinar de forma anticipada</strong> tratamientos innecesarios que no cumplan
+            el principio de proporcionalidad terapéutica.</li>
+          <li>Recibir información clara sobre el diagnóstico y las opciones.</li>
+        </ul>
+      </dd>
+
+      <dt>Sobre el lenguaje</dt>
+      <dd>La ley dice «enfermedades terminales» y «pacientes». En la voz de este seminario
+        escribimos <em>persona con enfermedad avanzada</em>.
+        <p class="cita-norma">La cita literal de la norma se conserva tal cual: cambiarla altera la
+          cita. La regla del curso se aplica a lo que escribimos nosotros, no a lo que dice el
+          legislador.</p>
+      </dd>
+
+      <dt>Dónde encontrarla</dt>
+      <dd>Sancionada el 8 de septiembre de 2014. Texto oficial en el Sistema Único de Información
+        Normativa y en la Secretaría del Senado.
+        <a href="https://www.suin-juriscol.gov.co/viewDocument.asp?ruta=Leyes/1687420">suin-juriscol.gov.co</a>
+        · <a href="leyes_construir/ley-1733-2014.html" target="_blank" rel="noopener">ficha completa de la ley, artículo por artículo</a></dd>
+    </dl>
+  </details>
+</section>
+
+<!-- 9 ─ Las derogadas · caso de anclaje ────────────────────────────────── -->
+<section class="d" aria-label="Dos normas derogadas que siguen circulando">
+  <p class="d__eyebrow" style="color:var(--arcilla-dark)">El caso de anclaje de esta sesión</p>
+  <h2>Normas que siguen citándose y ya no existen</h2>
+  <p class="lead">
+    Esta diapositiva no está aquí por su contenido normativo. Está por lo que enseña sobre
+    <strong>verificar una cita antes de usarla</strong>.
+  </p>
+  <div class="tabla">
+    <table>
+      <thead><tr><th scope="col">Norma</th><th scope="col">De qué trataba</th><th scope="col">Estado</th><th scope="col">La derogó</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Resolución 1216 de 2015</strong></td>
+          <td>Comités científico-interdisciplinarios para el derecho a morir con dignidad</td>
+          <td class="derogada">⛔ Derogada</td>
+          <td>Resolución 971 de 2021</td>
+        </tr>
+        <tr>
+          <td><strong>Resolución 1051 de 2016</strong></td>
+          <td>Documento de voluntad anticipada, en su versión restringida</td>
+          <td class="derogada">⛔ Derogada</td>
+          <td>Resolución 2665 de 2018</td>
+        </tr>
+        <tr>
+          <td><strong>Resolución 971 de 2021</strong></td>
+          <td>Procedimiento de solicitud de eutanasia y comités</td>
+          <td class="derogada">⛔ Derogada</td>
+          <td>Resolución 813 de 2026, art. 75 (29 abr. 2026)</td>
+        </tr>
+        <tr>
+          <td><strong>Resolución 825 de 2018</strong></td>
+          <td>Eutanasia en niños, niñas y adolescentes</td>
+          <td class="derogada">⛔ Derogada</td>
+          <td>Resolución 813 de 2026, art. 75</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="nota" style="margin-top:.9rem">
+    <strong>Las cuatro aparecen todavía en material docente, presentaciones y trabajos académicos.</strong>
+    Nada en su número indica que estén derogadas: hay que ir a la fuente y mirar. Una cita puede
+    tener el número correcto, el año correcto y el tema correcto — y estar muerta.
+  </p>
+  <p class="verificar">
+    <strong>Para el producto del corte</strong><br>
+    Este es el criterio que más pesa: <strong>toda afirmación dice de dónde sale</strong>. Una cita
+    inventada o derogada pesa más que una sección incompleta. Comprobarla antes de usarla es barato;
+    sostenerla después de que alguien la busque, no.
+  </p>
+</section>
+
+<!-- 10 ─ Resolución 813 ────────────────────────────────────────────────── -->
+<section class="d" aria-label="Resolución 813 de 2026">
+  <div class="hito">
+    <p class="hito__anno">2026</p>
+    <div class="hito__txt">
+      <p class="d__eyebrow">El caso de aplicación</p>
+      <h2>Resolución 813</h2>
+      <p>
+        Es la norma más reciente del marco colombiano: está vigente desde el 29 de abril de 2026 y
+        unifica en un solo acto el régimen de adultos y el de niños, niñas y adolescentes.
+      </p>
+    </div>
+  </div>
+  <p style="margin-top:1rem">
+    En 2026-I esta resolución ocupó una clase entera. Aquí entra como <strong>caso de
+    aplicación</strong>: el ejercicio no es que se la expliquen, sino que la lean y la sitúen en la
+    cadena que vimos en la sesión 2 — qué peldaño es, qué obliga, y qué necesitaría el territorio de
+    ustedes para cumplirla.
+  </p>
+  <p class="nota">
+    <strong>Lo que hace, verificado el 11 de septiembre de 2026.</strong> Setenta y cinco artículos.
+    Es la norma única de <strong>eutanasia y adecuación del esfuerzo terapéutico</strong>, para
+    adultos y para niños, niñas y adolescentes. Su artículo 75 deroga las Resoluciones 971 de 2021 y
+    825 de 2018. Trata tres dimensiones —adecuación del esfuerzo terapéutico, cuidados paliativos y
+    eutanasia— <strong>sin orden obligatorio</strong>: no hay que agotar los cuidados paliativos para
+    solicitar la eutanasia. Y <strong>no regula el suicidio médicamente asistido</strong>: la palabra
+    «suicidio» no aparece en su articulado.
+  </p>
+  <p class="nota" style="margin-top:.8rem">
+    <strong>Está abierta una decisión sobre esta norma.</strong> Si el grupo considera que merece
+    más espacio del que tiene aquí, es una observación pertinente y se lleva a la Dirección de la
+    maestría: el calendario de siete sesiones obligó a comprimirla.
+  </p>
+</section>
+
+<!-- 11 ─ Parte II ──────────────────────────────────────────────────────── -->
+<section class="d d--parte" aria-label="Segunda parte">
+  <p class="n">II</p>
+  <h2>Un derecho existe cuando alguien puede ejercerlo</h2>
+  <p>El enfoque de derechos humanos, y por qué no se agota en tener la norma.</p>
+</section>
+
+<!-- 12 ─ El enfoque de derechos ────────────────────────────────────────── -->
+<section class="d" aria-label="El enfoque de derechos humanos">
+  <p class="d__eyebrow">La herramienta conceptual</p>
+  <h2>Qué añade mirar esto como derecho</h2>
+  <p class="lead">
+    El cuidado paliativo puede entenderse como un servicio que se presta o como un derecho que se
+    ejerce. La diferencia no es retórica: cambia a quién se le pide cuentas.
+  </p>
+  <div class="bloques">
+    <div class="bloque">
+      <p class="n">Como servicio</p>
+      <h3>Se ofrece</h3>
+      <p>Existe si hay quien lo preste y recursos que lo sostengan. Si no lo hay, es una carencia
+        lamentable.</p>
+    </div>
+    <div class="bloque bloque--otro">
+      <p class="n">Como derecho</p>
+      <h3>Se exige</h3>
+      <p>Existe porque alguien es titular de él. Si no llega, hay un obligado que incumple — y eso
+        se puede reclamar.</p>
+    </div>
+  </div>
+  <p style="margin-top:1.1rem">
+    En Colombia el cuidado paliativo es <strong>lo segundo</strong> desde 2014, y el derecho a morir
+    dignamente lo es desde 1997 por vía constitucional. Es una posición jurídica que muchos países
+    con mejores servicios no tienen.
+  </p>
+  <p class="nota">
+    <strong>Y aquí aparece la tensión de la sesión.</strong> Tener el derecho mejor formulado del
+    continente no garantiza tener el servicio. La pregunta pasa a ser: <em>¿qué se interpone entre
+    los dos?</em>
+  </p>
+</section>
+
+<!-- 13 ─ Parte III ─────────────────────────────────────────────────────── -->
+<section class="d d--parte" aria-label="Tercera parte">
+  <p class="n">III</p>
+  <h2>Barreras de acceso</h2>
+  <p>Lo nuevo de esta sesión, y el eje del producto del primer corte.</p>
+</section>
+
+<!-- 14 ─ FIGURA · el embudo de las cuatro barreras ─────────────────────── -->
+<section class="d" aria-label="Las cuatro barreras de acceso">
+  <p class="d__eyebrow">El marco de trabajo del curso</p>
+  <h2>Cuatro filtros entre el derecho y la persona</h2>
+  <figure>
+    <svg viewBox="0 0 780 320" role="img" aria-labelledby="tEmbudo">
+      <title id="tEmbudo">Un embudo de cuatro filtros sucesivos —disponibilidad, accesibilidad, opioides y conocimiento— entre el derecho reconocido y la persona que finalmente recibe atención</title>
+
+      <rect x="24" y="126" width="120" height="62" rx="8" fill="var(--bosque)"/>
+      <text x="84" y="152" text-anchor="middle" font-size="13" font-weight="700" fill="var(--blanco)">El derecho</text>
+      <text x="84" y="170" text-anchor="middle" font-size="13" font-weight="700" fill="var(--blanco)">existe</text>
+
+      <g font-size="12" text-anchor="middle">
+        <rect x="176" y="112" width="118" height="90" rx="8" fill="var(--blanco)" stroke="var(--piedra)" stroke-width="2.5"/>
+        <text x="235" y="140" font-weight="700" fill="var(--piedra-deep)">¿hay</text>
+        <text x="235" y="158" font-weight="700" fill="var(--piedra-deep)">servicio?</text>
+        <text x="235" y="182" font-size="11" fill="var(--gris)">disponibilidad</text>
+
+        <rect x="318" y="118" width="118" height="78" rx="8" fill="var(--blanco)" stroke="var(--piedra)" stroke-width="2.5"/>
+        <text x="377" y="144" font-weight="700" fill="var(--piedra-deep)">¿se llega?</text>
+        <text x="377" y="176" font-size="11" fill="var(--gris)">accesibilidad</text>
+
+        <rect x="460" y="124" width="118" height="66" rx="8" fill="var(--blanco)" stroke="var(--arcilla)" stroke-width="2.5"/>
+        <text x="519" y="150" font-weight="700" fill="var(--arcilla-deep)">¿hay</text>
+        <text x="519" y="168" font-weight="700" fill="var(--arcilla-deep)">morfina?</text>
+
+        <rect x="602" y="130" width="118" height="54" rx="8" fill="var(--blanco)" stroke="var(--piedra)" stroke-width="2.5"/>
+        <text x="661" y="152" font-weight="700" fill="var(--piedra-deep)">¿alguien</text>
+        <text x="661" y="170" font-weight="700" fill="var(--piedra-deep)">lo sabe?</text>
+      </g>
+
+      <g stroke="var(--gris-claro)" stroke-width="2.5" fill="none">
+        <path d="M144 157 h32"/><path d="M294 157 h24"/><path d="M436 157 h24"/><path d="M578 157 h24"/>
+      </g>
+
+      <path d="M720 157 h34" stroke="var(--arcilla)" stroke-width="2.5" fill="none" stroke-dasharray="6 5"/>
+      <text x="756" y="150" text-anchor="end" class="serif" font-size="13" fill="var(--arcilla-dark)">la</text>
+      <text x="756" y="168" text-anchor="end" class="serif" font-size="13" fill="var(--arcilla-dark)">persona</text>
+
+      <text x="24" y="52" class="serif" font-size="13" fill="var(--bosque-dark)">cada filtro retiene a alguien — y casi ninguno se mide</text>
+      <text x="24" y="284" class="mono" font-size="11.5" fill="var(--gris)">el producto del corte pide UNA de estas barreras, en SU territorio, con el dato que la haría observable</text>
+    </svg>
+    <figcaption>
+      No es un marco publicado: es la forma de trabajo del curso. <strong>Lo que lo hace útil es la
+      segunda pregunta —con qué dato se comprueba—</strong>, no la lista.
+    </figcaption>
+  </figure>
+</section>
+
+<!-- 15 ─ Disponibilidad y accesibilidad ────────────────────────────────── -->
+<section class="d" aria-label="Barreras de disponibilidad y accesibilidad">
+  <p class="d__eyebrow">Barreras 1 y 2</p>
+  <h2>¿Hay servicio, y se puede llegar a él?</h2>
+  <div class="tabla">
+    <table>
+      <thead><tr><th scope="col">Barrera</th><th scope="col">La pregunta que la hace observable</th><th scope="col">Dónde se comprobaría</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Disponibilidad</strong></td>
+          <td>¿Existe un servicio de cuidado paliativo habilitado en el municipio o hay que salir de él?</td>
+          <td>Registro de prestadores · condiciones de habilitación</td>
+        </tr>
+        <tr>
+          <td><strong>Accesibilidad</strong></td>
+          <td>¿A qué distancia está, con qué transporte y a qué costo para la familia?</td>
+          <td>Geografía del municipio · rutas · costo del desplazamiento</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="margin-top:1rem">
+    Son las dos más fáciles de documentar y por eso conviene empezar por ellas. <strong>Un servicio
+    que existe a cuarenta kilómetros, sin transporte, para una persona que no puede viajar sentada,
+    funciona como un servicio que no existe</strong> — pero cuenta como existente en cualquier
+    registro.
+  </p>
+  <p class="nota">
+    <strong>Ese desfase es material de investigación.</strong> La diferencia entre lo que el
+    registro cuenta y lo que la persona puede usar es, en sí misma, una pregunta respondible.
+  </p>
+  <p class="nota" style="margin-top:.7rem">
+    <strong>El dato ya existe.</strong> Con 657 servicios activos en 2024, el 65 % de la población
+    colombiana vive a menos de 30 minutos de un servicio de cuidado paliativo, pero
+    <strong>uno de cada siete colombianos vive a más de dos horas</strong>, y Amazonas, Vaupés y
+    Vichada no tienen ninguno (Correa-Morales et al., 2026, <em>Journal of Pain and Symptom
+    Management</em>).
+  </p>
+</section>
+
+<!-- 16 ─ Opioides ──────────────────────────────────────────────────────── -->
+<section class="d" aria-label="La barrera de los opioides">
+  <p class="d__eyebrow">Barrera 3 · la más reveladora</p>
+  <h2>¿Hay morfina en el municipio?</h2>
+  <p class="lead">
+    De las cuatro, esta es la que mejor muestra la contradicción de la sesión — y la que tiene
+    literatura internacional comparable.
+  </p>
+  <p>
+    El control del dolor es <strong>el contenido central del derecho</strong> que la Ley 1733
+    reconoce. Sin opioides disponibles, el derecho se vuelve declarativo: se puede citar la ley,
+    reclamarla por tutela y ganar la tutela, y la persona sigue con dolor si no hay medicamento en
+    la farmacia del municipio.
+  </p>
+  <p>
+    La cadena tiene varios puntos donde se rompe: cupos de importación, distribución al territorio,
+    farmacias autorizadas para dispensar, formación del equipo que prescribe, y <strong>el miedo a
+    prescribir</strong>, que es un factor documentado y no menor.
+  </p>
+  <p class="nota">
+    <strong>El dato está localizado.</strong> Reporte Técnico 2024 del Observatorio Colombiano de
+    Cuidados Paliativos, fichas departamentales: <strong>Bogotá, 18,12; Amazonas, 0,19</strong> en
+    equivalentes de morfina per cápita, sin metadona —unas noventa y cinco veces menos—. Bogotá
+    concentra además 51 de las 177 farmacias 24/7 del país.
+  </p>
+  <p class="verificar">
+    <strong>ADVERTENCIA DE LA FUENTE</strong><br>
+    El informe no declara el año del dato ni la unidad —la palabra «mg» no aparece—, y sus dos series
+    de servicios no coinciden. Es la mejor fuente territorial disponible: se usa diciendo esto.
+  </p>
+</section>
+
+<!-- 17 ─ Conocimiento ──────────────────────────────────────────────────── -->
+<section class="d" aria-label="La barrera del conocimiento">
+  <p class="d__eyebrow">Barrera 4 · la más incómoda</p>
+  <h2>¿Sabe el equipo que el derecho existe?</h2>
+  <p class="lead">
+    Las tres barreras anteriores están fuera del profesional. Esta no.
+  </p>
+  <p>
+    Un derecho que el equipo tratante desconoce no se ofrece, y si no se ofrece, no se pide. La
+    persona no reclama lo que no sabe que le corresponde, y la ausencia de reclamos se lee después
+    como ausencia de necesidad.
+  </p>
+  <ol class="pasos">
+    <li>¿Cuántas remisiones a cuidado paliativo se hicieron el año pasado en su servicio?</li>
+    <li>¿Alguien ha explicado a una familia que existe el documento de voluntad anticipada?</li>
+    <li>Si la respuesta a las dos es «pocas» o «ninguna», ¿es porque no había necesidad o porque
+      nadie lo planteó?</li>
+  </ol>
+  <p class="nota" style="margin-top:.9rem">
+    <strong>La tercera pregunta es la buena</strong>, y tiene la misma forma que la que cerró la
+    sesión 2: cuando el registro no distingue entre «no hacía falta» y «nadie lo ofreció», la
+    ausencia de datos vuelve a ser el hallazgo.
+  </p>
+</section>
+
+<!-- 18 ─ GOLPE ─────────────────────────────────────────────────────────── -->
+<section class="d d--golpe" aria-label="El punto de la sesión">
+  <p class="d__eyebrow" style="color:var(--arcilla-dark)">El punto de la sesión</p>
+  <p class="gran">Una ley no compra morfina.</p>
+  <p>
+    Colombia tiene ley propia desde 2014, derecho constitucional a morir dignamente desde 1997 y
+    voluntad anticipada reglamentada. <strong>Y hay territorios donde nada de eso llega.</strong>
+  </p>
+  <p>
+    Las dos afirmaciones son verdaderas y no se contradicen: describen peldaños distintos de la
+    misma cadena. Confundirlas produce la frase «aquí el problema ya está resuelto» — que es la
+    frase que este seminario desarma desde la primera sesión.
+  </p>
+</section>
+
+<!-- 19 ─ De la afirmación a la pregunta ────────────────────────────────── -->
+<section class="d" aria-label="De la afirmación a la pregunta">
+  <p class="d__eyebrow">El movimiento de siempre</p>
+  <h2>De la barrera al dato</h2>
+  <p class="lead">
+    Igual que en las dos sesiones anteriores, el contenido se cierra preguntando qué de esto es
+    verificable. Esta vez el resultado no se queda en el entregable: <strong>es el producto del
+    corte.</strong>
+  </p>
+  <p>Tome una afirmación de esta sesión: <em>«en mi territorio hay barreras de acceso al cuidado paliativo»</em>. Es casi seguramente cierta. Y aun así:</p>
+  <ol class="pasos">
+    <li>¿Cuál de las cuatro barreras, en concreto? «Faltan recursos» no es una barrera: es un
+      resumen de las cuatro.</li>
+    <li>¿Qué dato mostraría que esa barrera existe, y no otra?</li>
+    <li>¿Ese dato está publicado, está en algún sistema sin publicar, o no se recoge?</li>
+  </ol>
+  <p class="nota" style="margin-top:.9rem">
+    <strong>La tercera respuesta define su pregunta de investigación.</strong> Si el dato existe y
+    nadie lo ha mirado, la pregunta es descriptiva. Si el dato no se recoge, la pregunta es por qué
+    no se recoge — y esa suele ser mejor.
+  </p>
+</section>
+
+<!-- 20 ─ Lo que sigue ──────────────────────────────────────────────────── -->
+<section class="d" aria-label="Lo que sigue">
+  <p class="d__eyebrow">Lo que sigue</p>
+  <h2>Dos entregas, el mismo día</h2>
+  <p class="lead">
+    El 18 de septiembre cierra el primer corte. Hay que llevar dos cosas, y la segunda se construye
+    con las tres primeras.
+  </p>
+  <div class="bloques">
+    <div class="bloque">
+      <p class="n">Antes de la sesión</p>
+      <h3>El entregable previo</h3>
+      <p>Las preguntas de esta sesión, sobre su territorio. Como siempre, cada una dice dónde
+        buscar. Se publica en la guía de la sesión.</p>
+    </div>
+    <div class="bloque bloque--otro">
+      <p class="n">El producto del corte · 35 %</p>
+      <h3>De mi territorio a una pregunta investigable</h3>
+      <p>Cinco secciones: el territorio, la cadena normativa hasta él, <strong>una</strong> barrera
+        concreta, la pregunta que se deriva, y las fuentes.</p>
+    </div>
+  </div>
+  <p class="nota" style="margin-top:1.2rem">
+    <strong>El entregable de esta sesión se publica en la
+    <a href="index.html">guía de la sesión</a></strong> en cuanto se abra su ventana de entrega.
+    Mientras tanto, el producto del corte se prepara con la
+    <a href="leyes_construir/index.html" target="_blank" rel="noopener">biblioteca de normas</a>.
+  </p>
+  <p class="nota" style="margin-top:1rem">
+    <strong>El criterio con que se califica está en la guía de la sesión</strong>, con las cinco
+    secciones y sus puntos. Léalo antes de escribir, no después:
+    <a href="index.html">guía de la sesión 3</a>.
+  </p>
+  <p class="nota" style="margin-top:1rem">
+    <strong>La sesión es presencial y la última media hora es taller:</strong> cada quien formula su
+    pregunta en voz alta y se depura entre todos. Traiga un borrador, aunque sea malo — depurar algo
+    escrito es mucho más rápido que empezar en blanco.
+  </p>
+  <p class="nota" style="margin-top:.7rem">
+    <a href="index.html">Volver a la guía de la sesión</a> ·
+    <a href="../../index.html">Portada del seminario</a>
+  </p>
+</section>
+
+</main>
+
+<nav class="nav" aria-label="Navegación de la presentación">
+  <div class="nav__barra" id="barra"></div>
+  <p class="nav__t" id="titulo">Sesión 3<small>Marco legal, enfoque de derechos y barreras de acceso</small></p>
+  <button type="button" id="prev" aria-label="Diapositiva anterior">‹</button>
+  <span class="nav__n" id="cuenta">1 / 20</span>
+  <button type="button" id="next" aria-label="Diapositiva siguiente">›</button>
+  <span class="nav__pista">← → · inicio · fin</span>
+</nav>
+
+<script>
+(function () {
+  'use strict';
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.d'));
+  var total = slides.length;
+  var i = 0;
+  var elPrev = document.getElementById('prev');
+  var elNext = document.getElementById('next');
+  var elCuenta = document.getElementById('cuenta');
+  var elBarra = document.getElementById('barra');
+
+  function mostrar(n, conFoco) {
+    i = Math.max(0, Math.min(total - 1, n));
+    slides.forEach(function (s, k) { s.classList.toggle('on', k === i); });
+    elCuenta.textContent = (i + 1) + ' / ' + total;
+    elBarra.style.width = ((i + 1) / total * 100) + '%';
+    elPrev.disabled = i === 0;
+    elNext.disabled = i === total - 1;
+    if (conFoco) { slides[i].setAttribute('tabindex', '-1'); slides[i].focus({ preventScroll: true }); }
+    slides[i].scrollTop = 0;
+    if (history.replaceState) history.replaceState(null, '', '#' + (i + 1));
+  }
+
+  elPrev.addEventListener('click', function () { mostrar(i - 1, true); });
+  elNext.addEventListener('click', function () { mostrar(i + 1, true); });
+
+  document.addEventListener('keydown', function (e) {
+    if (/^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName)) return;
+    switch (e.key) {
+      case 'ArrowRight': case 'PageDown': mostrar(i + 1, true); break;
+      case 'ArrowLeft':  case 'PageUp':   mostrar(i - 1, true); break;
+      case ' ':          mostrar(i + (e.shiftKey ? -1 : 1), true); e.preventDefault(); break;
+      case 'Home':       mostrar(0, true); break;
+      case 'End':        mostrar(total - 1, true); break;
+      default: return;
+    }
+  });
+
+  var x0 = null, y0 = null;
+  document.addEventListener('touchstart', function (e) {
+    x0 = e.changedTouches[0].clientX; y0 = e.changedTouches[0].clientY;
+  }, { passive: true });
+  document.addEventListener('touchend', function (e) {
+    if (x0 === null) return;
+    var dx = e.changedTouches[0].clientX - x0;
+    var dy = e.changedTouches[0].clientY - y0;
+    if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) mostrar(i + (dx < 0 ? 1 : -1), false);
+    x0 = y0 = null;
+  }, { passive: true });
+
+  var inicial = parseInt((location.hash || '').replace('#', ''), 10);
+  mostrar(isNaN(inicial) ? 0 : inicial - 1, false);
+})();
+</script>
+</html>

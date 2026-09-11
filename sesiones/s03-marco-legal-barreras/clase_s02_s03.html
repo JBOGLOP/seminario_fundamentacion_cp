@@ -1,0 +1,1351 @@
+<!doctype html>
+<html lang="es">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sesiones 2 y 3 · De la política a la barrera de acceso — Seminario de fundamentación en CP</title>
+<meta name="description" content="Material combinado de las sesiones 2 y 3 del Seminario de fundamentación en cuidados paliativos (32264001), Universidad Antonio Nariño. De la resolución mundial a la morfina que no está en la farmacia del municipio.">
+
+<!-- ===========================================================================
+     MATERIAL DE ESTUDIO · SESIONES 2 Y 3 COMBINADAS · presentación autocontenida
+     viernes 18 de septiembre de 2026 · presencial · 3 horas
+
+     POR QUÉ UN SOLO ARCHIVO. La sesión 2 no llegó a hacerse —se aplazó dos veces— y la
+     sesión 3 es presencial el mismo día de la entrega del primer corte. Este
+     mazo permite ejecutar las dos en continuidad, o solo la parte 3, usando el
+     selector «Ir a» de la barra inferior.
+
+     VERIFICACIÓN. Todo dato normativo o jurisprudencial de este archivo se
+     verificó contra fuente primaria o espejo oficial del Estado el 11 de
+     septiembre de 2026. El registro completo está en
+     docs/INVESTIGACION-TEMA3-marco-legal-barreras.md.
+
+     Se retiraron del material heredado de 2026-I seis afirmaciones que no
+     resistieron verificación. No se reemplazaron por conjeturas: se quitaron.
+
+     Lo que el contenido programático nombra pero el curso no ha podido
+     documentar con fuente primaria va rotulado [DATO POR VERIFICAR], visible.
+     =========================================================================== -->
+
+<style>
+/* --- tokens.css en línea · FUENTE CANÓNICA: _shared/tokens.css ----------- */
+:root{
+  --bosque:#2F5D50;    --bosque-dark:#234639;    --bosque-deep:#17302A;  --bosque-soft:#D6E3DD;
+  --arcilla:#C4714F;   --arcilla-dark:#A2563A;   --arcilla-deep:#6F3823; --arcilla-soft:#F3DCD1;
+  --malva:#7A5C8A;     --malva-dark:#5F4570;     --malva-deep:#402C4D;   --malva-soft:#E4DAEA;
+  --piedra:#8A8578;    --piedra-dark:#6B6659;    --piedra-deep:#4E4A40;  --piedra-soft:#EFEBE3;
+  --pizarra:#22282A;   --gris:#565E5C;           --gris-claro:#9AA09D;
+  --blanco:#FFFFFF;    --lino:#FAF8F4;
+  --shadow-soft:0 2px 8px rgba(34,40,42,.07);
+  --shadow-medium:0 6px 20px rgba(34,40,42,.11);
+  --radius:14px; --radius-sm:9px;
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif;
+  --mono:'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace;
+  --serif:Georgia,'Times New Roman',serif;
+
+  /* Unidad 1 → bosque */
+  --acento:var(--bosque); --acento-dark:var(--bosque-deep); --acento-soft:var(--bosque-soft);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;font-family:var(--sans);color:var(--pizarra);background:var(--lino);
+  line-height:1.5;overflow:hidden}
+:focus-visible{outline:3px solid var(--acento);outline-offset:3px}
+a{color:var(--acento-dark)}
+.saltar{position:absolute;left:-9999px;background:var(--pizarra);color:var(--lino);padding:.6rem 1rem;z-index:99}
+.saltar:focus{left:0}
+
+.deck{position:fixed;inset:0 0 62px 0}
+.d{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;
+  justify-content:safe center;
+  padding:clamp(1.1rem,3vw,2.6rem) clamp(1.25rem,6vw,5.5rem);
+  opacity:0;visibility:hidden;transition:opacity .28s ease;overflow-y:auto}
+.d.on{opacity:1;visibility:visible}
+.d>*{flex-shrink:0}
+@media (prefers-reduced-motion:reduce){.d{transition:none}}
+
+.d__eyebrow{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;
+  color:var(--acento);margin:0 0 .7rem}
+h1{font-size:clamp(1.9rem,5.2vw,3.4rem);line-height:1.08;letter-spacing:-.02em;margin:0 0 .8rem;max-width:20ch}
+h2{font-size:clamp(1.35rem,3.4vw,2.3rem);line-height:1.15;letter-spacing:-.015em;margin:0 0 .8rem;max-width:24ch;color:var(--acento-dark)}
+h3{font-size:clamp(.98rem,1.8vw,1.15rem);margin:0 0 .35rem;color:var(--acento-dark)}
+p{font-size:clamp(.96rem,1.5vw,1.1rem);max-width:60ch;margin:0 0 .8em}
+.lead{font-size:clamp(1.02rem,1.95vw,1.3rem);color:var(--gris);max-width:52ch}
+strong{color:var(--pizarra)}
+
+figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:.6rem}
+svg{max-width:100%;height:auto;display:block}
+svg text{font-family:var(--sans)}
+svg .mono{font-family:var(--mono)}
+svg .serif{font-family:var(--serif);font-style:italic}
+figcaption{font-size:.85rem;color:var(--gris);max-width:58ch;text-align:center}
+.conFigura{display:grid;gap:clamp(1rem,3vw,2.6rem);align-items:center;
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,19rem),1fr))}
+
+.d--portada{background:linear-gradient(150deg,var(--lino) 0%,var(--bosque-soft) 100%)}
+.d--portada .meta{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.5rem;font-size:.85rem}
+.d--portada .meta span{background:var(--blanco);border:1px solid rgba(34,40,42,.09);border-radius:999px;
+  padding:.3rem .9rem;box-shadow:var(--shadow-soft)}
+.firma{margin-top:1.8rem;font-size:.85rem;color:var(--gris);max-width:44ch}
+
+.d--parte{background:var(--bosque-deep);color:var(--lino);justify-content:center}
+.d--parte .n{font-family:var(--mono);font-size:clamp(3rem,11vw,7rem);font-weight:700;line-height:.9;
+  color:rgba(214,227,221,.28);letter-spacing:-.04em;margin:0 0 .4rem}
+.d--parte h2{color:var(--blanco);max-width:18ch;font-size:clamp(1.6rem,4.6vw,3rem);margin-bottom:.6rem}
+.d--parte p{color:var(--bosque-soft);max-width:44ch;font-size:clamp(1rem,1.8vw,1.2rem);margin:0}
+.d--parte .sesion{font-family:var(--mono);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--bosque-soft);opacity:.75;margin:0 0 .5rem}
+
+.d--golpe{background:var(--arcilla-soft)}
+.d--golpe .gran{font-family:var(--serif);font-size:clamp(1.6rem,5.2vw,3.4rem);line-height:1.18;
+  color:var(--arcilla-deep);max-width:19ch;margin:0 0 1rem}
+.d--golpe p{color:var(--arcilla-deep);opacity:.85;max-width:52ch}
+
+.bloques{display:grid;gap:.85rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,14rem),1fr));margin-top:.5rem}
+.bloque{background:var(--blanco);border-radius:var(--radius);padding:.95rem 1.1rem;box-shadow:var(--shadow-soft);border-left:4px solid var(--acento)}
+.bloque .n{font-family:var(--mono);font-size:.73rem;color:var(--acento);font-weight:700;letter-spacing:.06em;margin:0}
+.bloque h3{margin:.2rem 0 .25rem}
+.bloque p{font-size:.9rem;color:var(--gris);margin:0}
+.bloque--otro{border-left-color:var(--arcilla)}
+.bloque--otro .n,.bloque--otro h3{color:var(--arcilla-deep)}
+.bloque--muerto{border-left-color:var(--piedra);opacity:.75}
+.bloque--muerto .n,.bloque--muerto h3{color:var(--piedra-deep)}
+
+.hito{display:flex;gap:clamp(1rem,3vw,2.2rem);align-items:flex-start;flex-wrap:wrap}
+.hito__anno{font-family:var(--mono);font-size:clamp(1.9rem,5.5vw,4rem);font-weight:700;line-height:1;
+  color:var(--acento);letter-spacing:-.03em;flex-shrink:0}
+.hito__txt{flex:1;min-width:min(100%,17rem)}
+
+.pasos{list-style:none;counter-reset:p;margin:.5rem 0 0;padding:0;display:grid;gap:.6rem;max-width:56ch}
+.pasos li{counter-increment:p;background:var(--blanco);border-radius:var(--radius-sm);
+  padding:.75rem 1rem .75rem 2.9rem;box-shadow:var(--shadow-soft);position:relative;font-size:.94rem}
+.pasos li::before{content:counter(p);position:absolute;left:.85rem;top:.72rem;width:1.45rem;height:1.45rem;
+  border-radius:50%;background:var(--acento);color:var(--blanco);font-family:var(--mono);
+  font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center}
+
+.tabla{overflow-x:auto;margin-top:.5rem;width:100%}
+table{border-collapse:collapse;width:100%;min-width:30rem;background:var(--blanco);border-radius:var(--radius-sm);
+  overflow:hidden;box-shadow:var(--shadow-soft);font-size:.88rem}
+th,td{padding:.58rem .75rem;text-align:left;vertical-align:top;border-bottom:1px solid rgba(34,40,42,.07)}
+th{background:var(--acento-soft);color:var(--acento-dark);font-size:.8rem}
+tbody tr:last-child td{border-bottom:0}
+td.num{text-align:right;font-family:var(--mono);white-space:nowrap}
+th.num{text-align:right}
+.viva{color:var(--bosque-dark);font-weight:700}
+.muerta{color:var(--arcilla-dark);font-weight:700;text-decoration:line-through}
+
+details{background:var(--blanco);border-radius:var(--radius-sm);box-shadow:var(--shadow-soft);
+  border-left:4px solid var(--acento);padding:.7rem 1rem;max-width:62ch;margin:.7rem 0 0}
+summary{cursor:pointer;font-weight:700;font-size:.9rem;color:var(--acento-dark);list-style:none}
+summary::-webkit-details-marker{display:none}
+summary::before{content:'▸';font-family:var(--mono);margin-right:.5em;display:inline-block}
+details[open] summary::before{content:'▾'}
+details[open] summary{margin-bottom:.5rem}
+details dl{margin:0;font-size:.87rem}
+details dt{font-weight:700;color:var(--pizarra);margin-top:.6rem;font-size:.83rem;
+  letter-spacing:.02em;text-transform:uppercase}
+details dt:first-child{margin-top:0}
+details dd{margin:.2rem 0 0;color:var(--gris);line-height:1.5}
+details dd ul{margin:.3rem 0 0;padding-left:1.05rem}
+details dd li{margin-bottom:.22rem}
+details .cita-norma{font-family:var(--serif);font-style:italic;color:var(--acento-dark);
+  border-left:3px solid var(--acento-soft);padding:.15em 0 .15em .8em;margin:.35rem 0 0}
+@media print{details{page-break-inside:avoid}details>*{display:block !important}}
+
+.pregunta{font-family:var(--serif);font-style:italic;font-size:clamp(1.08rem,2.4vw,1.55rem);
+  color:var(--acento-dark);border-left:4px solid var(--acento);padding:.4em 0 .4em 1em;
+  max-width:44ch;margin:.3rem 0 1rem}
+.nota{background:var(--blanco);border-left:4px solid var(--piedra);border-radius:var(--radius-sm);
+  padding:.85rem 1.05rem;box-shadow:var(--shadow-soft);font-size:.9rem;color:var(--gris);max-width:58ch}
+.nota strong{color:var(--pizarra)}
+.verificar{background:var(--arcilla-soft);border-left:3px solid var(--arcilla);border-radius:var(--radius-sm);
+  padding:.55rem .85rem;margin-top:.7rem;font-size:.81rem;color:var(--arcilla-deep);max-width:56ch}
+.verificar strong{font-family:var(--mono);font-size:.73rem;letter-spacing:.04em;color:var(--arcilla-deep)}
+.btn{display:inline-block;background:var(--acento);color:var(--blanco);text-decoration:none;
+  font-weight:600;border-radius:999px;padding:.6rem 1.5rem}
+.btn:hover{background:var(--acento-dark)}
+
+/* barras horizontales · serie única, magnitud */
+.barras{display:grid;gap:.34rem;max-width:40rem;width:100%;margin-top:.4rem}
+.barra{display:grid;grid-template-columns:minmax(6.5rem,auto) minmax(0,1fr) auto;gap:.7rem;align-items:center}
+.barra__lab{font-size:.86rem;color:var(--gris)}
+.barra__pista{display:block;background:var(--piedra-soft);border-radius:3px;height:13px;overflow:hidden}
+.barra__fill{display:block;height:100%;background:var(--acento);border-radius:0 4px 4px 0;min-width:2px}
+.barra--amazonia .barra__fill{background:var(--arcilla)}
+.barra--baja .barra__fill{background:var(--arcilla)}
+.leyenda{display:flex;flex-wrap:wrap;gap:.4rem 1.2rem;margin:.1rem 0 .55rem;font-size:.82rem;color:var(--gris)}
+.leyenda span{display:inline-flex;align-items:center;gap:.42rem}
+.leyenda i{width:13px;height:9px;border-radius:2px;display:inline-block}
+.barra__val{font-family:var(--mono);font-size:.85rem;font-weight:700;min-width:3.4rem;text-align:right}
+
+.cifra{display:flex;flex-wrap:wrap;gap:1.4rem 2.4rem;align-items:center;margin:.4rem 0 1rem}
+.cifra__n{font-family:var(--serif);font-size:clamp(2.6rem,8vw,4.6rem);line-height:.95;
+  color:var(--arcilla-dark);font-weight:700}
+.cifra__t{max-width:36ch}
+.cifra__t p{margin:0;font-size:.95rem;color:var(--gris)}
+
+.nav{position:fixed;left:0;right:0;bottom:0;height:62px;display:flex;align-items:center;
+  gap:.8rem;padding:0 clamp(.8rem,3vw,1.6rem);background:var(--pizarra);color:var(--lino);z-index:40}
+.nav__barra{position:absolute;top:0;left:0;height:3px;background:var(--acento);transition:width .28s ease}
+@media (prefers-reduced-motion:reduce){.nav__barra{transition:none}}
+.nav__t{flex:1;font-size:.84rem;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.nav__t small{display:block;font-weight:400;font-size:.72rem;color:var(--gris-claro)}
+.nav button{width:38px;height:38px;border-radius:50%;border:1px solid rgba(250,248,244,.32);
+  background:transparent;color:var(--lino);font-size:1.05rem;cursor:pointer;line-height:1;flex-shrink:0}
+.nav button:hover:not([disabled]){background:rgba(250,248,244,.14)}
+.nav button[disabled]{opacity:.28;cursor:default}
+.nav__n{font-family:var(--mono);font-size:.84rem;min-width:4.4rem;text-align:center;flex-shrink:0}
+.nav__pista{font-family:var(--mono);font-size:.7rem;opacity:.55;flex-shrink:0}
+.nav select{background:rgba(250,248,244,.1);color:var(--lino);border:1px solid rgba(250,248,244,.32);
+  border-radius:999px;padding:.36rem .7rem;font-size:.78rem;font-family:var(--sans);cursor:pointer;
+  max-width:13rem;flex-shrink:0}
+.nav select option{background:var(--pizarra);color:var(--lino)}
+@media (max-width:900px){.nav__pista{display:none}}
+@media (max-width:700px){.nav select{max-width:7.5rem}.nav__t small{display:none}}
+
+@media print{
+  body{overflow:visible;background:var(--blanco)}
+  .deck{position:static;inset:auto}
+  .d{position:static;opacity:1;visibility:visible;page-break-after:always;min-height:auto;padding:1.4rem 0}
+  .d--parte{background:none;color:var(--pizarra)}
+  .d--parte h2{color:var(--acento-dark)}
+  .d--parte p,.d--parte .sesion{color:var(--gris)}
+  .d--parte .n{color:var(--gris-claro)}
+  .nav,.saltar{display:none}
+}
+</style>
+
+<noscript>
+  <style>
+    body{overflow:auto}
+    .deck{position:static;inset:auto}
+    .d{position:static;opacity:1;visibility:visible;min-height:auto;
+       padding:2.2rem clamp(1.25rem,6vw,5.5rem);border-bottom:1px solid var(--bosque-soft)}
+    .d--parte{background:var(--lino);color:var(--pizarra)}
+    .d--parte h2{color:var(--acento-dark)}
+    .d--parte p,.d--parte .sesion{color:var(--gris)}
+    .d--parte .n{color:var(--gris-claro)}
+    .nav{display:none}
+    .sinjs{display:block !important}
+  </style>
+</noscript>
+<p class="sinjs" style="display:none;background:#F3DCD1;border-left:4px solid #C4714F;
+   color:#6F3823;padding:.9rem 1.1rem;margin:0;font-size:.92rem">
+  <strong>Su navegador tiene JavaScript desactivado o bloqueado.</strong> La presentacion se
+  muestra abajo como documento continuo: baje con la rueda o la barra espaciadora. El contenido
+  es exactamente el mismo; solo se pierde la navegación por diapositivas.
+</p>
+
+<a class="saltar" href="#d1">Saltar al contenido</a>
+
+<main class="deck" id="deck">
+
+<!-- 1 ─ Portada ────────────────────────────────────────────────────────── -->
+<section class="d on d--portada" id="d1" data-parte="Portada" aria-label="Portada">
+  <div class="conFigura">
+    <div>
+      <p class="d__eyebrow">Unidad 1 · Temas 2 y 3 · Material de estudio</p>
+      <h1>De la política a la barrera de acceso</h1>
+      <p class="lead">
+        Dos sesiones en un solo recorrido. La primera parte pregunta qué hace cada instrumento de
+        política. La segunda, qué queda cuando el derecho existe y el servicio no.
+      </p>
+      <div class="meta">
+        <span>Sesiones 2 y 3</span>
+        <span>viernes 18 de septiembre de 2026</span>
+        <span>Presencial · 8:00 a 11:00</span>
+        <span>Entrega del primer corte · 35 %</span>
+      </div>
+      <p class="firma">
+        Seminario de fundamentación en cuidados paliativos · 32264001<br>
+        Maestría en Cuidados Paliativos · Universidad Antonio Nariño · 2026-II
+      </p>
+    </div>
+    <figure>
+      <svg viewBox="0 0 300 300" role="img" aria-labelledby="tPortada23" width="300">
+        <title id="tPortada23">Una cadena de documentos que termina en un frasco vacío</title>
+        <circle cx="150" cy="150" r="126" fill="var(--bosque-soft)" opacity=".5"/>
+        <g stroke="var(--bosque)" stroke-width="3" fill="var(--blanco)">
+          <rect x="70" y="58"  width="150" height="34" rx="5"/>
+          <rect x="84" y="102" width="122" height="34" rx="5"/>
+          <rect x="98" y="146" width="94"  height="34" rx="5"/>
+        </g>
+        <g stroke="var(--bosque)" stroke-width="2.5" opacity=".55">
+          <path d="M90 72 h72 M90 82 h44"/><path d="M104 116 h58 M104 126 h34"/>
+          <path d="M118 160 h44 M118 170 h26"/>
+        </g>
+        <g stroke="var(--arcilla)" stroke-width="3" fill="none">
+          <path d="M132 200 h36 v8 a6 6 0 0 1 -2 4 l-4 4 v30 a6 6 0 0 1 -6 6 h-12
+                   a6 6 0 0 1 -6 -6 v-30 l-4 -4 a6 6 0 0 1 -2 -4 z"/>
+        </g>
+        <text x="150" y="272" text-anchor="middle" class="mono" font-size="12"
+              fill="var(--arcilla-dark)">vacío</text>
+      </svg>
+      <figcaption>Tres documentos arriba. Abajo, el frasco.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- 2 ─ Cómo se usa · las dos sesiones en una ──────────────────────────── -->
+<section class="d" data-parte="Cómo se usa" aria-label="Cómo se usa este material">
+  <p class="d__eyebrow">Antes de empezar</p>
+  <h2>Dos sesiones, un solo recorrido</h2>
+  <p class="lead">
+    La sesión 2 no llegó a hacerse: se aplazó dos veces. La sesión 3 es hoy, y
+    hoy también se entrega el primer corte. Este material las junta para que el argumento no se
+    parta por la mitad.
+  </p>
+  <div class="tabla">
+    <table>
+      <caption class="sr-only"></caption>
+      <thead><tr><th scope="col">Tramo</th><th scope="col">Contenido</th><th scope="col">Parte del mazo</th></tr></thead>
+      <tbody>
+        <tr><td class="mono">8:00–8:15</td><td>Apertura y devolución de lo que encontraron</td><td>I</td></tr>
+        <tr><td class="mono">8:15–9:05</td><td>Qué hace cada instrumento de política · mundo, región, Colombia</td><td>II y III</td></tr>
+        <tr><td class="mono">9:05–9:15</td><td><strong>Pausa</strong></td><td>—</td></tr>
+        <tr><td class="mono">9:15–10:05</td><td>El marco legal colombiano y el enfoque de derechos</td><td>IV y V</td></tr>
+        <tr><td class="mono">10:05–10:40</td><td><strong>Barreras de acceso</strong> · el subtema nuevo</td><td>VI</td></tr>
+        <tr><td class="mono">10:40–11:00</td><td>Taller del primer corte y cierre</td><td>VII</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="nota" style="margin-top:1rem">
+    <strong>Si solo va a dictar la sesión 3</strong>, use el selector <em>Ir a</em> de la barra
+    inferior y salte a la parte IV. Las partes I a III quedan como material de estudio.
+  </p>
+</section>
+
+<!-- 3 ─ Parte I ────────────────────────────────────────────────────────── -->
+<section class="d d--parte" data-parte="I · Lo que encontraron" aria-label="Primera parte">
+  <p class="sesion">Sesión 2 · primera parte</p>
+  <p class="n">I</p>
+  <h2>Lo que ustedes encontraron</h2>
+  <p>El método de la sesión pasada produjo un resultado, y ese resultado gobierna la de hoy.</p>
+</section>
+
+<!-- 4 ─ El hallazgo de la sesión 1 ─────────────────────────────────────── -->
+<section class="d" data-parte="I · Lo que encontraron" aria-label="El hallazgo de la sesión 1">
+  <p class="d__eyebrow">El dato del curso</p>
+  <h2>La pregunta que dice dónde buscar es la que se responde</h2>
+  <div class="tabla">
+    <table>
+      <thead><tr><th scope="col">Pregunta de la sesión 1</th><th scope="col">¿Nombraba dónde buscar?</th><th scope="col" class="num">Respuestas ancladas</th></tr></thead>
+      <tbody>
+        <tr><td><strong>P1</strong> · cuándo llegó el cuidado paliativo a su territorio</td><td>No</td><td class="num">4 de 7</td></tr>
+        <tr><td><strong>P2</strong> · con qué definición trabaja de hecho su institución</td><td>No</td><td class="num">4 de 7</td></tr>
+        <tr><td><strong>P3</strong> · qué dimensión del dolor total está peor atendida</td><td>No</td><td class="num muerta">0 de 7</td></tr>
+        <tr><td><strong>P4</strong> · un indicador del <em>Global Atlas</em></td><td><strong>Sí</strong></td><td class="num viva">7 de 7</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="margin-top:1rem">
+    Las mismas siete personas, el mismo fin de semana. En la P3 varias describieron con precisión
+    <em>qué habría que medir</em>. <strong>Pudieron imaginar el dato; no encontrarlo publicado.</strong>
+  </p>
+  <p class="nota">
+    Ese hallazgo se convirtió en método: todas las preguntas del entregable dicen dónde buscar. Y
+    hoy vamos a ver algo más incómodo — <strong>a veces el dato existe, está publicado, y aun así
+    no se puede usar sin advertencias.</strong>
+  </p>
+</section>
+
+<!-- 5 ─ Parte II ───────────────────────────────────────────────────────── -->
+<section class="d d--parte" data-parte="II · Los cuatro peldaños" aria-label="Segunda parte">
+  <p class="sesion">Sesión 2 · segunda parte</p>
+  <p class="n">II</p>
+  <h2>«Hay norma» no es una sola cosa</h2>
+  <p>Cuatro peldaños que se confunden todo el tiempo y no hacen lo mismo.</p>
+</section>
+
+<!-- 6 ─ Los cuatro peldaños ────────────────────────────────────────────── -->
+<section class="d" data-parte="II · Los cuatro peldaños" aria-label="Los cuatro peldaños">
+  <p class="d__eyebrow">La rejilla de toda la sesión</p>
+  <h2>Qué obliga, quién lo mide</h2>
+  <div class="bloques">
+    <div class="bloque"><p class="n">01</p><h3>Declaración o resolución</h3>
+      <p>Compromiso político de Estados. Obliga en el plano de la responsabilidad internacional, no ante un juez colombiano.</p></div>
+    <div class="bloque"><p class="n">02</p><h3>Tratado ratificado</h3>
+      <p>Obliga jurídicamente. Si integra el bloque de constitucionalidad, es exigible por tutela.</p></div>
+    <div class="bloque"><p class="n">03</p><h3>Ley y reglamento</h3>
+      <p>Obliga dentro del país. Define derechos, procedimientos y responsables.</p></div>
+    <div class="bloque bloque--otro"><p class="n">04</p><h3>Servicio prestado</h3>
+      <p>Lo único que una persona puede recibir. No se deduce de los tres anteriores.</p></div>
+  </div>
+  <p class="pregunta" style="margin-top:1.2rem">
+    ¿Cuál de estos cuatro peldaños se mide con un indicador publicado en Colombia?
+  </p>
+  <p class="nota">
+    Guarde la pregunta. La respondemos en la parte VI, con datos, y la respuesta no es la que
+    parece.
+  </p>
+</section>
+
+<!-- 7 ─ Parte III ──────────────────────────────────────────────────────── -->
+<section class="d d--parte" data-parte="III · Mundo y región" aria-label="Tercera parte">
+  <p class="sesion">Sesión 2 · tercera parte</p>
+  <p class="n">III</p>
+  <h2>Quién emite qué, y con qué fuerza</h2>
+  <p>Seis organismos mundiales, tres regionales. Solo uno de todos ellos obliga a Colombia.</p>
+</section>
+
+<!-- 8 ─ Mapa de organismos ─────────────────────────────────────────────── -->
+<section class="d" data-parte="III · Mundo y región" aria-label="Mapa de organismos">
+  <p class="d__eyebrow">Nivel mundial</p>
+  <h2>Seis actores, cinco tipos de autoridad</h2>
+  <div class="tabla">
+    <table>
+      <thead><tr><th scope="col">Organismo</th><th scope="col">Qué es</th><th scope="col">A qué obliga</th></tr></thead>
+      <tbody>
+        <tr><td><strong>OMS</strong></td><td>Organismo intergubernamental de la ONU</td><td>Mandato político. Resolución WHA67.19 de 2014, adoptada por 194 Estados</td></tr>
+        <tr><td><strong>Banco Mundial</strong></td><td>Banco multilateral de desarrollo</td><td>A nadie. Fuerza analítica y condicionalidad de financiamiento</td></tr>
+        <tr><td><strong>BID</strong></td><td>Banco multilateral regional</td><td>A nadie. Comparación regional y diseño de beneficios</td></tr>
+        <tr><td><strong>OCDE</strong></td><td>Club de política económica · Colombia es miembro desde 2020</td><td>A nadie jurídicamente. Opera por comparación entre pares</td></tr>
+        <tr><td><strong>IAHPC</strong></td><td>Asociación profesional internacional</td><td>A nadie. Autoridad técnica: lista de medicamentos esenciales en cuidado paliativo</td></tr>
+        <tr><td><strong>SECPAL</strong></td><td><strong>Sociedad científica nacional española</strong>, fundada en 1992</td><td>A nadie. No es un actor de política mundial</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="nota" style="margin-top:1rem">
+    <strong>SECPAL está en la lista del programa, y conviene decir por qué se sale de la
+    categoría.</strong> Su producción pesa en el mundo hispanohablante por idioma y tradición
+    clínica —es la editora en español del Libro Blanco de la Sociedad Europea de Cuidados
+    Paliativos—, pero no emite política mundial. Es referente doctrinal, no fuente normativa.
+  </p>
+  <div class="verificar">
+    <strong>PRECISIÓN DE ATRIBUCIÓN</strong> · El IDC-Pal no es de SECPAL: es de la Junta de
+    Andalucía (2014), elaborado por el Plan Andaluz de Cuidados Paliativos con la Fundación CUDECA.
+  </div>
+</section>
+
+<!-- 9 ─ OPS: el retroceso del indicador ────────────────────────────────── -->
+<section class="d" data-parte="III · Mundo y región" aria-label="El retroceso del indicador de la OPS">
+  <p class="d__eyebrow">Nivel regional · Organización Panamericana de la Salud</p>
+  <h2>Doce años después, el plan mide menos</h2>
+  <div class="conFigura">
+    <div>
+      <div class="hito" style="margin-bottom:1.1rem">
+        <div class="hito__anno" style="font-size:clamp(1.4rem,4vw,2.6rem)">2013</div>
+        <div class="hito__txt">
+          <h3>Plan 2013–2019 · CD52/7 Rev. 1</h3>
+          <p style="font-size:.92rem;margin:0">Objetivo <strong>3.2</strong> propio de cuidados paliativos, con
+          <strong>indicador 3.2.2</strong>: «mejorar el acceso a cuidados paliativos, expresado por un
+          aumento del consumo, en <strong>equivalentes de morfina</strong>, de analgésicos opioides».</p>
+        </div>
+      </div>
+      <div class="hito">
+        <div class="hito__anno" style="font-size:clamp(1.4rem,4vw,2.6rem);color:var(--arcilla)">2025</div>
+        <div class="hito__txt">
+          <h3 style="color:var(--arcilla-deep)">Plan 2025–2030 · CD62/8</h3>
+          <p style="font-size:.92rem;margin:0">Una sola mención, en el párrafo 15, dentro de una enumeración:
+          «…el diagnóstico temprano, el tratamiento oportuno, la rehabilitación, <strong>los cuidados
+          paliativos</strong>, el seguimiento continuo…». <strong>Ningún indicador los mide.</strong></p>
+        </div>
+      </div>
+    </div>
+    <figure>
+      <svg viewBox="0 0 260 180" role="img" aria-labelledby="tOps" width="260">
+        <title id="tOps">Dos planes: uno con indicador, otro sin indicador</title>
+        <rect x="14" y="30" width="96" height="120" rx="8" fill="var(--blanco)" stroke="var(--bosque)" stroke-width="2.5"/>
+        <rect x="150" y="30" width="96" height="120" rx="8" fill="var(--blanco)" stroke="var(--arcilla)" stroke-width="2.5"/>
+        <text x="62" y="22" text-anchor="middle" class="mono" font-size="11" fill="var(--bosque-dark)">2013–2019</text>
+        <text x="198" y="22" text-anchor="middle" class="mono" font-size="11" fill="var(--arcilla-dark)">2025–2030</text>
+        <g stroke="var(--bosque)" stroke-width="2" opacity=".45">
+          <path d="M28 50 h68 M28 62 h44 M28 74 h68"/>
+        </g>
+        <rect x="26" y="92" width="72" height="42" rx="5" fill="var(--bosque-soft)" stroke="var(--bosque)" stroke-width="2"/>
+        <text x="62" y="108" text-anchor="middle" class="mono" font-size="9" fill="var(--bosque-deep)">INDICADOR</text>
+        <text x="62" y="122" text-anchor="middle" class="mono" font-size="10" font-weight="700" fill="var(--bosque-deep)">3.2.2</text>
+        <g stroke="var(--arcilla)" stroke-width="2" opacity=".45">
+          <path d="M164 50 h68 M164 62 h44 M164 74 h68 M164 86 h56"/>
+        </g>
+        <rect x="162" y="100" width="72" height="34" rx="5" fill="none" stroke="var(--arcilla)"
+              stroke-width="2" stroke-dasharray="6 5"/>
+        <text x="198" y="121" text-anchor="middle" class="mono" font-size="9" fill="var(--arcilla-dark)">sin indicador</text>
+        <text x="130" y="168" text-anchor="middle" font-size="10" fill="var(--gris)">mismo organismo · misma materia</text>
+      </svg>
+      <figcaption>La visibilidad de un problema en la política pública no crece sola con el tiempo.</figcaption>
+    </figure>
+  </div>
+  <div class="verificar">
+    <strong>PRECISIÓN</strong> · La <em>Resolución</em> CD62.R8 no menciona los cuidados paliativos
+    en ningún párrafo. La mención está en el documento que la resolución aprueba, el CD62/8. Y la
+    «Resolución CD58.R22», que circula en materiales docentes, <strong>no existe</strong>.
+  </div>
+</section>
+
+<!-- 10 ─ La cadena colombiana ──────────────────────────────────────────── -->
+<section class="d" data-parte="III · Mundo y región" aria-label="La cadena colombiana de política">
+  <p class="d__eyebrow">Nivel nacional · política, no ley</p>
+  <h2>PAIS, MAITE, el modelo nuevo y las rutas</h2>
+  <div class="tabla">
+    <table>
+      <thead><tr><th scope="col">Instrumento</th><th scope="col">Estado a septiembre de 2026</th><th scope="col">Qué dice del cuidado paliativo</th></tr></thead>
+      <tbody>
+        <tr><td><strong>PAIS y MAITE</strong> · Res. 2626 de 2019<br><span style="font-size:.82rem;color:var(--gris)">su art. 13 derogó la Res. 429 de 2016</span></td>
+            <td class="viva">Vigente</td>
+            <td>Incluye «paliación y muerte digna» en el continuo de atención. Implementación desigual: débil en municipios de categoría 6</td></tr>
+        <tr><td><strong>Modelo Preventivo, Predictivo y Resolutivo</strong><br>Decreto 858 de 2025</td>
+            <td class="muerta">Suspendido</td>
+            <td>Los menciona en tres artículos, siempre como último eslabón de una enumeración. Ninguno los regula. No menciona atención domiciliaria</td></tr>
+        <tr><td><strong>RIAS</strong> · Res. 3280 de 2018</td>
+            <td class="viva">Vigente</td>
+            <td><strong>No existe una ruta autónoma de cuidado paliativo.</strong> La paliación se integra en las rutas de cáncer y de enfermedades crónicas</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <details>
+    <summary>La suspensión del Decreto 858 de 2025, en cinco fechas</summary>
+    <dl>
+      <dt>30 de julio de 2025</dt>
+      <dd>Expedido. Diario Oficial 53.198. Sustituye la parte 11 del libro 2 del Decreto 780 de 2016. Da un plazo de hasta un año para que el sistema adecúe su operación.</dd>
+      <dt>21 de octubre de 2025</dt>
+      <dd>El Consejo de Estado, Sección Primera, resuelve «DECRETAR LA SUSPENSIÓN PROVISIONAL de los
+        efectos del Decreto 0858 de 30 de julio de 2025» (rad. 11001-03-24-000-2025-00353-00, actor
+        Andrés Eduardo Forero Molina). Sin desagregar por artículos. <strong>Un solo cargo
+        prosperó</strong>: exceso de la potestad reglamentaria y violación de la reserva de ley
+        (art. 150-23 C. P.). El demandante también alegó omisión de consulta previa, pero la Sala
+        «se releva del estudio de los demás cargos».</dd>
+      <dt>21 de noviembre de 2025</dt>
+      <dd>El Ministerio pide aclaración: <em>qué artículos quedaron suspendidos y qué reglas
+        aplican mientras dura la medida</em>. El Consejo de Estado <strong>deniega la
+        aclaración</strong>: definir el régimen aplicable durante la suspensión no es función del
+        juez.</dd>
+      <dt>26 de marzo de 2026</dt>
+      <dd>La misma Sección resuelve el recurso de súplica del Ministerio y <strong>confirma la suspensión</strong>. El proceso de nulidad sigue su curso.</dd>
+      <dt>Julio de 2026</dt>
+      <dd>El proyecto de ley de reforma a la salud culmina su trámite sin aprobación al finalizar la legislatura.</dd>
+      <dt>Hoy</dt>
+      <dd>El país no tiene ni el modelo nuevo operando ni ley de reforma.</dd>
+    </dl>
+  </details>
+  <div class="nota" style="margin-top:.9rem">
+    <strong>Y conviene no encadenar dos argumentos que son independientes.</strong> La Resolución
+    2626 de 2019 y la Resolución 3280 de 2018 son <em>resoluciones ministeriales</em>, no partes del
+    Decreto 780 de 2016. El Decreto 858 nunca las derogó y sus propias cadenas de modificación
+    siguieron corriendo — la 2626 por la Res. 1147 de 2020; la 3280, hasta la Res. 1575 de julio de
+    2026. <strong>Su vigencia no depende de la suspensión</strong>: si mañana se levantara la medida
+    cautelar, seguirían vigentes igual.
+  </div>
+</section>
+
+<!-- 11 ─ Golpe: lo que un lineamiento no hace ──────────────────────────── -->
+<section class="d d--golpe" data-parte="III · Mundo y región" aria-label="Lo que un lineamiento no hace">
+  <p class="gran">Un lineamiento no abre una farmacia.</p>
+  <p>
+    Los once instrumentos supranacionales que acabamos de recorrer no obligan a ninguna EPS
+    colombiana. Uno solo lo hace, y lo veremos en la parte V. El resto ordena argumentos,
+    prioridades y vocabulario — que no es poco, pero no es lo mismo.
+  </p>
+  <p style="margin-top:.8rem">
+    <strong>Aquí termina la sesión 2 y empieza la 3.</strong> La pregunta cambia de «qué dice la
+    política» a «qué puede exigir una persona».
+  </p>
+</section>
+
+<!-- 12 ─ Parte IV ──────────────────────────────────────────────────────── -->
+<section class="d d--parte" data-parte="IV · El marco legal" aria-label="Cuarta parte">
+  <p class="sesion">Sesión 3 · primera parte</p>
+  <p class="n">IV</p>
+  <h2>El marco legal colombiano</h2>
+  <p>De 1997 a 2026. Una cadena que funciona — y una tabla de vigencia que hay que corregir.</p>
+</section>
+
+<!-- 13 ─ Tabla de vigencia ─────────────────────────────────────────────── -->
+<section class="d" data-parte="IV · El marco legal" aria-label="Qué está vigente y qué está derogado">
+  <p class="d__eyebrow">Lo primero, porque cambia todo lo demás</p>
+  <h2>Qué está vigente hoy</h2>
+  <p class="lead">Cuatro normas sostienen todo lo demás. Ninguna otra hace falta para litigar un caso.</p>
+  <div class="tabla">
+    <table>
+      <thead><tr><th scope="col">Norma</th><th scope="col">Estado</th><th scope="col">Quién la derogó o modificó</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Ley 1733 de 2014</strong> · Consuelo Devis Saavedra</td><td class="viva">Vigente</td><td>Su art. 7 fue modificado por el art. 3 de la Ley 2241 de 2022</td></tr>
+        <tr><td><strong>Res. 2665 de 2018</strong> · voluntad anticipada</td><td class="viva">Vigente</td><td>Derogó la Res. 1051 de 2016. <strong>No fue absorbida por la 813 de 2026</strong></td></tr>
+        <tr><td><strong>Res. 813 de 2026</strong></td><td class="viva">Vigente desde el 29 de abril de 2026</td><td>Norma única de eutanasia y adecuación del esfuerzo terapéutico, adultos y NNA</td></tr>
+        <tr><td><strong>Res. 3100 de 2019</strong> · habilitación</td><td class="viva">Vigente</td><td>Modificada varias veces, la última por la Res. 465 de 2025</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="nota" style="margin-top:1rem">
+    Y cuatro que <strong>ya no están vigentes pero siguen circulando</strong> en material docente y
+    en formatos institucionales. La siguiente diapositiva.
+  </p>
+</section>
+
+<!-- 13b ─ Las derogadas que siguen circulando ──────────────────────────── -->
+<section class="d" data-parte="IV · El marco legal" aria-label="Normas derogadas que siguen circulando">
+  <p class="d__eyebrow">Lo que hay que dejar de citar</p>
+  <h2>Cinco normas derogadas que siguen circulando</h2>
+  <div class="tabla">
+    <table>
+      <thead><tr><th scope="col">Norma</th><th scope="col">Estado</th><th scope="col">Quién la derogó</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Res. 429 de 2016</strong> · PAIS</td><td class="muerta">Derogada</td><td>Art. 13 de la Res. 2626 de 2019, que compila PAIS y MAITE en un solo acto</td></tr>
+        <tr><td>Res. 1216 de 2015</td><td class="muerta">Derogada</td><td>Art. 36 de la Res. 971 de 2021</td></tr>
+        <tr><td>Res. 1051 de 2016 · voluntad anticipada</td><td class="muerta">Derogada</td><td>Art. 17 de la Res. 2665 de 2018</td></tr>
+        <tr><td>Res. 825 de 2018 · NNA</td><td class="muerta">Derogada</td><td>Art. 75 de la Res. 813 de 2026</td></tr>
+        <tr><td><strong>Res. 971 de 2021</strong></td><td class="muerta">Derogada</td><td><strong>Art. 75 de la Res. 813 de 2026</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <details>
+    <summary>El artículo que cierra la cadena · texto literal</summary>
+    <dl>
+      <dt>Resolución 813 de 2026, artículo 75</dt>
+      <dd><p class="cita-norma">«Vigencia y derogatoria. La presente resolución rige a partir de su
+        expedición, modifica parcialmente los artículos segundo y tercero de la Resolución 13437 de
+        1991 y deroga las Resoluciones 971 de 2021 y 825 de 2018.»</p></dd>
+      <dt>Secuencia completa</dt>
+      <dd>1216/2015 → derogada por 971/2021 · 971/2021 <strong>y</strong> 825/2018 → derogadas por
+        813/2026. La resolución de 2026 unifica en un solo acto el régimen de adultos y el de niños,
+        niñas y adolescentes, que hasta entonces vivían en normas separadas.</dd>
+    </dl>
+  </details>
+  <div class="verificar">
+    <strong>TRES CORRECCIONES AL MATERIAL HEREDADO</strong> · La Res. 971 de 2021 se daba por
+    vigente y está derogada. La Res. 1416 de 2016 se citaba como «protocolo de sedación paliativa»
+    y nunca lo fue: adicionaba el manual de inscripción de prestadores, y la derogó el art. 27 de
+    la Res. 3100 de 2019. Y la «Res. 2338 de 2021» de habilitación de cuidado paliativo
+    <strong>no se localizó</strong>.
+  </div>
+</section>
+
+<!-- 14 ─ C-239: la técnica ─────────────────────────────────────────────── -->
+<section class="d" data-parte="IV · El marco legal" aria-label="Sentencia C-239 de 1997">
+  <p class="d__eyebrow">1997 · el punto de partida</p>
+  <h2>La C-239 no despenalizó nada</h2>
+  <p class="lead">
+    Y la precisión importa, porque es la misma técnica que la Corte volverá a usar veinticinco años
+    después.
+  </p>
+  <details>
+    <summary>Sentencia C-239 de 1997 · resolutivo textual</summary>
+    <dl>
+      <dt>Identificación</dt>
+      <dd>20 de mayo de 1997 · M. P. Carlos Gaviria Díaz · Exp. D-1490 · Examinó el art. 326 del
+        Decreto 100 de 1980 (homicidio por piedad).</dd>
+      <dt>Resolutivo</dt>
+      <dd><p class="cita-norma">«Primero. Declarar EXEQUIBLE el artículo 326 del decreto 100 de 1980
+        (Código Penal), con la advertencia de que en el caso de los enfermos terminales en que
+        concurra la voluntad libre del sujeto pasivo del acto, no podrá derivarse responsabilidad
+        para el médico autor, pues la conducta está justificada.</p>
+        <p class="cita-norma">Segundo. Exhortar al Congreso para que en el tiempo más breve posible…
+        regule el tema de la muerte digna.»</p></dd>
+      <dt>Qué hizo realmente</dt>
+      <dd>Una <strong>exequibilidad con advertencia de causal de justificación</strong>. El tipo
+        penal nunca salió del Código. Hablar de «despenalización» es cómodo y es inexacto.</dd>
+    </dl>
+  </details>
+  <p class="nota" style="margin-top:1rem">
+    El exhorto al Congreso <strong>sigue sin cumplirse veintinueve años después</strong>. Todo lo
+    que existe hoy en Colombia sobre muerte digna es jurisprudencia y reglamento, no ley.
+  </p>
+  <p class="verificar" style="margin-top:.7rem">
+    «Enfermos terminales» se conserva por ser cita literal. En la voz del curso decimos
+    <em>persona con enfermedad avanzada</em>.
+  </p>
+</section>
+
+<!-- 15 ─ Dos artículos, dos conductas ──────────────────────────────────── -->
+<section class="d" data-parte="IV · El marco legal" aria-label="C-233 de 2021 y C-164 de 2022">
+  <p class="d__eyebrow">2021 y 2022 · el error más común</p>
+  <h2>Dos artículos distintos, dos conductas distintas</h2>
+  <div class="bloques">
+    <div class="bloque">
+      <p class="n">ART. 106 · C-233 DE 2021</p>
+      <h3>Homicidio por piedad → eutanasia</h3>
+      <p>22 de julio de 2021 · M. P. Diana Fajardo Rivera. <strong>Sustituye</strong> el requisito de
+      enfermedad terminal por «intenso sufrimiento físico o psíquico, proveniente de lesión corporal
+      o enfermedad grave e incurable». Y añade que <strong>no puede exigirse agotar previamente
+      otras alternativas terapéuticas</strong>.</p>
+    </div>
+    <div class="bloque bloque--otro">
+      <p class="n">ART. 107 INC. 2 · C-164 DE 2022</p>
+      <h3>Ayuda al suicidio → suicidio médicamente asistido</h3>
+      <p>11 de mayo de 2022 · M. P. Antonio José Lizarazo Ocampo · Exp. D-14.389.
+      <strong>Exequibilidad condicionada.</strong> No declaró inexequible nada: añadió una condición
+      interpretativa, igual que la C-239.</p>
+    </div>
+  </div>
+  <details style="margin-top:1rem">
+    <summary>C-164 de 2022 · resolutivo textual</summary>
+    <dl>
+      <dt>Primero</dt>
+      <dd><p class="cita-norma">«Declarar la EXEQUIBILIDAD CONDICIONADA del inciso segundo del
+        artículo 107 de la Ley 599 de 2000, por los cargos analizados, en el entendido de que no se
+        incurre en el delito de ayuda al suicidio, cuando la conducta: (i) se realice por un médico,
+        (ii) con el consentimiento libre, consciente e informado, <strong>previo o posterior al
+        diagnóstico</strong>, del sujeto pasivo del acto, y siempre que (iii) el paciente padezca un
+        intenso sufrimiento físico o psíquico, proveniente de lesión corporal o enfermedad grave e
+        incurable.»</p></dd>
+      <dt>Segundo</dt>
+      <dd><p class="cita-norma">«Reiterar el EXHORTO al Congreso de la República para que avance en
+        la protección del derecho a morir dignamente, con miras a eliminar las barreras aún
+        existentes para el acceso efectivo a dicho derecho.»</p></dd>
+      <dt>Un elemento que casi nunca se cita</dt>
+      <dd>El consentimiento puede ser <strong>previo o posterior al diagnóstico</strong>. Tiene
+        consecuencias clínicas directas sobre el documento de voluntad anticipada.</dd>
+    </dl>
+  </details>
+</section>
+
+<!-- 16 ─ El circuito T-445 → Res. 813 ──────────────────────────────────── -->
+<section class="d" data-parte="IV · El marco legal" aria-label="De la sentencia a la resolución">
+  <p class="d__eyebrow">2024 → 2026 · cómo se mueve el sistema</p>
+  <h2>Una sentencia ordena, una resolución obedece</h2>
+  <div class="conFigura">
+    <div>
+      <ol class="pasos">
+        <li><strong>T-445 de 2024</strong> ordena al Ministerio «modificar y actualizar la
+          Resolución 971 de 2021».</li>
+        <li><strong>T-057 de 2025</strong> exige modificar la regulación de eutanasia en niños,
+          niñas y adolescentes con discapacidad intelectual.</li>
+        <li><strong>T-438 de 2025</strong> abandona el «consentimiento sustituto» y adopta los
+          <strong>apoyos para interpretar la voluntad</strong>: el tercero no sustituye la voluntad,
+          la interpreta.</li>
+        <li><strong>Resolución 813 de 2026</strong> recoge las tres, unifica adultos y NNA, y deroga
+          las dos resoluciones anteriores.</li>
+      </ol>
+    </div>
+    <figure>
+      <svg viewBox="0 0 220 230" role="img" aria-labelledby="tCircuito" width="220">
+        <title id="tCircuito">Tres sentencias alimentan una resolución</title>
+        <g fill="var(--blanco)" stroke="var(--bosque)" stroke-width="2.5">
+          <rect x="12" y="14" width="86" height="30" rx="6"/>
+          <rect x="12" y="60" width="86" height="30" rx="6"/>
+          <rect x="12" y="106" width="86" height="30" rx="6"/>
+        </g>
+        <text x="55" y="33" text-anchor="middle" class="mono" font-size="10" fill="var(--bosque-deep)">T-445/24</text>
+        <text x="55" y="79" text-anchor="middle" class="mono" font-size="10" fill="var(--bosque-deep)">T-057/25</text>
+        <text x="55" y="125" text-anchor="middle" class="mono" font-size="10" fill="var(--bosque-deep)">T-438/25</text>
+        <g stroke="var(--bosque)" stroke-width="2" fill="none" opacity=".7">
+          <path d="M98 29 C130 29 130 168 150 178"/>
+          <path d="M98 75 C130 75 132 170 150 180"/>
+          <path d="M98 121 C128 121 134 174 150 182"/>
+        </g>
+        <rect x="86" y="166" width="122" height="40" rx="8" fill="var(--bosque-soft)"
+              stroke="var(--bosque)" stroke-width="2.5"/>
+        <text x="147" y="183" text-anchor="middle" class="mono" font-size="10" fill="var(--bosque-deep)">RESOLUCIÓN</text>
+        <text x="147" y="197" text-anchor="middle" class="mono" font-size="12" font-weight="700" fill="var(--bosque-deep)">813 / 2026</text>
+        <text x="110" y="224" text-anchor="middle" font-size="10" fill="var(--gris)">el circuito sí funciona</text>
+      </svg>
+      <figcaption>Cuando la Corte ordena con destinatario y objeto, el reglamento llega.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- 17 ─ Res. 813: las tres dimensiones ────────────────────────────────── -->
+<section class="d" data-parte="IV · El marco legal" aria-label="Las tres dimensiones de la Resolución 813">
+  <p class="d__eyebrow">Resolución 813 de 2026 · 75 artículos</p>
+  <h2>Tres dimensiones, sin orden obligatorio</h2>
+  <div class="bloques">
+    <div class="bloque"><p class="n">01</p><h3>Adecuación del esfuerzo terapéutico</h3>
+      <p>Ajustar, no iniciar o retirar intervenciones fútiles, desproporcionadas o contrarias al mejor interés de la persona.</p></div>
+    <div class="bloque"><p class="n">02</p><h3>Cuidados paliativos</h3>
+      <p>Control del dolor y de síntomas físicos, psicológicos, emocionales, sociales y espirituales.</p></div>
+    <div class="bloque"><p class="n">03</p><h3>Eutanasia</h3>
+      <p>Con el régimen de consentimiento, comités y reporte que la resolución desarrolla.</p></div>
+  </div>
+  <p class="pregunta" style="margin-top:1.2rem">
+    ¿Hay que agotar los cuidados paliativos antes de solicitar la eutanasia?
+  </p>
+  <p><strong>No.</strong> Las tres opciones no tienen orden obligatorio y no son excluyentes. Es
+  desarrollo directo de la C-233 de 2021, y es contraintuitivo para buena parte de la práctica
+  clínica.</p>
+  <p class="nota">
+    Consecuencia para este seminario: <strong>los cuidados paliativos entran en la norma como una
+    dimensión del derecho a morir dignamente, no como un servicio que la resolución organice.</strong>
+    La 813 no crea red, no fija estándares de prestación, no asigna responsabilidades de oferta. Es
+    una norma de procedimiento para decidir, no de capacidad instalada para atender.
+  </p>
+</section>
+
+<!-- 18 ─ El vacío del SMA ──────────────────────────────────────────────── -->
+<section class="d d--golpe" data-parte="IV · El marco legal" aria-label="El vacío del suicidio médicamente asistido">
+  <p class="d__eyebrow" style="color:var(--arcilla-dark)">El caso límite</p>
+  <p class="gran">Despenalizado en 2022. Sin reglamentar en 2026.</p>
+  <p>
+    La Resolución 813 de 2026 <strong>no contiene la palabra «suicidio»</strong> en sus 75 artículos,
+    y <strong>no cita la Sentencia C-164 de 2022</strong> en ningún considerando. Su título acota el
+    objeto: «en sus dimensiones de Eutanasia y de Adecuación de los Esfuerzos Terapéuticos».
+  </p>
+  <p>
+    Cuatro años después de la exequibilidad condicionada, ninguna resolución define quién presta el
+    suicidio médicamente asistido, con qué procedimiento, con qué medicamento ni con cargo a qué.
+  </p>
+  <p style="margin-top:.9rem"><strong>El hilo del seminario, en su versión más aguda:</strong> aquí
+  no hay norma y no hay datos porque <em>hay derecho constitucional y no hay reglamento</em>. La
+  distancia entre la Corte y el Ministerio se mide en años y se verifica en el texto.</p>
+</section>
+
+<!-- 19 ─ Parte V ───────────────────────────────────────────────────────── -->
+<section class="d d--parte" data-parte="V · Enfoque de derechos" aria-label="Quinta parte">
+  <p class="sesion">Sesión 3 · segunda parte</p>
+  <p class="n">V</p>
+  <h2>Enfoque de derechos humanos</h2>
+  <p>Dónde está escrito que el alivio del dolor es una obligación del Estado, y con qué estructura.</p>
+</section>
+
+<!-- 20 ─ Ley 1751: paliación ───────────────────────────────────────────── -->
+<section class="d" data-parte="V · Enfoque de derechos" aria-label="La Ley Estatutaria 1751 de 2015">
+  <p class="d__eyebrow">Colombia · Ley Estatutaria 1751 de 2015</p>
+  <h2>La ley del derecho fundamental dice «paliación», no «cuidados paliativos»</h2>
+  <div class="tabla">
+    <table>
+      <thead><tr><th scope="col">Artículo</th><th scope="col">Qué dice</th></tr></thead>
+      <tbody>
+        <tr><td class="mono">Art. 2</td><td>El derecho «comprende el acceso a los servicios de salud… diagnóstico, tratamiento, rehabilitación <strong>y paliación</strong>»</td></tr>
+        <tr><td class="mono">Art. 15</td><td>«promoción, la prevención, <strong>la paliación</strong>, la atención de la enfermedad»</td></tr>
+        <tr><td class="mono">Art. 6</td><td>Elementos esenciales del derecho: <strong>disponibilidad, aceptabilidad, accesibilidad</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="margin-top:1rem">
+    Y <strong>no contiene ninguna mención a la muerte digna ni al final de la vida.</strong> Ese
+    silencio es informativo: la ley que define el derecho fundamental a la salud reconoce la
+    paliación como componente del acceso, pero todo el desarrollo del final de la vida es
+    jurisprudencial y reglamentario, no estatutario.
+  </p>
+  <p class="nota">
+    El art. 6 también consagra, en su literal g, el <strong>principio de progresividad</strong>, del
+    que se deriva la prohibición de retroceso injustificado. Volveremos a él en la parte VI con un
+    caso de este mes.
+  </p>
+</section>
+
+<!-- 21 ─ AAAQ ──────────────────────────────────────────────────────────── -->
+<section class="d" data-parte="V · Enfoque de derechos" aria-label="El marco AAAQ de la Observación General 14">
+  <p class="d__eyebrow">Comité DESC · Observación General n.º 14 (2000) · párrafo 12</p>
+  <h2>AAAQ: la estructura con la que vamos a ordenar las barreras</h2>
+  <div class="bloques">
+    <div class="bloque"><p class="n">A · DISPONIBILIDAD</p><h3>¿Existe?</h3>
+      <p>Número suficiente de establecimientos, bienes, servicios y programas — «así como los
+      <strong>medicamentos esenciales</strong> definidos por la OMS».</p></div>
+    <div class="bloque"><p class="n">A · ACCESIBILIDAD</p><h3>¿Se llega?</h3>
+      <p>Cuatro dimensiones superpuestas: no discriminación · <strong>física</strong> ·
+      económica o asequibilidad · acceso a la información.</p></div>
+    <div class="bloque"><p class="n">A · ACEPTABILIDAD</p><h3>¿Es apropiado?</h3>
+      <p>Respetuoso de la ética médica y culturalmente apropiado; sensible al género y al ciclo de
+      vida.</p></div>
+    <div class="bloque"><p class="n">Q · CALIDAD</p><h3>¿Sirve?</h3>
+      <p>Apropiado desde el punto de vista científico y médico, con personal capacitado.</p></div>
+  </div>
+  <details style="margin-top:1rem">
+    <summary>El párrafo 25 · dónde dice la OG 14 lo del final de la vida</summary>
+    <dl>
+      <dt>Texto literal</dt>
+      <dd><p class="cita-norma">«…y la prestación de atenciones y cuidados a los enfermos crónicos y
+        en fase terminal, ahorrándoles dolores evitables y permitiéndoles morir con dignidad.»</p></dd>
+      <dt>Precisión obligatoria</dt>
+      <dd>La Observación General 14 <strong>no emplea la expresión «cuidados paliativos»</strong>.
+        No diga que la OG 14 los menciona. Diga que el párrafo 25 consagra la obligación de prestar
+        atención «ahorrándoles dolores evitables y permitiéndoles morir con dignidad». Es más
+        defendible y, dicho así, más fuerte.</dd>
+    </dl>
+  </details>
+</section>
+
+<!-- 22 ─ A-70 ──────────────────────────────────────────────────────────── -->
+<section class="d" data-parte="V · Enfoque de derechos" aria-label="La Convención Interamericana A-70">
+  <p class="d__eyebrow">El instrumento que sí obliga a Colombia</p>
+  <h2>Convención Interamericana A-70</h2>
+  <p class="lead">
+    Adoptada en 2015. Colombia <strong>se adhirió</strong> —no la firmó ni la ratificó en sentido
+    técnico—: Ley 2055 de 2020, revisada por la Corte en la Sentencia C-395 de 2021. Integra el
+    bloque de constitucionalidad.
+  </p>
+  <div class="tabla">
+    <table>
+      <thead><tr><th scope="col">Art.</th><th scope="col">Qué obliga</th></tr></thead>
+      <tbody>
+        <tr><td class="mono">2</td><td>Define los cuidados paliativos de forma autónoma en el tratado</td></tr>
+        <tr><td class="mono">6</td><td>Acceso <strong>no discriminatorio</strong> a cuidados integrales, incluidos los paliativos. Derecho a «vivir con dignidad en la vejez hasta el fin de sus días»</td></tr>
+        <tr><td class="mono">11</td><td>Derecho <strong>irrenunciable</strong> a manifestar consentimiento libre e informado. Es el anclaje convencional del documento de voluntad anticipada</td></tr>
+        <tr><td class="mono">12</td><td>Quien recibe cuidados de largo plazo debe contar con servicios de cuidados paliativos</td></tr>
+        <tr><td class="mono">19 lit. m</td><td><strong>Garantizar «la disponibilidad y el acceso a los medicamentos reconocidos como esenciales por la OMS, incluyendo los fiscalizados necesarios para los cuidados paliativos»</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="nota" style="margin-top:.9rem">
+    <strong>El literal m es el argumento más fuerte de toda la sesión:</strong> convierte la
+    disponibilidad de morfina en un municipio en el cumplimiento de una obligación convencional
+    específica, no en logística interna.
+  </p>
+  <details>
+    <summary>Un hallazgo negativo que conviene decir bien</summary>
+    <dl>
+      <dt>Sistema interamericano</dt>
+      <dd>No se localizó ningún pronunciamiento de la Corte Interamericana ni de la CIDH
+        específicamente sobre cuidados paliativos. El desarrollo interamericano en la materia es
+        <strong>convencional</strong>, no jurisprudencial. Decirlo así es preciso; decir «la Corte
+        IDH ha dicho…» no lo sería.</dd>
+    </dl>
+  </details>
+</section>
+
+<!-- 23 ─ Parte VI ──────────────────────────────────────────────────────── -->
+<section class="d d--parte" data-parte="VI · Barreras de acceso" aria-label="Sexta parte">
+  <p class="sesion">Sesión 3 · tercera parte · lo nuevo</p>
+  <p class="n">VI</p>
+  <h2>Barreras de acceso</h2>
+  <p>El peldaño donde la cadena se rompe. Y donde hay datos para demostrarlo.</p>
+</section>
+
+<!-- 24 ─ Las cuatro barreras ───────────────────────────────────────────── -->
+<section class="d" data-parte="VI · Barreras de acceso" aria-label="Las cuatro barreras ancladas al AAAQ">
+  <p class="d__eyebrow">Cada barrera es el incumplimiento de una obligación nombrable</p>
+  <h2>Cuatro barreras, cuatro datos que las hacen observables</h2>
+  <div class="tabla">
+    <table>
+      <thead><tr><th scope="col">Barrera</th><th scope="col">Elemento AAAQ</th><th scope="col">Pregunta observable</th><th scope="col">Dónde se comprueba</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Disponibilidad</strong></td><td>A · Disponibilidad</td><td>¿Hay servicio habilitado en el territorio?</td><td>REPS · fichas del Observatorio</td></tr>
+        <tr><td><strong>Accesibilidad</strong></td><td>A · Accesibilidad física</td><td>¿A qué distancia, con qué transporte, en cuánto tiempo?</td><td>Geografía municipal · servicios domiciliarios</td></tr>
+        <tr><td><strong>Opioides</strong></td><td>A · Disponibilidad<br><strong>+ A-70 art. 19 lit. m</strong></td><td>¿Hay morfina en la farmacia del municipio y quién está autorizado a manejarla?</td><td>Consumo por departamento · farmacias 24/7</td></tr>
+        <tr><td><strong>Conocimiento</strong></td><td>Q · Calidad<br>A · Acceso a la información</td><td>¿Sabe el equipo tratante que el derecho existe y sabe activarlo?</td><td>Ley 2241 de 2022 · remisiones efectuadas</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="nota" style="margin-top:1rem">
+    <strong>Dos elementos del AAAQ quedan sin barrera asignada, y los dejamos visibles a propósito:</strong>
+    la <em>asequibilidad</em> —¿qué gasto de bolsillo asume la familia?— y la <em>aceptabilidad</em>
+    —¿es culturalmente apropiado el modelo en territorios indígenas? ¿cómo opera la objeción de
+    conciencia?—. No los llenamos porque no tenemos datos colombianos para hacerlo. Ese hueco es el
+    hilo del seminario.
+  </p>
+</section>
+
+<!-- 25 ─ La brecha de opioides ─────────────────────────────────────────── -->
+<section class="d" data-parte="VI · Barreras de acceso" aria-label="La brecha de consumo de opioides">
+  <p class="d__eyebrow">Observatorio Colombiano de Cuidados Paliativos · Reporte Técnico 2024</p>
+  <h2>La misma ley, noventa y cinco veces menos morfina</h2>
+  <div class="cifra">
+    <div class="cifra__n">95×</div>
+    <div class="cifra__t">
+      <p>Diferencia entre el consumo de opioides de Bogotá y el de Amazonas, en equivalente de
+      morfina per cápita, excluyendo metadona.</p>
+    </div>
+  </div>
+  <figure style="align-items:flex-start">
+    <p class="leyenda">
+      <span><i style="background:var(--bosque)"></i> Resto del país</span>
+      <span><i style="background:var(--arcilla)"></i> Nodo Amazonía</span>
+    </p>
+    <div class="barras">
+      <div class="barra"><span class="barra__lab">Bogotá</span>
+        <span class="barra__pista"><span class="barra__fill" style="width:100%"></span></span>
+        <span class="barra__val">18,12</span></div>
+      <div class="barra"><span class="barra__lab">Antioquia</span>
+        <span class="barra__pista"><span class="barra__fill" style="width:54.1%"></span></span>
+        <span class="barra__val">9,80</span></div>
+      <div class="barra"><span class="barra__lab">Valle del Cauca</span>
+        <span class="barra__pista"><span class="barra__fill" style="width:39.5%"></span></span>
+        <span class="barra__val">7,16</span></div>
+      <div class="barra"><span class="barra__lab">Tolima</span>
+        <span class="barra__pista"><span class="barra__fill" style="width:33.1%"></span></span>
+        <span class="barra__val">6,00</span></div>
+      <div class="barra"><span class="barra__lab">Santander</span>
+        <span class="barra__pista"><span class="barra__fill" style="width:29.3%"></span></span>
+        <span class="barra__val">5,31</span></div>
+      <div class="barra"><span class="barra__lab">Boyacá</span>
+        <span class="barra__pista"><span class="barra__fill" style="width:8.7%"></span></span>
+        <span class="barra__val">1,57</span></div>
+      <div class="barra"><span class="barra__lab">Bolívar</span>
+        <span class="barra__pista"><span class="barra__fill" style="width:6.4%"></span></span>
+        <span class="barra__val">1,16</span></div>
+      <div class="barra barra--amazonia"><span class="barra__lab">Caquetá</span>
+        <span class="barra__pista"><span class="barra__fill" style="width:6.2%"></span></span>
+        <span class="barra__val">1,12</span></div>
+      <div class="barra barra--amazonia"><span class="barra__lab">Guainía</span>
+        <span class="barra__pista"><span class="barra__fill" style="width:3.4%"></span></span>
+        <span class="barra__val">0,62</span></div>
+      <div class="barra barra--amazonia"><span class="barra__lab">Putumayo</span>
+        <span class="barra__pista"><span class="barra__fill" style="width:1.1%"></span></span>
+        <span class="barra__val">0,20</span></div>
+      <div class="barra barra--amazonia"><span class="barra__lab">Amazonas</span>
+        <span class="barra__pista"><span class="barra__fill" style="width:1%"></span></span>
+        <span class="barra__val">0,19</span></div>
+    </div>
+    <figcaption style="text-align:left;max-width:44rem">
+      Equivalente de morfina per cápita, excluyendo metadona, por departamento. Once de los treinta y
+      tres del informe, ordenados de mayor a menor. Observatorio Colombiano de Cuidados Paliativos,
+      <em>Reporte Técnico 2024</em>, fichas departamentales.
+    </figcaption>
+  </figure>
+  <p style="margin-top:.8rem">
+    Bogotá concentra además <strong>51 de las 177 farmacias 24/7</strong> del país. Los seis
+    departamentos amazónicos suman <strong>dos</strong> farmacias y <strong>un</strong> servicio
+    domiciliario en total.
+  </p>
+</section>
+
+<!-- 26b ─ Los indicadores no se predicen entre sí ───────────────────────── -->
+<section class="d" data-parte="VI · Barreras de acceso" aria-label="Los cuatro indicadores no se predicen entre sí">
+  <p class="d__eyebrow">La misma fuente, cruzando columnas</p>
+  <h2>Tener servicio no es tener opioide</h2>
+  <p>Si la barrera fuera una sola, los cuatro indicadores se moverían juntos. No lo hacen — y ahí
+    está la razón para separarlas en el AAAQ.</p>
+  <div class="tabla" style="max-width:58rem">
+    <table>
+      <thead>
+        <tr>
+          <th scope="col">Departamento</th>
+          <th scope="col" class="num">Opioides</th>
+          <th scope="col" class="num">Servicios habilitados</th>
+          <th scope="col" class="num">Serv. / 100.000 hab.</th>
+          <th scope="col" class="num">Domiciliarios</th>
+          <th scope="col" class="num">Farmacias 24/7</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Bogotá</td><td class="num">18,12</td><td class="num">44</td><td class="num">2,19</td><td class="num">17</td><td class="num">51</td></tr>
+        <tr><td><strong>Valle del Cauca</strong></td><td class="num">7,16</td><td class="num">14</td><td class="num">2,71</td><td class="num">8</td><td class="num">42</td></tr>
+        <tr><td><strong>Tolima</strong></td><td class="num">6,00</td><td class="num">12</td><td class="num">1,98</td><td class="num">4</td><td class="num viva">1</td></tr>
+        <tr><td><strong>Boyacá</strong></td><td class="num">1,57</td><td class="num">4</td><td class="num">1,02</td><td class="num">1</td><td class="num">12</td></tr>
+        <tr><td><strong>Bolívar</strong></td><td class="num">1,16</td><td class="num viva">118</td><td class="num">2,44</td><td class="num">5</td><td class="num">1</td></tr>
+        <tr><td>Amazonas</td><td class="num">0,19</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="bloques" style="margin-top:.9rem">
+    <div class="bloque"><p class="n">BOLÍVAR</p><h3>Muchos servicios, casi nada de morfina</h3>
+      <p>La cifra de servicios más alta de las fichas, y una farmacia 24/7 en todo el departamento.</p></div>
+    <div class="bloque"><p class="n">TOLIMA</p><h3>Una farmacia, cinco veces más consumo</h3>
+      <p>Misma dotación de farmacias que Bolívar y consume <strong>5,2 veces más</strong>.</p></div>
+    <div class="bloque"><p class="n">BOYACÁ</p><h3>Doce farmacias, consumo bajo</h3>
+      <p>Quinto del país en farmacias 24/7 y, aun así, <strong>1,02 servicios por 100.000</strong>.</p></div>
+  </div>
+  <div class="verificar">
+    <strong>ATENCIÓN CON BOLÍVAR</strong> · Los 118 servicios son el dato de su ficha; la tabla 3 del
+    <em>mismo informe</em> le asigna 34. Es donde las dos series más divergen. Volvemos a esto en dos
+    diapositivas.
+  </div>
+</section>
+
+<!-- 26 ─ La inversión del sufrimiento infantil ─────────────────────────── -->
+<section class="d" data-parte="VI · Barreras de acceso" aria-label="La inversión del sufrimiento infantil">
+  <p class="d__eyebrow">El dato que el curso no estaba usando</p>
+  <h2>Donde no hay morfina, hay más sufrimiento infantil</h2>
+  <figure style="align-items:flex-start">
+    <div class="barras">
+      <div class="barra"><span class="barra__lab">Bogotá</span>
+        <span class="barra__pista"><span class="barra__fill" style="width:16.2%"></span></span>
+        <span class="barra__val">1,01 %</span></div>
+      <div class="barra"><span class="barra__lab">Antioquia</span>
+        <span class="barra__pista"><span class="barra__fill" style="width:12.7%"></span></span>
+        <span class="barra__val">0,79 %</span></div>
+      <div class="barra"><span class="barra__lab">Caquetá</span>
+        <span class="barra__pista"><span class="barra__fill" style="width:30.6%"></span></span>
+        <span class="barra__val">1,91 %</span></div>
+      <div class="barra barra--baja"><span class="barra__lab">Putumayo</span>
+        <span class="barra__pista"><span class="barra__fill" style="width:53.8%"></span></span>
+        <span class="barra__val">3,36 %</span></div>
+      <div class="barra barra--baja"><span class="barra__lab">Amazonas</span>
+        <span class="barra__pista"><span class="barra__fill" style="width:61.7%"></span></span>
+        <span class="barra__val">3,85 %</span></div>
+      <div class="barra barra--baja"><span class="barra__lab">Guainía</span>
+        <span class="barra__pista"><span class="barra__fill" style="width:69.2%"></span></span>
+        <span class="barra__val">4,32 %</span></div>
+      <div class="barra barra--baja"><span class="barra__lab">Vichada</span>
+        <span class="barra__pista"><span class="barra__fill" style="width:98.2%"></span></span>
+        <span class="barra__val">6,13 %</span></div>
+      <div class="barra barra--baja"><span class="barra__lab">Vaupés</span>
+        <span class="barra__pista"><span class="barra__fill" style="width:99.5%"></span></span>
+        <span class="barra__val">6,21 %</span></div>
+      <div class="barra barra--baja"><span class="barra__lab">La Guajira</span>
+        <span class="barra__pista"><span class="barra__fill" style="width:100%"></span></span>
+        <span class="barra__val">6,24 %</span></div>
+    </div>
+    <figcaption style="text-align:left;max-width:44rem">
+      Índice de sufrimiento en niños, por departamento. Misma fuente, mismas fichas.
+    </figcaption>
+  </figure>
+  <p style="margin-top:1rem">
+    El orden se invierte. El índice <strong>más bajo</strong> del país es el de Bogotá; los
+    <strong>más altos</strong> están en La Guajira, Vaupés, Vichada y Guainía — exactamente los
+    departamentos donde el consumo de opioides es de cero coma algo.
+  </p>
+  <p class="pregunta">
+    ¿Es correlación o es consecuencia? ¿Y qué dato faltaría para poder decirlo?
+  </p>
+</section>
+
+<!-- 27 ─ Las inconsistencias del informe ───────────────────────────────── -->
+<section class="d" data-parte="VI · Barreras de acceso" aria-label="Las inconsistencias del informe">
+  <p class="d__eyebrow">Y ahora la parte incómoda</p>
+  <h2>El mejor dato del país tiene seis problemas</h2>
+  <p class="lead">
+    No los escondemos. Son la demostración más limpia de la frase con la que cerramos la sesión
+    pasada: <em>una política sin registro fiable es indistinguible de una que no se cumple.</em>
+  </p>
+  <div class="tabla">
+    <table>
+      <thead><tr><th scope="col">#</th><th scope="col">Problema</th></tr></thead>
+      <tbody>
+        <tr><td class="mono">1</td><td><strong>No declara el año.</strong> El indicador dice literalmente «según lo informado a la JIFE <strong>(año)</strong>» — el paréntesis quedó sin rellenar</td></tr>
+        <tr><td class="mono">2</td><td><strong>No declara la unidad.</strong> La palabra «mg» no aparece en ninguna página del informe</td></tr>
+        <tr><td class="mono">3</td><td><strong>Dos series incompatibles de servicios:</strong> las fichas y la tabla 3 no coinciden en 22 de 33 departamentos, y en sentidos opuestos</td></tr>
+        <tr><td class="mono">4</td><td>La columna por 100.000 habitantes no cuadra con ninguna de las dos</td></tr>
+        <tr><td class="mono">5</td><td>No hay cifra nacional de consumo de opioides, ni total de servicios, ni densidad nacional</td></tr>
+        <tr><td class="mono">6</td><td>La «tabla 5» que el texto anuncia no existe en el documento</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="nota" style="margin-top:.9rem">
+    Esto no invalida el informe: es la mejor fuente territorial disponible y sin ella no tendríamos
+    la diapositiva anterior. Lo que obliga es a <strong>declarar qué serie se usa y con qué
+    advertencia</strong> — que es exactamente lo que el producto del corte les va a pedir.
+  </p>
+</section>
+
+<!-- 28 ─ De la barrera al deber exigible ───────────────────────────────── -->
+<section class="d" data-parte="VI · Barreras de acceso" aria-label="De la barrera al deber exigible">
+  <p class="d__eyebrow">Lo que convierte una queja en un derecho</p>
+  <h2>La barrera tiene nombre jurídico</h2>
+  <p class="lead">
+    Tres fallos recientes vuelven exigible lo que hasta aquí era diagnóstico. Y una ley de 2014
+    dice más de lo que suele citarse.
+  </p>
+  <details>
+    <summary>Ley 1733 de 2014, artículo 8 · el anclaje más fuerte y el menos usado</summary>
+    <dl>
+      <dt>Texto literal</dt>
+      <dd><p class="cita-norma">«Acceso a medicamentos opioides. El Ministerio de Salud y de la
+        Protección Social, el Fondo Nacional de Estupefacientes y las Entidades Promotora de Salud
+        (EPS), garantizarán la distribución las 24 horas al día y los siete días a la semana, la
+        accesibilidad y disponibilidad. Los primeros otorgarán las autorizaciones necesarias para
+        garantizar la suficiencia y la oportunidad para el acceso a los medicamentos opioides de
+        control especial para el manejo del dolor.»</p></dd>
+      <dt>Por qué importa hoy</dt>
+      <dd>Nombra expresamente al <strong>Fondo Nacional de Estupefacientes</strong> y la
+        distribución <strong>24/7</strong>. Es el mandato legal más concreto que existe sobre la
+        barrera de opioides — y lleva doce años escrito.</dd>
+    </dl>
+  </details>
+  <div class="tabla" style="margin-top:1rem">
+    <table>
+      <thead><tr><th scope="col">Sentencia</th><th scope="col">Qué establece</th><th scope="col">A qué barrera responde</th></tr></thead>
+      <tbody>
+        <tr><td><strong>T-285 de 2024</strong><br><span class="mono" style="font-size:.78rem">17 jul · Natalia Ángel Cabo</span></td>
+          <td>La no entrega de opioides prescritos alegando indisponibilidad «constituye una violación al derecho a la salud… pues fue una prestación incompleta de los servicios de salud»</td>
+          <td>Opioides</td></tr>
+        <tr><td><strong>T-377 de 2024</strong><br><span class="mono" style="font-size:.78rem">10 sep · Diana Fajardo Rivera</span></td>
+          <td>Deber de «garantizar el acceso a los medicamentos prescritos <strong>en el municipio de residencia</strong> de la persona»; exigir desplazarse «puede tornarse en una carga desproporcionada»</td>
+          <td>Accesibilidad física</td></tr>
+        <tr><td><strong>T-289 de 2025</strong><br><span class="mono" style="font-size:.78rem">2 jul · Miguel Polo Rosero</span></td>
+          <td>«Es una obligación de las EPS conformar su red de prestación de servicios en aquellos municipios que no reciben la UPC adicional por dispersión geográfica». Ordena transporte intramunicipal en 48 horas e invoca el art. 19 de la A-70</td>
+          <td>Disponibilidad y accesibilidad en territorio disperso</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="verificar">
+    <strong>PREGUNTA DE SEMINARIO</strong> · La T-285 de 2024 resuelve un caso de morfina no
+    entregada <strong>y no cita la Ley 1733 de 2014</strong>. ¿Por qué el mandato legal más
+    específico sobre opioides no aparece en el fallo que más lo necesitaba?
+  </div>
+</section>
+
+<!-- 29 ─ Res. 2080: el caso vivo ───────────────────────────────────────── -->
+<section class="d" data-parte="VI · Barreras de acceso" aria-label="Resolución 2080 de 2026">
+  <p class="d__eyebrow">Hace diez días · 8 de septiembre de 2026</p>
+  <h2>Un intento de bajar el estándar en municipios dispersos, revocado</h2>
+  <div class="conFigura">
+    <div>
+      <p>
+        La <strong>Resolución 1732 de 2026</strong> (5 de agosto) iba a reemplazar el manual de
+        habilitación y creaba un <strong>Plan de Adecuación Progresiva</strong> para prestadores en
+        «municipios con condiciones especiales»: identificar brechas y programar su cierre hasta en
+        cuatro años, sin cierre del servicio mientras se cumplieran las metas.
+      </p>
+      <p>
+        La <strong>Resolución 2080 de 2026</strong> la <strong>revoca en su integridad</strong>.
+        Firmada por la Ministra Ana María Vesga Gaviria.
+      </p>
+      <details>
+        <summary>Dos causales, y las dos enseñan</summary>
+        <dl>
+          <dt>De forma · publicidad</dt>
+          <dd>La 1732 nunca se publicó en el Diario Oficial, y el art. 65 de la Ley 1437 de 2011
+            dispone que los actos generales no obligan mientras no se publiquen. La Imprenta
+            Nacional lo certificó.</dd>
+          <dt>De fondo · no regresividad</dt>
+          <dd>Diferir condiciones de habilitación es una <strong>medida regresiva</strong> frente al
+            principio de progresividad del art. 6 literal g de la Ley Estatutaria 1751 de 2015, y
+            según la Sentencia C-313 de 2014 las medidas regresivas <em>se presumen
+            inconstitucionales</em>.</dd>
+        </dl>
+      </details>
+    </div>
+    <figure>
+      <svg viewBox="0 0 230 210" role="img" aria-labelledby="tRes2080" width="230">
+        <title id="tRes2080">Una norma expedida pero no publicada, y por ello revocada</title>
+        <rect x="30" y="18" width="118" height="52" rx="7" fill="var(--blanco)"
+              stroke="var(--piedra)" stroke-width="2.5" stroke-dasharray="7 5"/>
+        <text x="89" y="40" text-anchor="middle" class="mono" font-size="10" fill="var(--piedra-deep)">Res. 1732/2026</text>
+        <text x="89" y="55" text-anchor="middle" font-size="9.5" fill="var(--gris)">expedida · no publicada</text>
+        <path d="M89 70 V96" stroke="var(--arcilla)" stroke-width="2.5" fill="none"/>
+        <path d="M83 90 l6 8 l6 -8" fill="none" stroke="var(--arcilla)" stroke-width="2.5"/>
+        <rect x="14" y="100" width="150" height="34" rx="6" fill="var(--arcilla-soft)"
+              stroke="var(--arcilla)" stroke-width="2"/>
+        <text x="89" y="115" text-anchor="middle" font-size="9.5" fill="var(--arcilla-deep)">art. 65 Ley 1437/2011</text>
+        <text x="89" y="127" text-anchor="middle" font-size="9.5" fill="var(--arcilla-deep)">sin publicación, no obliga</text>
+        <path d="M89 134 V158" stroke="var(--arcilla)" stroke-width="2.5" fill="none"/>
+        <path d="M83 152 l6 8 l6 -8" fill="none" stroke="var(--arcilla)" stroke-width="2.5"/>
+        <rect x="30" y="162" width="118" height="34" rx="6" fill="var(--blanco)"
+              stroke="var(--arcilla-dark)" stroke-width="2.5"/>
+        <text x="89" y="177" text-anchor="middle" class="mono" font-size="10" fill="var(--arcilla-deep)">Res. 2080/2026</text>
+        <text x="89" y="189" text-anchor="middle" font-size="9.5" fill="var(--arcilla-deep)">revocada en su integridad</text>
+      </svg>
+      <figcaption>La publicidad no es un trámite: es condición de eficacia del acto.</figcaption>
+    </figure>
+  </div>
+  <p class="pregunta" style="margin-top:.8rem">
+    Si bajar el estándar de habilitación en municipios dispersos es regresivo, ¿cuál es entonces el
+    camino para que esos municipios tengan servicio?
+  </p>
+</section>
+
+<!-- 30 ─ Parte VII ─────────────────────────────────────────────────────── -->
+<section class="d d--parte" data-parte="VII · El producto del corte" aria-label="Séptima parte">
+  <p class="sesion">Sesión 3 · cierre · primer corte</p>
+  <p class="n">VII</p>
+  <h2>De su territorio a una pregunta investigable</h2>
+  <p>La media hora que justifica que esta sesión sea presencial.</p>
+</section>
+
+<!-- 31 ─ Taller ────────────────────────────────────────────────────────── -->
+<section class="d" data-parte="VII · El producto del corte" aria-label="Taller de la pregunta de investigación">
+  <p class="d__eyebrow">Taller · 10:40 a 11:00</p>
+  <h2>Tres filtros, en voz alta</h2>
+  <ol class="pasos">
+    <li><strong>¿Es respondible?</strong> ¿Se imagina el dato que la contestaría, aunque no exista
+      publicado?</li>
+    <li><strong>¿Está situada?</strong> Sujeto, lugar y periodo. «En Colombia» no es un lugar para
+      esto.</li>
+    <li><strong>¿No está ya respondida?</strong> Si una búsqueda razonable la contesta, es consulta,
+      no investigación.</li>
+  </ol>
+  <p class="nota" style="margin-top:1rem">
+    <strong>Y un cuarto filtro que nace de hoy:</strong> si su pregunta se apoya en un dato del
+    Reporte Técnico 2024, <strong>diga qué serie usó y qué advertencia tiene</strong>. Declarar la
+    limitación de la fuente vale tanto como encontrarla.
+  </p>
+  <p class="pregunta">
+    ¿Con qué dato se comprueba que una persona de mi territorio accedió — no que tenía derecho a
+    acceder?
+  </p>
+</section>
+
+<!-- 32 ─ Cierre ────────────────────────────────────────────────────────── -->
+<section class="d" data-parte="VII · El producto del corte" aria-label="Cierre del primer corte">
+  <p class="d__eyebrow">Cierre del primer corte</p>
+  <h2>Lo que queda dicho</h2>
+  <div class="bloques">
+    <div class="bloque"><p class="n">LA NORMA</p><h3>Existe y es densa</h3>
+      <p>Ley propia desde 2014, muerte digna con rango constitucional desde 1997, régimen unificado desde abril de 2026.</p></div>
+    <div class="bloque"><p class="n">EL DATO</p><h3>Existe y no se deja usar entero</h3>
+      <p>El Reporte Técnico 2024 mide la brecha, pero no declara ni año ni unidad, y se contradice consigo mismo en 22 departamentos.</p></div>
+    <div class="bloque bloque--otro"><p class="n">EL SERVICIO</p><h3>Falta donde más se necesita</h3>
+      <p>Noventa y cinco veces menos morfina y seis veces más sufrimiento infantil, en el mismo país y bajo la misma ley.</p></div>
+  </div>
+  <p style="margin-top:1.3rem;font-family:var(--serif);font-style:italic;
+     font-size:clamp(1.1rem,2.6vw,1.6rem);color:var(--acento-dark);max-width:40ch">
+    Un derecho existe cuando alguien puede ejercerlo, no cuando está escrito.
+  </p>
+  <p class="nota" style="margin-top:1.2rem">
+    <strong>El producto del primer corte se entrega hoy.</strong> El entregable previo de la sesión 3
+    se publica en la <a href="index.html">guía de la sesión</a> cuando se abra su ventana.
+  </p>
+  <p class="nota" style="margin-top:1rem">
+    <a href="index.html">Volver a la guía de la sesión</a> ·
+    <a href="../../index.html">Portada del seminario</a> ·
+    verificación de fuentes en <span class="mono">docs/INVESTIGACION-TEMA3-marco-legal-barreras.md</span>
+  </p>
+</section>
+
+</main>
+
+<nav class="nav" aria-label="Navegación de la presentación">
+  <div class="nav__barra" id="barra"></div>
+  <p class="nav__t" id="titulo">Sesiones 2 y 3<small>De la política a la barrera de acceso</small></p>
+  <label class="saltar" for="ira">Ir a una parte</label>
+  <select id="ira" aria-label="Ir a una parte del mazo"></select>
+  <button type="button" id="prev" aria-label="Diapositiva anterior">‹</button>
+  <span class="nav__n" id="cuenta">1 / 34</span>
+  <button type="button" id="next" aria-label="Diapositiva siguiente">›</button>
+  <span class="nav__pista">← → · inicio · fin</span>
+</nav>
+
+<script>
+(function () {
+  'use strict';
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.d'));
+  var total = slides.length;
+  var i = 0;
+  var elPrev = document.getElementById('prev');
+  var elNext = document.getElementById('next');
+  var elCuenta = document.getElementById('cuenta');
+  var elBarra = document.getElementById('barra');
+  var elIra = document.getElementById('ira');
+
+  /* Selector de partes. Se construye desde data-parte: la primera diapositiva
+     de cada parte entra como opción. Así el docente salta directo a la sesión 3
+     sin contar diapositivas, y la lista nunca se desincroniza del mazo. */
+  var vistas = {};
+  slides.forEach(function (s, k) {
+    var p = s.getAttribute('data-parte');
+    if (!p || vistas[p] !== undefined) return;
+    vistas[p] = k;
+    var o = document.createElement('option');
+    o.value = String(k);
+    o.textContent = p;
+    elIra.appendChild(o);
+  });
+
+  function mostrar(n, conFoco) {
+    i = Math.max(0, Math.min(total - 1, n));
+    slides.forEach(function (s, k) { s.classList.toggle('on', k === i); });
+    elCuenta.textContent = (i + 1) + ' / ' + total;
+    elBarra.style.width = ((i + 1) / total * 100) + '%';
+    elPrev.disabled = i === 0;
+    elNext.disabled = i === total - 1;
+    var p = slides[i].getAttribute('data-parte');
+    if (p && elIra.value !== String(vistas[p])) elIra.value = String(vistas[p]);
+    if (conFoco) { slides[i].setAttribute('tabindex', '-1'); slides[i].focus({ preventScroll: true }); }
+    slides[i].scrollTop = 0;
+    if (history.replaceState) history.replaceState(null, '', '#' + (i + 1));
+  }
+
+  elPrev.addEventListener('click', function () { mostrar(i - 1, true); });
+  elNext.addEventListener('click', function () { mostrar(i + 1, true); });
+  elIra.addEventListener('change', function () { mostrar(parseInt(elIra.value, 10), true); });
+
+  document.addEventListener('keydown', function (e) {
+    if (/^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName)) return;
+    switch (e.key) {
+      case 'ArrowRight': case 'PageDown': mostrar(i + 1, true); break;
+      case 'ArrowLeft':  case 'PageUp':   mostrar(i - 1, true); break;
+      case ' ':          mostrar(i + (e.shiftKey ? -1 : 1), true); e.preventDefault(); break;
+      case 'Home':       mostrar(0, true); break;
+      case 'End':        mostrar(total - 1, true); break;
+      default: return;
+    }
+  });
+
+  var x0 = null, y0 = null;
+  document.addEventListener('touchstart', function (e) {
+    x0 = e.changedTouches[0].clientX; y0 = e.changedTouches[0].clientY;
+  }, { passive: true });
+  document.addEventListener('touchend', function (e) {
+    if (x0 === null) return;
+    var dx = e.changedTouches[0].clientX - x0;
+    var dy = e.changedTouches[0].clientY - y0;
+    if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) mostrar(i + (dx < 0 ? 1 : -1), false);
+    x0 = y0 = null;
+  }, { passive: true });
+
+  var inicial = parseInt((location.hash || '').replace('#', ''), 10);
+  mostrar(isNaN(inicial) ? 0 : inicial - 1, false);
+})();
+</script>
+</html>

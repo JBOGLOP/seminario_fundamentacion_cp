@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ley 1733 de 2014 · Ficha normativa didáctica</title>
+<meta name="description" content="Análisis didáctico de la Ley 1733 de 2014 (Ley Consuelo Devis Saavedra) para la Maestría en Cuidados Paliativos de la UAN.">
+<style>
+:root{
+  --paper:#fbfaf7; --panel:#ffffff; --ink:#16202e; --ink-2:#41505f; --muted:#6b7a89;
+  --line:#e3e0d9; --line-2:#cfcabf;
+  --ley:#1b3a6b; --ley-soft:#eaf0f9;
+  --res:#0f6152; --res-soft:#e6f2ef;
+  --warn:#9a5b06; --warn-soft:#fdf3e3;
+  --alert:#8c2230; --alert-soft:#faecec;
+  --doc:#5b3a8c; --doc-soft:#f1ecf8;
+  --serif:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --sans:"DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --accent:var(--ley); --accent-soft:var(--ley-soft);
+}
+html[data-theme="dark"]{
+  --paper:#12161c; --panel:#1a1f27; --ink:#eef1f5; --ink-2:#c3ccd6; --muted:#93a1b0;
+  --line:#2b323c; --line-2:#3a434f;
+  --ley:#8fb3e8; --ley-soft:#1b2534; --res:#6fc8b3; --res-soft:#142623;
+  --warn:#e0a458; --warn-soft:#2a2115; --alert:#e08b93; --alert-soft:#2b1a1d;
+  --doc:#b79ae0; --doc-soft:#221b30;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+  font-size:17px;line-height:1.65;-webkit-text-size-adjust:100%}
+.wrap{max-width:1060px;margin:0 auto;padding:0 20px}
+a{color:var(--accent);text-underline-offset:3px}
+h1,h2,h3,h4,.ui{font-family:var(--sans)}
+h1{font-size:clamp(1.6rem,4.2vw,2.5rem);line-height:1.15;letter-spacing:-.02em;margin:.2em 0 .3em}
+h2{font-size:clamp(1.25rem,2.8vw,1.6rem);line-height:1.25;margin:2.2rem 0 .6rem;letter-spacing:-.01em}
+h3{font-size:1.08rem;margin:1.6rem 0 .4rem;color:var(--ink)}
+h4{font-size:.95rem;margin:1.2rem 0 .3rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+p{margin:.7em 0}
+small,.small{font-size:.86rem}
+/* top bar */
+.topbar{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--paper) 92%,transparent);
+  backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.topbar .wrap{display:flex;gap:12px;align-items:center;justify-content:space-between;
+  padding-block:10px;flex-wrap:wrap}
+.brand{font-family:var(--sans);font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--muted);text-decoration:none}
+.tools{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.btn{font-family:var(--sans);font-size:.78rem;padding:6px 11px;border-radius:999px;
+  border:1px solid var(--line-2);background:var(--panel);color:var(--ink-2);cursor:pointer;
+  text-decoration:none;display:inline-flex;gap:6px;align-items:center}
+.btn:hover{border-color:var(--accent);color:var(--accent)}
+.btn[aria-pressed="true"]{background:var(--doc-soft);border-color:var(--doc);color:var(--doc)}
+/* hero */
+header.hero{padding:36px 0 10px;border-bottom:1px solid var(--line)}
+.kicker{font-family:var(--sans);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--accent);font-weight:600}
+.lead{font-size:1.12rem;color:var(--ink-2);max-width:64ch}
+/* chips */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.chip{font-family:var(--sans);font-size:.76rem;padding:4px 10px;border-radius:999px;
+  border:1px solid var(--line-2);color:var(--ink-2);background:var(--panel)}
+.chip.ok{background:var(--res-soft);border-color:var(--res);color:var(--res)}
+.chip.warn{background:var(--warn-soft);border-color:var(--warn);color:var(--warn)}
+.chip.alert{background:var(--alert-soft);border-color:var(--alert);color:var(--alert)}
+.chip.info{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+/* stat row */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:22px 0}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.stat b{display:block;font-family:var(--sans);font-size:1.55rem;line-height:1.1;color:var(--accent)}
+.stat span{font-family:var(--sans);font-size:.78rem;color:var(--muted);display:block;margin-top:4px}
+/* tabs */
+.tabs{display:flex;gap:6px;overflow-x:auto;padding:14px 0 0;border-bottom:1px solid var(--line);
+  position:sticky;top:49px;background:var(--paper);z-index:30}
+.tabs button{font-family:var(--sans);font-size:.82rem;white-space:nowrap;border:none;background:none;
+  color:var(--muted);padding:8px 12px;border-bottom:2px solid transparent;cursor:pointer;border-radius:6px 6px 0 0}
+.tabs button:hover{color:var(--ink)}
+.tabs button[aria-selected="true"]{color:var(--accent);border-bottom-color:var(--accent);font-weight:600}
+.panel[hidden]{display:none}
+.panel{padding-top:8px;animation:fade .22s ease}
+@keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+/* cards & boxes */
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:14px 0}
+.card h3{margin-top:0}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.art{border-left:3px solid var(--accent);background:var(--panel);border-radius:0 12px 12px 0;
+  padding:14px 18px;margin:12px 0;border-top:1px solid var(--line);border-right:1px solid var(--line);
+  border-bottom:1px solid var(--line)}
+.art .num{font-family:var(--sans);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--accent);font-weight:700}
+.art h3{margin:.2rem 0 .4rem;font-size:1rem}
+.note{border-left:3px solid var(--warn);background:var(--warn-soft);padding:12px 16px;border-radius:0 10px 10px 0;margin:14px 0}
+.crit{border-left:3px solid var(--alert);background:var(--alert-soft);padding:12px 16px;border-radius:0 10px 10px 0;margin:14px 0}
+.thesis{font-size:1.05rem;font-style:italic;border-left:3px solid var(--accent);padding:10px 18px;
+  margin:18px 0;color:var(--ink-2)}
+blockquote{margin:18px 0;padding:14px 20px;border-left:3px solid var(--line-2);background:var(--panel);
+  border-radius:0 10px 10px 0;font-style:italic;color:var(--ink-2)}
+blockquote cite{display:block;font-style:normal;font-family:var(--sans);font-size:.8rem;color:var(--muted);margin-top:8px}
+/* tables */
+.tablewrap{overflow-x:auto;margin:16px 0;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;min-width:520px}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--sans);font-size:.76rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);
+  background:color-mix(in srgb,var(--accent-soft) 60%,transparent)}
+tr:last-child td{border-bottom:none}
+/* timeline */
+.tl{list-style:none;margin:18px 0;padding:0 0 0 22px;border-left:2px solid var(--line-2)}
+.tl li{position:relative;margin:0 0 16px;padding-left:14px}
+.tl li::before{content:"";position:absolute;left:-29px;top:8px;width:10px;height:10px;border-radius:50%;
+  background:var(--accent);border:2px solid var(--paper)}
+.tl .y{font-family:var(--sans);font-size:.78rem;letter-spacing:.06em;color:var(--accent);font-weight:700}
+/* detail */
+details{border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:0 16px;margin:10px 0}
+details summary{font-family:var(--sans);font-size:.92rem;cursor:pointer;padding:12px 0;font-weight:500}
+details[open] summary{border-bottom:1px solid var(--line);margin-bottom:8px}
+details > *:last-child{margin-bottom:12px}
+/* docente */
+.docente{display:none;border:1px dashed var(--doc);background:var(--doc-soft);border-radius:12px;
+  padding:14px 18px;margin:14px 0}
+body.modo-docente .docente{display:block}
+.docente::before{content:"Nota reservada al docente";display:block;font-family:var(--sans);font-size:.72rem;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--doc);font-weight:700;margin-bottom:6px}
+.docente-flag{display:none}
+body.modo-docente .docente-flag{display:inline}
+/* footer */
+footer{margin-top:50px;border-top:1px solid var(--line);padding:24px 0 50px;color:var(--muted);font-size:.86rem}
+footer a{color:var(--ink-2)}
+.srcs{font-size:.84rem;color:var(--muted)}
+.srcs li{margin-bottom:6px}
+@media print{
+  .topbar,.tabs,.btn{display:none!important}
+  .panel[hidden]{display:block!important}
+  body{font-size:11pt;background:#fff}
+  .card,.art,details{break-inside:avoid}
+}
+
+:root{--accent:var(--ley);--accent-soft:var(--ley-soft)}
+</style>
+<noscript><style>
+/* Sin JavaScript las pestañas no pueden abrirse: se muestran todos los paneles, uno tras otro. */
+.panel[hidden]{display:block!important}.tabs{display:none!important}
+</style></noscript>
+</head>
+<body>
+<div class="topbar"><div class="wrap">
+<a class="brand" href="index.html">&larr; Índice del módulo normativo</a>
+<div class="tools"><a class="btn" href="resolucion-3280-2018.html">Resolución 3280 de 2018 &rarr;</a>
+<button class="btn" id="btn-tema" type="button">Tema claro/oscuro</button>
+<button class="btn" id="btn-docente" type="button" aria-pressed="false">Modo docente</button>
+</div></div></div>
+<header class="hero"><div class="wrap">
+<p class="kicker">Ficha normativa 01 &middot; Ley de la República</p>
+<h1>Ley 1733 de 2014</h1>
+<p class="lead"><em>Ley Consuelo Devis Saavedra</em>, &laquo;mediante la cual se regulan los servicios de cuidados paliativos para el manejo integral de pacientes con enfermedades terminales, crónicas, degenerativas e irreversibles en cualquier fase de la enfermedad de alto impacto en la calidad de vida&raquo;.</p>
+<div class="chips">
+<span class="chip info">Sancionada el 8 de septiembre de 2014</span>
+<span class="chip ok">Vigente</span>
+<span class="chip">11 artículos</span>
+<span class="chip warn">Art. 7 modificado por la Ley 2241 de 2022</span>
+<span class="chip warn">Reglamentación parcial y tardía</span>
+</div>
+<div class="stats">
+<div class="stat"><b>11</b><span>artículos</span></div>
+<div class="stat"><b>7</b><span>derechos reconocidos (art. 5)</span></div>
+<div class="stat"><b>6</b><span>meses de plazo para reglamentar (art. 10)</span></div>
+<div class="stat"><b>12</b><span>años de vigencia a 2026</span></div>
+</div>
+</div></header>
+
+<div class="wrap">
+<div class="tabs" role="tablist">
+<button data-tab="panorama" role="tab">1 &middot; Panorama</button>
+<button data-tab="articulado" role="tab">2 &middot; Articulado</button>
+<button data-tab="derechos" role="tab">3 &middot; Los siete derechos</button>
+<button data-tab="obligaciones" role="tab">4 &middot; Quién queda obligado</button>
+<button data-tab="reglamentacion" role="tab">5 &middot; Reglamentación</button>
+<button data-tab="brecha" role="tab">6 &middot; Ley vs. acceso</button>
+<button data-tab="practica" role="tab">7 &middot; Uso en la práctica</button>
+</div>
+
+<!-- 1 -->
+<section class="panel" id="p-panorama" hidden>
+<h2>Qué hace esta ley y qué no hace</h2>
+<p>La Ley 1733 es la norma que <strong>nombra el derecho</strong>: convierte el cuidado paliativo en un derecho exigible de las personas con enfermedad terminal, crónica, degenerativa e irreversible, y lo hace <em>en cualquier fase de la enfermedad</em>, no solo en la agonía. Esa última precisión del título es la más olvidada y la más útil en la discusión clínica: la ley no ata el cuidado paliativo al pronóstico de días.</p>
+<div class="grid2">
+<div class="card"><h3>Lo que crea</h3>
+<ul>
+<li>Un derecho subjetivo a la atención en cuidados paliativos, exigible por tutela.</li>
+<li>Definiciones legales de <em>enfermo en fase terminal</em> (art. 2) y de <em>enfermedad crónica, degenerativa e irreversible de alto impacto</em> (art. 3).</li>
+<li>El derecho a <strong>rechazar tratamientos innecesarios</strong> que no cumplan el principio de proporcionalidad terapéutica (art. 1).</li>
+<li>El anclaje legal del <strong>Documento de Voluntad Anticipada</strong> (art. 5).</li>
+<li>Obligaciones para EPS e IPS, talento humano y disponibilidad de opioides (arts. 6 a 8).</li>
+</ul></div>
+<div class="card"><h3>Lo que no hace</h3>
+<ul>
+<li>No define el modelo de prestación: no dice con qué equipo, en qué nivel de complejidad ni con qué canasta.</li>
+<li>No crea una ruta de atención ni un indicador verificable de cumplimiento.</li>
+<li>No asigna financiación específica ni fuente presupuestal.</li>
+<li>No regula la eutanasia ni la adecuación del esfuerzo terapéutico: esa construcción es jurisprudencial y reglamentaria (hoy, Resolución 813 de 2026).</li>
+<li>No menciona la atención domiciliaria como modalidad obligatoria.</li>
+</ul></div>
+</div>
+<p class="thesis">La Ley 1733 crea un derecho sin crear el dispositivo que lo entrega. Doce años después, ese es exactamente el punto donde el derecho se pierde.</p>
+<div class="docente">
+<p><strong>Convergencia normativa 2013&ndash;2014.</strong> La ley no es un hecho aislado: coincide con el Consenso de Montevideo (CEPAL, 2013, medida prioritaria C.29) y con la resolución <strong>WHA67.19</strong> de la Asamblea Mundial de la Salud (mayo de 2014), que por primera vez pide a los Estados integrar los cuidados paliativos en todos los niveles de atención. Usar esta convergencia al cierre de la sesión, no al inicio: funciona como revelación, no como dato introductorio.</p>
+</div>
+</section>
+
+<!-- 2 -->
+<section class="panel" id="p-articulado" hidden>
+<h2>El articulado, artículo por artículo</h2>
+<p class="small">Síntesis fiel del contenido normativo. Las expresiones entre comillas corresponden al texto legal; el resto es paráfrasis. Verificar siempre contra el texto oficial antes de citar en un documento formal.</p>
+
+<div class="art"><span class="num">Artículo 1</span><h3>Objeto</h3>
+<p>Reglamenta el derecho de las personas con enfermedad terminal, crónica, degenerativa e irreversible a la atención en cuidados paliativos, entendida como el «tratamiento integral del dolor, el alivio del sufrimiento y otros síntomas», con abordaje de lo físico, emocional, social y espiritual. Reconoce el derecho a rechazar tratamientos que no cumplan el principio de proporcionalidad terapéutica.</p></div>
+
+<div class="art"><span class="num">Artículo 2</span><h3>Enfermo en fase terminal</h3>
+<p>Es quien porta una enfermedad o condición patológica grave, «diagnosticada en forma precisa por un médico experto», de carácter progresivo e irreversible y con pronóstico fatal próximo. El parágrafo habilita la <strong>segunda opinión</strong> cuando exista controversia diagnóstica.</p></div>
+
+<div class="art"><span class="num">Artículo 3</span><h3>Enfermedad crónica, degenerativa e irreversible de alto impacto en la calidad de vida</h3>
+<p>Enfermedad «de larga duración, que ocasione grave pérdida de la calidad de vida», de carácter progresivo e irreversible, diagnosticada por médico experto. Es el artículo que amplía la población protegida más allá del paciente agónico: <strong>no exige pronóstico fatal próximo</strong>.</p></div>
+
+<div class="art"><span class="num">Artículo 4</span><h3>Cuidados paliativos</h3>
+<p>Define los cuidados paliativos como los servicios que requieren los pacientes de los artículos 2 y 3: control del dolor y de otros síntomas, con apoyo médico, social, espiritual, psicológico y familiar, orientado a lograr la mejor calidad de vida posible para el paciente y su familia.</p></div>
+
+<div class="art"><span class="num">Artículo 5</span><h3>Derechos de los pacientes</h3>
+<p>Núcleo de la ley: siete derechos (ver pestaña 3), entre ellos el cuidado paliativo, la información, la segunda opinión y la suscripción del Documento de Voluntad Anticipada. Su parágrafo delega en el Ministerio de Salud y Protección Social la reglamentación de la materia.</p></div>
+
+<div class="art"><span class="num">Artículo 6</span><h3>Obligaciones de EPS e IPS públicas y privadas</h3>
+<p>Deben garantizar la prestación del servicio de cuidado paliativo. Asigna además vigilancia a la Superintendencia Nacional de Salud sobre su inclusión en las redes integradas y ordena a las direcciones departamentales y distritales tenerlo en cuenta en la gestión de la red.</p></div>
+
+<div class="art"><span class="num">Artículo 7</span><h3>Talento humano <span class="chip warn">Modificado en 2022</span></h3>
+<p><strong>Texto vigente (art. 3 de la Ley 2241 de 2022):</strong> las EPS deben garantizar el acceso a los servicios de cuidados paliativos incorporando personal capacitado a su red de instituciones prestadoras y brindándole capacitación continua. Su parágrafo añade que EPS e IPS fomentarán la capacitación del personal para la atención, el seguimiento y el apoyo a pacientes, familias y <strong>cuidadores</strong>, mediante telemedicina o teleasistencia como alternativa de monitoreo permanente, cuando los interesados lo soliciten.</p>
+<p class="small">Es el único artículo de la Ley 1733 que ha sido modificado. El cambio amplía el destinatario del apoyo —entra la familia y el cuidador— y traslada la obligación de capacitación a la red prestadora, no solo a la EPS.</p></div>
+
+<div class="art"><span class="num">Artículo 8</span><h3>Acceso a medicamentos opioides</h3>
+<p>Ministerio de Salud, Fondo Nacional de Estupefacientes y EPS deben garantizar la disponibilidad y distribución de opioides <strong>las 24 horas</strong>, con las autorizaciones necesarias para asegurar suficiencia y oportunidad.</p></div>
+
+<div class="art"><span class="num">Artículo 9</span><h3>Cooperación internacional</h3>
+<p>Habilita al Gobierno para establecer acuerdos de cooperación internacional dirigidos al desarrollo de programas de cuidados paliativos y a la capacitación del personal sanitario.</p></div>
+
+<div class="art"><span class="num">Artículo 10</span><h3>Reglamentación</h3>
+<p>Ordena al Ministerio de Salud y Protección Social reglamentar la ley en un «término de seis (6) meses» contados desde su promulgación. Ese plazo venció en <strong>marzo de 2015</strong>.</p></div>
+
+<div class="art"><span class="num">Artículo 11</span><h3>Vigencia</h3>
+<p>La ley rige desde su sanción, el 8 de septiembre de 2014.</p></div>
+
+<div class="note"><p><strong>Lectura de estructura.</strong> Cuatro artículos de definición (1&ndash;4), uno de derechos (5), cuatro de obligaciones (6&ndash;9) y dos de cierre (10&ndash;11). No hay artículo de financiación, ni de indicadores, ni de sanción por incumplimiento. La arquitectura explica el desenlace.</p></div>
+</section>
+
+<!-- 3 -->
+<section class="panel" id="p-derechos" hidden>
+<h2>Los siete derechos del artículo 5</h2>
+<p class="small">Síntesis de los numerales. En una entrega académica o en una tutela, citar el numeral por su texto oficial.</p>
+<div class="tablewrap"><table>
+<thead><tr><th>#</th><th>Derecho</th><th>Qué significa en la práctica clínica</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Cuidado paliativo</td><td>Acceso al servicio en cualquier fase de la enfermedad, no solo al final de la vida; incluye control del dolor y de otros síntomas.</td></tr>
+<tr><td>2</td><td>Información</td><td>Recibir información clara y completa sobre el diagnóstico, el pronóstico y las alternativas, incluida la opción de no recibir tratamiento curativo.</td></tr>
+<tr><td>3</td><td>Segunda opinión</td><td>Solicitar valoración de otro médico experto ante controversia diagnóstica o de indicación terapéutica.</td></tr>
+<tr><td>4</td><td>Voluntad anticipada</td><td>Suscribir el Documento de Voluntad Anticipada para expresar la decisión de no someterse a tratamientos innecesarios y la disposición sobre donación de órganos.</td></tr>
+<tr><td>5</td><td>Participar en las decisiones</td><td>Intervenir de forma activa en el plan de cuidado; el consentimiento no es un trámite de firma sino un proceso.</td></tr>
+<tr><td>6</td><td>Derechos de niños, niñas y adolescentes</td><td>Régimen diferencial para menores de edad, hoy desarrollado en detalle por la Resolución 813 de 2026.</td></tr>
+<tr><td>7</td><td>Derechos de los familiares</td><td>Cuando el paciente se encuentra en incapacidad, la ley reconoce la posición de los familiares en la decisión.</td></tr>
+</tbody></table></div>
+<div class="note"><p><strong>El parágrafo importa tanto como los numerales.</strong> Es el que delega la reglamentación en el Ministerio, y es el eslabón que conecta esta ley con la Resolución 2665 de 2018 (Documento de Voluntad Anticipada) y, más tarde, con la Resolución 813 de 2026.</p></div>
+<div class="docente">
+<p>El numeral 4 es el mejor punto de entrada para discutir por qué una norma conocida no se aplica. Álvarez Acuña y Gomezese Ribero (2022) encontraron que el <strong>54&nbsp;%</strong> de los profesionales de la salud encuestados en Colombia desconocía que existiera una ley que regulara el Documento de Voluntad Anticipada, y que solo el <strong>11,7&nbsp;%</strong> lo había suscrito personalmente. Pedir a los estudiantes que estimen el dato antes de mostrarlo.</p>
+</div>
+</section>
+
+<!-- 4 -->
+<section class="panel" id="p-obligaciones" hidden>
+<h2>Quién queda obligado y con qué consecuencia</h2>
+<p>La pregunta útil no es qué dice la ley, sino <em>a quién obliga, quién lo mide y qué ocurre si no se cumple</em>. Aplicada a la Ley 1733, la rejilla produce un resultado incómodo.</p>
+<div class="tablewrap"><table>
+<thead><tr><th>Artículo</th><th>Obligado</th><th>Obligación</th><th>Indicador verificable</th><th>Consecuencia del incumplimiento</th></tr></thead>
+<tbody>
+<tr><td>6</td><td>EPS e IPS públicas y privadas</td><td>Garantizar la prestación del servicio de cuidado paliativo</td><td>No definido en la ley</td><td>Vigilancia genérica de la Supersalud; en la práctica, tutela caso a caso</td></tr>
+<tr><td>6</td><td>Direcciones departamentales y distritales</td><td>Considerar el servicio en la gestión de la red</td><td>No definido</td><td>Sin sanción específica</td></tr>
+<tr><td>7</td><td>EPS</td><td>Talento humano capacitado y capacitación continua</td><td>No definido</td><td>Sin sanción específica</td></tr>
+<tr><td>8</td><td>Minsalud, FNE y EPS</td><td>Disponibilidad y distribución de opioides 24 horas</td><td>Consumo en equivalentes de morfina (fuente externa: JIFE)</td><td>Sin sanción específica</td></tr>
+<tr><td>10</td><td>Minsalud</td><td>Reglamentar en seis meses</td><td>Fecha cierta: marzo de 2015</td><td>Ninguna prevista en la ley</td></tr>
+</tbody></table></div>
+<div class="crit"><p><strong>Hallazgo de la rejilla.</strong> De cinco obligaciones, ninguna tiene indicador propio dentro de la ley y ninguna tiene consecuencia jurídica por incumplimiento. El único indicador disponible &mdash;el consumo de opioides&mdash; proviene de un organismo internacional, no del sistema de información colombiano.</p></div>
+</section>
+
+<!-- 5 -->
+<section class="panel" id="p-reglamentacion" hidden>
+<h2>Doce años de reglamentación</h2>
+<p>El artículo 10 fijó seis meses. Esta es la cronología real de lo que ocurrió después, y explica por qué la ley se conoce más por su nombre que por su contenido operativo.</p>
+<ul class="tl">
+<li><span class="y">8 de septiembre de 2014</span><br>Sanción de la Ley 1733. El plazo de reglamentación vence en <strong>marzo de 2015</strong>.</li>
+<li><span class="y">20 de abril de 2015</span><br>Resolución 1216 de 2015: protocolo para el procedimiento de eutanasia, en cumplimiento de la sentencia <strong>T-970 de 2014</strong>. No reglamenta la Ley 1733: responde a una orden judicial distinta. Fue sustituida por la Resolución 971 de 2021.</li>
+<li><span class="y">2016</span><br>Guía de Práctica Clínica N.&ordm; 58 (Minsalud&ndash;IETS) para la atención de pacientes con enfermedad en fase terminal. Instrumento técnico, no norma vinculante.</li>
+<li><span class="y">25 de junio de 2018</span><br><strong>Resolución 2665 de 2018</strong>: primera reglamentación expresa de la Ley 1733 &mdash;y solo parcial&mdash;, referida al derecho a suscribir el Documento de Voluntad Anticipada. Llega <strong>tres años y tres meses después</strong> del vencimiento del plazo legal.</li>
+<li><span class="y">2 de agosto de 2018</span><br>Resolución 3280 de 2018: adopta los lineamientos de la RPMS y de la ruta materno perinatal. Es el instrumento que organiza la atención en el primer nivel &mdash;y en el que el cuidado paliativo casi no aparece. <a href="resolucion-3280-2018.html">Ver ficha</a>.</li>
+<li><span class="y">2018&ndash;2021</span><br>Resolución 825 de 2018 (eutanasia en niños, niñas y adolescentes), Resolución 229 de 2020 (carta de derechos y deberes) y Resolución 971 de 2021 (procedimiento de eutanasia en adultos, tras la sentencia C-233 de 2021). Las Resoluciones 825 y 971 fueron derogadas por la Resolución 813 de 2026.</li>
+<li><span class="y">8 de julio de 2022</span><br><strong>Ley 2241 de 2022</strong> (Diario Oficial 52.089), «por medio de la cual se fortalece la educación en cuidados paliativos»: integra los núcleos básicos de los cuidados paliativos en los programas de ciencias de la salud, psicología y trabajo social (arts. 1 y 2) y <strong>modifica el artículo 7 de la Ley 1733</strong> (art. 3). Es la única reforma que ha recibido la ley en doce años.</li>
+<li><span class="y">28 y 29 de abril de 2026</span><br><strong>Resolución 813 de 2026</strong>, expedida el 28 de abril y vigente desde su publicación, el 29: marco unificado del derecho a morir dignamente (cuidados paliativos, adecuación del esfuerzo terapéutico y eutanasia). Invoca expresamente la Ley 1733 y <strong>preserva</strong> la Resolución 2665 de 2018, integrando el Documento de Voluntad Anticipada como uno de los cinco medios de manifestación de la voluntad (art. 9). <a href="../clase_s02_s03.html#19">Ver la Resolución 813 en la presentación de la sesión 3</a>.</li>
+</ul>
+<p class="thesis">La Ley 1733 tardó casi cuatro años en recibir su primera reglamentación expresa, y esta cubrió únicamente el numeral 4 del artículo 5. El resto de la ley &mdash;prestación, talento humano, opioides&mdash; sigue sin reglamento propio.</p>
+<div class="docente">
+<p>Diferenciar con cuidado dos líneas que los estudiantes suelen fundir: la línea <em>legislativa</em> (Ley 1733, cuidados paliativos) y la línea <em>jurisprudencial</em> (T-970 de 2014, C-233 de 2021, muerte digna y eutanasia). La Resolución 1216 de 2015 pertenece a la segunda, no a la primera, aunque aparezca cronológicamente en medio. Que un grupo sostenga que «la ley se reglamentó en 2015» es el error esperado y el más productivo de corregir.</p>
+</div>
+</section>
+
+<!-- 6 -->
+<section class="panel" id="p-brecha" hidden>
+<h2>Entre la ley y el acceso</h2>
+<p>Datos verificados contra fuente primaria. Son los que permiten sostener que el problema colombiano no es de ausencia de norma.</p>
+<div class="stats">
+<div class="stat"><b>627</b><span>servicios de CP en Colombia (Atlas 2025)</span></div>
+<div class="stat"><b>1,18</b><span>servicios por 100.000 habitantes</span></div>
+<div class="stat"><b>41 %</b><span>cobertura poblacional nacional</span></div>
+<div class="stat"><b>18 %</b><span>cobertura en la Amazonía</span></div>
+</div>
+<div class="tablewrap"><table>
+<thead><tr><th>Dimensión</th><th>Dato</th><th>Fuente</th></tr></thead>
+<tbody>
+<tr><td>Cobertura poblacional</td><td>41 % nacional &middot; 79 % Bogotá &middot; 29 % Orinoquía &middot; 18 % Amazonía</td><td>Sánchez-Cárdenas et al. (2024), <em>BMC Public Health</em>, 24, 1659</td></tr>
+<tr><td>Servicios</td><td>627 servicios; 1,18 por 100.000 habitantes</td><td>Atlas de Cuidados Paliativos de las Américas (ALCP, 2025)</td></tr>
+<tr><td>Consumo de opioides</td><td>Bogotá 24,83 mg vs. Amazonía 0,46 mg equivalentes de morfina (&asymp;54 veces)</td><td>OCCP, 4.ª ed. (2021), con datos JIFE 2019</td></tr>
+<tr><td>Garantía legal en APS</td><td>Colombia <strong>no</strong> figura entre los países que garantizan CP en su ley general de salud</td><td>Atlas de las Américas (2025), informe de país</td></tr>
+<tr><td>Conocimiento profesional del DVA</td><td>54 % desconocía la existencia de la ley que lo regula; 11,7 % lo había suscrito</td><td>Álvarez Acuña &amp; Gomezese Ribero (2022), <em>Colombian Journal of Anesthesiology</em>, 50(2)</td></tr>
+</tbody></table></div>
+<div class="crit"><p><strong>Dato que no debe usarse.</strong> La cifra «el 70&nbsp;% de los colombianos muere sin cuidados paliativos» circula ampliamente y <strong>no es verificable</strong> en fuente primaria: procede de prensa de 2021. Usar en su lugar los porcentajes de cobertura poblacional de Sánchez-Cárdenas et al. (2024).</p></div>
+</section>
+
+<!-- 7 -->
+<section class="panel" id="p-practica" hidden>
+<h2>Cómo se usa esta ley</h2>
+<div class="grid2">
+<div class="card"><h3>En la historia clínica</h3>
+<ul>
+<li>Dejar constancia del cumplimiento del artículo 2 o del artículo 3: quién hizo el diagnóstico, con qué criterio y por qué la condición es progresiva e irreversible. Es el soporte del ingreso al programa.</li>
+<li>Registrar el proceso de información (numeral 2) y la participación del paciente en la decisión (numeral 5), no solo la firma del consentimiento.</li>
+<li>Si hay Documento de Voluntad Anticipada, consignar su existencia, fecha y lugar de custodia.</li>
+</ul></div>
+<div class="card"><h3>En la reclamación administrativa y la tutela</h3>
+<ul>
+<li>El artículo 6 es la base para exigir la prestación a la EPS; el artículo 8, para exigir la entrega efectiva de opioides.</li>
+<li>La segunda opinión del artículo 2 es útil cuando la controversia es sobre el pronóstico y no sobre el tratamiento.</li>
+<li>El artículo 3 permite sostener el derecho <em>sin</em> pronóstico de terminalidad: es el argumento más subutilizado de toda la ley.</li>
+</ul></div>
+</div>
+<h3>Preguntas guía para el estudio autónomo</h3>
+<ol>
+<li>La ley protege a dos poblaciones distintas (arts. 2 y 3). ¿Cuál de las dos atiende realmente su servicio y qué consecuencias tiene esa elección sobre el momento de la remisión?</li>
+<li>Si ninguna de las obligaciones de los artículos 6 a 8 tiene indicador propio, ¿con qué evidencia documentaría usted el incumplimiento de su EPS ante la Superintendencia?</li>
+<li>¿Qué parte de la Ley 1733 sigue sin reglamento propio doce años después, y a quién le sirve esa omisión?</li>
+<li>¿Cómo cambiaría su práctica si los pacientes del artículo 3 ingresaran al programa en el momento en que la norma lo permite?</li>
+</ol>
+<div class="docente">
+<p><strong>Gancho metacognitivo.</strong> Ningún grupo citó espontáneamente a Bonilla Sierra (2021, <em>Revista de Nutrición Clínica y Metabolismo</em>, 4(2), doi:10.35454/rncm.v4n2.226) durante todo el semestre 2026-I. Reservar la mención para el cierre: la pregunta no es qué dice ese artículo, sino por qué una búsqueda sistemática no lo encontró. Mismo mecanismo que el hallazgo de campo que abre este módulo: la norma existe y nadie la nombra.</p>
+</div>
+<h3>Fuentes de esta ficha</h3>
+<ul class="srcs">
+<li>Congreso de la República de Colombia. (2014). <em>Ley 1733 de 2014</em>. <a href="https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=59379">Gestor Normativo &mdash; Función Pública</a> &middot; <a href="https://www.cancilleria.gov.co/sites/default/files/Normograma/docs/pdf/ley_1733_2014.pdf">texto en PDF (Cancillería)</a></li>
+<li>Congreso de la República de Colombia. (2022). <em>Ley 2241 de 2022</em>, por medio de la cual se fortalece la educación en cuidados paliativos y se modifica el artículo 7 de la Ley 1733 de 2014.</li>
+<li>Ministerio de Salud y Protección Social. (2018). <em>Resolución 2665 de 2018</em>.</li>
+<li>Ministerio de Salud y Protección Social. (2026). <em>Resolución 813 de 2026</em>. <a href="https://cijuf.org.co/normatividad/resolucion/2026/resolucion-000813.html">Texto</a></li>
+<li>Álvarez Acuña, A. M., &amp; Gomezese Ribero, Ó. F. (2022). Advance Directives Document: knowledge and experiences of healthcare professionals in Colombia. <em>Colombian Journal of Anesthesiology, 50</em>(2). <a href="https://www.revcolanest.com.co/index.php/rca/article/view/1012">revcolanest.com.co</a></li>
+<li>Sánchez-Cárdenas, M. A., et al. (2024). <em>BMC Public Health, 24</em>, 1659.</li>
+<li>Asociación Latinoamericana de Cuidados Paliativos. (2025). <em>Atlas de Cuidados Paliativos de las Américas</em>.</li>
+</ul>
+</section>
+</div>
+<footer><div class="wrap">
+<p><strong>Universidad Antonio Nari&ntilde;o</strong> &middot; Facultad de Enfermer&iacute;a &middot; Maestr&iacute;a en Cuidados Paliativos<br>
+Material aut&oacute;nomo de consulta &middot; Docente: Jorge Wilhem Bogoya L&oacute;pez &middot; Actualizado: 11 de septiembre de 2026</p>
+<p class="small">Modo docente: <code>?docente=true</code> en la URL o <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>D</kbd>.
+Las notas reservadas no se imprimen ni se muestran a los estudiantes por defecto.</p>
+<p class="small">Elaborado con asistencia de Claude (Anthropic) sobre fuentes primarias verificadas el 11 de septiembre de 2026. Espa&ntilde;ol acad&eacute;mico &middot; APA 7.</p>
+</div></footer>
+<script>
+(function(){
+  var root=document.documentElement;
+  try{var t=sessionStorage.getItem('tema');if(t)root.setAttribute('data-theme',t);}catch(e){}
+  function toggleTema(){
+    var d=root.getAttribute('data-theme')==='dark'?'light':'dark';
+    root.setAttribute('data-theme',d);
+    try{sessionStorage.setItem('tema',d);}catch(e){}
+  }
+  function setDocente(on){
+    document.body.classList.toggle('modo-docente',on);
+    var b=document.getElementById('btn-docente');
+    if(b){b.setAttribute('aria-pressed',on?'true':'false');
+      b.textContent=on?'Modo docente activo':'Modo docente';}
+    try{sessionStorage.setItem('docente',on?'1':'0');}catch(e){}
+  }
+  document.addEventListener('DOMContentLoaded',function(){
+    var p=new URLSearchParams(location.search);
+    var on=p.get('docente')==='true'||p.get('docente')==='1';
+    try{if(!on&&sessionStorage.getItem('docente')==='1')on=true;}catch(e){}
+    setDocente(on);
+    var bd=document.getElementById('btn-docente');
+    if(bd)bd.addEventListener('click',function(){setDocente(!document.body.classList.contains('modo-docente'));});
+    var bt=document.getElementById('btn-tema');
+    if(bt)bt.addEventListener('click',toggleTema);
+    document.addEventListener('keydown',function(e){
+      if(e.ctrlKey&&e.shiftKey&&(e.key==='D'||e.key==='d')){
+        e.preventDefault();setDocente(!document.body.classList.contains('modo-docente'));}
+    });
+    // tabs
+    var tabs=document.querySelectorAll('.tabs button');
+    function activar(id){
+      tabs.forEach(function(b){
+        var sel=b.dataset.tab===id;b.setAttribute('aria-selected',sel?'true':'false');
+        var pn=document.getElementById('p-'+b.dataset.tab);if(pn)pn.hidden=!sel;
+      });
+      try{history.replaceState(null,'','#'+id);}catch(e){}
+    }
+    tabs.forEach(function(b){b.addEventListener('click',function(){activar(b.dataset.tab);
+      window.scrollTo({top:document.querySelector('.tabs').offsetTop-60,behavior:'smooth'});});});
+    var h=location.hash.replace('#','');
+    if(h&&document.getElementById('p-'+h))activar(h);else if(tabs.length)activar(tabs[0].dataset.tab);
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ley 1384 de 2010 · Ficha normativa didáctica</title>
+<meta name="description" content="Análisis didáctico de la Ley 1384 de 2010 (Ley Sandra Ceballos) y del cuidado paliativo en la ley colombiana del cáncer.">
+<style>
+:root{
+  --paper:#fbfaf7; --panel:#ffffff; --ink:#16202e; --ink-2:#41505f; --muted:#6b7a89;
+  --line:#e3e0d9; --line-2:#cfcabf;
+  --ley:#1b3a6b; --ley-soft:#eaf0f9;
+  --res:#0f6152; --res-soft:#e6f2ef;
+  --warn:#9a5b06; --warn-soft:#fdf3e3;
+  --alert:#8c2230; --alert-soft:#faecec;
+  --doc:#5b3a8c; --doc-soft:#f1ecf8;
+  --serif:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --sans:"DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --accent:var(--ley); --accent-soft:var(--ley-soft);
+}
+html[data-theme="dark"]{
+  --paper:#12161c; --panel:#1a1f27; --ink:#eef1f5; --ink-2:#c3ccd6; --muted:#93a1b0;
+  --line:#2b323c; --line-2:#3a434f;
+  --ley:#8fb3e8; --ley-soft:#1b2534; --res:#6fc8b3; --res-soft:#142623;
+  --warn:#e0a458; --warn-soft:#2a2115; --alert:#e08b93; --alert-soft:#2b1a1d;
+  --doc:#b79ae0; --doc-soft:#221b30;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+  font-size:17px;line-height:1.65;-webkit-text-size-adjust:100%}
+.wrap{max-width:1060px;margin:0 auto;padding:0 20px}
+a{color:var(--accent);text-underline-offset:3px}
+h1,h2,h3,h4,.ui{font-family:var(--sans)}
+h1{font-size:clamp(1.6rem,4.2vw,2.5rem);line-height:1.15;letter-spacing:-.02em;margin:.2em 0 .3em}
+h2{font-size:clamp(1.25rem,2.8vw,1.6rem);line-height:1.25;margin:2.2rem 0 .6rem;letter-spacing:-.01em}
+h3{font-size:1.08rem;margin:1.6rem 0 .4rem;color:var(--ink)}
+h4{font-size:.95rem;margin:1.2rem 0 .3rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+p{margin:.7em 0}
+small,.small{font-size:.86rem}
+/* top bar */
+.topbar{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--paper) 92%,transparent);
+  backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.topbar .wrap{display:flex;gap:12px;align-items:center;justify-content:space-between;
+  padding-block:10px;flex-wrap:wrap}
+.brand{font-family:var(--sans);font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--muted);text-decoration:none}
+.tools{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.btn{font-family:var(--sans);font-size:.78rem;padding:6px 11px;border-radius:999px;
+  border:1px solid var(--line-2);background:var(--panel);color:var(--ink-2);cursor:pointer;
+  text-decoration:none;display:inline-flex;gap:6px;align-items:center}
+.btn:hover{border-color:var(--accent);color:var(--accent)}
+.btn[aria-pressed="true"]{background:var(--doc-soft);border-color:var(--doc);color:var(--doc)}
+/* hero */
+header.hero{padding:36px 0 10px;border-bottom:1px solid var(--line)}
+.kicker{font-family:var(--sans);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--accent);font-weight:600}
+.lead{font-size:1.12rem;color:var(--ink-2);max-width:64ch}
+/* chips */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.chip{font-family:var(--sans);font-size:.76rem;padding:4px 10px;border-radius:999px;
+  border:1px solid var(--line-2);color:var(--ink-2);background:var(--panel)}
+.chip.ok{background:var(--res-soft);border-color:var(--res);color:var(--res)}
+.chip.warn{background:var(--warn-soft);border-color:var(--warn);color:var(--warn)}
+.chip.alert{background:var(--alert-soft);border-color:var(--alert);color:var(--alert)}
+.chip.info{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+/* stat row */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:22px 0}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.stat b{display:block;font-family:var(--sans);font-size:1.55rem;line-height:1.1;color:var(--accent)}
+.stat span{font-family:var(--sans);font-size:.78rem;color:var(--muted);display:block;margin-top:4px}
+/* tabs */
+.tabs{display:flex;gap:6px;overflow-x:auto;padding:14px 0 0;border-bottom:1px solid var(--line);
+  position:sticky;top:49px;background:var(--paper);z-index:30}
+.tabs button{font-family:var(--sans);font-size:.82rem;white-space:nowrap;border:none;background:none;
+  color:var(--muted);padding:8px 12px;border-bottom:2px solid transparent;cursor:pointer;border-radius:6px 6px 0 0}
+.tabs button:hover{color:var(--ink)}
+.tabs button[aria-selected="true"]{color:var(--accent);border-bottom-color:var(--accent);font-weight:600}
+.panel[hidden]{display:none}
+.panel{padding-top:8px;animation:fade .22s ease}
+@keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+/* cards & boxes */
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:14px 0}
+.card h3{margin-top:0}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.art{border-left:3px solid var(--accent);background:var(--panel);border-radius:0 12px 12px 0;
+  padding:14px 18px;margin:12px 0;border-top:1px solid var(--line);border-right:1px solid var(--line);
+  border-bottom:1px solid var(--line)}
+.art .num{font-family:var(--sans);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--accent);font-weight:700}
+.art h3{margin:.2rem 0 .4rem;font-size:1rem}
+.note{border-left:3px solid var(--warn);background:var(--warn-soft);padding:12px 16px;border-radius:0 10px 10px 0;margin:14px 0}
+.crit{border-left:3px solid var(--alert);background:var(--alert-soft);padding:12px 16px;border-radius:0 10px 10px 0;margin:14px 0}
+.thesis{font-size:1.05rem;font-style:italic;border-left:3px solid var(--accent);padding:10px 18px;
+  margin:18px 0;color:var(--ink-2)}
+blockquote{margin:18px 0;padding:14px 20px;border-left:3px solid var(--line-2);background:var(--panel);
+  border-radius:0 10px 10px 0;font-style:italic;color:var(--ink-2)}
+blockquote cite{display:block;font-style:normal;font-family:var(--sans);font-size:.8rem;color:var(--muted);margin-top:8px}
+/* tables */
+.tablewrap{overflow-x:auto;margin:16px 0;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;min-width:520px}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--sans);font-size:.76rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);
+  background:color-mix(in srgb,var(--accent-soft) 60%,transparent)}
+tr:last-child td{border-bottom:none}
+/* timeline */
+.tl{list-style:none;margin:18px 0;padding:0 0 0 22px;border-left:2px solid var(--line-2)}
+.tl li{position:relative;margin:0 0 16px;padding-left:14px}
+.tl li::before{content:"";position:absolute;left:-29px;top:8px;width:10px;height:10px;border-radius:50%;
+  background:var(--accent);border:2px solid var(--paper)}
+.tl .y{font-family:var(--sans);font-size:.78rem;letter-spacing:.06em;color:var(--accent);font-weight:700}
+/* detail */
+details{border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:0 16px;margin:10px 0}
+details summary{font-family:var(--sans);font-size:.92rem;cursor:pointer;padding:12px 0;font-weight:500}
+details[open] summary{border-bottom:1px solid var(--line);margin-bottom:8px}
+details > *:last-child{margin-bottom:12px}
+/* docente */
+.docente{display:none;border:1px dashed var(--doc);background:var(--doc-soft);border-radius:12px;
+  padding:14px 18px;margin:14px 0}
+body.modo-docente .docente{display:block}
+.docente::before{content:"Nota reservada al docente";display:block;font-family:var(--sans);font-size:.72rem;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--doc);font-weight:700;margin-bottom:6px}
+.docente-flag{display:none}
+body.modo-docente .docente-flag{display:inline}
+/* footer */
+footer{margin-top:50px;border-top:1px solid var(--line);padding:24px 0 50px;color:var(--muted);font-size:.86rem}
+footer a{color:var(--ink-2)}
+.srcs{font-size:.84rem;color:var(--muted)}
+.srcs li{margin-bottom:6px}
+@media print{
+  .topbar,.tabs,.btn{display:none!important}
+  .panel[hidden]{display:block!important}
+  body{font-size:11pt;background:#fff}
+  .card,.art,details{break-inside:avoid}
+}
+
+:root{--accent:var(--ley);--accent-soft:var(--ley-soft)}
+</style>
+<noscript><style>
+/* Sin JavaScript las pestañas no pueden abrirse: se muestran todos los paneles, uno tras otro. */
+.panel[hidden]{display:block!important}.tabs{display:none!important}
+</style></noscript>
+</head>
+<body>
+<div class="topbar"><div class="wrap">
+<a class="brand" href="index.html">&larr; Índice del módulo normativo</a>
+<div class="tools"><a class="btn" href="resolucion-2665-2018.html">Resolución 2665 de 2018 &rarr;</a>
+<button class="btn" id="btn-tema" type="button">Tema claro/oscuro</button>
+<button class="btn" id="btn-docente" type="button" aria-pressed="false">Modo docente</button>
+</div></div></div>
+<header class="hero"><div class="wrap">
+<p class="kicker">Ficha normativa 03 &middot; Ley de la República</p>
+<h1>Ley 1384 de 2010</h1>
+<p class="lead"><em>Ley Sandra Ceballos</em>, «por la cual se establecen las acciones para la atención integral del cáncer en Colombia». La primera norma colombiana que obligó a garantizar cuidado paliativo &mdash;cuatro años antes de la Ley 1733&mdash; y la única que trajo sanciones.</p>
+<div class="chips">
+<span class="chip info">Sancionada el 19 de abril de 2010</span>
+<span class="chip ok">Vigente</span>
+<span class="chip">24 artículos</span>
+<span class="chip warn">Modificada en 2022 y 2024</span>
+</div>
+<div class="stats">
+<div class="stat"><b>24</b><span>artículos</span></div>
+<div class="stat"><b>2010</b><span>cuatro años antes de la Ley 1733</span></div>
+<div class="stat"><b>200&ndash;1.000</b><span>SMLMV de multa por incumplimiento (art. 21)</span></div>
+<div class="stat"><b>3</b><span>leyes posteriores la modifican o la tocan</span></div>
+</div>
+</div></header>
+
+<div class="wrap">
+<div class="tabs" role="tablist">
+<button data-tab="panorama" role="tab">1 &middot; Panorama</button>
+<button data-tab="articulado" role="tab">2 &middot; Articulado</button>
+<button data-tab="paliativo" role="tab">3 &middot; El cuidado paliativo en la ley del cáncer</button>
+<button data-tab="dientes" role="tab">4 &middot; La ley que sí tiene dientes</button>
+<button data-tab="vigencia" role="tab">5 &middot; Vigencia verificada</button>
+<button data-tab="practica" role="tab">6 &middot; Uso en la práctica</button>
+</div>
+
+<!-- 1 -->
+<section class="panel" id="p-panorama" hidden>
+<h2>Una ley de cáncer que es también una ley de cuidado paliativo</h2>
+<p>La Ley 1384 se estudia como norma oncológica y por eso se pierde de vista lo esencial para este curso: contiene una <strong>obligación expresa de cuidado paliativo</strong> (art. 10), lo incorpora en la <strong>definición legal</strong> de control integral del cáncer (art. 4) y lo exige como <strong>servicio de las unidades funcionales</strong> (art. 8). Todo eso en 2010, cuatro años antes de la Ley 1733.</p>
+<div class="grid2">
+<div class="card"><h3>Lo que crea</h3>
+<ul>
+<li>El cáncer como <strong>prioridad nacional</strong> de salud pública (art. 5) y a los pacientes como sujetos de especial protección constitucional (art. 5, según la Ley 2360 de 2024).</li>
+<li>Las <strong>unidades funcionales</strong> de cáncer, con cuidado paliativo entre los servicios exigidos (art. 8).</li>
+<li>Acceso obligatorio a programas de cuidado paliativo y a opioides vía Fondo Nacional de Estupefacientes (art. 10).</li>
+<li>Red Nacional de Cáncer, registros nacionales y observatorio epidemiológico (arts. 12, 15 y 16).</li>
+<li><strong>Financiación</strong> (Subcuenta de Alto Costo, art. 22) y <strong>sanciones</strong> de 200 a 1.000 SMLMV (art. 21).</li>
+</ul></div>
+<div class="card"><h3>Sus límites</h3>
+<ul>
+<li>Protege por <strong>diagnóstico</strong>, no por necesidad: solo cubre al paciente oncológico. La enfermedad crónica no oncológica queda fuera.</li>
+<li>El art. 24 le dio seis meses de plazo para la reglamentación &mdash;la misma fórmula y el mismo destino que el art. 10 de la Ley 1733&mdash;.</li>
+<li>No define el contenido del programa de cuidado paliativo ni el equipo mínimo.</li>
+<li>No fija indicador de cobertura de cuidado paliativo: los registros del art. 15 son de cáncer, no de paliación.</li>
+</ul></div>
+</div>
+<p class="thesis">Colombia no esperó hasta 2014 para obligarse en cuidados paliativos: se obligó en 2010, con sanciones y con presupuesto, pero solo para los pacientes con cáncer. Lo que la Ley 1733 ganó en cobertura lo perdió en capacidad de exigir.</p>
+</section>
+
+<!-- 2 -->
+<section class="panel" id="p-articulado" hidden>
+<h2>Los 24 artículos</h2>
+<p class="small">Síntesis fiel del contenido normativo; las expresiones entre comillas angulares corresponden al texto legal. Los artículos 4, 5, 6 y 11 deben leerse en su versión modificada (ver pestaña 5).</p>
+<div class="tablewrap"><table>
+<thead><tr><th>Bloque</th><th>Art.</th><th>Epígrafe</th><th>Contenido</th></tr></thead>
+<tbody>
+<tr><td rowspan="4"><strong>Marco general</strong></td><td>1</td><td>Objeto</td><td>Acciones para el control integral del cáncer; reducir mortalidad y morbilidad y mejorar la calidad de vida.</td></tr>
+<tr><td>2</td><td>Principios</td><td>Interpretación y ejecución con respeto y garantía del derecho a la vida y prevención oportuna.</td></tr>
+<tr><td>3</td><td>Campo de aplicación</td><td>Toda la población residente en el territorio nacional.</td></tr>
+<tr><td>4</td><td>Definiciones</td><td>Control integral del cáncer, <strong>cuidado paliativo</strong>, unidades funcionales, nuevas tecnologías y sujetos de especial protección constitucional. <span class="chip warn">Modificado por la Ley 2360 de 2024</span></td></tr>
+<tr><td rowspan="8"><strong>Atención</strong></td><td>5</td><td>Control integral del cáncer</td><td>Cáncer como prioridad nacional; pacientes como sujetos de especial protección; protocolos del INC. <span class="chip warn">Modificado por la Ley 2360 de 2024</span></td></tr>
+<tr><td>6</td><td>Promoción y prevención</td><td>Pedagogía, campañas y estrategias sobre factores de riesgo y autoexamen. <span class="chip warn">Modificado por la Ley 2194 de 2022</span></td></tr>
+<tr><td>7</td><td>Prestación de servicios oncológicos</td><td>Conforme a guías de práctica clínica y protocolos de manejo, con atención integral, oportuna y pertinente.</td></tr>
+<tr><td>8</td><td>Unidades funcionales</td><td>Unidades clínicas multidisciplinarias con oncólogo, infraestructura, radioterapia, hospitalización, rehabilitación y <strong>cuidado paliativo</strong>.</td></tr>
+<tr><td>9</td><td>Atención en lugares aislados</td><td>Atención primaria del cáncer en hospitales regionales, con capacitación, protocolos y telemedicina.</td></tr>
+<tr><td>10</td><td><strong>Cuidado paliativo</strong></td><td>Obligación de garantizar acceso a programas de cuidado paliativo; disponibilidad de opioides vía FNE.</td></tr>
+<tr><td>11</td><td>Rehabilitación integral</td><td>Rehabilitación física, cirugías, prótesis y atención psicológica y social. <span class="chip warn">Modificado por la Ley 2194 de 2022</span></td></tr>
+<tr><td>12</td><td>Red Nacional de Cáncer</td><td>Coordinada por el Instituto Nacional de Cancerología, para la gestión integral de la información.</td></tr>
+<tr><td rowspan="5"><strong>Organización y datos</strong></td><td>13</td><td>Red de prestación de servicios</td><td>Las EPS organizan redes oncológicas según parámetros del Ministerio.</td></tr>
+<tr><td>14</td><td>Apoyo social</td><td>Hogar de paso, transporte, apoyo psicosocial y aulas hospitalarias para menores.</td></tr>
+<tr><td>15</td><td>Sistemas de información</td><td>Registros nacionales de cáncer; obligación de reporte de laboratorios, IPS y centros de radiodiagnóstico.</td></tr>
+<tr><td>16</td><td>Observatorio epidemiológico</td><td>Coordinado por el INC, con encuestas permanentes de factores de riesgo.</td></tr>
+<tr><td>17</td><td>Investigación</td><td>Cáncer como prioridad del Plan Nacional de Ciencia y Tecnología.</td></tr>
+<tr><td rowspan="7"><strong>Garantía y cierre</strong></td><td>18</td><td>Evaluación de tecnologías</td><td>Instrumentos para evaluar calidad, eficacia y seguridad de tecnologías oncológicas.</td></tr>
+<tr><td>19</td><td>Formación del recurso humano</td><td>Contenidos de control del cáncer en los currículos, con énfasis preventivo.</td></tr>
+<tr><td>20</td><td>Inspección, vigilancia y control</td><td>Supersalud, direcciones territoriales y Defensoría del Pueblo; <strong>inversión de la carga de la prueba</strong> en casos de desabastecimiento.</td></tr>
+<tr><td>21</td><td><strong>Sanciones</strong></td><td>Multas de 200 a 1.000 SMLMV por incumplimiento, con destino al Fondo de Alto Costo.</td></tr>
+<tr><td>22</td><td>Financiación</td><td>Subcuenta de Alto Costo, componente cáncer, con recursos parafiscales y fiscales.</td></tr>
+<tr><td>23</td><td>Día nacional</td><td>4 de febrero como Día Nacional de Lucha contra el Cáncer.</td></tr>
+<tr><td>24</td><td>Vigencia</td><td>Rige desde su promulgación en el Diario Oficial; reglamentación en los seis meses siguientes.</td></tr>
+</tbody></table></div>
+</section>
+
+<!-- 3 -->
+<section class="panel" id="p-paliativo" hidden>
+<h2>Cuatro puertas paliativas en una ley de cáncer</h2>
+<p>El cuidado paliativo no aparece enumerado al final del continuo, como ocurre en la Resolución 3280 o en el Decreto 858: está incorporado en cuatro lugares distintos del diseño de la ley.</p>
+<div class="art"><span class="num">Artículo 4</span><h3>Definición legal</h3>
+<p>El cuidado paliativo entra en el <strong>catálogo de definiciones</strong> de la ley, junto con el control integral del cáncer y las unidades funcionales. Estar en las definiciones significa que el concepto opera en todo el articulado, no en un artículo aislado.</p></div>
+<div class="art"><span class="num">Artículo 8</span><h3>Requisito de las unidades funcionales</h3>
+<p>Una unidad funcional de cáncer no está completa sin servicio de cuidado paliativo. Es un <strong>requisito estructural</strong>, verificable en la habilitación y en la auditoría: o el servicio existe o la unidad no cumple.</p></div>
+<div class="art"><span class="num">Artículo 10</span><h3>Obligación de acceso</h3>
+<p>EPS, regímenes de excepción y especiales, entidades territoriales responsables de la población pobre no asegurada, demás aseguradoras e IPS públicas y privadas «deberán garantizar el acceso de los pacientes oncológicos a Programas de Cuidado Paliativo». Sus parágrafos abordan el modelo de atención y el acceso a <strong>opioides</strong> a través del Fondo Nacional de Estupefacientes.</p></div>
+<div class="art"><span class="num">Artículo 9</span><h3>La dimensión territorial</h3>
+<p>Atención primaria del cáncer en hospitales regionales, con capacitación, protocolos y telemedicina para la referencia especializada. Es el artículo que permite discutir el acceso en municipios sin unidad funcional &mdash;el problema real de la Amazonía, la Orinoquía y buena parte de Boyacá&mdash;.</p></div>
+<div class="note"><p><strong>Consecuencia práctica.</strong> Para un paciente oncológico, la Ley 1384 es una vía de exigibilidad <em>adicional</em> a la Ley 1733, y en algunos aspectos más fuerte: tiene destinatarios nominados, requisito estructural de servicio, financiación identificada y sanción. Invocar solo la 1733 en una tutela oncológica deja argumentos sobre la mesa.</p></div>
+</section>
+
+<!-- 4 -->
+<section class="panel" id="p-dientes" hidden>
+<h2>La comparación que conviene hacer en clase</h2>
+<p>Misma rejilla, dos leyes colombianas de cuidado paliativo. El resultado explica por qué la norma más antigua es la más exigible.</p>
+<div class="tablewrap"><table>
+<thead><tr><th>Dimensión</th><th>Ley 1384 de 2010</th><th>Ley 1733 de 2014</th></tr></thead>
+<tbody>
+<tr><td><strong>Población</strong></td><td>Pacientes oncológicos</td><td>Enfermedad terminal, crónica, degenerativa e irreversible de alto impacto</td></tr>
+<tr><td><strong>Obligación de CP</strong></td><td>Art. 10, con destinatarios nominados</td><td>Arts. 5 y 6, con destinatarios nominados</td></tr>
+<tr><td><strong>Requisito estructural</strong></td><td>Sí: CP como servicio exigido de la unidad funcional (art. 8)</td><td>No</td></tr>
+<tr><td><strong>Financiación</strong></td><td>Sí: Subcuenta de Alto Costo, componente cáncer (art. 22)</td><td>No la define</td></tr>
+<tr><td><strong>Sistema de información</strong></td><td>Sí: registros nacionales y observatorio (arts. 15 y 16)</td><td>No</td></tr>
+<tr><td><strong>Vigilancia</strong></td><td>Supersalud, territoriales y Defensoría, con inversión de la carga de la prueba (art. 20)</td><td>Vigilancia genérica de la Supersalud (art. 6)</td></tr>
+<tr><td><strong>Sanción</strong></td><td><strong>Sí: 200 a 1.000 SMLMV (art. 21)</strong></td><td>Ninguna prevista</td></tr>
+<tr><td><strong>Plazo de reglamentación</strong></td><td>Seis meses (art. 24)</td><td>Seis meses (art. 10)</td></tr>
+</tbody></table></div>
+<p class="thesis">La ley más específica es la que tiene dientes; la ley más universal es la que no los tiene. El paciente no oncológico con enfermedad progresiva está protegido por la norma más amplia y menos exigible del sistema.</p>
+<div class="docente">
+<p>Ejercicio de 10 minutos que funciona: entregar la tabla sin la columna de la Ley 1733 y pedir que la completen de memoria. La mayoría atribuye a la 1733 sanciones y financiación que no tiene. El error es el contenido de la clase: revela que asumimos que una ley «importante» necesariamente obliga con fuerza. Enlazar después con la rejilla de cinco dimensiones del Tema 2.</p>
+</div>
+</section>
+
+<!-- 5 -->
+<section class="panel" id="p-vigencia" hidden>
+<h2>Vigencia verificada a septiembre de 2026</h2>
+<p><strong>La Ley 1384 de 2010 está vigente.</strong> No registra derogatoria total ni parcial en las compilaciones normativas consultadas. Al contrario: el Congreso la ha modificado dos veces en los últimos cuatro años, lo que confirma que está viva.</p>
+<div class="tablewrap"><table>
+<thead><tr><th>Norma posterior</th><th>Año</th><th>Efecto sobre la Ley 1384</th></tr></thead>
+<tbody>
+<tr><td>Ley 2194</td><td>2022</td><td>Modifica los artículos 6 (promoción y prevención) y 11 (rehabilitación integral).</td></tr>
+<tr><td>Ley 2291</td><td>2023</td><td>Transforma la naturaleza jurídica del Instituto Nacional de Cancerología; referida en el parágrafo del art. 5.</td></tr>
+<tr><td>Ley 2360</td><td>2024</td><td>Modifica y adiciona los artículos 4 y 5: reconoce a las personas con cáncer o con sospecha como <strong>sujetos de especial protección constitucional</strong>.</td></tr>
+</tbody></table></div>
+<div class="crit">
+<p><strong>Sobre la Resolución 813 de 2026.</strong> La pregunta «¿la Resolución 813 derogó la Ley 1384?» no puede responderse afirmativamente por una razón anterior al contenido: <strong>una resolución no puede derogar una ley</strong>. La Resolución 813 es un acto administrativo del Ministerio de Salud y solo puede derogar normas de igual o inferior jerarquía. En efecto, derogó las Resoluciones 825 de 2018 y 971 de 2021, modificó parcialmente la Resolución 13437 de 1991 y preservó la Resolución 2665 de 2018. Ninguna ley fue tocada, ni podía serlo.</p>
+</div>
+<div class="docente">
+<p>Este es el mejor punto del semestre para trabajar jerarquía normativa sin hacer una clase de derecho: Constitución &rarr; ley estatutaria &rarr; ley ordinaria &rarr; decreto reglamentario &rarr; resolución. El error de suponer que una resolución «reemplaza» una ley aparece en las entregas todos los semestres. Pedir que identifiquen el nivel de cada norma del expediente antes de discutir su contenido.</p>
+</div>
+</section>
+
+<!-- 6 -->
+<section class="panel" id="p-practica" hidden>
+<h2>Cómo se usa esta ley</h2>
+<div class="grid2">
+<div class="card"><h3>En la reclamación y la tutela</h3>
+<ul>
+<li>Para un paciente oncológico, acumular Ley 1384 (arts. 8, 10 y 20) con Ley 1733: la primera aporta requisito estructural, inversión de la carga de la prueba en desabastecimiento y sanción.</li>
+<li>El art. 20 es especialmente útil ante la falta de opioides: en desabastecimiento, la carga de la prueba se invierte.</li>
+<li>La condición de sujeto de especial protección constitucional (art. 5, Ley 2360 de 2024) refuerza la urgencia en el trámite.</li>
+</ul></div>
+<div class="card"><h3>En la gestión institucional</h3>
+<ul>
+<li>Si la institución tiene unidad funcional de cáncer, el servicio de cuidado paliativo no es un valor agregado: es un requisito del art. 8.</li>
+<li>El art. 22 identifica la fuente de financiación, argumento frecuentemente omitido al sustentar un programa ante la gerencia.</li>
+<li>El art. 9 sostiene el modelo de atención primaria oncológica con telemedicina en hospitales regionales.</li>
+</ul></div>
+</div>
+<h3>Preguntas guía para el estudio autónomo</h3>
+<ol>
+<li>¿Por qué una ley de 2010 tiene sanciones y financiación, y una ley de 2014 sobre el mismo servicio no tiene ninguna de las dos?</li>
+<li>Su institución atiende pacientes oncológicos: ¿cumple el artículo 8? ¿Quién lo verifica y con qué evidencia?</li>
+<li>¿Qué pasa con el paciente con enfermedad pulmonar avanzada o falla cardíaca terminal, a quien la Ley 1384 no cubre?</li>
+<li>Si tuviera que redactar una reforma de una sola línea a la Ley 1733, ¿qué artículo de la Ley 1384 le copiaría?</li>
+</ol>
+<h3>Fuentes de esta ficha</h3>
+<ul class="srcs">
+<li>Congreso de la República de Colombia. (2010, 19 de abril). <em>Ley 1384 de 2010</em>. Diario Oficial 47.685. <a href="https://normograma.supersalud.gov.co/compilacion/docs/ley_1384_2010.htm">Compilación jurídica SuperSalud</a> &middot; <a href="https://www.ins.gov.co/Transparencia/Docs/Ley-1384-de-2010.pdf">texto en PDF (INS)</a></li>
+<li>Congreso de la República de Colombia. (2022). <em>Ley 2194 de 2022</em>, por medio de la cual se modifica la Ley 1384 de 2010.</li>
+<li>Congreso de la República de Colombia. (2023). <em>Ley 2291 de 2023</em> (naturaleza jurídica del Instituto Nacional de Cancerología).</li>
+<li>Congreso de la República de Colombia. (2024). <em>Ley 2360 de 2024</em>, por medio de la cual se modifica y adiciona la Ley 1384 de 2010. <a href="https://normograma.supersalud.gov.co/compilacion/docs/ley_2360_2024.htm">Compilación jurídica SuperSalud</a></li>
+<li>Ministerio de Salud y Protección Social. (2026, 28 de abril). <em>Resolución 813 de 2026</em>.</li>
+</ul>
+</section>
+</div>
+<footer><div class="wrap">
+<p><strong>Universidad Antonio Nari&ntilde;o</strong> &middot; Facultad de Enfermer&iacute;a &middot; Maestr&iacute;a en Cuidados Paliativos<br>
+Material aut&oacute;nomo de consulta &middot; Docente: Jorge Wilhem Bogoya L&oacute;pez &middot; Actualizado: 11 de septiembre de 2026</p>
+<p class="small">Modo docente: <code>?docente=true</code> en la URL o <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>D</kbd>.
+Las notas reservadas no se imprimen ni se muestran a los estudiantes por defecto.</p>
+<p class="small">Elaborado con asistencia de Claude (Anthropic) sobre fuentes primarias verificadas el 11 de septiembre de 2026. Espa&ntilde;ol acad&eacute;mico &middot; APA 7.</p>
+</div></footer>
+<script>
+(function(){
+  var root=document.documentElement;
+  try{var t=sessionStorage.getItem('tema');if(t)root.setAttribute('data-theme',t);}catch(e){}
+  function toggleTema(){
+    var d=root.getAttribute('data-theme')==='dark'?'light':'dark';
+    root.setAttribute('data-theme',d);
+    try{sessionStorage.setItem('tema',d);}catch(e){}
+  }
+  function setDocente(on){
+    document.body.classList.toggle('modo-docente',on);
+    var b=document.getElementById('btn-docente');
+    if(b){b.setAttribute('aria-pressed',on?'true':'false');
+      b.textContent=on?'Modo docente activo':'Modo docente';}
+    try{sessionStorage.setItem('docente',on?'1':'0');}catch(e){}
+  }
+  document.addEventListener('DOMContentLoaded',function(){
+    var p=new URLSearchParams(location.search);
+    var on=p.get('docente')==='true'||p.get('docente')==='1';
+    try{if(!on&&sessionStorage.getItem('docente')==='1')on=true;}catch(e){}
+    setDocente(on);
+    var bd=document.getElementById('btn-docente');
+    if(bd)bd.addEventListener('click',function(){setDocente(!document.body.classList.contains('modo-docente'));});
+    var bt=document.getElementById('btn-tema');
+    if(bt)bt.addEventListener('click',toggleTema);
+    document.addEventListener('keydown',function(e){
+      if(e.ctrlKey&&e.shiftKey&&(e.key==='D'||e.key==='d')){
+        e.preventDefault();setDocente(!document.body.classList.contains('modo-docente'));}
+    });
+    // tabs
+    var tabs=document.querySelectorAll('.tabs button');
+    function activar(id){
+      tabs.forEach(function(b){
+        var sel=b.dataset.tab===id;b.setAttribute('aria-selected',sel?'true':'false');
+        var pn=document.getElementById('p-'+b.dataset.tab);if(pn)pn.hidden=!sel;
+      });
+      try{history.replaceState(null,'','#'+id);}catch(e){}
+    }
+    tabs.forEach(function(b){b.addEventListener('click',function(){activar(b.dataset.tab);
+      window.scrollTo({top:document.querySelector('.tabs').offsetTop-60,behavior:'smooth'});});});
+    var h=location.hash.replace('#','');
+    if(h&&document.getElementById('p-'+h))activar(h);else if(tabs.length)activar(tabs[0].dataset.tab);
+  });
+})();
+</script>
+</body>
+</html>

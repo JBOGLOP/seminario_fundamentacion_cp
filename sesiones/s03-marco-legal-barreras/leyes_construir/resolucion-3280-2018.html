@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Resolución 3280 de 2018 · Ficha normativa didáctica</title>
+<meta name="description" content="Análisis didáctico de la Resolución 3280 de 2018 (RPMS y ruta materno perinatal) y del lugar del cuidado paliativo en ella.">
+<style>
+:root{
+  --paper:#fbfaf7; --panel:#ffffff; --ink:#16202e; --ink-2:#41505f; --muted:#6b7a89;
+  --line:#e3e0d9; --line-2:#cfcabf;
+  --ley:#1b3a6b; --ley-soft:#eaf0f9;
+  --res:#0f6152; --res-soft:#e6f2ef;
+  --warn:#9a5b06; --warn-soft:#fdf3e3;
+  --alert:#8c2230; --alert-soft:#faecec;
+  --doc:#5b3a8c; --doc-soft:#f1ecf8;
+  --serif:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --sans:"DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --accent:var(--ley); --accent-soft:var(--ley-soft);
+}
+html[data-theme="dark"]{
+  --paper:#12161c; --panel:#1a1f27; --ink:#eef1f5; --ink-2:#c3ccd6; --muted:#93a1b0;
+  --line:#2b323c; --line-2:#3a434f;
+  --ley:#8fb3e8; --ley-soft:#1b2534; --res:#6fc8b3; --res-soft:#142623;
+  --warn:#e0a458; --warn-soft:#2a2115; --alert:#e08b93; --alert-soft:#2b1a1d;
+  --doc:#b79ae0; --doc-soft:#221b30;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+  font-size:17px;line-height:1.65;-webkit-text-size-adjust:100%}
+.wrap{max-width:1060px;margin:0 auto;padding:0 20px}
+a{color:var(--accent);text-underline-offset:3px}
+h1,h2,h3,h4,.ui{font-family:var(--sans)}
+h1{font-size:clamp(1.6rem,4.2vw,2.5rem);line-height:1.15;letter-spacing:-.02em;margin:.2em 0 .3em}
+h2{font-size:clamp(1.25rem,2.8vw,1.6rem);line-height:1.25;margin:2.2rem 0 .6rem;letter-spacing:-.01em}
+h3{font-size:1.08rem;margin:1.6rem 0 .4rem;color:var(--ink)}
+h4{font-size:.95rem;margin:1.2rem 0 .3rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+p{margin:.7em 0}
+small,.small{font-size:.86rem}
+/* top bar */
+.topbar{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--paper) 92%,transparent);
+  backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.topbar .wrap{display:flex;gap:12px;align-items:center;justify-content:space-between;
+  padding-block:10px;flex-wrap:wrap}
+.brand{font-family:var(--sans);font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--muted);text-decoration:none}
+.tools{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.btn{font-family:var(--sans);font-size:.78rem;padding:6px 11px;border-radius:999px;
+  border:1px solid var(--line-2);background:var(--panel);color:var(--ink-2);cursor:pointer;
+  text-decoration:none;display:inline-flex;gap:6px;align-items:center}
+.btn:hover{border-color:var(--accent);color:var(--accent)}
+.btn[aria-pressed="true"]{background:var(--doc-soft);border-color:var(--doc);color:var(--doc)}
+/* hero */
+header.hero{padding:36px 0 10px;border-bottom:1px solid var(--line)}
+.kicker{font-family:var(--sans);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--accent);font-weight:600}
+.lead{font-size:1.12rem;color:var(--ink-2);max-width:64ch}
+/* chips */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.chip{font-family:var(--sans);font-size:.76rem;padding:4px 10px;border-radius:999px;
+  border:1px solid var(--line-2);color:var(--ink-2);background:var(--panel)}
+.chip.ok{background:var(--res-soft);border-color:var(--res);color:var(--res)}
+.chip.warn{background:var(--warn-soft);border-color:var(--warn);color:var(--warn)}
+.chip.alert{background:var(--alert-soft);border-color:var(--alert);color:var(--alert)}
+.chip.info{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+/* stat row */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:22px 0}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.stat b{display:block;font-family:var(--sans);font-size:1.55rem;line-height:1.1;color:var(--accent)}
+.stat span{font-family:var(--sans);font-size:.78rem;color:var(--muted);display:block;margin-top:4px}
+/* tabs */
+.tabs{display:flex;gap:6px;overflow-x:auto;padding:14px 0 0;border-bottom:1px solid var(--line);
+  position:sticky;top:49px;background:var(--paper);z-index:30}
+.tabs button{font-family:var(--sans);font-size:.82rem;white-space:nowrap;border:none;background:none;
+  color:var(--muted);padding:8px 12px;border-bottom:2px solid transparent;cursor:pointer;border-radius:6px 6px 0 0}
+.tabs button:hover{color:var(--ink)}
+.tabs button[aria-selected="true"]{color:var(--accent);border-bottom-color:var(--accent);font-weight:600}
+.panel[hidden]{display:none}
+.panel{padding-top:8px;animation:fade .22s ease}
+@keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+/* cards & boxes */
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:14px 0}
+.card h3{margin-top:0}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.art{border-left:3px solid var(--accent);background:var(--panel);border-radius:0 12px 12px 0;
+  padding:14px 18px;margin:12px 0;border-top:1px solid var(--line);border-right:1px solid var(--line);
+  border-bottom:1px solid var(--line)}
+.art .num{font-family:var(--sans);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--accent);font-weight:700}
+.art h3{margin:.2rem 0 .4rem;font-size:1rem}
+.note{border-left:3px solid var(--warn);background:var(--warn-soft);padding:12px 16px;border-radius:0 10px 10px 0;margin:14px 0}
+.crit{border-left:3px solid var(--alert);background:var(--alert-soft);padding:12px 16px;border-radius:0 10px 10px 0;margin:14px 0}
+.thesis{font-size:1.05rem;font-style:italic;border-left:3px solid var(--accent);padding:10px 18px;
+  margin:18px 0;color:var(--ink-2)}
+blockquote{margin:18px 0;padding:14px 20px;border-left:3px solid var(--line-2);background:var(--panel);
+  border-radius:0 10px 10px 0;font-style:italic;color:var(--ink-2)}
+blockquote cite{display:block;font-style:normal;font-family:var(--sans);font-size:.8rem;color:var(--muted);margin-top:8px}
+/* tables */
+.tablewrap{overflow-x:auto;margin:16px 0;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;min-width:520px}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--sans);font-size:.76rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);
+  background:color-mix(in srgb,var(--accent-soft) 60%,transparent)}
+tr:last-child td{border-bottom:none}
+/* timeline */
+.tl{list-style:none;margin:18px 0;padding:0 0 0 22px;border-left:2px solid var(--line-2)}
+.tl li{position:relative;margin:0 0 16px;padding-left:14px}
+.tl li::before{content:"";position:absolute;left:-29px;top:8px;width:10px;height:10px;border-radius:50%;
+  background:var(--accent);border:2px solid var(--paper)}
+.tl .y{font-family:var(--sans);font-size:.78rem;letter-spacing:.06em;color:var(--accent);font-weight:700}
+/* detail */
+details{border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:0 16px;margin:10px 0}
+details summary{font-family:var(--sans);font-size:.92rem;cursor:pointer;padding:12px 0;font-weight:500}
+details[open] summary{border-bottom:1px solid var(--line);margin-bottom:8px}
+details > *:last-child{margin-bottom:12px}
+/* docente */
+.docente{display:none;border:1px dashed var(--doc);background:var(--doc-soft);border-radius:12px;
+  padding:14px 18px;margin:14px 0}
+body.modo-docente .docente{display:block}
+.docente::before{content:"Nota reservada al docente";display:block;font-family:var(--sans);font-size:.72rem;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--doc);font-weight:700;margin-bottom:6px}
+.docente-flag{display:none}
+body.modo-docente .docente-flag{display:inline}
+/* footer */
+footer{margin-top:50px;border-top:1px solid var(--line);padding:24px 0 50px;color:var(--muted);font-size:.86rem}
+footer a{color:var(--ink-2)}
+.srcs{font-size:.84rem;color:var(--muted)}
+.srcs li{margin-bottom:6px}
+@media print{
+  .topbar,.tabs,.btn{display:none!important}
+  .panel[hidden]{display:block!important}
+  body{font-size:11pt;background:#fff}
+  .card,.art,details{break-inside:avoid}
+}
+
+:root{--accent:var(--res);--accent-soft:var(--res-soft)}
+</style>
+<noscript><style>
+/* Sin JavaScript las pestañas no pueden abrirse: se muestran todos los paneles, uno tras otro. */
+.panel[hidden]{display:block!important}.tabs{display:none!important}
+</style></noscript>
+</head>
+<body>
+<div class="topbar"><div class="wrap">
+<a class="brand" href="index.html">&larr; Índice del módulo normativo</a>
+<div class="tools"><a class="btn" href="ley-1733-2014.html">&larr; Ley 1733 de 2014</a>
+<button class="btn" id="btn-tema" type="button">Tema claro/oscuro</button>
+<button class="btn" id="btn-docente" type="button" aria-pressed="false">Modo docente</button>
+</div></div></div>
+<header class="hero"><div class="wrap">
+<p class="kicker">Ficha normativa 02 &middot; Resolución ministerial</p>
+<h1>Resolución 3280 de 2018</h1>
+<p class="lead">«Por medio de la cual se adoptan los lineamientos técnicos y operativos de la Ruta Integral de Atención para la Promoción y Mantenimiento de la Salud y la Ruta Integral de Atención en Salud para la Población Materno Perinatal y se establecen las directrices para su operación».</p>
+<div class="chips">
+<span class="chip info">2 de agosto de 2018</span>
+<span class="chip ok">Vigente, con modificaciones</span>
+<span class="chip">7 artículos + 2 anexos técnicos</span>
+<span class="chip alert">Una sola mención de «paliación»</span>
+</div>
+<div class="stats">
+<div class="stat"><b>2</b><span>rutas adoptadas (RPMS y materno perinatal)</span></div>
+<div class="stat"><b>6</b><span>momentos del curso de vida</span></div>
+<div class="stat"><b>3</b><span>resoluciones derogadas</span></div>
+<div class="stat"><b>1</b><span>vez que aparece la palabra «paliación»</span></div>
+</div>
+</div></header>
+
+<div class="wrap">
+<div class="tabs" role="tablist">
+<button data-tab="panorama" role="tab">1 &middot; Panorama</button>
+<button data-tab="articulado" role="tab">2 &middot; Articulado</button>
+<button data-tab="rias" role="tab">3 &middot; Qué es una RIAS</button>
+<button data-tab="rpms" role="tab">4 &middot; RPMS</button>
+<button data-tab="riamp" role="tab">5 &middot; Materno perinatal</button>
+<button data-tab="paliativos" role="tab">6 &middot; Dónde está el cuidado paliativo</button>
+<button data-tab="practica" role="tab">7 &middot; Por qué debe conocerla</button>
+</div>
+
+<!-- 1 -->
+<section class="panel" id="p-panorama" hidden>
+<h2>La norma que organiza la puerta de entrada</h2>
+<p>Si la Ley 1733 <strong>nombra el derecho</strong>, la Resolución 3280 <strong>organiza la atención</strong>. Es el instrumento que le dice a cada IPS del país qué atención corresponde a cada persona, en qué momento de su vida, con qué profesional y con qué frecuencia. Es, en términos operativos, la norma más presente en la consulta diaria del primer nivel &mdash;y la que ningún médico del servicio de cuidados paliativos encuestado en el trabajo de campo reconoció.</p>
+<div class="grid2">
+<div class="card"><h3>Qué adopta</h3>
+<ul>
+<li><strong>Anexo 1:</strong> lineamiento técnico y operativo de la Ruta Integral de Atención para la Promoción y Mantenimiento de la Salud (RPMS).</li>
+<li><strong>Anexo 2:</strong> lineamiento técnico y operativo de la Ruta Integral de Atención en Salud para la Población Materno Perinatal (RIAMP).</li>
+<li>Ambos anexos son de <strong>obligatorio cumplimiento</strong> (art. 1).</li>
+</ul></div>
+<div class="card"><h3>Qué deroga y qué modifica</h3>
+<ul>
+<li>Deroga las Resoluciones <strong>412 de 2000</strong>, <strong>769 de 2008</strong> y <strong>1973 de 2008</strong> &mdash;es decir, dieciocho años de normas de protección específica y detección temprana.</li>
+<li>Modifica el anexo de la Resolución 518 de 2015 (Plan de Intervenciones Colectivas).</li>
+<li>Entra en vigencia seis meses después de su publicación (art. 7).</li>
+</ul></div>
+</div>
+<h3>Estado de la norma a septiembre de 2026</h3>
+<div class="tablewrap"><table>
+<thead><tr><th>Norma</th><th>Fecha</th><th>Efecto sobre la 3280</th></tr></thead>
+<tbody>
+<tr><td>Resolución 276 de 2019</td><td>4 de febrero de 2019</td><td>Modifica el artículo 4: fija tres años de progresividad desde el 1.&ordm; de enero de 2020 para 15 intervenciones.</td></tr>
+<tr><td>Resolución 051 de 2023</td><td>2023</td><td>Modifica aspectos de la ruta materno perinatal.</td></tr>
+<tr><td>Resolución 1575 de 2026</td><td>29 de julio de 2026</td><td>Adiciona el artículo 10.1 a la Resolución 051 de 2023 y modifica el numeral 4.2 del lineamiento materno perinatal adoptado por la 3280 (acceso a IVE).</td></tr>
+</tbody></table></div>
+<p class="thesis">La 3280 sigue vigente y sigue siendo modificada &mdash;la última vez, hace seis semanas. No es una norma histórica: es la norma que hoy define el trabajo del primer nivel.</p>
+<div class="docente">
+<p>Verificar antes de la sesión si el Decreto 858 de 2025 &mdash;suspendido provisionalmente por el Consejo de Estado en octubre de 2025 y confirmada la suspensión el 26 de marzo de 2026&mdash; contenía cláusula derogatoria sobre la Resolución 3280. La cláusula no fue accesible en el Diario Oficial 53.198 durante la verificación. Mientras no se confirme, sostener únicamente lo que consta: la 3280 continúa siendo modificada por normas posteriores, lo que supone su vigencia.</p>
+</div>
+</section>
+
+<!-- 2 -->
+<section class="panel" id="p-articulado" hidden>
+<h2>Siete artículos y dos anexos</h2>
+<p class="small">El cuerpo resolutivo es breve; el peso normativo está en los anexos técnicos, que superan las ochocientas páginas. Esa desproporción es parte del problema de apropiación.</p>
+
+<div class="art"><span class="num">Artículo 1</span><h3>Objeto</h3>
+<p>Adopta los lineamientos técnicos y operativos de la RPMS y de la RIAMP, contenidos en los anexos, y los declara de obligatorio cumplimiento.</p></div>
+
+<div class="art"><span class="num">Artículo 2</span><h3>Campo de aplicación</h3>
+<p>Vincula a entidades territoriales, aseguradoras, prestadores de servicios de salud y demás entidades responsables de acciones en salud &mdash;incluidos los regímenes de excepción y especiales&mdash; respecto de las acciones de «diagnóstico, tratamiento, rehabilitación, <strong>paliación</strong> y en general, acciones en salud». <span class="chip alert">Única mención</span></p></div>
+
+<div class="art"><span class="num">Artículo 3</span><h3>Adaptación de las rutas</h3>
+<p>Permite la adecuación territorial de las rutas, sin que la adaptación se convierta en barrera de acceso ni exija autorización previa.</p></div>
+
+<div class="art"><span class="num">Artículo 4</span><h3>Progresividad</h3>
+<p>Fija plazos máximos de implementación para un conjunto de intervenciones (tamizaje auditivo neonatal, consulta de medicina general de 24 a 44 años, odontología, entre otras). <strong>Modificado por la Resolución 276 de 2019:</strong> tres años contados desde el 1.&ordm; de enero de 2020, con posibilidad de adelantar la ejecución en cualquier momento.</p></div>
+
+<div class="art"><span class="num">Artículo 5</span><h3>Talento humano</h3>
+<p>Exige disponibilidad, suficiencia e idoneidad del talento humano, con perfiles específicos por atención. Es el artículo espejo del artículo 7 de la Ley 1733 &mdash;con una diferencia decisiva: aquí los perfiles sí están definidos.</p></div>
+
+<div class="art"><span class="num">Artículo 6</span><h3>Monitoreo y evaluación</h3>
+<p>Obliga al seguimiento mediante los sistemas de información existentes (Resoluciones 3374 de 2000, 4505 de 2012 y 2175 de 2015) y a informar anualmente a la Superintendencia Nacional de Salud. <strong>Aquí sí hay indicador y sí hay reporte.</strong></p></div>
+
+<div class="art"><span class="num">Artículo 7</span><h3>Vigencia y derogatorias</h3>
+<p>Rige seis meses después de su publicación. Deroga las Resoluciones 412 de 2000, 769 de 2008 y 1973 de 2008, y modifica el anexo de la Resolución 518 de 2015.</p></div>
+</section>
+
+<!-- 3 -->
+<section class="panel" id="p-rias" hidden>
+<h2>Qué es una RIAS y dónde encaja el cuidado paliativo</h2>
+<p>Las Rutas Integrales de Atención en Salud son el dispositivo operativo de la Política de Atención Integral en Salud. Su manual metodológico se adoptó con la <strong>Resolución 3202 de 2016</strong>, que definió tres tipos de ruta.</p>
+<div class="grid2">
+<div class="card"><h3>1. Ruta de promoción y mantenimiento de la salud</h3><p>Universal, para toda la población a lo largo del curso de vida. Es la que adopta el anexo 1 de la Resolución 3280.</p></div>
+<div class="card"><h3>2. Rutas de grupos de riesgo</h3><p>Para poblaciones con riesgo compartido (cáncer, enfermedad cardiovascular, enfermedad respiratoria crónica, entre otras).</p></div>
+<div class="card"><h3>3. Rutas de eventos específicos</h3><p>Para condiciones concretas ya diagnosticadas, con manejo definido.</p></div>
+</div>
+<div class="crit"><p><strong>Corrección institucionalizada del curso.</strong> <em>No existe una RIAS autónoma de cuidados paliativos.</em> El cuidado paliativo se integra de manera transversal en las rutas de grupo de riesgo y de evento específico, conforme a la Resolución 3202 de 2016. Toda afirmación sobre una «ruta de cuidados paliativos» propia es un error verificable y debe corregirse en las entregas.</p></div>
+<p>Esta arquitectura tiene una consecuencia directa: el cuidado paliativo no tiene puerta propia en el diseño del sistema. Entra &mdash;si entra&mdash; por la puerta de la enfermedad que lo motiva. Cuando esa puerta no se abre a tiempo, el paciente llega al servicio de cuidados paliativos en la última semana de vida, y el problema se lee como falla clínica cuando es una falla de diseño normativo.</p>
+</section>
+
+<!-- 4 -->
+<section class="panel" id="p-rpms" hidden>
+<h2>La RPMS: seis momentos, cuatro tipos de atención</h2>
+<p>El anexo 1 organiza las atenciones individuales en seis momentos del curso de vida, y dentro de cada uno, en cuatro grupos de intervención.</p>
+<div class="tablewrap"><table>
+<thead><tr><th>Momento del curso de vida</th><th>Valoración integral</th><th>Detección temprana</th><th>Protección específica</th><th>Educación para la salud</th></tr></thead>
+<tbody>
+<tr><td><strong>Primera infancia</strong></td><td>Medicina, enfermería, odontología</td><td>Tamizajes neonatales y del desarrollo</td><td>Vacunación, salud bucal</td><td>Familiar e individual</td></tr>
+<tr><td><strong>Infancia</strong></td><td>Medicina, enfermería, odontología</td><td>Visual, auditiva, nutricional</td><td>Vacunación, salud bucal</td><td>Individual y grupal</td></tr>
+<tr><td><strong>Adolescencia</strong></td><td>Medicina, enfermería, odontología</td><td>Riesgo cardiovascular, salud mental, ITS</td><td>Anticoncepción, vacunación</td><td>Individual y grupal</td></tr>
+<tr><td><strong>Juventud</strong></td><td>Medicina, enfermería, odontología</td><td>Cáncer de cuello uterino, ITS</td><td>Anticoncepción, salud bucal</td><td>Individual y grupal</td></tr>
+<tr><td><strong>Adultez</strong></td><td>Medicina general, enfermería, odontología</td><td>Cáncer de mama, cuello uterino, próstata, colon; riesgo cardiovascular y metabólico</td><td>Salud bucal, anticoncepción</td><td>Individual y grupal</td></tr>
+<tr><td><strong>Vejez</strong></td><td>Medicina general, enfermería, odontología</td><td>Cáncer, riesgo cardiovascular, deterioro cognitivo, riesgo de caídas</td><td>Vacunación, salud bucal</td><td>Individual, familiar y grupal</td></tr>
+</tbody></table></div>
+<div class="note"><p><strong>Lo que la tabla muestra sin decirlo.</strong> La lógica de la ruta es <em>detectar a tiempo para evitar el desenlace</em>. Es una lógica de prevención, íntegramente construida hacia adelante. En el momento «vejez» el instrumento detecta deterioro cognitivo y riesgo de caídas, pero no prevé qué hacer cuando la condición detectada ya es progresiva e irreversible. Ahí termina la ruta y empieza el vacío que la Ley 1733 nombró cuatro años antes.</p></div>
+</section>
+
+<!-- 5 -->
+<section class="panel" id="p-riamp" hidden>
+<h2>La ruta materno perinatal</h2>
+<p>El anexo 2 organiza la atención de la gestante y del recién nacido en una secuencia continua:</p>
+<ul>
+<li><strong>Atención preconcepcional</strong> &mdash; valoración del riesgo antes de la gestación.</li>
+<li><strong>Atención prenatal</strong> &mdash; control con periodicidad y contenidos definidos.</li>
+<li><strong>Atención del parto</strong> &mdash; incluida la del recién nacido en sala.</li>
+<li><strong>Atención del puerperio</strong> &mdash; seguimiento de la madre y del neonato.</li>
+<li><strong>Atención del recién nacido</strong> &mdash; tamizajes, vacunación, seguimiento del desarrollo.</li>
+</ul>
+<p>Es la parte de la resolución con mayor actividad normativa reciente: la Resolución 051 de 2023 y la Resolución 1575 de 2026 modifican sus lineamientos en lo relativo al acceso a la interrupción voluntaria del embarazo.</p>
+<div class="note"><p><strong>Pendiente de verificación literal.</strong> La búsqueda de términos como «cuidado paliativo perinatal», «duelo perinatal» o «limitación del esfuerzo terapéutico neonatal» dentro del anexo 2 completo no pudo realizarse en línea: el documento supera las ochocientas páginas y no está disponible en un formato con búsqueda literal fiable. No afirmar su presencia ni su ausencia sin revisar el PDF oficial.</p></div>
+</section>
+
+<!-- 6 -->
+<section class="panel" id="p-paliativos" hidden>
+<h2>Dónde está &mdash;y dónde no está&mdash; el cuidado paliativo</h2>
+<p>Esta es la pestaña que justifica el módulo. El ejercicio es simple y verificable: buscar la palabra en el cuerpo resolutivo.</p>
+<div class="crit">
+<p><strong>Resultado.</strong> En los siete artículos de la Resolución 3280 de 2018, la raíz «paliat‑» no aparece. Aparece una sola vez la palabra <strong>«paliación»</strong>, en el artículo 2, dentro de la enumeración del campo de aplicación: «diagnóstico, tratamiento, rehabilitación, <strong>paliación</strong> y en general, acciones en salud». Es una mención <em>enunciativa</em>: no crea atención, no define contenido, no fija responsable, no genera indicador.</p>
+</div>
+<h3>El mismo patrón, tres veces</h3>
+<div class="tablewrap"><table>
+<thead><tr><th>Instrumento</th><th>Cómo aparece el cuidado paliativo</th><th>¿Lo desarrolla algún artículo?</th></tr></thead>
+<tbody>
+<tr><td>Resolución 3280 de 2018</td><td>«Paliación», una vez, en la enumeración del campo de aplicación (art. 2)</td><td>No</td></tr>
+<tr><td>Decreto 858 de 2025 (suspendido)</td><td>Mencionado en los arts. 2.11.1.4, 2.11.1.5 y 2.11.2.2.1, siempre como último eslabón del continuo de atención</td><td>No</td></tr>
+<tr><td>Plan de acción OPS 2025&ndash;2034 (CD61.R11)</td><td>Mención enunciativa, sin indicador propio &mdash;frente al plan de 2013, que sí tenía objetivo e indicador de consumo de opioides</td><td>No</td></tr>
+</tbody></table></div>
+<p class="thesis">El cuidado paliativo no fue excluido del diseño normativo: fue <em>enumerado</em>. Aparece en la lista de lo que el sistema debe hacer y desaparece en el articulado que dice cómo hacerlo. Enumerar sin desarrollar es la forma más eficaz de no obligar a nadie.</p>
+<h3>Por qué eso explica el hallazgo de campo</h3>
+<p>Un médico de un servicio de cuidados paliativos no encuentra la Resolución 3280 en su práctica porque la resolución no le asigna ninguna tarea. La conoce quien hace consulta de crecimiento y desarrollo, control prenatal o tamizaje de cáncer. El desconocimiento no es negligencia individual: es el reflejo exacto de una norma que organizó todo el primer nivel sin escribir una sola línea operativa sobre el final de la vida.</p>
+<div class="docente">
+<p>Contraste que funciona bien en clase: pedir a los estudiantes que cuenten cuántas veces aparece «tamizaje» en el anexo 1 frente a las veces que aparece «paliación» en toda la resolución. El punto no es retórico &mdash;es la demostración empírica de dónde puso el Estado su capacidad de medición. Enlazar con la rejilla de cinco dimensiones del Tema 2: población objetivo, fuerza jurídica, financiación, indicador verificable, brecha territorial.</p>
+</div>
+</section>
+
+<!-- 7 -->
+<section class="panel" id="p-practica" hidden>
+<h2>Cinco razones por las que un paliativista debe conocerla</h2>
+<ol>
+<li><strong>Es donde está el paciente antes de llegar.</strong> La RPMS es el punto de contacto rutinario del sistema con la población; el paciente con enfermedad crónica progresiva pasa por allí años antes de ser remitido.</li>
+<li><strong>Define quién puede hacer qué.</strong> El artículo 5 fija perfiles de talento humano por atención: es el argumento normativo para discutir quién realiza la valoración inicial en el primer nivel.</li>
+<li><strong>Tiene sistema de reporte.</strong> El artículo 6 obliga al monitoreo con los sistemas de información vigentes y al informe anual a la Superintendencia. Cualquier propuesta de indicador de cuidado paliativo en el primer nivel debe engancharse ahí o no se medirá.</li>
+<li><strong>Es el instrumento que se audita.</strong> Las IPS son evaluadas por cumplimiento de la 3280, no por cumplimiento de la Ley 1733. Lo que se audita es lo que se hace.</li>
+<li><strong>Es la norma que hay que reformar.</strong> Toda propuesta seria de integrar cuidados paliativos en la atención primaria colombiana pasa por modificar este anexo, no por expedir otra ley.</li>
+</ol>
+<h3>Preguntas guía para el estudio autónomo</h3>
+<ol>
+<li>Si tuviera que introducir una atención de cuidado paliativo en la RPMS, ¿en qué momento del curso de vida y en cuál de los cuatro grupos de intervención la ubicaría, y por qué?</li>
+<li>¿Qué indicador, reportable con los sistemas del artículo 6, permitiría medir el acceso oportuno a cuidados paliativos sin crear un sistema de información nuevo?</li>
+<li>La Ley 1733 es de 2014 y la Resolución 3280 es de 2018. ¿Cómo se explica que la resolución posterior no recoja el derecho creado por la ley anterior?</li>
+<li>En su institución, ¿quién responde por el cumplimiento de la 3280 y quién por el del programa de cuidados paliativos? ¿Se hablan esas dos personas?</li>
+</ol>
+<h3>Fuentes de esta ficha</h3>
+<ul class="srcs">
+<li>Ministerio de Salud y Protección Social. (2018). <em>Resolución 3280 de 2018</em>. <a href="https://www.minsalud.gov.co/sites/rid/Lists/BibliotecaDigital/RIDE/DE/DIJ/resolucion-3280-de-2018.pdf">Texto oficial (PDF)</a> &middot; <a href="https://normograma.supersalud.gov.co/compilacion/docs/resolucion_minsaludps_3280_2018.htm">compilación con notas de vigencia (Supersalud)</a></li>
+<li>Ministerio de Salud y Protección Social. (2019). <em>Resolución 276 de 2019</em>. <a href="https://www.minsalud.gov.co/sites/rid/Lists/BibliotecaDigital/RIDE/DE/DIJ/resolucion-276-de-2019.pdf">Texto oficial (PDF)</a></li>
+<li>Ministerio de Salud y Protección Social. (2016). <em>Resolución 3202 de 2016</em> (manual metodológico de las RIAS).</li>
+<li>Ministerio de Salud y Protección Social. (2026). <em>Resolución 1575 de 2026</em>, 29 de julio de 2026.</li>
+</ul>
+</section>
+</div>
+<footer><div class="wrap">
+<p><strong>Universidad Antonio Nari&ntilde;o</strong> &middot; Facultad de Enfermer&iacute;a &middot; Maestr&iacute;a en Cuidados Paliativos<br>
+Material aut&oacute;nomo de consulta &middot; Docente: Jorge Wilhem Bogoya L&oacute;pez &middot; Actualizado: 11 de septiembre de 2026</p>
+<p class="small">Modo docente: <code>?docente=true</code> en la URL o <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>D</kbd>.
+Las notas reservadas no se imprimen ni se muestran a los estudiantes por defecto.</p>
+<p class="small">Elaborado con asistencia de Claude (Anthropic) sobre fuentes primarias verificadas el 11 de septiembre de 2026. Espa&ntilde;ol acad&eacute;mico &middot; APA 7.</p>
+</div></footer>
+<script>
+(function(){
+  var root=document.documentElement;
+  try{var t=sessionStorage.getItem('tema');if(t)root.setAttribute('data-theme',t);}catch(e){}
+  function toggleTema(){
+    var d=root.getAttribute('data-theme')==='dark'?'light':'dark';
+    root.setAttribute('data-theme',d);
+    try{sessionStorage.setItem('tema',d);}catch(e){}
+  }
+  function setDocente(on){
+    document.body.classList.toggle('modo-docente',on);
+    var b=document.getElementById('btn-docente');
+    if(b){b.setAttribute('aria-pressed',on?'true':'false');
+      b.textContent=on?'Modo docente activo':'Modo docente';}
+    try{sessionStorage.setItem('docente',on?'1':'0');}catch(e){}
+  }
+  document.addEventListener('DOMContentLoaded',function(){
+    var p=new URLSearchParams(location.search);
+    var on=p.get('docente')==='true'||p.get('docente')==='1';
+    try{if(!on&&sessionStorage.getItem('docente')==='1')on=true;}catch(e){}
+    setDocente(on);
+    var bd=document.getElementById('btn-docente');
+    if(bd)bd.addEventListener('click',function(){setDocente(!document.body.classList.contains('modo-docente'));});
+    var bt=document.getElementById('btn-tema');
+    if(bt)bt.addEventListener('click',toggleTema);
+    document.addEventListener('keydown',function(e){
+      if(e.ctrlKey&&e.shiftKey&&(e.key==='D'||e.key==='d')){
+        e.preventDefault();setDocente(!document.body.classList.contains('modo-docente'));}
+    });
+    // tabs
+    var tabs=document.querySelectorAll('.tabs button');
+    function activar(id){
+      tabs.forEach(function(b){
+        var sel=b.dataset.tab===id;b.setAttribute('aria-selected',sel?'true':'false');
+        var pn=document.getElementById('p-'+b.dataset.tab);if(pn)pn.hidden=!sel;
+      });
+      try{history.replaceState(null,'','#'+id);}catch(e){}
+    }
+    tabs.forEach(function(b){b.addEventListener('click',function(){activar(b.dataset.tab);
+      window.scrollTo({top:document.querySelector('.tabs').offsetTop-60,behavior:'smooth'});});});
+    var h=location.hash.replace('#','');
+    if(h&&document.getElementById('p-'+h))activar(h);else if(tabs.length)activar(tabs[0].dataset.tab);
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marco legal y barreras de acceso · Módulo normativo</title>
+<meta name="description" content="Cuatro normas colombianas vigentes de cuidado paliativo: Ley 1384 de 2010, Ley 1733 de 2014, Resolución 2665 de 2018 y Resolución 3280 de 2018.">
+<style>
+:root{
+  --paper:#fbfaf7; --panel:#ffffff; --ink:#16202e; --ink-2:#41505f; --muted:#6b7a89;
+  --line:#e3e0d9; --line-2:#cfcabf;
+  --ley:#1b3a6b; --ley-soft:#eaf0f9;
+  --res:#0f6152; --res-soft:#e6f2ef;
+  --warn:#9a5b06; --warn-soft:#fdf3e3;
+  --alert:#8c2230; --alert-soft:#faecec;
+  --doc:#5b3a8c; --doc-soft:#f1ecf8;
+  --serif:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --sans:"DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --accent:var(--ley); --accent-soft:var(--ley-soft);
+}
+html[data-theme="dark"]{
+  --paper:#12161c; --panel:#1a1f27; --ink:#eef1f5; --ink-2:#c3ccd6; --muted:#93a1b0;
+  --line:#2b323c; --line-2:#3a434f;
+  --ley:#8fb3e8; --ley-soft:#1b2534; --res:#6fc8b3; --res-soft:#142623;
+  --warn:#e0a458; --warn-soft:#2a2115; --alert:#e08b93; --alert-soft:#2b1a1d;
+  --doc:#b79ae0; --doc-soft:#221b30;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+  font-size:17px;line-height:1.65;-webkit-text-size-adjust:100%}
+.wrap{max-width:1060px;margin:0 auto;padding:0 20px}
+a{color:var(--accent);text-underline-offset:3px}
+h1,h2,h3,h4,.ui{font-family:var(--sans)}
+h1{font-size:clamp(1.6rem,4.2vw,2.5rem);line-height:1.15;letter-spacing:-.02em;margin:.2em 0 .3em}
+h2{font-size:clamp(1.25rem,2.8vw,1.6rem);line-height:1.25;margin:2.2rem 0 .6rem;letter-spacing:-.01em}
+h3{font-size:1.08rem;margin:1.6rem 0 .4rem;color:var(--ink)}
+h4{font-size:.95rem;margin:1.2rem 0 .3rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+p{margin:.7em 0}
+small,.small{font-size:.86rem}
+/* top bar */
+.topbar{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--paper) 92%,transparent);
+  backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.topbar .wrap{display:flex;gap:12px;align-items:center;justify-content:space-between;
+  padding-block:10px;flex-wrap:wrap}
+.brand{font-family:var(--sans);font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--muted);text-decoration:none}
+.tools{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.btn{font-family:var(--sans);font-size:.78rem;padding:6px 11px;border-radius:999px;
+  border:1px solid var(--line-2);background:var(--panel);color:var(--ink-2);cursor:pointer;
+  text-decoration:none;display:inline-flex;gap:6px;align-items:center}
+.btn:hover{border-color:var(--accent);color:var(--accent)}
+.btn[aria-pressed="true"]{background:var(--doc-soft);border-color:var(--doc);color:var(--doc)}
+/* hero */
+header.hero{padding:36px 0 10px;border-bottom:1px solid var(--line)}
+.kicker{font-family:var(--sans);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--accent);font-weight:600}
+.lead{font-size:1.12rem;color:var(--ink-2);max-width:64ch}
+/* chips */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.chip{font-family:var(--sans);font-size:.76rem;padding:4px 10px;border-radius:999px;
+  border:1px solid var(--line-2);color:var(--ink-2);background:var(--panel)}
+.chip.ok{background:var(--res-soft);border-color:var(--res);color:var(--res)}
+.chip.warn{background:var(--warn-soft);border-color:var(--warn);color:var(--warn)}
+.chip.alert{background:var(--alert-soft);border-color:var(--alert);color:var(--alert)}
+.chip.info{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+/* stat row */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:22px 0}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.stat b{display:block;font-family:var(--sans);font-size:1.55rem;line-height:1.1;color:var(--accent)}
+.stat span{font-family:var(--sans);font-size:.78rem;color:var(--muted);display:block;margin-top:4px}
+/* tabs */
+.tabs{display:flex;gap:6px;overflow-x:auto;padding:14px 0 0;border-bottom:1px solid var(--line);
+  position:sticky;top:49px;background:var(--paper);z-index:30}
+.tabs button{font-family:var(--sans);font-size:.82rem;white-space:nowrap;border:none;background:none;
+  color:var(--muted);padding:8px 12px;border-bottom:2px solid transparent;cursor:pointer;border-radius:6px 6px 0 0}
+.tabs button:hover{color:var(--ink)}
+.tabs button[aria-selected="true"]{color:var(--accent);border-bottom-color:var(--accent);font-weight:600}
+.panel[hidden]{display:none}
+.panel{padding-top:8px;animation:fade .22s ease}
+@keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+/* cards & boxes */
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:14px 0}
+.card h3{margin-top:0}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.art{border-left:3px solid var(--accent);background:var(--panel);border-radius:0 12px 12px 0;
+  padding:14px 18px;margin:12px 0;border-top:1px solid var(--line);border-right:1px solid var(--line);
+  border-bottom:1px solid var(--line)}
+.art .num{font-family:var(--sans);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--accent);font-weight:700}
+.art h3{margin:.2rem 0 .4rem;font-size:1rem}
+.note{border-left:3px solid var(--warn);background:var(--warn-soft);padding:12px 16px;border-radius:0 10px 10px 0;margin:14px 0}
+.crit{border-left:3px solid var(--alert);background:var(--alert-soft);padding:12px 16px;border-radius:0 10px 10px 0;margin:14px 0}
+.thesis{font-size:1.05rem;font-style:italic;border-left:3px solid var(--accent);padding:10px 18px;
+  margin:18px 0;color:var(--ink-2)}
+blockquote{margin:18px 0;padding:14px 20px;border-left:3px solid var(--line-2);background:var(--panel);
+  border-radius:0 10px 10px 0;font-style:italic;color:var(--ink-2)}
+blockquote cite{display:block;font-style:normal;font-family:var(--sans);font-size:.8rem;color:var(--muted);margin-top:8px}
+/* tables */
+.tablewrap{overflow-x:auto;margin:16px 0;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;min-width:520px}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--sans);font-size:.76rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);
+  background:color-mix(in srgb,var(--accent-soft) 60%,transparent)}
+tr:last-child td{border-bottom:none}
+/* timeline */
+.tl{list-style:none;margin:18px 0;padding:0 0 0 22px;border-left:2px solid var(--line-2)}
+.tl li{position:relative;margin:0 0 16px;padding-left:14px}
+.tl li::before{content:"";position:absolute;left:-29px;top:8px;width:10px;height:10px;border-radius:50%;
+  background:var(--accent);border:2px solid var(--paper)}
+.tl .y{font-family:var(--sans);font-size:.78rem;letter-spacing:.06em;color:var(--accent);font-weight:700}
+/* detail */
+details{border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:0 16px;margin:10px 0}
+details summary{font-family:var(--sans);font-size:.92rem;cursor:pointer;padding:12px 0;font-weight:500}
+details[open] summary{border-bottom:1px solid var(--line);margin-bottom:8px}
+details > *:last-child{margin-bottom:12px}
+/* docente */
+.docente{display:none;border:1px dashed var(--doc);background:var(--doc-soft);border-radius:12px;
+  padding:14px 18px;margin:14px 0}
+body.modo-docente .docente{display:block}
+.docente::before{content:"Nota reservada al docente";display:block;font-family:var(--sans);font-size:.72rem;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--doc);font-weight:700;margin-bottom:6px}
+.docente-flag{display:none}
+body.modo-docente .docente-flag{display:inline}
+/* footer */
+footer{margin-top:50px;border-top:1px solid var(--line);padding:24px 0 50px;color:var(--muted);font-size:.86rem}
+footer a{color:var(--ink-2)}
+.srcs{font-size:.84rem;color:var(--muted)}
+.srcs li{margin-bottom:6px}
+@media print{
+  .topbar,.tabs,.btn{display:none!important}
+  .panel[hidden]{display:block!important}
+  body{font-size:11pt;background:#fff}
+  .card,.art,details{break-inside:avoid}
+}
+
+:root{--accent:var(--ley);--accent-soft:var(--ley-soft)}
+
+:root{--accent:#6a3d5b;--accent-soft:#f6ecf3}
+html[data-theme="dark"]{--accent:#d8a6c6;--accent-soft:#2a1d26}
+.normacard{display:block;text-decoration:none;color:inherit;background:var(--panel);
+  border:1px solid var(--line);border-radius:16px;padding:22px 24px;transition:.18s}
+.normacard:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:0 6px 22px rgba(0,0,0,.06)}
+.normacard .n{font-family:var(--sans);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.normacard h3{font-size:1.35rem;margin:.25rem 0 .4rem;letter-spacing:-.01em}
+.normacard p{color:var(--ink-2);font-size:.95rem;margin:.3rem 0 .8rem}
+.normacard .go{font-family:var(--sans);font-size:.82rem;color:var(--accent);font-weight:600}
+.ley-c{border-top:4px solid var(--ley)} .res-c{border-top:4px solid var(--res)}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">
+<a class="brand" href="../index.html">&larr; Contexto Histórico y Legal de los Cuidados Paliativos</a>
+<div class="tools">
+<button class="btn" id="btn-tema" type="button">Tema claro/oscuro</button>
+<button class="btn" id="btn-docente" type="button" aria-pressed="false">Modo docente</button>
+</div></div></div>
+<header class="hero"><div class="wrap">
+<p class="kicker">Seminario de Fundamentación en Cuidados Paliativos &middot; Sesión 3</p>
+<h1>Marco legal y barreras de acceso</h1>
+<p class="lead">Cuatro normas colombianas vigentes —Ley 1384 de 2010, Ley 1733 de 2014, Resolución 2665 de 2018 y Resolución 3280 de 2018— leídas juntas y con la misma pregunta: qué obliga cada una, quién lo mide y qué ocurre cuando nadie responde. La barrera de acceso no empieza donde termina la norma: empieza dentro de ella.</p>
+</div></header>
+
+<div class="wrap">
+
+<blockquote>
+En un servicio de cuidados paliativos de la región, un sondeo informal al equipo encontró que la mitad de los médicos conocía la Ley 1733 de 2014 y que ninguno conocía la Resolución 3280 de 2018.
+<cite>Hallazgo de campo del seminario &middot; 2026</cite>
+</blockquote>
+
+<p>El hallazgo no es una anécdota sobre la formación de unos médicos. Es un dato sobre cómo está construido el marco normativo colombiano. Este módulo propone tomarlo en serio y responder dos preguntas: <strong>¿por qué la mitad conoce la ley?</strong> y, sobre todo, <strong>¿por qué nadie conoce la resolución?</strong></p>
+
+<div class="grid2" style="margin:26px 0">
+<a class="normacard ley-c" href="ley-1733-2014.html">
+<span class="n">Ficha 01 &middot; Ley de la República</span>
+<h3>Ley 1733 de 2014</h3>
+<p>Ley Consuelo Devis Saavedra. Crea el derecho a los cuidados paliativos en cualquier fase de la enfermedad. Once artículos, siete derechos, ningún indicador.</p>
+<span class="go">Abrir ficha &rarr;</span></a>
+<a class="normacard res-c" href="resolucion-3280-2018.html">
+<span class="n">Ficha 02 &middot; Resolución ministerial</span>
+<h3>Resolución 3280 de 2018</h3>
+<p>Adopta la ruta de promoción y mantenimiento de la salud y la ruta materno perinatal. Siete artículos, dos anexos, una sola mención de «paliación».</p>
+<span class="go">Abrir ficha &rarr;</span></a>
+<a class="normacard ley-c" href="ley-1384-2010.html">
+<span class="n">Ficha 03 &middot; Ley de la República</span>
+<h3>Ley 1384 de 2010</h3>
+<p>Ley Sandra Ceballos. Obliga a garantizar cuidado paliativo a los pacientes oncológicos cuatro años antes de la Ley 1733 —y, a diferencia de ella, trae financiación y sanciones.</p>
+<span class="go">Abrir ficha &rarr;</span></a>
+<a class="normacard res-c" href="resolucion-2665-2018.html">
+<span class="n">Ficha 04 &middot; Resolución ministerial</span>
+<h3>Resolución 2665 de 2018</h3>
+<p>Documento de Voluntad Anticipada. La única reglamentación expresa que ha recibido la Ley 1733 en doce años; preservada por la Resolución 813 de 2026.</p>
+<span class="go">Abrir ficha &rarr;</span></a>
+</div>
+
+<h2>Las dos normas centrales, lado a lado</h2>
+<p>La misma rejilla de cinco dimensiones que el curso aplica a los instrumentos internacionales &mdash;población objetivo, fuerza jurídica, financiación, indicador verificable, brecha territorial&mdash; aplicada aquí a las dos normas colombianas que definen el terreno.</p>
+<div class="tablewrap"><table>
+<thead><tr><th>Dimensión</th><th>Ley 1733 de 2014</th><th>Resolución 3280 de 2018</th></tr></thead>
+<tbody>
+<tr><td><strong>Qué crea</strong></td><td>Un derecho subjetivo exigible</td><td>Un procedimiento de atención obligatorio</td></tr>
+<tr><td><strong>Población objetivo</strong></td><td>Enfermedad terminal, crónica, degenerativa e irreversible de alto impacto</td><td>Toda la población, a lo largo de los seis momentos del curso de vida</td></tr>
+<tr><td><strong>Fuerza jurídica</strong></td><td>Ley de la República; base de acciones de tutela</td><td>Acto administrativo de obligatorio cumplimiento, auditable</td></tr>
+<tr><td><strong>Financiación</strong></td><td>No la define</td><td>Implícita en el aseguramiento; con plazos de progresividad (art. 4)</td></tr>
+<tr><td><strong>Indicador verificable</strong></td><td>Ninguno propio</td><td>Sí: reporte por los sistemas de las Res. 3374/2000, 4505/2012 y 2175/2015, con informe anual a la Supersalud (art. 6)</td></tr>
+<tr><td><strong>Quién la conoce</strong></td><td>El servicio de cuidados paliativos (parcialmente)</td><td>El primer nivel de atención</td></tr>
+<tr><td><strong>Dónde aparece el CP</strong></td><td>Es todo su objeto</td><td>Una vez, como «paliación», en la enumeración del art. 2</td></tr>
+</tbody></table></div>
+
+<p class="thesis">Una norma tiene el derecho pero no tiene indicador. La otra tiene indicador pero no tiene el derecho. Entre las dos hay un paciente que llega al servicio de cuidados paliativos en su última semana de vida.</p>
+
+<h2>Estado de vigencia verificado</h2>
+<p>Verificación contra compilaciones normativas y textos oficiales al <strong>11 de septiembre de 2026</strong>. Ninguna de las cuatro normas está derogada.</p>
+<div class="tablewrap"><table>
+<thead><tr><th>Norma</th><th>Jerarquía</th><th>Estado</th><th>Último movimiento normativo</th></tr></thead>
+<tbody>
+<tr><td>Ley 1384 de 2010</td><td>Ley ordinaria</td><td><span class="chip ok">Vigente</span></td><td>Modificada por la Ley 2360 de 2024 (arts. 4 y 5) y por la Ley 2194 de 2022 (arts. 6 y 11)</td></tr>
+<tr><td>Ley 1733 de 2014</td><td>Ley ordinaria</td><td><span class="chip ok">Vigente</span></td><td>Sin modificaciones; reglamentada parcialmente por la Resolución 2665 de 2018</td></tr>
+<tr><td>Resolución 3280 de 2018</td><td>Acto administrativo</td><td><span class="chip ok">Vigente</span></td><td>Modificada por la Resolución 1575 de 2026 (29 de julio), sobre el lineamiento materno perinatal</td></tr>
+<tr><td>Resolución 2665 de 2018</td><td>Acto administrativo</td><td><span class="chip ok">Vigente</span></td><td>Preservada por la Resolución 813 de 2026, que remite a ella en el art. 9, num. 9.4</td></tr>
+</tbody></table></div>
+<div class="crit"><p><strong>Jerarquía normativa.</strong> La Resolución 813 de 2026 derogó las Resoluciones 825 de 2018 y 971 de 2021, modificó parcialmente la 13437 de 1991 y preservó la 2665 de 2018. <strong>No derogó ninguna ley, ni podía hacerlo:</strong> una resolución solo deroga normas de igual o inferior jerarquía. Preguntar si la 813 derogó la Ley 1384 o la Ley 1733 es una pregunta mal planteada, y es el error de jerarquía que más aparece en las entregas.</p></div>
+
+<h2>Lo que la evidencia dice sobre el desconocimiento</h2>
+<p>El hallazgo de campo coincide con lo publicado. No es un caso aislado ni un sesgo de un servicio.</p>
+<div class="stats">
+<div class="stat"><b>54 %</b><span>de profesionales desconocía que exista una ley que regule el DVA (Colombia, 2022)</span></div>
+<div class="stat"><b>11,7 %</b><span>había suscrito personalmente un Documento de Voluntad Anticipada</span></div>
+<div class="stat"><b>41 %</b><span>de cobertura poblacional nacional de cuidados paliativos</span></div>
+<div class="stat"><b>18 %</b><span>de cobertura en la Amazonía</span></div>
+</div>
+<p class="small">Fuentes: Álvarez Acuña &amp; Gomezese Ribero (2022), <em>Colombian Journal of Anesthesiology</em>, 50(2); Sánchez-Cárdenas et al. (2024), <em>BMC Public Health</em>, 24, 1659.</p>
+
+<h2>Cómo leer una norma en este curso</h2>
+<p>Las dos fichas siguen el mismo protocolo, y es el que se espera en las entregas del semestre. No se trata de resumir la norma: se trata de interrogarla.</p>
+<div class="grid2">
+<div class="card"><h3>1. Identificar</h3><p>Tipo de norma, fecha exacta, título completo, número de artículos, estado de vigencia y cadena de modificaciones. Todo verificado contra fuente primaria.</p></div>
+<div class="card"><h3>2. Descomponer</h3><p>Artículo por artículo, distinguiendo definiciones, derechos, obligaciones y cierre. La arquitectura del articulado anticipa el desenlace de la norma.</p></div>
+<div class="card"><h3>3. Interrogar</h3><p>Para cada obligación: ¿a quién obliga?, ¿quién lo mide?, ¿qué pasa si no se cumple? Una obligación sin indicador y sin consecuencia es una declaración.</p></div>
+<div class="card"><h3>4. Contrastar</h3><p>Norma frente a dato territorial. La distancia entre lo que la norma dice y lo que el territorio muestra es el contenido real de la clase.</p></div>
+</div>
+<div class="note"><p>El protocolo completo &mdash;incluida la jerarquía de fuentes, las reglas de cita y la plantilla técnica de estas páginas&mdash; está documentado en el archivo <code>CLAUDE.md</code> de este repositorio, para que cualquier ficha nueva se construya igual.</p></div>
+
+<h2>Preguntas que abren la discusión</h2>
+<ol>
+<li>Si la mitad de los médicos del servicio conoce la Ley 1733, ¿qué explica que la otra mitad no la conozca, siendo la norma que define su especialidad?</li>
+<li>¿Habría cambiado algo en la práctica de esos médicos si hubieran conocido la Resolución 3280? ¿Qué, exactamente?</li>
+<li>¿Es razonable exigir a un paliativista que conozca una norma que no le asigna ninguna tarea? ¿Y es razonable diseñar una ruta universal de atención que no le asigne ninguna?</li>
+<li>¿Qué instrumento cambiaría usted primero: la ley que nombra el derecho o la resolución que organiza la atención?</li>
+</ol>
+<div class="docente">
+<p><strong>Secuencia sugerida (90 minutos).</strong> 15 min: presentar el hallazgo de campo sin comentario y pedir hipótesis por escrito. 25 min: ficha de la Ley 1733, pestañas 4 y 5 (obligaciones sin indicador; doce años de reglamentación). 25 min: ficha de la Resolución 3280, pestaña 6 (la búsqueda de la palabra). 15 min: cuadro comparativo, construido por los estudiantes antes de mostrar el de esta página. 10 min: cierre con la convergencia normativa 2013&ndash;2014 (nota reservada en la ficha 01).</p>
+<p><strong>Evaluación posible.</strong> Pedir a cada estudiante que aplique el protocolo de cuatro pasos a una tercera norma de su territorio (ordenanza departamental, acuerdo municipal o resolución de su institución) y entregue una ficha de una página con la rejilla de cinco dimensiones. Declaración de uso de IA obligatoria.</p>
+</div>
+
+<h2>Referencias</h2>
+<ul class="srcs">
+<li>Álvarez Acuña, A. M., &amp; Gomezese Ribero, Ó. F. (2022). Advance Directives Document: knowledge and experiences of healthcare professionals in Colombia. <em>Colombian Journal of Anesthesiology, 50</em>(2).</li>
+<li>Asociación Latinoamericana de Cuidados Paliativos. (2025). <em>Atlas de Cuidados Paliativos de las Américas</em>.</li>
+<li>Congreso de la República de Colombia. (2014, 8 de septiembre). <em>Ley 1733 de 2014</em>.</li>
+<li>Ministerio de Salud y Protección Social. (2016). <em>Resolución 3202 de 2016</em>.</li>
+<li>Ministerio de Salud y Protección Social. (2018, 2 de agosto). <em>Resolución 3280 de 2018</em>.</li>
+<li>Ministerio de Salud y Protección Social. (2019, 4 de febrero). <em>Resolución 276 de 2019</em>.</li>
+<li>Ministerio de Salud y Protección Social. (2026, 28 de abril). <em>Resolución 813 de 2026</em>.</li>
+<li>Observatorio Colombiano de Cuidados Paliativos. (2021). <em>Informe técnico</em> (4.ª ed.).</li>
+<li>Sánchez-Cárdenas, M. A., et al. (2024). Palliative care coverage in Colombia. <em>BMC Public Health, 24</em>, 1659.</li>
+</ul>
+</div>
+<footer><div class="wrap">
+<p><strong>Universidad Antonio Nari&ntilde;o</strong> &middot; Facultad de Enfermer&iacute;a &middot; Maestr&iacute;a en Cuidados Paliativos<br>
+Material aut&oacute;nomo de consulta &middot; Docente: Jorge Wilhem Bogoya L&oacute;pez &middot; Actualizado: 11 de septiembre de 2026</p>
+<p class="small">Modo docente: <code>?docente=true</code> en la URL o <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>D</kbd>.
+Las notas reservadas no se imprimen ni se muestran a los estudiantes por defecto.</p>
+<p class="small">Elaborado con asistencia de Claude (Anthropic) sobre fuentes primarias verificadas el 11 de septiembre de 2026. Espa&ntilde;ol acad&eacute;mico &middot; APA 7.</p>
+</div></footer>
+<script>
+(function(){
+  var root=document.documentElement;
+  try{var t=sessionStorage.getItem('tema');if(t)root.setAttribute('data-theme',t);}catch(e){}
+  function toggleTema(){
+    var d=root.getAttribute('data-theme')==='dark'?'light':'dark';
+    root.setAttribute('data-theme',d);
+    try{sessionStorage.setItem('tema',d);}catch(e){}
+  }
+  function setDocente(on){
+    document.body.classList.toggle('modo-docente',on);
+    var b=document.getElementById('btn-docente');
+    if(b){b.setAttribute('aria-pressed',on?'true':'false');
+      b.textContent=on?'Modo docente activo':'Modo docente';}
+    try{sessionStorage.setItem('docente',on?'1':'0');}catch(e){}
+  }
+  document.addEventListener('DOMContentLoaded',function(){
+    var p=new URLSearchParams(location.search);
+    var on=p.get('docente')==='true'||p.get('docente')==='1';
+    try{if(!on&&sessionStorage.getItem('docente')==='1')on=true;}catch(e){}
+    setDocente(on);
+    var bd=document.getElementById('btn-docente');
+    if(bd)bd.addEventListener('click',function(){setDocente(!document.body.classList.contains('modo-docente'));});
+    var bt=document.getElementById('btn-tema');
+    if(bt)bt.addEventListener('click',toggleTema);
+    document.addEventListener('keydown',function(e){
+      if(e.ctrlKey&&e.shiftKey&&(e.key==='D'||e.key==='d')){
+        e.preventDefault();setDocente(!document.body.classList.contains('modo-docente'));}
+    });
+    // tabs
+    var tabs=document.querySelectorAll('.tabs button');
+    function activar(id){
+      tabs.forEach(function(b){
+        var sel=b.dataset.tab===id;b.setAttribute('aria-selected',sel?'true':'false');
+        var pn=document.getElementById('p-'+b.dataset.tab);if(pn)pn.hidden=!sel;
+      });
+      try{history.replaceState(null,'','#'+id);}catch(e){}
+    }
+    tabs.forEach(function(b){b.addEventListener('click',function(){activar(b.dataset.tab);
+      window.scrollTo({top:document.querySelector('.tabs').offsetTop-60,behavior:'smooth'});});});
+    var h=location.hash.replace('#','');
+    if(h&&document.getElementById('p-'+h))activar(h);else if(tabs.length)activar(tabs[0].dataset.tab);
+  });
+})();
+</script>
+</body>
+</html>
