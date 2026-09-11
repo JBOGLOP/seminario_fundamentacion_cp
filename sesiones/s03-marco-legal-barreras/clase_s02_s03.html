@@ -164,6 +164,12 @@ details .cita-norma{font-family:var(--serif);font-style:italic;color:var(--acent
 .btn{display:inline-block;background:var(--acento);color:var(--blanco);text-decoration:none;
   font-weight:600;border-radius:999px;padding:.6rem 1.5rem}
 .btn:hover{background:var(--acento-dark)}
+/* Enlaces a la biblioteca de normas (leyes_construir/): se abren en otra pestaña
+   para no perder la diapositiva durante la clase. */
+.enlace-ficha{margin:.8rem 0 0;font-size:.9rem}
+.enlace-ficha a,.bloque a.norma{font-weight:600}
+a[target="_blank"]::after{content:" \2197";font-size:.85em}
+@media print{a[target="_blank"]::after{content:""}}
 
 /* barras horizontales · serie única, magnitud */
 .barras{display:grid;gap:.34rem;max-width:40rem;width:100%;margin-top:.4rem}
@@ -312,6 +318,12 @@ details .cita-norma{font-family:var(--serif);font-style:italic;color:var(--acent
   <p class="nota" style="margin-top:1rem">
     <strong>Si solo va a dictar la sesión 3</strong>, use el selector <em>Ir a</em> de la barra
     inferior y salte a la parte IV. Las partes I a III quedan como material de estudio.
+  </p>
+  <p class="nota" style="margin-top:.7rem">
+    <strong>Las cuatro normas centrales tienen ficha propia</strong> —artículo por artículo, con
+    obligaciones, vigencia y uso en la práctica—. Están en la
+    <a href="leyes_construir/index.html" target="_blank" rel="noopener">biblioteca de normas</a> y se enlazan desde
+    cada diapositiva donde aparecen.
   </p>
 </section>
 
@@ -487,7 +499,7 @@ details .cita-norma{font-family:var(--serif);font-style:italic;color:var(--acent
         <tr><td><strong>Modelo Preventivo, Predictivo y Resolutivo</strong><br>Decreto 858 de 2025</td>
             <td class="muerta">Suspendido</td>
             <td>Los menciona en tres artículos, siempre como último eslabón de una enumeración. Ninguno los regula. No menciona atención domiciliaria</td></tr>
-        <tr><td><strong>RIAS</strong> · Res. 3280 de 2018</td>
+        <tr><td><strong>RIAS</strong> · <a href="leyes_construir/resolucion-3280-2018.html#paliativos" target="_blank" rel="noopener">Res. 3280 de 2018</a></td>
             <td class="viva">Vigente</td>
             <td><strong>No existe una ruta autónoma de cuidado paliativo.</strong> La paliación se integra en las rutas de cáncer y de enfermedades crónicas</td></tr>
       </tbody>
@@ -550,6 +562,41 @@ details .cita-norma{font-family:var(--serif);font-style:italic;color:var(--acent
   <p>De 1997 a 2026. Una cadena que funciona — y una tabla de vigencia que hay que corregir.</p>
 </section>
 
+<!-- 12b ─ La biblioteca de normas ──────────────────────────────────────── -->
+<section class="d" data-parte="IV · El marco legal" aria-label="La biblioteca de normas">
+  <p class="d__eyebrow">Para estudiar la norma entera</p>
+  <h2>Cuatro normas, cuatro fichas</h2>
+  <p class="lead">
+    Cada ficha lee una norma con el mismo protocolo: <strong>identificar, descomponer, interrogar y
+    contrastar</strong>. Qué obliga, a quién, quién lo mide y qué pasa si nadie responde.
+  </p>
+  <div class="bloques">
+    <div class="bloque"><p class="n">LEY · 2014</p>
+      <h3><a class="norma" href="leyes_construir/ley-1733-2014.html" target="_blank" rel="noopener">Ley 1733 de 2014</a></h3>
+      <p>Consuelo Devis Saavedra. Crea el derecho a los cuidados paliativos en cualquier fase de la
+        enfermedad. Once artículos, siete derechos, ningún indicador.</p></div>
+    <div class="bloque"><p class="n">LEY · 2010</p>
+      <h3><a class="norma" href="leyes_construir/ley-1384-2010.html" target="_blank" rel="noopener">Ley 1384 de 2010</a></h3>
+      <p>Sandra Ceballos. Obliga a garantizar cuidado paliativo a los pacientes oncológicos cuatro
+        años antes de la 1733 —y, a diferencia de ella, trae financiación y sanciones.</p></div>
+    <div class="bloque"><p class="n">RESOLUCIÓN · 2018</p>
+      <h3><a class="norma" href="leyes_construir/resolucion-2665-2018.html" target="_blank" rel="noopener">Resolución 2665 de 2018</a></h3>
+      <p>Documento de voluntad anticipada. La única reglamentación expresa de la Ley 1733 en doce
+        años, preservada por la Resolución 813 de 2026.</p></div>
+    <div class="bloque"><p class="n">RESOLUCIÓN · 2018</p>
+      <h3><a class="norma" href="leyes_construir/resolucion-3280-2018.html" target="_blank" rel="noopener">Resolución 3280 de 2018</a></h3>
+      <p>Ruta de promoción y mantenimiento de la salud y ruta materno perinatal. <strong>No es la ruta
+        del cuidado paliativo</strong>, aunque se cite como si lo fuera.</p></div>
+  </div>
+  <p style="margin-top:1.2rem">
+    <a class="btn" href="leyes_construir/index.html" target="_blank" rel="noopener">Abrir la biblioteca de normas</a>
+  </p>
+  <p class="nota" style="margin-top:.9rem">
+    La Resolución 813 de 2026, las sentencias y la Ley Estatutaria 1751 se trabajan en las
+    diapositivas que siguen; <strong>todavía no tienen ficha propia</strong>.
+  </p>
+</section>
+
 <!-- 13 ─ Tabla de vigencia ─────────────────────────────────────────────── -->
 <section class="d" data-parte="IV · El marco legal" aria-label="Qué está vigente y qué está derogado">
   <p class="d__eyebrow">Lo primero, porque cambia todo lo demás</p>
@@ -559,8 +606,8 @@ details .cita-norma{font-family:var(--serif);font-style:italic;color:var(--acent
     <table>
       <thead><tr><th scope="col">Norma</th><th scope="col">Estado</th><th scope="col">Quién la derogó o modificó</th></tr></thead>
       <tbody>
-        <tr><td><strong>Ley 1733 de 2014</strong> · Consuelo Devis Saavedra</td><td class="viva">Vigente</td><td>Su art. 7 fue modificado por el art. 3 de la Ley 2241 de 2022</td></tr>
-        <tr><td><strong>Res. 2665 de 2018</strong> · voluntad anticipada</td><td class="viva">Vigente</td><td>Derogó la Res. 1051 de 2016. <strong>No fue absorbida por la 813 de 2026</strong></td></tr>
+        <tr><td><a href="leyes_construir/ley-1733-2014.html#panorama" target="_blank" rel="noopener"><strong>Ley 1733 de 2014</strong></a> · Consuelo Devis Saavedra</td><td class="viva">Vigente</td><td>Su art. 7 fue modificado por el art. 3 de la Ley 2241 de 2022</td></tr>
+        <tr><td><a href="leyes_construir/resolucion-2665-2018.html#vigencia" target="_blank" rel="noopener"><strong>Res. 2665 de 2018</strong></a> · voluntad anticipada</td><td class="viva">Vigente</td><td>Derogó la Res. 1051 de 2016. <strong>No fue absorbida por la 813 de 2026</strong></td></tr>
         <tr><td><strong>Res. 813 de 2026</strong></td><td class="viva">Vigente desde el 29 de abril de 2026</td><td>Norma única de eutanasia y adecuación del esfuerzo terapéutico, adultos y NNA</td></tr>
         <tr><td><strong>Res. 3100 de 2019</strong> · habilitación</td><td class="viva">Vigente</td><td>Modificada varias veces, la última por la Res. 465 de 2025</td></tr>
       </tbody>
@@ -582,7 +629,7 @@ details .cita-norma{font-family:var(--serif);font-style:italic;color:var(--acent
       <tbody>
         <tr><td><strong>Res. 429 de 2016</strong> · PAIS</td><td class="muerta">Derogada</td><td>Art. 13 de la Res. 2626 de 2019, que compila PAIS y MAITE en un solo acto</td></tr>
         <tr><td>Res. 1216 de 2015</td><td class="muerta">Derogada</td><td>Art. 36 de la Res. 971 de 2021</td></tr>
-        <tr><td>Res. 1051 de 2016 · voluntad anticipada</td><td class="muerta">Derogada</td><td>Art. 17 de la Res. 2665 de 2018</td></tr>
+        <tr><td>Res. 1051 de 2016 · voluntad anticipada</td><td class="muerta">Derogada</td><td>Art. 17 de la <a href="leyes_construir/resolucion-2665-2018.html#vigencia" target="_blank" rel="noopener">Res. 2665 de 2018</a></td></tr>
         <tr><td>Res. 825 de 2018 · NNA</td><td class="muerta">Derogada</td><td>Art. 75 de la Res. 813 de 2026</td></tr>
         <tr><td><strong>Res. 971 de 2021</strong></td><td class="muerta">Derogada</td><td><strong>Art. 75 de la Res. 813 de 2026</strong></td></tr>
       </tbody>
@@ -1122,6 +1169,10 @@ details .cita-norma{font-family:var(--serif);font-style:italic;color:var(--acent
         barrera de opioides — y lleva doce años escrito.</dd>
     </dl>
   </details>
+  <p class="enlace-ficha">
+    <a href="leyes_construir/ley-1733-2014.html#obligaciones" target="_blank" rel="noopener">Ficha de la Ley 1733 ·
+      quién queda obligado y con qué consecuencia</a>
+  </p>
   <div class="tabla" style="margin-top:1rem">
     <table>
       <thead><tr><th scope="col">Sentencia</th><th scope="col">Qué establece</th><th scope="col">A qué barrera responde</th></tr></thead>
@@ -1259,6 +1310,7 @@ details .cita-norma{font-family:var(--serif);font-style:italic;color:var(--acent
   <p class="nota" style="margin-top:1rem">
     <a href="index.html">Volver a la guía de la sesión</a> ·
     <a href="../../index.html">Portada del seminario</a> ·
+    <a href="leyes_construir/index.html" target="_blank" rel="noopener">Biblioteca de normas</a> ·
     verificación de fuentes en <span class="mono">docs/INVESTIGACION-TEMA3-marco-legal-barreras.md</span>
   </p>
 </section>
