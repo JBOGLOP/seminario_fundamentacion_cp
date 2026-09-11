@@ -96,7 +96,7 @@ Está en `4. Clase 4. CP/encuentro_sincronico_u2.html`.
 
 | Documento | Datos |
 |---|---|
-| *Time for Better Care at the End of Life* (OCDE, 2023) | Solo el **40 %** de quienes necesitan CP los reciben en países OCDE · más del **50 %** de muertes ocurren en hospital pese a la preferencia por casa · solo el **25 %** de deseos anticipados documentados · estándar: **1 equipo hospitalario/200 000 hab.** y **1 domiciliario/100 000 hab.** |
+| *Time for Better Care at the End of Life* (OCDE, 2023) | Solo el **40 %** de quienes necesitan CP los reciben en países OCDE · más del **50 %** de muertes ocurren en hospital pese a la preferencia por casa · solo **una cuarta parte** de pacientes y profesionales redacta directivas anticipadas · cita el estándar de la **EAPC** —no de la OCDE—: **1 equipo hospitalario/200 000 hab.** y **1 domiciliario/100 000 hab.** |
 | *Health at a Glance 2023* | **10 millones** de personas en necesidad de atención de fin de vida para 2050 (7 M en 2019) · ingresos urgentes no planificados en los últimos 30 días de vida entre **0,2 %** (Suiza) y **59 %** (Israel) |
 
 El estándar de equipos por habitante es **directamente comparable** con el dato que el docente citó

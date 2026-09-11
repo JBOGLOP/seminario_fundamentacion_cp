@@ -73,7 +73,7 @@ Buscado el 28 de agosto en el material de 2026-I y verificado:
 
 | Organismo | Qué hay |
 |---|---|
-| **OCDE** | ✅ **Sí hay, y es bueno.** *Time for Better Care at the End of Life* (2023): solo el **40 %** de quienes necesitan CP los reciben en países OCDE · más del **50 %** de muertes en hospital · **25 %** de deseos anticipados documentados · estándar **1 equipo hospitalario/200 000 hab.** y **1 domiciliario/100 000**. Y *Health at a Glance 2023*: **10 millones** en necesidad de atención de fin de vida para 2050 |
+| **OCDE** | ✅ **Sí hay, y es bueno.** *Time for Better Care at the End of Life* (2023): solo el **40 %** de quienes necesitan CP los reciben en países OCDE · más del **50 %** de muertes en hospital · solo **una cuarta parte** de pacientes y profesionales redacta directivas anticipadas · cita el estándar de la **EAPC** (no de la OCDE): **1 equipo hospitalario/200 000 hab.** y **1 domiciliario/100 000**. Y *Health at a Glance 2023*: **10 millones** en necesidad de atención de fin de vida para 2050 |
 | **CEPAL** | ✅ Sí. **LC/CRE.5/3 (2022)** — envejecimiento y cuidados como derecho social |
 | **BID** | ❌ **Nada localizado.** Ni en el material de 2026-I ni en la búsqueda de esta semana. Solo aparece en frases genéricas |
 
@@ -115,7 +115,7 @@ conviene retomarlas, porque conectan directamente con la sesión 3:
 | Dato | Uso |
 |---|---|
 | **1,46 servicios por 100 000 hab.** en Santander (Observatorio) frente a un ideal de 2 | Aterriza la cadena en territorio. Es dato suyo, dicho en la sesión 1 |
-| Estándar OCDE: **1 equipo hospitalario/200 000** y **1 domiciliario/100 000** | Comparable con el anterior. Permite preguntar: ¿cuántos equipos tocarían en su municipio? |
+| Estándar de la **EAPC**, citado por la OCDE: **1 equipo hospitalario/200 000** y **1 domiciliario/100 000** | Comparable con el anterior. Permite preguntar: ¿cuántos equipos tocarían en su municipio? |
 | **GPC n.º 58** (MinSalud–IETS, 2016) | El instrumento clínico **sí existe**. Pero una guía no es una ruta: no hay RIAS paliativa |
 | **Decreto 858 de 2025** · Modelo Preventivo, Predictivo y Resolutivo | El marco vigente. Transición cerrada el **29 de julio de 2026**, tres semanas antes de empezar el semestre |
 

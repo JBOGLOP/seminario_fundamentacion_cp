@@ -80,7 +80,7 @@ Enmárquelo como **cómo se documenta una búsqueda**, no como caza del document
 
 | Organismo | Qué existe realmente |
 |---|---|
-| **OCDE** | **Sí hay.** *Time for Better Care at the End of Life* (2023): solo el **40 %** de quienes necesitan CP lo reciben en países OCDE · más del **50 %** de muertes en hospital · estándar **1 equipo hospitalario/200 000 hab.** y **1 domiciliario/100 000** |
+| **OCDE** | **Sí hay.** *Time for Better Care at the End of Life* (2023): solo el **40 %** de quienes necesitan CP lo reciben en países OCDE · más del **50 %** de muertes en hospital · cita el estándar de la **EAPC** (no de la OCDE): **1 equipo hospitalario/200 000 hab.** y **1 domiciliario/100 000** |
 | **CEPAL** | **Sí hay.** LC/CRE.5/3 (2022), envejecimiento y cuidados como derecho social |
 | **BID** | **Nada localizado**, ni en el material anterior ni en la búsqueda de este curso |
 
@@ -114,7 +114,7 @@ Unos tres minutos por persona. **Tres filtros, dichos en voz alta antes de empez
 | Dato | Para qué |
 |---|---|
 | **1,46 servicios por 100 000 hab.** en Santander (Observatorio), ideal 2 | Aterriza la cadena en territorio. Es dato suyo, de la sesión 1 |
-| Estándar OCDE: **1 hospitalario/200 000**, **1 domiciliario/100 000** | Comparable: ¿cuántos equipos tocarían en su municipio? |
+| Estándar de la **EAPC**, citado por la OCDE: **1 hospitalario/200 000**, **1 domiciliario/100 000** | Comparable: ¿cuántos equipos tocarían en su municipio? |
 | **GPC n.º 58** (MinSalud–IETS, 2016) | El instrumento clínico sí existe. Pero una guía no es una ruta: no hay RIAS paliativa |
 | **Decreto 858 de 2025** · Modelo Preventivo, Predictivo y Resolutivo | El marco vigente. Transición cerrada el 29 de julio de 2026 |
 
