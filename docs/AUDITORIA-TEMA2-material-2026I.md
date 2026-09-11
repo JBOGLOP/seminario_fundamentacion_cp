@@ -53,17 +53,17 @@ PDF en `5. Clase 5. Colombia y América Latina/Referencias/Resolución No. 2626 
 
 **PAIS es la política; MAITE es el modelo** que la operativiza desde 2019.
 
-**Ampliación del 28 de agosto — el marco cambió y el material de 2026-I no lo recoge.** El «Modelo
-Preventivo y resolutivo» que nombra el contenido programático es el **Modelo de Salud Preventivo,
-Predictivo y Resolutivo**, adoptado por el **Decreto 858 de 2025** (30 de julio de 2025), que
-sustituye la parte 11 del Libro 2 del Decreto 780 de 2016. Se apoya en atención primaria y se
-articula mediante las **RIITS**. Su periodo de transición **terminó el 29 de julio de 2026**, tres
-semanas antes de que empezara este semestre.
+**Ampliación del 28 de agosto, corregida el 11 de septiembre.** El «Modelo Preventivo y
+resolutivo» que nombra el contenido programático es el **Modelo de Salud Preventivo, Predictivo y
+Resolutivo**, adoptado por el **Decreto 858 de 2025** (30 de julio de 2025). **Está suspendido**: en
+octubre de 2025 el Consejo de Estado suspendió provisionalmente sus efectos por violación de la
+reserva de ley, y mientras se decide la nulidad rige el marco anterior —la PAIS modificada por la
+Resolución 2626 de 2019, que adoptó el MAITE y derogó la Resolución 429 de 2016 (art. 13; normograma
+de la SuperSalud)—.
 
-Lo que queda abierto es fino y conviene sostenerlo: MAITE queda **desplazado en la práctica**, pero
-no está confirmado que la Resolución 2626 de 2019 haya sido **derogada formalmente** — un decreto
-que sustituye parte de otro decreto no deroga por sí solo una resolución. *Desplazado* y *derogado*
-no son lo mismo.
+> 🔴 La versión del 28 de agosto de este párrafo daba el decreto por vigente y a MAITE por
+> «desplazado». Se buscó la expedición del decreto y no su estado judicial. El error lo detectó el
+> registro del Tema 3 (`docs/INVESTIGACION-TEMA3-marco-legal-barreras.md`).
 
 ---
 
@@ -104,8 +104,10 @@ en la sesión 1: 1,46 servicios por 100 000 habitantes en Santander, según el O
 
 ### 3.2 · Bloque latinoamericano
 
-- **OPS · Resolución CD62.R8 (2025)** — integración del cuidado paliativo en la política de
-  prevención y control de ENT 2025–2030. PDF local: `5. Clase 5.../Referencias/CD62-r8-s-plan-prevencion-control-ent.pdf`
+- **OPS · Resolución CD62.R8 (2025)**, plan de ENT 2025–2030. 🔴 Corregido el 11 sep: **la
+  resolución no menciona los cuidados paliativos** (cero menciones en sus dos páginas, comprobado
+  sobre el PDF). Según el registro del Tema 3, la única mención está en el documento que aprueba, el
+  CD62/8, dentro de una enumeración y sin indicador. PDF local: `5. Clase 5.../Referencias/CD62-r8-s-plan-prevencion-control-ent.pdf`
 - **CEPAL · LC/CRE.5/3 (2022)** — envejecimiento y cuidados como derecho social
 - **Atlas ALCP 2025** — citado en el material
 

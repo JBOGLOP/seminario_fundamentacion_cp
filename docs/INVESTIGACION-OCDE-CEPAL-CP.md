@@ -80,7 +80,7 @@ centrada en las personas, calidad, financiación y gobernanza. Un capítulo para
 > se aplica cuando la persona ya no puede expresarse, e incluye expresamente el caso en que **su
 > voluntad consta antes, por ejemplo en un documento de voluntad anticipada**. Con esa definición,
 > la marca de Colombia corresponde a la vía del documento de voluntad anticipada que abrió la
-> Resolución 971 de 2021, y el suicidio asistido a la Sentencia C-164 de 2022. En la parte de la
+> Resolución 971 de 2021 —hoy derogada por la Resolución 813 de 2026—, y el suicidio asistido a la Sentencia C-164 de 2022. En la parte de la
 > tabla que se ve en la página, **solo Canadá tiene también las tres marcas**. Es material directo
 > para la sesión 3.
 

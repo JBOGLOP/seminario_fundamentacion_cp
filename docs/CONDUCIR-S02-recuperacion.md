@@ -116,7 +116,7 @@ Unos tres minutos por persona. **Tres filtros, dichos en voz alta antes de empez
 | **1,46 servicios por 100 000 hab.** en Santander (Observatorio), ideal 2 | Aterriza la cadena en territorio. Es dato suyo, de la sesión 1 |
 | Estándar de la **EAPC**, citado por la OCDE: **1 hospitalario/200 000**, **1 domiciliario/100 000** | Comparable: ¿cuántos equipos tocarían en su municipio? |
 | **GPC n.º 58** (MinSalud–IETS, 2016) | El instrumento clínico sí existe. Pero una guía no es una ruta: no hay RIAS paliativa |
-| **Decreto 858 de 2025** · Modelo Preventivo, Predictivo y Resolutivo | El marco vigente. Transición cerrada el 29 de julio de 2026 |
+| **Decreto 858 de 2025** · Modelo Preventivo, Predictivo y Resolutivo | **Suspendido** por el Consejo de Estado desde octubre de 2025. Rige la PAIS modificada por la Res. 2626 de 2019 (MAITE) |
 
 ---
 

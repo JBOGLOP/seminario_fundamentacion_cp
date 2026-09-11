@@ -30,6 +30,11 @@
 > **🔴 La prioridad de esta unidad no cambia con la reconciliación:** auditar el material de DVA
 > heredado contra las normas vigentes **antes** de la Sesión 6. Dos normas que probablemente cita
 > —Res. 1216/2015 y Res. 1051/2016— están **derogadas** (ver §2.2). Sigue siendo lo primero.
+>
+> **🔴 Actualización del 11 de septiembre de 2026.** La tabla de §2.2 da por vigente la **Res. 971 de
+> 2021**, que la **Res. 813 de 2026** derogó el 29 de abril de 2026 (junto con la Res. 825 de 2018). Y
+> la C-239 no «despenalizó»: declaró exequible el tipo penal con una causal de justificación. La
+> tabla vigente está en `docs/INVESTIGACION-TEMA3-marco-legal-barreras.md` §1.
 
 ---
 

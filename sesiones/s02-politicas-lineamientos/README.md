@@ -120,9 +120,11 @@ es texto perdido).
       Al miércoles 2 de septiembre 15:56: **4 de 8 entregas**, quedan ~39 h. En la sesión 1 el
       recordatorio salió con 2 de 8 y se cerró en 7 de 8
 - [ ] **Abrir con el wifi apagado** y revisar a 375 px
-- [x] **Marco PAIS/MAITE resuelto** (2 sep). El modelo vigente es el del **Decreto 858 de 2025**;
-      transición cerrada el 29 de julio de 2026. Queda el rótulo fino: MAITE está desplazado, no
-      consta que la Res. 2626 de 2019 se derogara formalmente
+- [x] **Marco PAIS/MAITE** · 🔴 corregido el 11 sep. El **Decreto 858 de 2025 está suspendido**
+      por el Consejo de Estado desde octubre de 2025 (reserva de ley); rige la PAIS modificada por la
+      Res. 2626 de 2019 (MAITE), que a su vez derogó la Res. 429 de 2016. La versión del 2 sep daba el
+      decreto por vigente: se buscó la expedición y no el estado judicial. La diapositiva 17 lleva la
+      corrección visible
 
 ## Carga medida · calibra la sesión 3
 

@@ -61,18 +61,22 @@ hay que recortar de verdad, no resumir (`PROGRAMADOR-2026-II.md` §4).
 
 ## El marco colombiano — línea verificada
 
+> 🔴 **Corregida el 11 de septiembre de 2026.** La versión anterior de esta tabla daba por vigente la
+> Res. 971 de 2021 —derogada por la 813 de 2026— y hablaba de «despenalización» en la C-239. La tabla
+> de vigencia completa, con fuentes, está en `docs/INVESTIGACION-TEMA3-marco-legal-barreras.md` §1.
+
 Verificada el 21 de julio de 2026 contra fuentes oficiales (registro completo en
 [`../../docs/DISENO_UNIDAD_3.md`](../../docs/DISENO_UNIDAD_3.md) §6).
 
 | Norma | Qué hizo | Vigencia |
 |---|---|---|
-| **Sentencia C-239 de 1997** | Despenaliza el homicidio por piedad. El derecho a la vida digna implica el derecho a morir dignamente | Vigente · fundacional |
+| **Sentencia C-239 de 1997** | Declara exequible el tipo penal con una causal de justificación para el médico —técnicamente no es una despenalización—. El derecho a la vida digna implica el derecho a morir dignamente | Vigente · fundacional |
 | **Ley 1733 de 2014** · *Consuelo Devis Saavedra* | Regula los servicios de cuidado paliativo. Crea el derecho a declinar tratamientos innecesarios | Vigente |
 | **Resolución 2665 de 2018** | Reglamenta el documento de voluntad anticipada. Lo amplía a toda persona capaz, sana o enferma | Vigente |
 | **Sentencia C-233 de 2021** | Elimina el requisito de enfermedad terminal | Vigente |
-| **Resolución 971 de 2021** | Procedimiento vigente de solicitud y comités | Vigente |
-| **Sentencia C-164 de 2022** | Sobre suicidio médicamente asistido | Vigente · ⚠️ ver abajo |
-| **Resolución 813 de 2026** | Caso de aplicación de esta sesión | Vigente |
+| **Resolución 971 de 2021** | Procedimiento de solicitud y comités de eutanasia | ⛔ **Derogada** por el art. 75 de la Res. 813 de 2026 (29 abr. 2026) |
+| **Sentencia C-164 de 2022** | Exequibilidad condicionada del art. 107 inc. 2: no hay delito si lo realiza un médico, con consentimiento libre e informado, ante intenso sufrimiento por lesión o enfermedad grave e incurable | Vigente · ✅ verificada |
+| **Resolución 813 de 2026** | Norma única de eutanasia y adecuación del esfuerzo terapéutico, adultos y NNA. Deroga las Res. 971 de 2021 y 825 de 2018 | Vigente desde el 29 abr. 2026 |
 
 ### ⛔ Dos normas derogadas que circulan en material heredado
 
