@@ -126,10 +126,23 @@ titulo('2 · Recursos externos que se cargan  (§7.2)');
   // recursos externos» mientras hay páginas hablando con un servidor esconde
   // justo lo que hay que vigilar.
   {
-    const backends = htmls.filter(f => /script\.google\.com/.test(fs.readFileSync(f, 'utf8')));
+    // Dos clases de backend, y las dos se declaran: el Apps Script que recibe
+    // los entregables, y Ollama en localhost, al que el tablero le pide la
+    // síntesis. El segundo no sale del equipo del docente — por eso es
+    // admisible mandarle respuestas de estudiantes — pero callarlo seria
+    // exactamente el agujero que esta lista existe para tapar.
+    const backends = htmls
+      .map(f => ({ f, src: fs.readFileSync(f, 'utf8') }))
+      .map(({ f, src }) => ({
+        f,
+        quien: [/script\.google\.com/.test(src) && 'Apps Script',
+                /localhost:11434/.test(src) && 'Ollama en local'].filter(Boolean).join(' · ')
+      }))
+      .filter(x => x.quien);
     if (backends.length) {
       console.log(gris('  backends declarados (no son recursos de carga):'));
-      backends.map(rel).sort().forEach(x => console.log(gris(`      ${x}`)));
+      backends.sort((a, b) => rel(a.f).localeCompare(rel(b.f)))
+        .forEach(x => console.log(gris(`      ${rel(x.f)}  —  ${x.quien}`)));
     }
   }
 

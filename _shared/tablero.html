@@ -119,6 +119,36 @@ mark.r-fue{background:var(--bosque-soft);color:var(--bosque-dark)}
 .senal--aus{background:var(--arcilla-soft);color:var(--arcilla-deep);border-color:var(--arcilla)}
 .senal--aus b{color:var(--arcilla-deep)}
 
+/* --- Sintesis de maquina (Ollama en local) -------------------------------
+   Deliberadamente con aire de borrador: fondo de aviso y etiqueta visible.
+   Lo que sale de un modelo no puede parecerse a lo que escribio una persona. */
+.ollama{background:var(--arcilla-soft); border:1px dashed var(--arcilla);
+  border-radius:var(--radius); padding:1rem 1.2rem; margin:0 0 1.3rem}
+.ollama h2{font-size:.8rem; margin:0 0 .3rem; color:var(--arcilla-deep);
+  letter-spacing:.06em; text-transform:uppercase}
+.ollama .ollama__nota{font-size:.82rem; color:var(--arcilla-deep); margin:0 0 .9rem}
+.ollama .ollama__estado{font-family:var(--mono); font-size:.76rem; color:var(--gris)}
+.ollama .ficha{border-top:1px solid rgba(196,113,79,.28); padding:.75rem 0 0; margin:.75rem 0 0}
+.ollama .ficha:first-of-type{border-top:0; margin-top:0}
+.ollama .ficha__seudo{font-family:var(--mono); font-weight:700; font-size:.8rem;
+  color:var(--arcilla-deep); margin:0 0 .25rem}
+.ollama .ficha p{margin:.2rem 0; font-size:calc(.95rem * var(--escala)); line-height:1.5}
+.ollama .ficha .etq{font-size:.72rem; text-transform:uppercase; letter-spacing:.05em;
+  color:var(--gris); margin-right:.4rem}
+.ollama blockquote{font-family:var(--serif); margin:.45rem 0 0; padding-left:.9rem;
+  border-left:3px solid var(--arcilla); font-size:calc(1rem * var(--escala)); line-height:1.45}
+.ollama .verificada{font-size:.72rem; color:var(--gris)}
+.ollama .descartada{font-size:.8rem; color:var(--arcilla-deep)}
+.ollama button{font:inherit; font-size:.78rem; cursor:pointer; border:1px solid var(--arcilla);
+  background:var(--blanco); color:var(--arcilla-deep); border-radius:999px; padding:.18rem .8rem;
+  margin-left:.5rem}
+.ollama button:hover{background:var(--arcilla); color:var(--blanco)}
+
+/* La sintesis de maquina NUNCA se proyecta: el modo proyeccion la esconde,
+   igual que esconde los nombres. */
+body.proyeccion .ollama,body.proyeccion #resumir{display:none}
+@media print{.ollama{display:none}}
+
 .citas{background:var(--pizarra);color:var(--lino);border-radius:var(--radius);
   padding:1.1rem 1.3rem;margin:0 0 1.3rem}
 .citas h2{font-size:.9rem;margin:0 0 .8rem;color:var(--piedra-soft);letter-spacing:.06em;text-transform:uppercase}
@@ -176,6 +206,7 @@ body.proyeccion .tarjeta{box-shadow:var(--shadow-medium)}
     <button type="button" id="recargar" title="Volver a leer las entregas">Recargar</button>
     <button type="button" id="menos" title="Letra más pequeña">A−</button>
     <button type="button" id="mas" title="Letra más grande">A+</button>
+    <button type="button" id="resumir" title="Sintetiza las respuestas de esta pregunta con un modelo local">Síntesis local</button>
     <button type="button" id="proyeccion" title="Oculta nombres y correos">Modo proyección</button>
   </div>
 </div>
@@ -187,6 +218,7 @@ body.proyeccion .tarjeta{box-shadow:var(--shadow-medium)}
   <h1 class="titulo-pregunta" id="titulo">—</h1>
   <p class="sub" id="subtitulo"></p>
   <div class="senales" id="senales"></div>
+  <section class="ollama" id="ollama" hidden aria-label="Síntesis de máquina"></section>
   <section class="citas" id="citas" style="display:none" aria-label="Citas fijadas"></section>
   <div class="respuestas" id="respuestas"></div>
   <p class="pie">
@@ -529,6 +561,7 @@ body.proyeccion .tarjeta{box-shadow:var(--shadow-medium)}
       datos.sesion + ' · ' + datos.titulo;
     pintarSenales();
     pintarCitas();
+    pintarIA();
 
     datos.respuestas.forEach(function (r) {
       var texto = String(r.respuestas[preguntaActiva] || '').trim();
@@ -590,12 +623,261 @@ body.proyeccion .tarjeta{box-shadow:var(--shadow-medium)}
     });
   }
 
+
+  /* ── Síntesis con Ollama, en local ────────────────────────────────
+     Lo mismo que hace `scripts/resumir-entregas.js` la noche antes, aquí y
+     para una sola pregunta, cuando en clase aparece la que no se preparó.
+
+     Las tres reglas del script se mantienen, porque son las que hacen que
+     esto sea admisible en un seminario que evalúa verificar lo que se cita:
+
+       · El modelo corre en este equipo. Las respuestas no salen de aquí;
+         mandarlas a una API en la nube no está cubierto por lo que se les
+         declaró a los estudiantes.
+       · La cita se verifica contra el original carácter a carácter. Si no
+         aparece literal, se descarta y se dice. Lo que se muestra es el
+         fragmento DEL ORIGINAL, con sus tildes.
+       · Nada de esto se proyecta: el modo proyección oculta el panel, y el
+         resultado vive solo en la memoria de esta pestaña — no se guarda.
+
+     Sigue valiendo el consejo del script: prepararlo antes es mejor. Esto
+     es el paracaídas, no el avión.                                        */
+  var OLLAMA_URL = CFG.ollamaURL || 'http://localhost:11434';
+  var OLLAMA_MODELO = CFG.ollamaModelo || 'qwen2.5:7b';
+  var sintesis = {};          // { 'S01|p1': {...} } · solo en memoria
+  var corriendo = false, cancelar = false;
+
+  function claveIA() { return sesion + '|' + preguntaActiva; }
+
+  function promptIA(texto) {
+    return [
+      'Eres un asistente que prepara material docente. Analiza la respuesta de un estudiante y devuelve EXACTAMENTE tres bloques, sin añadir nada más y sin repetir estas instrucciones.',
+      '',
+      'SINTESIS: una sola frase de máximo 25 palabras que diga qué sostiene la respuesta.',
+      'DATOS: hasta tres datos concretos del texto (fechas, cifras, instituciones, fuentes), separados por " · ". Si no hay ninguno, escribe: ninguno',
+      'CITA: una frase COPIADA LITERALMENTE del texto, sin cambiar ni una palabra ni una tilde, que sea la más discutible o la más reveladora.',
+      '',
+      'No inventes nada. No interpretes. Si algo no está en el texto, no lo pongas.',
+      '',
+      'TEXTO DEL ESTUDIANTE:',
+      '"""', texto, '"""'
+    ].join('\n');
+  }
+
+  // El grupo de la alternancia va entre paréntesis a propósito: sin él,
+  // SINTESIS|SÍNTESIS se come el resto del patrón. Fue el fallo de la
+  // primera versión del script.
+  function parsearIA(salida) {
+    function saca(etq, sig) {
+      var re = new RegExp('(?:' + etq + ')\\s*:?\\s*([\\s\\S]*?)(?=\\n\\s*(?:' + sig + ')\\s*:|$)', 'i');
+      var m = String(salida).match(re);
+      return m && m[1] ? m[1].trim().replace(/^\d\.\s*/, '').trim() : '';
+    }
+    return {
+      sintesis: saca('SINTESIS|SÍNTESIS', 'DATOS|CITA'),
+      datos: saca('DATOS', 'CITA'),
+      cita: saca('CITA', '$^')
+    };
+  }
+
+  var quitarTildes = function (t) { return t.normalize('NFD').replace(/[̀-ͯ]/g, ''); };
+
+  /* Devuelve el fragmento ORIGINAL si la cita está; null si no. Tolera
+     tildes, mayúsculas y espacios de más —un modelo que devuelve
+     «paliativos.» donde el original dice «paliativos .» no debería costar
+     una cita buena—, pero nada más. */
+  function verificarCita(cita, original) {
+    var limpia = String(cita || '').replace(/^[«"'\s]+|[»"'\s]+$/g, '').trim();
+    if (limpia.length < 20) return null;
+    if (original.indexOf(limpia) !== -1) return limpia;
+
+    var mapa = [], normal = '';
+    for (var i = 0; i < original.length; i++) {
+      var c = quitarTildes(original[i]).toLowerCase();
+      if (/\s/.test(c)) {
+        if (normal.charAt(normal.length - 1) === ' ') continue;
+        normal += ' '; mapa.push(i);
+      } else { normal += c; mapa.push(i); }
+    }
+    var objetivo = quitarTildes(limpia).toLowerCase().replace(/\s+/g, ' ').trim();
+    var j = normal.indexOf(objetivo);
+    if (j === -1) return null;
+    var desde = mapa[j];
+    var hasta = mapa[Math.min(j + objetivo.length - 1, mapa.length - 1)] + 1;
+    return original.slice(desde, hasta).trim();
+  }
+
+  function pedirAOllama(texto) {
+    return fetch(OLLAMA_URL + '/api/generate', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: OLLAMA_MODELO, prompt: promptIA(texto), stream: false,
+        options: { temperature: 0.1, num_predict: 400 }
+      })
+    }).then(function (r) {
+      if (!r.ok) throw new Error('Ollama respondió ' + r.status);
+      return r.json();
+    }).then(function (j) { return j.response || ''; });
+  }
+
+  function pintarIA() {
+    var el = $('ollama');
+    var d = sintesis[claveIA()];
+    if (!d) { el.hidden = true; el.textContent = ''; return; }
+    el.hidden = false;
+    el.textContent = '';
+
+    var h = document.createElement('h2');
+    h.textContent = 'Síntesis de máquina · borrador';
+    var rehacer = document.createElement('button');
+    rehacer.textContent = corriendo ? 'Detener' : 'Rehacer';
+    rehacer.onclick = function () { corriendo ? (cancelar = true) : resumirPregunta(true); };
+    var ocultar = document.createElement('button');
+    ocultar.textContent = 'Descartar';
+    ocultar.onclick = function () { delete sintesis[claveIA()]; pintarIA(); };
+    h.appendChild(rehacer);
+    if (!corriendo) h.appendChild(ocultar);
+    el.appendChild(h);
+
+    var nota = document.createElement('p');
+    nota.className = 'ollama__nota';
+    nota.textContent = 'Lo escribió un modelo, no una persona: léalo antes de usarlo. ' +
+      'Las citas están verificadas contra el texto original; lo que no casó se descartó y se dice. ' +
+      'El modo proyección oculta este panel. Cerca de un minuto por respuesta: úselo en la pausa, ' +
+      'no en mitad de la discusión.';
+    el.appendChild(nota);
+
+    var estado = document.createElement('p');
+    estado.className = 'ollama__estado';
+    estado.textContent = d.estado || (OLLAMA_MODELO + ' · ' + d.hora + ' · citas verificadas ' +
+      d.verificadas + ' · descartadas ' + d.descartadas);
+    el.appendChild(estado);
+
+    d.fichas.forEach(function (f) {
+      var art = document.createElement('div');
+      art.className = 'ficha';
+
+      var quien = document.createElement('p');
+      quien.className = 'ficha__seudo';
+      quien.textContent = f.seudonimo + ' · ' + f.palabras + ' palabras';
+      art.appendChild(quien);
+
+      if (f.error) {
+        var er = document.createElement('p');
+        er.className = 'descartada';
+        er.textContent = 'No se pudo resumir: ' + f.error;
+        art.appendChild(er);
+      }
+      if (f.sintesis) {
+        var p1 = document.createElement('p');
+        var e1 = document.createElement('span'); e1.className = 'etq'; e1.textContent = 'síntesis';
+        p1.appendChild(e1); p1.appendChild(document.createTextNode(f.sintesis));
+        art.appendChild(p1);
+      }
+      if (f.datos && !/^ninguno/i.test(f.datos)) {
+        var p2 = document.createElement('p');
+        var e2 = document.createElement('span'); e2.className = 'etq'; e2.textContent = 'datos';
+        p2.appendChild(e2); p2.appendChild(document.createTextNode(f.datos));
+        art.appendChild(p2);
+      }
+      if (f.cita) {
+        var bq = document.createElement('blockquote');
+        bq.textContent = '«' + f.cita + '»';
+        art.appendChild(bq);
+        var v = document.createElement('p');
+        v.className = 'verificada';
+        v.textContent = 'Cita verificada en el original · se puede fijar desde la tarjeta.';
+        art.appendChild(v);
+      } else if (f.citaPropuesta) {
+        var dd = document.createElement('p');
+        dd.className = 'descartada';
+        dd.textContent = 'El modelo propuso una cita que no aparece literalmente en el texto. Descartada.';
+        art.appendChild(dd);
+      }
+      el.appendChild(art);
+    });
+  }
+
+  function resumirPregunta(rehacer) {
+    if (corriendo) { cancelar = true; return; }
+    if (!datos || !datos.entregas || !preguntaActiva) return;
+    var clave = claveIA();
+    if (sintesis[clave] && !rehacer) { pintarIA(); return; }
+
+    var conTexto = datos.respuestas.filter(function (r) {
+      return String(r.respuestas[preguntaActiva] || '').trim();
+    });
+    if (!conTexto.length) return;
+
+    corriendo = true; cancelar = false;
+    var acumulado = { fichas: [], verificadas: 0, descartadas: 0, hora: '', estado: 'comprobando Ollama…' };
+    sintesis[clave] = acumulado;
+    $('resumir').textContent = 'Deteniendo…';
+    pintarIA();
+
+    fetch(OLLAMA_URL + '/api/version')
+      .then(function (r) { return r.json(); })
+      .then(function () { return siguiente(0); })
+      .catch(function () {
+        // Desde la copia local (file://) el navegador no manda cabecera Origin
+        // y Ollama contesta sin configurar OLLAMA_ORIGINS. Desde la página
+        // publicada en HTTPS, en cambio, el navegador bloquea la llamada a
+        // http://localhost por contenido mixto — y lo hace en silencio.
+        acumulado.estado = location.protocol === 'https:'
+          ? 'El navegador bloquea http://localhost desde una página HTTPS. Abra su copia local del tablero (doble clic en _shared/tablero.html) y vuelva a intentarlo.'
+          : 'No responde Ollama en ' + OLLAMA_URL + '. Ábralo (ollama serve) y vuelva a intentarlo.';
+        terminar(clave);
+      });
+
+    function siguiente(i) {
+      if (cancelar || i >= conTexto.length) { terminar(clave); return Promise.resolve(); }
+      var r = conTexto[i];
+      var texto = String(r.respuestas[preguntaActiva]).trim();
+      acumulado.estado = OLLAMA_MODELO + ' · ' + (i + 1) + ' de ' + conTexto.length +
+        ' · cerca de un minuto cada una';
+      $('resumir').textContent = 'Detener · ' + (i + 1) + '/' + conTexto.length;
+      pintarIA();
+
+      return pedirAOllama(texto).then(function (salida) {
+        var x = parsearIA(salida);
+        var cita = verificarCita(x.cita, texto);
+        if (cita) acumulado.verificadas++;
+        else if (x.cita) acumulado.descartadas++;
+        acumulado.fichas.push({
+          seudonimo: r.seudonimo, palabras: palabras(texto),
+          sintesis: x.sintesis, datos: x.datos, cita: cita, citaPropuesta: x.cita
+        });
+      }).catch(function (err) {
+        acumulado.fichas.push({
+          seudonimo: r.seudonimo, palabras: palabras(texto),
+          error: String(err && err.message || err)
+        });
+      }).then(function () { return siguiente(i + 1); });
+    }
+
+    function terminar(k) {
+      corriendo = false;
+      $('resumir').textContent = 'Síntesis local';
+      var d = sintesis[k];
+      if (!d) { pintarIA(); return; }
+      d.hora = new Date().toLocaleTimeString('es-CO');
+      if (d.fichas.length) d.estado = '';
+      if (cancelar && d.fichas.length) {
+        d.estado = OLLAMA_MODELO + ' · detenida en ' + d.fichas.length + ' de ' +
+          conTexto.length + ' · citas verificadas ' + d.verificadas + ' · descartadas ' + d.descartadas;
+      }
+      pintarIA();
+    }
+  }
+
   /* ── Controles ──────────────────────────────────────────────────── */
   var escala = 1;
   function aplicarEscala() { document.documentElement.style.setProperty('--escala', escala.toFixed(2)); }
   $('mas').onclick   = function () { escala = Math.min(2.4, escala + 0.12); aplicarEscala(); };
   $('menos').onclick = function () { escala = Math.max(0.8, escala - 0.12); aplicarEscala(); };
   $('recargar').onclick = cargar;
+  $('resumir').onclick = function () { resumirPregunta(false); };
   $('proyeccion').onclick = function () {
     var on = document.body.classList.toggle('proyeccion');
     this.classList.toggle('on', on);

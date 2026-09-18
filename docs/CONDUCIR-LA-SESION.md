@@ -166,9 +166,38 @@ Ollama corre en su equipo: **las respuestas no salen de ahí.** Eso encaja con l
 declaró —«no se publican ni se comparten con terceros»—. Mandarlas a una API en la nube no
 estaría cubierto por esa declaración y habría que avisarles antes.
 
-Un detalle técnico que ahorra un rato: el **403 de Ollama** que aparece al llamarlo desde una
-página abierta como archivo solo afecta al navegador. Este script corre en Node, no manda
-cabecera `Origin`, y por eso **no hay que configurar `OLLAMA_ORIGINS`**.
+Un detalle técnico que ahorra un rato: **no hay que configurar `OLLAMA_ORIGINS`**. El script corre
+en Node y no manda cabecera `Origin`; y el tablero, abierto como archivo, manda `Origin: null` —
+comprobado el 18 de septiembre de 2026 contra Ollama 0.34.2, que responde
+`Access-Control-Allow-Origin: *` y no el 403 que esta guía anunciaba.
+
+Lo que sí bloquea el navegador es llamar a `http://localhost` **desde la página publicada en
+HTTPS**: es contenido mixto y falla en silencio. Para usar el botón del tablero hay que abrir la
+copia local, con doble clic.
+
+### El mismo trabajo, desde el tablero
+
+Si en clase aparece la pregunta que no se preparó, el tablero tiene el botón **«Síntesis local»**:
+hace lo mismo que este script, pero **solo para la pregunta activa**.
+
+| | `resumir-entregas.js` | Botón del tablero |
+|---|---|---|
+| Cuándo | La noche antes | En clase, en la pausa |
+| Alcance | Las siete preguntas | Solo la pregunta abierta |
+| Salida | `PRIVADO_guion-SNN.md` | Un panel, **solo en memoria**: se pierde al recargar |
+| Proyección | El archivo no se proyecta | El panel **desaparece en modo proyección** |
+
+Mismo modelo, mismo prompt y **la misma verificación de citas**: lo que no aparece literal en el
+texto se descarta y el panel lo dice. Medido en el equipo del docente, **cerca de un minuto por
+respuesta** con `qwen2.5:7b` — siete estudiantes son siete minutos, así que es cosa de la pausa,
+no de la mitad de una discusión.
+
+Requisitos: Ollama abierto (`ollama serve`) y el tablero abierto **como archivo local**, no desde
+la dirección publicada. Si algo falla, el panel dice cuál de las dos cosas es.
+
+> **Sigue siendo un borrador de máquina.** El panel lleva el aviso encima y el modo proyección lo
+> oculta, por la misma razón de siempre: lo que se proyecta son palabras del estudiante —las citas
+> verificadas y las fijadas a mano—, nunca una paráfrasis automática.
 
 ---
 

@@ -30,6 +30,18 @@ window.CONFIG = {
 
   // Correo del docente, por si alguna página lo necesita.
   teacherEmail: 'jbogoya63@uan.edu.co',
+
+  // ── Síntesis con Ollama, en local ────────────────────────────────
+  // Opcionales: solo si el modelo no está donde se espera. El botón
+  // «Síntesis local» del tablero llama a Ollama EN ESTE EQUIPO, y por eso
+  // se le pueden mandar respuestas de estudiantes: no salen de aquí.
+  // Mandarlas a una API en la nube NO está cubierto por lo que se les
+  // declaró, y exigiría avisarles antes.
+  //
+  // Funciona abriendo el tablero con doble clic (file://). Desde la página
+  // publicada en HTTPS el navegador bloquea http://localhost.
+  // ollamaURL: 'http://localhost:11434',
+  // ollamaModelo: 'qwen2.5:7b',
 };
 
 // ── Nota sobre los tokens de ESCRITURA ─────────────────────────────
