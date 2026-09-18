@@ -77,7 +77,7 @@ y sobre el que ya escribió en los dos entregables.
 > no se cuentan en contra: se califica lo que hay.
 
 > **Por qué individual y no por grupos.** En 2026-I el producto del primer corte fue grupal, por
-> país. Aquí no puede serlo: las ocho personas del curso ejercen en territorios distintos, los dos
+> país. Aquí no puede serlo: las siete personas del curso ejercen en territorios distintos, los dos
 > entregables previos son individuales y el hilo del seminario es *mirar el propio terreno*. Un
 > producto grupal obligaría a que siete de cada ocho escriban sobre un territorio que no es el suyo.
 

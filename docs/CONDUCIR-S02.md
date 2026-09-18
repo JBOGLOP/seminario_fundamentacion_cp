@@ -148,8 +148,9 @@ Al escribir esto van 5 de 8. Si mañana a las 7:00 siguen faltando tres o más:
 
 1. **Cuántas preguntas lleva el entregable de la sesión 3.** La mediana de carga va en 180 min
    frente a 210 anunciados, así que la regla de bajar una pregunta no se dispara y cabrían cuatro.
-   **Pero el 18 de septiembre se entregan dos cosas el mismo día.** Con las ocho entregas cerradas
-   se decide; tres es lo prudente.
+   **Pero el 18 de septiembre se entregan dos cosas el mismo día.** Con las entregas cerradas
+   se decide; tres es lo prudente. _(Resuelto el 18 de septiembre: la sesión 3 no llegó a tener
+   entregable, porque se fusionó con la 2.)_
 2. **Anotar en el README qué funcionó y qué no**, mientras esté fresco. La hoja de conducción
    general dice que la parte de conducción era una propuesta razonada, no experiencia. Ya van dos
    sesiones de experiencia.

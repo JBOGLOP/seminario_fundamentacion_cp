@@ -12,12 +12,13 @@
  * ────────────────────────────────────────────────────────────────────────
  * SE CORRE LA NOCHE ANTES, NUNCA EN CLASE. Dos razones:
  *
- *   · Tiempo. Unos 40 s por respuesta; ocho estudiantes × cinco preguntas
- *     son ~25 minutos. No cabe en el aula.
- *   · Y la que importa: **nada generado por máquina se proyecta sin que el
- *     docente lo haya leído antes.** Este seminario evalúa verificar lo que
- *     se cita; proyectar una paráfrasis automática de lo que escribió un
- *     estudiante contradiría el curso. La salida es un BORRADOR para
+ *   · Tiempo. Poco, en realidad: ~1,6 s por respuesta con el modelo ya
+ *     cargado (medido el 18-09-2026), así que 7 × 5 va en un par de
+ *     minutos. Lo que no cabe en el aula es LEERLO con cuidado.
+ *   · Y la que manda: **nada generado por máquina se proyecta sin que el
+ *     docente lo haya leído antes.** Este seminario evalúa verificar lo
+ *     que se cita; proyectar una paráfrasis automática de lo que escribió
+ *     un estudiante contradiría el curso. La salida es un BORRADOR para
  *     preparar, no material de clase.
  *
  * ────────────────────────────────────────────────────────────────────────

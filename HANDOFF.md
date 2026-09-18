@@ -339,7 +339,10 @@ o se descarga. Los `README.md` de las carpetas de sesión son notas de trabajo, 
 
 ### 6.1 · El roster y el prefijo `PRIVADO_`
 
-**El grupo de 2026-II son 8 estudiantes.** La lista —nombres, códigos y correos— está en
+**El grupo de 2026-II son 7 estudiantes.** Empezó con 8: una persona canceló los espacios
+académicos el 18 de septiembre de 2026, confirmado por la Dirección de la maestría. Su fila del
+roster pasa a `Activo` = `No` **sin borrarse**, para no perder el rastro de lo que ya entregó, y
+su letra de seudónimo no se reasigna. La lista —nombres, códigos y correos— está en
 `PRIVADO_roster_2026-II.md`, con su gemelo `.tsv` listo para pegar en la pestaña `Roster` de la
 hoja. **Ninguno de los dos está en el repositorio**, y no pueden estarlo: son datos personales
 (Ley 1581 de 2012) y este repositorio es público e indexable.
@@ -361,7 +364,7 @@ en un archivo sin el prefijo sigue bloqueando.
 > primer apellido del curso, cualquiera del grupo desharía el anonimato del tablero ordenando la
 > lista de clase. `asignarSeudonimos()` baraja antes de repartir por la misma razón.
 >
-> Y hay un límite honesto: con **ocho personas escribiendo cada una sobre su territorio**, la
+> Y hay un límite honesto: con **siete personas escribiendo cada una sobre su territorio**, la
 > primera pregunta las identifica casi sola. Lo que el tablero garantiza es que *no se proyecta
 > el nombre*, no que nadie sepa quién escribió. Conviene decirlo así en el encuadre y no
 > prometer más.

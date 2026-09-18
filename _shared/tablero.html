@@ -744,8 +744,8 @@ body.proyeccion .tarjeta{box-shadow:var(--shadow-medium)}
     nota.className = 'ollama__nota';
     nota.textContent = 'Lo escribió un modelo, no una persona: léalo antes de usarlo. ' +
       'Las citas están verificadas contra el texto original; lo que no casó se descartó y se dice. ' +
-      'El modo proyección oculta este panel. Cerca de un minuto por respuesta: úselo en la pausa, ' +
-      'no en mitad de la discusión.';
+      'El modo proyección oculta este panel. La primera llamada tarda —carga el modelo—; ' +
+      'después, un par de segundos por respuesta.';
     el.appendChild(nota);
 
     var estado = document.createElement('p');
@@ -835,7 +835,7 @@ body.proyeccion .tarjeta{box-shadow:var(--shadow-medium)}
       var r = conTexto[i];
       var texto = String(r.respuestas[preguntaActiva]).trim();
       acumulado.estado = OLLAMA_MODELO + ' · ' + (i + 1) + ' de ' + conTexto.length +
-        ' · cerca de un minuto cada una';
+        (i ? ' · un par de segundos cada una' : ' · la primera tarda: carga el modelo');
       $('resumir').textContent = 'Detener · ' + (i + 1) + '/' + conTexto.length;
       pintarIA();
 

@@ -722,7 +722,7 @@ Sánchez-Cárdenas, M. A. (Ed.). (2024). *Reporte técnico 2024. Estado actual d
    de las 8:00–8:20 con nombres de departamento reales, y calibrar la dificultad del entregable 3.
 3. **La cifra de carga real del entregable 2** (el campo `minutos`). Con ella la decisión de tres o
    cuatro preguntas deja de ser un juicio y pasa a ser el cálculo que manda la skill del proyecto.
-4. **Los territorios de los ocho estudiantes.** No están en el roster. Con ellos puedo preparar las
+4. **Los territorios de los siete estudiantes.** No están en el roster. Con ellos puedo preparar las
    ocho fichas departamentales del OCCP 2024 recortadas, una por persona, para el taller de las
    10:20 — que es exactamente el insumo que convierte la pregunta de investigación en situada.
 5. **El PDF de la Resolución 813 de 2026** que usó en 2026-I, si lo tiene anotado. Verifiqué su

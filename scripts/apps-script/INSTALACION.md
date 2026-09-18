@@ -45,7 +45,8 @@ Pestaña **`Roster`**, una fila por estudiante:
 - Para dar de baja a alguien sin borrar su historial: `Activo` = `No`. **No borre filas**: se
   pierde el rastro de lo que ya entregó.
 
-> **Para 2026-II ya está preparado.** El grupo son 8 estudiantes y el roster, con sus seudónimos
+> **Para 2026-II ya está preparado.** El grupo son 7 estudiantes —una persona canceló el 18 de
+> septiembre de 2026; su fila queda con `Activo` = `No`, nunca borrada— y el roster, con sus seudónimos
 > ya repartidos, está en `PRIVADO_roster_2026-II.tsv` — listo para pegar desde la celda **A2**.
 > Ese archivo está fuera del repositorio por el prefijo `PRIVADO_` del `.gitignore`.
 > Si lo pega, **no** hace falta ejecutar `asignarSeudonimos()`.

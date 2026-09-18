@@ -79,11 +79,11 @@ La primera es la fiable.
 
 ### La regla que lo decide todo: no lea las respuestas en voz alta
 
-Leer ocho respuestas seguidas mata la sesión. El grupo desconecta en la tercera.
+Leer siete respuestas seguidas mata la sesión. El grupo desconecta en la tercera.
 
 **Lo que sí funciona:**
 
-1. **Proyecte la pregunta** y deje **dos minutos de lectura en silencio**. Todos leen las ocho
+1. **Proyecte la pregunta** y deje **dos minutos de lectura en silencio**. Todos leen las siete
    respuestas a la vez. Nadie recita.
 2. **Devuélvale el análisis al grupo**, no la conclusión:
    - *«¿Qué se repite en varias?»*
@@ -132,7 +132,9 @@ node scripts/resumir-entregas.js --sesion S01
 
 Baja las entregas, pide a **Ollama en local** una síntesis y una cita por respuesta, y escribe
 `PRIVADO_guion-S01.md` — fuera del repositorio por el prefijo. Unos **30 segundos** para nueve
-respuestas con `qwen2.5:7b`; un grupo completo de 8 × 5 no debería pasar de tres minutos.
+respuestas con `qwen2.5:7b`; un grupo completo de 7 × 5 no debería pasar de tres minutos.
+Remedido el 18 de septiembre: **1,6 s por respuesta** con el modelo cargado, y unos segundos de
+carga en la primera llamada.
 
 Por cada respuesta deja: **síntesis** de una frase, **datos** extraídos (fechas, cifras,
 instituciones) y una **cita literal**, más la respuesta completa plegada en un desplegable. Y
@@ -188,9 +190,12 @@ hace lo mismo que este script, pero **solo para la pregunta activa**.
 | Proyección | El archivo no se proyecta | El panel **desaparece en modo proyección** |
 
 Mismo modelo, mismo prompt y **la misma verificación de citas**: lo que no aparece literal en el
-texto se descarta y el panel lo dice. Medido en el equipo del docente, **cerca de un minuto por
-respuesta** con `qwen2.5:7b` — siete estudiantes son siete minutos, así que es cosa de la pausa,
-no de la mitad de una discusión.
+texto se descarta y el panel lo dice.
+
+**Cuánto tarda, medido el 18 de septiembre de 2026 en el equipo del docente** con `qwen2.5:7b`:
+**1,6 s por respuesta** con el modelo ya cargado, y unos segundos más en la primera llamada, que es
+la que lo carga. Una pregunta con siete respuestas se resuelve mientras se bebe agua. Si la primera
+vez parece colgado, no lo está: está cargando el modelo.
 
 Requisitos: Ollama abierto (`ollama serve`) y el tablero abierto **como archivo local**, no desde
 la dirección publicada. Si algo falla, el panel dice cuál de las dos cosas es.
