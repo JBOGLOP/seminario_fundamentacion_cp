@@ -139,7 +139,19 @@ se depura hablando**, y es lo que se califica con 20 de los 70 puntos del produc
 
 ---
 
-## El entregable · ⚠️ calibración pendiente
+## El entregable · ⛔ no llegó a existir
+
+> **18 de septiembre de 2026.** La sesión 2 se aplazó el 4 y el 9 de septiembre, y sus contenidos
+> se dictaron junto con los de la sesión 3 en el encuentro del 18, de 8:00 a 11:00 a. m. **La
+> sesión 3 no tuvo entregable previo**: no hubo ventana entre una sesión y otra donde pedirlo. El
+> primer corte se califica con los trabajos entregados hasta ese día —los entregables de las
+> sesiones 1 y 2 y lo trabajado en el encuentro—, y la rúbrica quedó ajustada:
+> [`../../docs/RUBRICA-C1.md`](../../docs/RUBRICA-C1.md) §2.
+>
+> Lo que sigue era la calibración prevista. Se conserva porque las preguntas siguen sirviendo para
+> el entregable de la sesión 4.
+
+### Calibración prevista (no ejecutada)
 
 La skill del proyecto es explícita: *el número de preguntas no se elige, se deduce* de la carga
 medida en la sesión anterior. **Ese dato no existe todavía**: la sesión 2 se dicta el 4 de
@@ -168,7 +180,7 @@ septiembre diga lo contrario.
 - [x] Presentación (`clase.html`) · corregida el 11 sep contra el registro del Tema 3
 - [x] Presentación combinada (`clase_s02_s03.html`) · la que se usa el 18 de septiembre
 - [x] Biblioteca de normas (`leyes_construir/`) · índice y cuatro fichas, enlazadas desde las dos presentaciones
-- [ ] Construir el entregable (`preparacion.html`) — **después** de calibrar el 4 de septiembre
+- [x] ~~Construir el entregable (`preparacion.html`)~~ — sin objeto: la sesión se fusionó con la 2
 - [x] Guía (`index.html`) · enlaza las dos presentaciones y la biblioteca; el entregable figura como pendiente
 - [ ] Títulos de las preguntas en `_shared/tablero.html` y `<option>` de la sesión
 - [ ] Abrir la ventana en la pestaña `Config`: fila `S03`

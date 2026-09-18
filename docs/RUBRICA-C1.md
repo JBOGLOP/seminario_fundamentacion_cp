@@ -8,7 +8,7 @@
 > **Corte:** primero · **35 %** de la nota final
 > **Cierra:** viernes 18 de septiembre de 2026, en la sesión 3
 > **Unidad:** 1 — Contexto histórico-filosófico y lineamientos sociopolíticos
-> **Actualizado:** 22 de agosto de 2026
+> **Actualizado:** 18 de septiembre de 2026
 
 ---
 
@@ -33,26 +33,34 @@ Dos componentes. El primero es el seguimiento; el segundo, lo que el seguimiento
 
 | Componente | Qué es | Puntos | Cuándo |
 |---|---|---|---|
-| **Seguimiento** | Los tres entregables previos de las sesiones 1, 2 y 3 | **30** | 21 ago · 4 sep · 18 sep |
+| **Seguimiento** | Los entregables previos de las sesiones 1 y 2 | **30** | 21 ago · 4 sep |
 | **Producto integrador** | *De mi territorio a una pregunta investigable* | **70** | 18 sep |
 | | | **100** | → vale 35 % de la nota final |
 
+> 🔴 **Decisión del 18 de septiembre de 2026.** Las sesiones 2 y 3 se hicieron juntas, en un solo
+> encuentro, porque la del 4 de septiembre se aplazó dos veces. **La sesión 3 no llegó a tener
+> entregable previo**, así que el seguimiento son dos entregables, no tres, y el producto del corte
+> se califica **con los trabajos entregados hasta hoy** —los entregables de las sesiones 1 y 2 y lo
+> trabajado en el encuentro del 18— sin pedir una entrega adicional. Nadie pierde puntos por una
+> pieza que el calendario no permitió pedir.
+
 **Los entregables no son tareas sueltas.** Cada uno pide mirar el propio terreno con lo que el
-material dio, y el producto los integra: quien respondió los tres llega al producto con el material
+material dio, y el producto los integra: quien respondió los dos llega al producto con el material
 ya reunido. Quien no, tiene que reunirlo de golpe.
 
 ### 2.1 · El seguimiento (30 puntos)
 
-Diez puntos por entregable. Se califican con la escala corta de §4.1, no con la rúbrica completa:
-son insumos, no productos.
+Quince puntos por entregable —los treinta del componente repartidos entre los dos que
+existieron—. Se califican con la escala corta de §4.1, no con la rúbrica completa: son insumos, no
+productos.
 
 | Sesión | Entregable | Puntos |
 |---|---|---|
-| 1 · 21 ago | Cinco preguntas · historia y fundamentos | 10 |
-| 2 · 4 sep | Cuatro preguntas · la cadena normativa | 10 |
-| 3 · 18 sep | Las preguntas de la sesión 3 · barreras de acceso | 10 |
+| 1 · 21 ago | Cinco preguntas · historia y fundamentos | 15 |
+| 2 · 4 sep | Cuatro preguntas · la cadena normativa | 15 |
+| 3 · 18 sep | — · la sesión se fusionó con la 2 y no tuvo entregable | — |
 
-> **Un entregable enviado tarde no se anula: se califica sobre 7.** El seminario prefiere el
+> **Un entregable enviado tarde no se anula: se califica sobre 11 de los 15.** El seminario prefiere el
 > trabajo tardío al trabajo ausente, porque sin entregable no hay qué contrastar en el aula — y
 > el aula es donde ocurre la sesión. Lo que no se recupera es la participación de ese día.
 
@@ -61,10 +69,15 @@ son insumos, no productos.
 **Título: «De mi territorio a una pregunta investigable».**
 
 Es individual. Cada estudiante trabaja sobre **el territorio donde ejerce**, que es el que conoce
-y sobre el que ya escribió en los tres entregables.
+y sobre el que ya escribió en los dos entregables.
+
+> **Sin entrega adicional.** Por la fusión de las sesiones 2 y 3, el producto se califica sobre lo
+> que cada estudiante ya escribió —los dos entregables— y sobre el trabajo del encuentro del 18 de
+> septiembre, leído con las cinco secciones de §3. Las secciones que nadie tuvo ocasión de escribir
+> no se cuentan en contra: se califica lo que hay.
 
 > **Por qué individual y no por grupos.** En 2026-I el producto del primer corte fue grupal, por
-> país. Aquí no puede serlo: las ocho personas del curso ejercen en territorios distintos, los tres
+> país. Aquí no puede serlo: las ocho personas del curso ejercen en territorios distintos, los dos
 > entregables previos son individuales y el hilo del seminario es *mirar el propio terreno*. Un
 > producto grupal obligaría a que siete de cada ocho escriban sobre un territorio que no es el suyo.
 
@@ -104,14 +117,14 @@ Una pregunta de investigación sirve para este corte si cumple tres cosas:
 
 ## 4. Escalas de calificación
 
-### 4.1 · Escala corta — para los tres entregables de seguimiento (10 puntos c/u)
+### 4.1 · Escala corta — para los dos entregables de seguimiento (15 puntos c/u)
 
 | Puntos | Descriptor |
 |---|---|
-| **9–10** | Responde las preguntas mirando el propio terreno. Cada afirmación factual dice de dónde sale. Cuando no encontró algo, describe la búsqueda: dónde, con qué términos, qué apareció |
-| **7–8** | Responde completo y con fuentes, pero alguna afirmación queda sin rastrear, o la búsqueda fallida se despacha con «no encontré nada» |
-| **5–6** | Responde con el material del curso sin salir de él. No hay terreno propio ni búsqueda documentada |
-| **0–4** | Incompleto, o reproduce material sin comprensión, o cita fuentes que no existen |
+| **14–15** | Responde las preguntas mirando el propio terreno. Cada afirmación factual dice de dónde sale. Cuando no encontró algo, describe la búsqueda: dónde, con qué términos, qué apareció |
+| **11–13** | Responde completo y con fuentes, pero alguna afirmación queda sin rastrear, o la búsqueda fallida se despacha con «no encontré nada» |
+| **8–10** | Responde con el material del curso sin salir de él. No hay terreno propio ni búsqueda documentada |
+| **0–7** | Incompleto, o reproduce material sin comprensión, o cita fuentes que no existen |
 
 ### 4.2 · Escala del producto integrador
 
@@ -198,11 +211,11 @@ En la práctica se publica:
 
 ## 8. Pendientes
 
-- [ ] **Fecha y hora exactas de cierre del producto.** Propuesta: viernes 18 de septiembre a las
-      23:59, para que la sesión de ese día pueda usarse en el propio producto.
-- [ ] Decidir si el producto se entrega por el mismo motor de Apps Script o por correo. Es más
-      largo que un entregable y lleva referencias con formato.
-- [ ] Publicar la tabla de §2 en las fichas de las sesiones 1, 2 y 3.
+- [x] **Fecha de cierre del producto.** Resuelto el 18 de septiembre de 2026: no hay entrega
+      adicional; el corte se califica con los trabajos hechos hasta ese día.
+- [x] Decidir el canal de entrega del producto. Sin objeto: no hay entrega nueva.
+- [ ] Publicar la tabla de §2 en las fichas de las sesiones 1 y 2.
+- [ ] Devolver a cada estudiante la nota del corte con las dos escalas, ya sin el tercer entregable.
 - [ ] Llevar esta rúbrica a la Dirección junto con las seis correcciones del contenido programático
       (`PROGRAMADOR-2026-II.md` §6), para que la casilla vacía quede llena en el documento oficial.
 - [ ] Replicar la estructura en las rúbricas de C2 (16 oct) y C3 (20 nov), que aún no existen.
