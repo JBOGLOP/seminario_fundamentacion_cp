@@ -151,3 +151,8 @@ node_modules/
 # PDF de referencia de cada sesión (normas, informes de la OCDE y la CEPAL): material de terceros,
 # pesado. Se enlaza la fuente oficial, no se reproduce (regla 4).
 sesiones/*/ref/
+
+# Paquetes de cambios traidos de otra maquina: se aplican archivo por archivo,
+# nunca se publican como carpeta.
+sesiones/*/sesion*_cambios/
+*.zip

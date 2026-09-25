@@ -115,6 +115,13 @@ a{color:var(--acento-dark)}
 }
 .estado p:last-child{margin-bottom:0}
 
+.material{list-style:none;padding:0;max-width:68ch;display:grid;gap:.6rem}
+.material li{background:var(--blanco);border-radius:var(--radius-sm);box-shadow:var(--shadow-soft);
+  border-left:3px solid var(--acento);padding:.8rem 1rem}
+.material a{font-weight:700}
+.material span{display:block;color:var(--gris);font-size:.9rem;margin-top:.15rem}
+.material li.pendiente{border-left-color:var(--gris-claro)}
+
 .procedencia{
   font-family:var(--serif); font-style:italic; color:var(--gris);
   border-left:4px solid var(--acento-soft); padding:.4em 0 .4em 1em; max-width:60ch;
@@ -168,24 +175,19 @@ footer a{color:var(--acento-dark)}
 
     <section aria-labelledby="h-material">
       <h2 id="h-material">Material de la sesión</h2>
-      <div class="estado">
-        <p class="estado__etq">En preparación</p>
-        <p>
-          La presentación y el entregable previo de esta sesión se publican aquí durante la
-          semana anterior, y se avisa en la <a href="../../index.html">portada del seminario</a>.
-        </p>
-        <p>
-          <strong><a href="preparacion.html">Entregable previo · cuatro preguntas</a></strong> —
-          individual, abierto desde hoy y hasta el <strong>martes 29 de septiembre a las
-          23:59</strong>. Se responde mirando el propio terreno, con dos lecturas en inglés
-          señaladas dentro. Cuenta para el segundo corte.
-        </p>
-        <p>
-          Después de esta sesión se hará el <strong>taller de documentación y voluntad
-          anticipada</strong>, anunciado en la
-          <a href="../s03-marco-legal-barreras/">guía de la sesión 3</a>.
-        </p>
-      </div>
+      <ul class="material">
+        <li><a href="clase.html">Presentación de la sesión 4</a>
+          <span>Qué es un modelo de atención, cómo se lee la evidencia que lo sostiene —de Temel 2010
+          a los ensayos de 2024—, la norma de telesalud vigente y la brecha digital. Se estudia antes
+          del encuentro.</span></li>
+        <li><a href="preparacion.html">Entregable previo · cuatro preguntas</a>
+          <span>Individual. Abierto hasta el <strong>martes 29 de septiembre a las 23:59</strong>. Cada
+          pregunta dice a qué documento ir; dos lecturas son en inglés. Cuenta para el segundo
+          corte.</span></li>
+        <li class="pendiente"><strong>Taller de documentación y voluntad anticipada</strong>
+          <span>Anunciado en la <a href="../s03-marco-legal-barreras/">guía de la sesión 3</a> para
+          después de esta sesión. Se avisa aquí cuando tenga fecha.</span></li>
+      </ul>
     </section>
 
     <section aria-labelledby="h-procedencia">

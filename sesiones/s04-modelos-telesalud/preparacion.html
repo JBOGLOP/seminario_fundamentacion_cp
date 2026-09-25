@@ -7,7 +7,13 @@
 
 <!-- ===========================================================================
      ENTREGABLE PREVIO · SESIÓN 4
-     Se entrega antes del viernes 4 de septiembre de 2026, 7:00.
+     Abierto del 20 al 29 de septiembre de 2026 (último momento útil: martes
+     29, 23:59; la celda Cierre de la hoja dice 30/09/2026 y se lee 00:00).
+
+     CORRECCIÓN DEL 25 DE SEPTIEMBRE. La P3 se publicó sobre la Resolución
+     2654 de 2019, DEROGADA el 31 de julio de 2026 por la Resolución 1644 de
+     2026 (art. 44). Se reescribió sobre la 1644 y se dejó un aviso visible.
+     Las cajas de texto conservan su id: los borradores guardados no se pierden.
 
      CUATRO PREGUNTAS, NO CINCO, y cada una dice DÓNDE BUSCAR. Las dos cosas
      salen de medir la sesión 1: la carga real fue de 240 minutos de mediana
@@ -48,7 +54,7 @@
   --mono:'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace;
   --serif:Georgia,'Times New Roman',serif;
 
-  /* Unidad 1 → bosque */
+  /* Unidad 2 → arcilla */
   --acento:var(--arcilla); --acento-dark:var(--arcilla-deep); --acento-soft:var(--arcilla-soft);
 }
 *,*::before,*::after{box-sizing:border-box}
@@ -66,7 +72,7 @@ a{color:var(--acento-dark)}
 .nav-sesion .ns-curso{font-weight:700}
 @media print{.nav-sesion,.saltar{display:none}}
 
-.hero{background:linear-gradient(160deg,var(--lino) 0%,var(--bosque-soft) 100%);
+.hero{background:linear-gradient(160deg,var(--lino) 0%,var(--acento-soft) 100%);
   padding:clamp(1.8rem,5vw,3rem) 0 clamp(1.3rem,3vw,2rem);border-bottom:1px solid rgba(45,45,45,.08)}
 .hero__eyebrow{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;
   color:var(--acento-dark);font-weight:700;margin:0 0 .5rem}
@@ -194,7 +200,7 @@ footer p{margin:0 0 .5rem;max-width:60ch}
   <div class="envoltura">
     <h2>Cómo funciona</h2>
     <ol class="pasos">
-      <li><strong>Empiece por las dos lecturas señaladas.</strong> Están abajo, con el enlace a cada una. La presentación de la sesión se publica en la guía durante esta semana; las preguntas se pueden responder antes, porque cada una dice a qué documento ir.</li>
+      <li><strong>Empiece por la presentación y las dos lecturas señaladas.</strong> Están abajo, con el enlace a cada una. La presentación da el mapa; cada pregunta dice a qué documento ir.</li>
       <li><strong>Escriba aquí mismo.</strong> El texto se guarda solo en su navegador. Puede cerrar y volver, y puede trabajar sin internet.</li>
       <li><strong>Envíe antes del martes 29 de septiembre a las 23:59.</strong> Puede reenviar cuantas veces quiera hasta esa hora: cada envío reemplaza al anterior. Volver sobre lo escrito es parte del trabajo, no una corrección de última hora.</li>
       <li><strong>El viernes 2 de octubre ponemos en común lo escrito, sin nombres.</strong> Cada quien aparece con una letra. La sesión es sincrónica, por videollamada, y sale de lo que ustedes escriban.</li>
@@ -220,9 +226,9 @@ footer p{margin:0 0 .5rem;max-width:60ch}
     <ul class="lecturas">
       <li>
         <span class="tipo">Primero · material de la sesión</span>
-        <strong>Modelos de atención y telesalud</strong> — la presentación se publica en la
-        <a href="index.html">guía de la sesión</a> durante esta semana. No hace falta esperarla
-        para empezar: las preguntas 2 y 4 se responden sobre los artículos de abajo.
+        <strong>Modelos de atención y telesalud</strong> —
+        <a href="clase.html">la presentación de la sesión</a>—. Da el mapa completo; no da las
+        respuestas, que están en los documentos de abajo y en su servicio.
       </li>
       <li>
         <span class="tipo">Para la pregunta 2 · en inglés</span>
@@ -243,11 +249,10 @@ footer p{margin:0 0 .5rem;max-width:60ch}
       </li>
       <li>
         <span class="tipo">Para la pregunta 3</span>
-        <strong>Resolución 2654 de 2019</strong> —define las cuatro modalidades de telesalud— y
-        <strong>Ley 1581 de 2012</strong>, que clasifica los datos de salud como datos sensibles.
-        Documentos públicos, en el sitio del Ministerio y en el sistema único de información
-        normativa.
-        <a href="https://www.minsalud.gov.co/">minsalud.gov.co</a>
+        <strong>Resolución 1644 de 2026</strong> —la norma vigente de telesalud y telemedicina, que
+        el 31 de julio derogó la 2654 de 2019— y <strong>Ley 1581 de 2012</strong>, que clasifica
+        los datos de salud como datos sensibles. Documentos públicos.
+        <a href="https://www.minsalud.gov.co/sites/rid/Lists/BibliotecaDigital/RIDE/DE/DIJ/resolucion-1644-de-2026.pdf">Resolución 1644 de 2026 en minsalud.gov.co</a>
       </li>
       <li>
         <span class="tipo">Para la pregunta 1</span>
@@ -349,16 +354,23 @@ footer p{margin:0 0 .5rem;max-width:60ch}
     <!-- ── P3 ───────────────────────────────────────────────────────── -->
     <article class="pregunta">
       <p class="pregunta__n">Pregunta 3 · la norma de telesalud, en su territorio</p>
-      <h3>¿Cuál de las cuatro modalidades existe donde usted trabaja?</h3>
+      <h3>¿Cuál de las cuatro categorías de telemedicina existe donde usted trabaja?</h3>
+      <div class="espera" style="background:var(--arcilla-soft);color:var(--arcilla-deep)">
+        <strong>Corrección del 25 de septiembre · la norma cambió</strong>
+        Esta pregunta se publicó sobre la Resolución 2654 de 2019, que fue <strong style="display:inline;margin:0">derogada el 31
+        de julio de 2026</strong> por la Resolución 1644 de 2026. Responda con la 1644. Si ya
+        respondió con la 2654, no pierde puntos: puede actualizar su respuesta o dejarla como está.
+        Es el mismo caso de las normas derogadas de la sesión 3, y lo trabajamos el 2 de octubre.
+      </div>
       <p class="pregunta__ctx">
-        La <strong>Resolución 2654 de 2019</strong> define cuatro modalidades: <em>telemedicina
-        interactiva, telemedicina no interactiva, telexperticia y telemonitoreo</em>. No son
+        La <strong>Resolución 1644 de 2026</strong> organiza la modalidad de telemedicina en cuatro
+        categorías: <em>telexperticia, teleconcepto, teleconsulta y telemonitoreo</em>. No son
         sinónimos y la norma las distingue con precisión. A su lado, la <strong>Ley 1581 de
         2012</strong> clasifica los datos de salud como <strong>datos sensibles</strong>, con
         protección reforzada.
       </p>
       <p class="pregunta__q">
-        Diga cuál de esas cuatro modalidades existe hoy en su territorio —o cuál sería viable— y
+        Diga cuál de esas cuatro categorías existe hoy en su territorio —o cuál sería viable— y
         <strong>con qué evidencia lo afirma</strong>: contrato, portafolio, habilitación, o lo que
         encuentre. Y responda: cuando la consulta ocurre en la sala de la casa, con la familia
         presente y en un dispositivo compartido, <strong>¿quién responde por la
@@ -367,17 +379,18 @@ footer p{margin:0 0 .5rem;max-width:60ch}
       <div class="espera">
         <strong>Qué hace buena a esta respuesta</strong>
         <ul>
-          <li>Usa la palabra de la norma para nombrar la modalidad, no una categoría inventada.</li>
+          <li>Usa la palabra de la norma vigente para nombrar la categoría, no una inventada ni una derogada.</li>
           <li>Dice dónde consta lo que afirma, y si no consta en ninguna parte, lo dice.</li>
           <li>La respuesta sobre confidencialidad señala a alguien concreto —prestador, profesional, EPS— y no se queda en «es responsabilidad de todos».</li>
         </ul>
       </div>
       <p class="nota">
-        <strong>[DATO POR VERIFICAR]</strong> · Sobre la <strong>Ley 1419 de 2010</strong>, que fija
-        los lineamientos de telesalud, las fuentes consultadas discrepan en la fecha exacta de
-        sanción (octubre o diciembre de 2010). Si la cita, confírmela en el texto oficial.
+        <strong>Dato verificado.</strong> La <strong>Ley 1419 de 2010</strong>, que fija los
+        lineamientos de telesalud, es del <strong>13 de diciembre de 2010</strong> (Diario Oficial
+        47.922). Este recuadro decía que había duda entre octubre y diciembre; se confirmó en el
+        texto de la Secretaría del Senado.
       </p>
-      <textarea id="p3" data-min="180" placeholder="La modalidad, con la palabra de la norma; dónde consta; y quién responde por la confidencialidad…"></textarea>
+      <textarea id="p3" data-min="180" placeholder="La categoría, con la palabra de la norma vigente; dónde consta; y quién responde por la confidencialidad…"></textarea>
       <p class="contador" data-para="p3">0 palabras</p>
     </article>
 
@@ -429,7 +442,7 @@ footer p{margin:0 0 .5rem;max-width:60ch}
           <strong>Declararlo suma; una fuente inventada resta.</strong> Verificar lo que se cita
           es exactamente la competencia que este seminario evalúa.
         </p>
-        <textarea id="ia" style="min-height:5rem" placeholder="Ej.: usé un asistente para traducir fragmentos del Atlas y para ordenar el borrador de la P5. Las fuentes las verifiqué una por una en el documento original."></textarea>
+        <textarea id="ia" style="min-height:5rem" placeholder="Ej.: usé un asistente para traducir fragmentos del artículo de Temel y para ordenar el borrador de la P4. Las fuentes las verifiqué una por una en el documento original."></textarea>
       </div>
       <div class="campo">
         <label for="minutos">¿Cuántos minutos le llevó en total?</label>
@@ -441,8 +454,8 @@ footer p{margin:0 0 .5rem;max-width:60ch}
     <div class="envio">
       <h3 style="margin-top:0">Enviar el entregable</h3>
       <p style="font-size:.92rem;color:var(--gris);margin:0">
-        Puede reenviar cuantas veces quiera hasta el viernes a las 7:00. Cada envío reemplaza al
-        anterior y queda registrado como una versión nueva.
+        Puede reenviar cuantas veces quiera hasta el martes 29 de septiembre a las 23:59. Cada
+        envío reemplaza al anterior y queda registrado como una versión nueva.
       </p>
       <div class="botones">
         <button type="button" id="enviar" class="primario">Enviar</button>
@@ -697,10 +710,10 @@ var CONFIG = {
     l.push('Minutos dedicados: ' + ($('minutos').value || '—'));
     l.push('');
     var titulos = {
-      p1: 'P1 · ¿La norma llegó a algún documento de su servicio?',
-      p2: 'P2 · Qué compromete de verdad la resolución WHA67.19 (en inglés)',
-      p3: 'P3 · ¿Qué dicen el BID, la OCDE o la CEPAL sobre cuidado paliativo?',
-      p4: 'P4 · Convierta un instrumento en algo investigable'
+      p1: 'P1 · Desarme el modelo de atención donde usted trabaja (los siete componentes)',
+      p2: 'P2 · ¿A quién no vio el ensayo que todos citan? (Temel 2010, en inglés)',
+      p3: 'P3 · ¿Cuál de las cuatro categorías de telemedicina existe donde usted trabaja? (Res. 1644 de 2026)',
+      p4: 'P4 · Convierta una afirmación sobre un modelo en algo investigable'
     };
     IDS_TEXTO.forEach(function (id) {
       l.push('─────────────────────────────────────────────');

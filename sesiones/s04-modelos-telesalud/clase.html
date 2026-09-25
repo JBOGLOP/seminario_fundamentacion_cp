@@ -1,0 +1,1265 @@
+<!doctype html>
+<html lang="es">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sesión 4 · Modelos de atención y telesalud — Seminario de fundamentación en CP</title>
+<meta name="description" content="Material de estudio de la sesión 4 del Seminario de fundamentación en cuidados paliativos (32264001), Universidad Antonio Nariño. Cómo se sabe que un modelo de atención funciona: modelos integrados, telesalud y la evidencia que los sostiene.">
+
+<!-- ===========================================================================
+     MATERIAL DE ESTUDIO · SESIÓN 4 · presentación autocontenida
+     viernes 2 de octubre de 2026 · sincrónica por videollamada · segundo corte
+
+     Se estudia ANTES del encuentro. Ver docs/CONDUCIR-LA-SESION.md y
+     docs/CONDUCIR-S04.md (clave docente de esta sesión).
+
+     EL ENTREGABLE ESTÁ ABIERTO MIENTRAS ESTO SE PUBLICA (cierra el martes 29
+     de septiembre, 23:59). Tres cosas NO están aquí a propósito, porque son
+     lo que las preguntas piden encontrar:
+       · P2 — los criterios de inclusión y exclusión de Temel 2010.
+       · P3 — los artículos de la Res. 1644 que reparten la responsabilidad
+               por la confidencialidad (6, 18.1, 24, 26 y 31.5).
+       · P1 — cualquier ejemplo de servicio colombiano descrito con la rejilla.
+     Están en la clave docente. Se pueden añadir después del cierre.
+
+     RIGOR DE LAS FUENTES. Todo lo citado se verificó contra fuente primaria
+     entre el 21 de julio y el 25 de septiembre de 2026. La Res. 2654 de 2019
+     se verificó el 21 de julio y fue DEROGADA el 31 de julio por la Res. 1644
+     de 2026: la diapositiva 15 lo convierte en el caso de anclaje. El texto
+     de la 1644 se leyó completo el 25 de septiembre (PDF firmado, 31 hojas,
+     44 artículos). Lo que no se pudo leer en fuente primaria va rotulado
+     [DATO POR VERIFICAR], visible.
+     =========================================================================== -->
+
+<style>
+/* --- tokens.css en línea · FUENTE CANÓNICA: _shared/tokens.css ----------- */
+:root{
+  --bosque:#2F5D50;    --bosque-dark:#234639;    --bosque-deep:#17302A;  --bosque-soft:#D6E3DD;
+  --arcilla:#C4714F;   --arcilla-dark:#A2563A;   --arcilla-deep:#6F3823; --arcilla-soft:#F3DCD1;
+  --malva:#7A5C8A;     --malva-dark:#5F4570;     --malva-deep:#402C4D;   --malva-soft:#E4DAEA;
+  --piedra:#8A8578;    --piedra-dark:#6B6659;    --piedra-deep:#4E4A40;  --piedra-soft:#EFEBE3;
+  --pizarra:#22282A;   --gris:#565E5C;           --gris-claro:#9AA09D;
+  --blanco:#FFFFFF;    --lino:#FAF8F4;
+  --shadow-soft:0 2px 8px rgba(34,40,42,.07);
+  --shadow-medium:0 6px 20px rgba(34,40,42,.11);
+  --radius:14px; --radius-sm:9px;
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif;
+  --mono:'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace;
+  --serif:Georgia,'Times New Roman',serif;
+
+  /* Unidad 2 → arcilla. La norma (unidad 1) conserva su bosque cuando aparece. */
+  --acento:var(--arcilla); --acento-dark:var(--arcilla-deep); --acento-soft:var(--arcilla-soft);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;font-family:var(--sans);color:var(--pizarra);background:var(--lino);
+  line-height:1.5;overflow:hidden}
+:focus-visible{outline:3px solid var(--acento);outline-offset:3px}
+a{color:var(--acento-dark)}
+.saltar{position:absolute;left:-9999px;background:var(--pizarra);color:var(--lino);padding:.6rem 1rem;z-index:99}
+.saltar:focus{left:0}
+
+.deck{position:fixed;inset:0 0 62px 0}
+.d{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;
+  padding:clamp(1.4rem,4vw,3.4rem) clamp(1.25rem,6vw,5.5rem);
+  opacity:0;visibility:hidden;transition:opacity .28s ease;overflow-y:auto}
+.d.on{opacity:1;visibility:visible}
+@media (prefers-reduced-motion:reduce){.d{transition:none}}
+/* Centrado con márgenes automáticos y no con justify-content: si el contenido
+   es más alto que la pantalla, justify-content:center recorta el principio y
+   no deja volver a él con el scroll. Los márgenes auto centran cuando sobra
+   espacio y se anulan cuando falta. */
+.d{justify-content:flex-start}
+.d>:first-child{margin-top:auto !important}
+.d>:last-child{margin-bottom:auto !important}
+.d--larga>:first-child{margin-top:0 !important}
+/* Ningún hijo se encoge: una tabla con overflow-x:auto dentro de una columna
+   flex de alto fijo se aplastaba hasta mostrar solo su cabecera. */
+.d>*{flex-shrink:0}
+
+.d__eyebrow{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;
+  color:var(--acento-dark);margin:0 0 .7rem}
+h1{font-size:clamp(1.9rem,5.2vw,3.4rem);line-height:1.08;letter-spacing:-.02em;margin:0 0 .8rem;max-width:20ch}
+h2{font-size:clamp(1.35rem,3.4vw,2.3rem);line-height:1.15;letter-spacing:-.015em;margin:0 0 .8rem;max-width:26ch;color:var(--acento-dark)}
+h3{font-size:clamp(.98rem,1.8vw,1.15rem);margin:0 0 .35rem;color:var(--acento-dark)}
+p{font-size:clamp(.96rem,1.5vw,1.1rem);max-width:62ch;margin:0 0 .8em}
+.lead{font-size:clamp(1.02rem,1.95vw,1.3rem);color:var(--gris);max-width:54ch}
+strong{color:var(--pizarra)}
+.mono{font-family:var(--mono)}
+
+figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:.6rem}
+svg{max-width:100%;height:auto;display:block}
+svg text{font-family:var(--sans)}
+svg .mono{font-family:var(--mono)}
+svg .serif{font-family:var(--serif);font-style:italic}
+/* Las figuras no crecen sin límite: a 1280 px llenaban la pantalla. En un
+   teléfono, el lienzo se desplaza de lado en vez de encoger el texto a 7 px. */
+.fig{width:100%}
+.fig__lienzo{width:100%;overflow-x:auto;display:flex;justify-content:center}
+.fig svg{width:100%;max-width:36rem}
+@media (max-width:560px){.fig__lienzo{justify-content:flex-start}.fig svg{min-width:34rem}}
+figcaption{font-size:.85rem;color:var(--gris);max-width:60ch;text-align:center}
+.conFigura{display:grid;gap:clamp(1rem,3vw,2.6rem);align-items:center;
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,19rem),1fr))}
+
+.d--portada{background:linear-gradient(150deg,var(--lino) 0%,var(--arcilla-soft) 100%)}
+.d--portada .meta{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.5rem;font-size:.85rem}
+.d--portada .meta span{background:var(--blanco);border:1px solid rgba(34,40,42,.09);border-radius:999px;
+  padding:.3rem .9rem;box-shadow:var(--shadow-soft)}
+.firma{margin-top:1.8rem;font-size:.85rem;color:var(--gris);max-width:44ch}
+
+.d--parte{background:var(--arcilla-deep);color:var(--lino);justify-content:center}
+.d--parte .n{font-family:var(--mono);font-size:clamp(3rem,11vw,7rem);font-weight:700;line-height:.9;
+  color:rgba(243,220,209,.3);letter-spacing:-.04em;margin:0 0 .4rem}
+.d--parte h2{color:var(--blanco);max-width:20ch;font-size:clamp(1.6rem,4.6vw,3rem);margin-bottom:.6rem}
+.d--parte p{color:var(--arcilla-soft);max-width:46ch;font-size:clamp(1rem,1.8vw,1.2rem);margin:0}
+
+.d--golpe{background:var(--arcilla-soft)}
+.d--golpe .gran{font-family:var(--serif);font-size:clamp(1.6rem,5.2vw,3.4rem);line-height:1.18;
+  color:var(--arcilla-deep);max-width:20ch;margin:0 0 1rem}
+.d--golpe p{color:var(--arcilla-deep);max-width:54ch}
+.d--golpe strong{color:var(--arcilla-deep)}
+
+.bloques{display:grid;gap:.85rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,14rem),1fr));margin-top:.5rem}
+.bloque{background:var(--blanco);border-radius:var(--radius);padding:.95rem 1.1rem;box-shadow:var(--shadow-soft);border-left:4px solid var(--acento)}
+.bloque .n{font-family:var(--mono);font-size:.73rem;color:var(--acento-dark);font-weight:700;letter-spacing:.06em;margin:0}
+.bloque h3{margin:.2rem 0 .25rem}
+.bloque p{font-size:.9rem;color:var(--gris);margin:0}
+/* La norma es de la unidad 1: cuando aparece, trae su color. */
+.bloque--norma{border-left-color:var(--bosque)}
+.bloque--norma .n,.bloque--norma h3{color:var(--bosque-dark)}
+.bloque--piedra{border-left-color:var(--piedra)}
+.bloque--piedra .n,.bloque--piedra h3{color:var(--piedra-deep)}
+
+/* Siete componentes: rejilla numerada */
+.rejilla{list-style:none;margin:.6rem 0 0;padding:0;display:grid;gap:.6rem;
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,15.5rem),1fr));counter-reset:c}
+.rejilla li{counter-increment:c;background:var(--blanco);border-radius:var(--radius-sm);box-shadow:var(--shadow-soft);
+  padding:.7rem .9rem .7rem 3rem;position:relative;font-size:.9rem;color:var(--gris)}
+.rejilla li strong{display:block;color:var(--pizarra);font-size:.95rem;margin-bottom:.1rem}
+.rejilla li::before{content:counter(c);position:absolute;left:.8rem;top:.72rem;width:1.55rem;height:1.55rem;
+  border-radius:50%;background:var(--acento);color:var(--blanco);font-family:var(--mono);
+  font-size:.8rem;font-weight:700;display:flex;align-items:center;justify-content:center}
+
+.pasos{list-style:none;counter-reset:p;margin:.5rem 0 0;padding:0;display:grid;gap:.6rem;max-width:70ch}
+.pasos li{counter-increment:p;background:var(--blanco);border-radius:var(--radius-sm);
+  padding:.75rem 1rem .75rem 2.9rem;box-shadow:var(--shadow-soft);position:relative;font-size:.94rem}
+.pasos li::before{content:counter(p);position:absolute;left:.85rem;top:.72rem;width:1.45rem;height:1.45rem;
+  border-radius:50%;background:var(--acento);color:var(--blanco);font-family:var(--mono);
+  font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center}
+
+.tabla{overflow-x:auto;margin-top:.5rem;width:100%}
+table{border-collapse:collapse;width:100%;min-width:32rem;background:var(--blanco);border-radius:var(--radius-sm);
+  overflow:hidden;box-shadow:var(--shadow-soft);font-size:.88rem}
+th,td{padding:.58rem .75rem;text-align:left;vertical-align:top;border-bottom:1px solid rgba(34,40,42,.07)}
+th{background:var(--acento-soft);color:var(--acento-dark);font-size:.8rem}
+tbody tr:last-child td{border-bottom:0}
+td.no{color:var(--piedra-deep)}
+td.derogada{color:var(--arcilla-deep);font-weight:700}
+td.vigente{color:var(--bosque-dark);font-weight:700}
+.pequeno{font-size:.8rem;color:var(--gris)}
+
+/* ── Taxonomía de la telesalud · HTML, no SVG, para que se lea a 375 px ── */
+.arbol{max-width:62rem;margin-top:.4rem}
+.arbol__raiz{background:var(--bosque);color:var(--blanco);border-radius:var(--radius-sm);
+  padding:.65rem 1rem;font-weight:700;display:inline-block}
+.arbol__raiz small{display:block;font-weight:400;font-size:.76rem;color:var(--bosque-soft)}
+.arbol__ramas{display:grid;gap:.8rem;margin-top:.8rem;padding-left:1rem;border-left:3px solid var(--bosque-soft);
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,19rem),1fr))}
+.rama{background:var(--blanco);border-radius:var(--radius);box-shadow:var(--shadow-soft);padding:.85rem 1rem}
+.rama__t{font-family:var(--mono);font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;margin:0 0 .5rem}
+.rama--act{border-top:3px solid var(--piedra)} .rama--act .rama__t{color:var(--piedra-deep)}
+.rama--mod{border-top:3px solid var(--acento)} .rama--mod .rama__t{color:var(--acento-dark)}
+.rama ul{list-style:none;margin:0;padding:0}
+.rama li{font-size:.86rem;color:var(--gris);padding:.35rem 0;border-bottom:1px solid rgba(34,40,42,.06)}
+.rama li:last-child{border-bottom:0}
+.rama li strong{color:var(--pizarra)}
+
+/* ── Barras en HTML · legibles a cualquier ancho ───────────────────────── */
+.barras{list-style:none;margin:.6rem 0 0;padding:0;display:grid;gap:.55rem;max-width:44rem;width:100%}
+.barra{display:grid;grid-template-columns:minmax(8.5rem,13rem) 1fr;gap:.7rem;align-items:center;font-size:.88rem}
+.barra__et{color:var(--pizarra);line-height:1.25}
+.barra__pista{background:var(--piedra-soft);border-radius:6px;height:1.7rem;display:flex;align-items:center}
+.barra__val{background:var(--piedra);height:100%;border-radius:6px;flex-shrink:0}
+.barra__num{font-family:var(--mono);font-size:.8rem;font-weight:700;color:var(--pizarra);padding:0 .45rem;white-space:nowrap}
+.barra--acento .barra__val{background:var(--acento-dark)}
+.barra--bogota .barra__val{background:var(--bosque)}
+@media (max-width:520px){.barra{grid-template-columns:1fr}.barra__et{font-size:.82rem}}
+
+details{background:var(--blanco);border-radius:var(--radius-sm);box-shadow:var(--shadow-soft);
+  border-left:4px solid var(--acento);padding:.7rem 1rem;max-width:66ch;margin:.7rem 0 0}
+summary{cursor:pointer;font-weight:700;font-size:.9rem;color:var(--acento-dark);list-style:none}
+summary::-webkit-details-marker{display:none}
+summary::before{content:'▸';font-family:var(--mono);margin-right:.5em;display:inline-block}
+details[open] summary::before{content:'▾'}
+details[open] summary{margin-bottom:.5rem}
+details ul{margin:.2rem 0 0;padding-left:1.05rem;font-size:.84rem;color:var(--gris)}
+details li{margin-bottom:.35rem;line-height:1.45}
+.cita-norma{font-family:var(--serif);font-style:italic;color:var(--bosque-dark);
+  border-left:3px solid var(--bosque-soft);padding:.25em 0 .25em .9em;margin:.4rem 0 .9rem;max-width:60ch}
+@media print{details{page-break-inside:avoid}details>*{display:block !important}}
+
+.pregunta{font-family:var(--serif);font-style:italic;font-size:clamp(1.08rem,2.4vw,1.55rem);
+  color:var(--acento-dark);border-left:4px solid var(--acento);padding:.4em 0 .4em 1em;
+  max-width:46ch;margin:.3rem 0 1rem}
+.nota{background:var(--blanco);border-left:4px solid var(--piedra);border-radius:var(--radius-sm);
+  padding:.85rem 1.05rem;box-shadow:var(--shadow-soft);font-size:.9rem;color:var(--gris);max-width:62ch}
+.nota strong{color:var(--pizarra)}
+.nota--entregable{border-left-color:var(--acento)}
+.verificar{background:var(--piedra-soft);border-left:3px solid var(--arcilla-dark);border-radius:var(--radius-sm);
+  padding:.55rem .85rem;margin-top:.7rem;font-size:.81rem;color:var(--piedra-deep);max-width:60ch}
+.verificar strong{font-family:var(--mono);font-size:.73rem;letter-spacing:.04em;color:var(--arcilla-deep)}
+.fuente{font-size:.78rem;color:var(--gris);margin-top:.7rem;max-width:70ch}
+
+.nav{position:fixed;left:0;right:0;bottom:0;height:62px;display:flex;align-items:center;
+  gap:.8rem;padding:0 clamp(.8rem,3vw,1.6rem);background:var(--pizarra);color:var(--lino);z-index:40}
+.nav__barra{position:absolute;top:0;left:0;height:3px;background:var(--acento);transition:width .28s ease}
+@media (prefers-reduced-motion:reduce){.nav__barra{transition:none}}
+.nav__t{flex:1;font-size:.84rem;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.nav__t small{display:block;font-weight:400;font-size:.72rem;color:var(--gris-claro)}
+.nav button{width:38px;height:38px;border-radius:50%;border:1px solid rgba(250,248,244,.32);
+  background:transparent;color:var(--lino);font-size:1.05rem;cursor:pointer;line-height:1;flex-shrink:0}
+.nav button:hover:not([disabled]){background:rgba(250,248,244,.14)}
+.nav button[disabled]{opacity:.28;cursor:default}
+.nav__n{font-family:var(--mono);font-size:.84rem;min-width:4.4rem;text-align:center;flex-shrink:0}
+.nav__pista{font-family:var(--mono);font-size:.7rem;opacity:.55;flex-shrink:0}
+@media (max-width:760px){.nav__pista{display:none}}
+
+@media print{
+  body{overflow:visible;background:var(--blanco)}
+  .deck{position:static;inset:auto}
+  .d{position:static;opacity:1;visibility:visible;page-break-after:always;min-height:auto;padding:1.4rem 0}
+  .d--parte{background:none;color:var(--pizarra)}
+  .d--parte h2{color:var(--acento-dark)}
+  .d--parte p{color:var(--gris)}
+  .d--parte .n{color:var(--gris-claro)}
+  .nav,.saltar{display:none}
+}
+</style>
+
+<noscript>
+  <!-- Respaldo sin JavaScript: el mazo se vuelve un documento continuo en vez
+       de una pagina en blanco. Son las mismas reglas que usa @media print. -->
+  <style>
+    body{overflow:auto}
+    .deck{position:static;inset:auto}
+    .d{position:static;opacity:1;visibility:visible;min-height:auto;
+       padding:2.2rem clamp(1.25rem,6vw,5.5rem);border-bottom:1px solid var(--arcilla-soft)}
+    .d--parte{background:var(--lino);color:var(--pizarra)}
+    .d--parte h2{color:var(--acento-dark)}
+    .d--parte p{color:var(--gris)}
+    .d--parte .n{color:var(--gris-claro)}
+    .nav{display:none}
+    .sinjs{display:block !important}
+  </style>
+</noscript>
+<p class="sinjs" style="display:none;background:#F3DCD1;border-left:4px solid #C4714F;
+   color:#6F3823;padding:.9rem 1.1rem;margin:0;font-size:.92rem">
+  <strong>Su navegador tiene JavaScript desactivado o bloqueado.</strong> La presentacion se
+  muestra abajo como documento continuo: baje con la rueda o la barra espaciadora. El contenido
+  es exactamente el mismo; solo se pierde la navegación por diapositivas.
+</p>
+
+
+<a class="saltar" href="#d1">Saltar al contenido</a>
+
+<main class="deck" id="deck">
+
+<!-- 1 ─ Portada ────────────────────────────────────────────────────────── -->
+<section class="d on d--portada" id="d1" aria-label="Portada">
+  <div class="conFigura">
+    <div>
+      <p class="d__eyebrow">Unidad 2 · Temas 1 y 2 · Material de estudio</p>
+      <h1>Modelos de atención y telesalud</h1>
+      <p class="lead">
+        Todo modelo de atención es una apuesta: afirma que organizar el cuidado de cierta manera
+        produce algo mejor que organizarlo de otra. Esta sesión enseña a leer la evidencia que
+        sostiene esa apuesta —y a notar cuándo no la sostiene—.
+      </p>
+      <div class="meta">
+        <span>Sesión 4</span>
+        <span>viernes 2 de octubre de 2026</span>
+        <span>Sincrónica · por videollamada · 8:00 a 11:00</span>
+        <span>Segundo corte</span>
+      </div>
+      <p class="firma">
+        Seminario de fundamentación en cuidados paliativos · 32264001<br>
+        Maestría en Cuidados Paliativos · Universidad Antonio Nariño · 2026-II
+      </p>
+    </div>
+    <figure>
+      <svg viewBox="0 0 300 300" role="img" aria-labelledby="tPortada4" width="300">
+        <title id="tPortada4">Un hospital arriba a la derecha y una casa abajo a la izquierda, unidos por una señal punteada con un signo de interrogación en medio</title>
+        <circle cx="150" cy="150" r="126" fill="var(--arcilla-soft)" opacity=".6"/>
+        <!-- hospital -->
+        <rect x="170" y="62" width="74" height="78" rx="5" fill="var(--blanco)" stroke="var(--arcilla-dark)" stroke-width="3"/>
+        <path d="M207 78 v22 M196 89 h22" stroke="var(--arcilla)" stroke-width="4" stroke-linecap="round"/>
+        <g fill="var(--arcilla-soft)" stroke="var(--arcilla-dark)" stroke-width="1.5">
+          <rect x="182" y="112" width="14" height="14" rx="2"/><rect x="218" y="112" width="14" height="14" rx="2"/>
+        </g>
+        <!-- casa -->
+        <path d="M58 206 L96 172 L134 206 Z" fill="none" stroke="var(--arcilla-dark)" stroke-width="3" stroke-linejoin="round"/>
+        <rect x="70" y="206" width="52" height="40" fill="var(--blanco)" stroke="var(--arcilla-dark)" stroke-width="3"/>
+        <rect x="88" y="222" width="16" height="24" fill="var(--arcilla-soft)" stroke="var(--arcilla-dark)" stroke-width="2"/>
+        <!-- señal -->
+        <path d="M112 176 C 140 120, 150 150, 176 142" fill="none" stroke="var(--piedra-dark)" stroke-width="2.5" stroke-dasharray="6 6"/>
+        <g fill="none" stroke="var(--piedra)" stroke-width="2" stroke-linecap="round">
+          <path d="M100 164 a8 8 0 0 1 8 -8"/><path d="M95 166 a14 14 0 0 1 14 -14"/>
+        </g>
+        <text x="150" y="128" text-anchor="middle" class="serif" font-size="22" fill="var(--arcilla-deep)">¿?</text>
+      </svg>
+      <figcaption>Entre el servicio y la casa hay una distancia. La pregunta es qué la acorta y cómo se sabe.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- 2 ─ De dónde viene ─────────────────────────────────────────────────── -->
+<section class="d" aria-label="De dónde viene esta sesión">
+  <p class="d__eyebrow">Antes de empezar</p>
+  <h2>De la norma a la evidencia</h2>
+  <p class="lead">
+    La unidad 1 preguntaba qué obliga la norma. Terminó en una frase: <em>una ley no compra
+    morfina</em>. La unidad 2 pregunta algo distinto y más incómodo.
+  </p>
+  <p class="pregunta">¿Cómo se sabe que un modelo de atención funciona, y qué significa «funciona»?</p>
+  <p>
+    La sesión tiene dos mitades que son una sola. La primera trata de <strong>modelos</strong>:
+    cómo se organiza el cuidado paliativo y qué dice la evidencia de cada forma de organizarlo. La
+    segunda trata de <strong>telesalud</strong>, que no es un tema aparte sino un modelo más, y el
+    que hoy se propone con más entusiasmo para los territorios donde no hay servicio.
+  </p>
+  <p class="nota nota--entregable">
+    <strong>El entregable previo cierra el martes 29 de septiembre a las 23:59.</strong> Cuatro
+    preguntas; cada una dice a qué documento ir. Esta presentación da el mapa. No da las
+    respuestas: esas están en los documentos, y en su servicio.
+  </p>
+</section>
+
+<!-- 3 ─ Parte I ────────────────────────────────────────────────────────── -->
+<section class="d d--parte" aria-label="Primera parte">
+  <p class="n">I</p>
+  <h2>Un modelo es una hipótesis</h2>
+  <p>Decir «atención domiciliaria» es afirmar que ese arreglo mejora algo medible frente a otro. Para compararlos, primero hay que desarmarlos.</p>
+</section>
+
+<!-- 4 ─ Los siete componentes ──────────────────────────────────────────── -->
+<section class="d" aria-label="Los siete componentes de un modelo de atención">
+  <p class="d__eyebrow">La rejilla de la unidad</p>
+  <h2>Siete piezas para desarmar cualquier modelo</h2>
+  <p class="lead">
+    Un modelo no es una lista de servicios. Es una respuesta a siete preguntas, y dos modelos que
+    se llaman igual pueden responderlas distinto.
+  </p>
+  <ol class="rejilla">
+    <li><strong>Población diana y criterio de entrada</strong>¿A quién atiende, y qué hay que tener para entrar?</li>
+    <li><strong>Momento de identificación</strong>¿Se entra por pronóstico —cuánto le queda— o por necesidad —qué padece—?</li>
+    <li><strong>Nivel de complejidad</strong>¿Qué casos resuelve y cuáles remite?</li>
+    <li><strong>Composición del equipo</strong>¿Quién atiende, con qué formación, y quién falta?</li>
+    <li><strong>Ámbito</strong>¿Hospital, consulta externa, domicilio, comunidad, a distancia?</li>
+    <li><strong>Articulación con el sistema</strong>¿Cómo llegan las personas y a dónde van después?</li>
+    <li><strong>Financiación</strong>¿Quién paga, y qué deja de pagar?</li>
+  </ol>
+  <p class="nota" style="margin-top:.9rem">
+    <strong>Se usa tres veces.</strong> En la pregunta 1 del entregable, sobre su propio servicio;
+    en la sesión 5, para comparar domicilio, institución y comunidad; y en el producto del segundo
+    corte. <strong>Un componente que no está escrito en ningún documento también es un
+    dato.</strong>
+  </p>
+</section>
+
+<!-- 5 ─ Del tradicional al integrado · FIGURA ──────────────────────────── -->
+<section class="d" aria-label="Del modelo tradicional al modelo integrado">
+  <p class="d__eyebrow">El desplazamiento de fondo</p>
+  <h2>Del relevo a la convivencia</h2>
+  <figure class="fig">
+    <div class="fig__lienzo">
+    <svg viewBox="0 0 640 300" role="img" aria-labelledby="tTray">
+      <title id="tTray">Dos barras del diagnóstico a la muerte. En el modelo tradicional, el tratamiento de la enfermedad ocupa casi toda la barra y el cuidado paliativo entra al final, de golpe. En el modelo integrado, el cuidado paliativo empieza en el diagnóstico, crece a medida que el otro disminuye, y continúa en el duelo.</title>
+      <text x="40" y="34" font-size="15" font-weight="700" fill="var(--piedra-deep)">Modelo tradicional · relevo</text>
+      <rect x="40" y="48" width="440" height="44" rx="4" fill="var(--piedra-soft)" stroke="var(--piedra)" stroke-width="1.5"/>
+      <rect x="480" y="48" width="110" height="44" rx="4" fill="var(--arcilla)"/>
+      <text x="260" y="76" text-anchor="middle" font-size="14" fill="var(--piedra-deep)">tratamiento dirigido a la enfermedad</text>
+      <text x="535" y="76" text-anchor="middle" font-size="14" font-weight="700" fill="var(--blanco)">paliativo</text>
+      <text x="480" y="112" text-anchor="middle" class="serif" font-size="13" fill="var(--arcilla-dark)">«ya no hay nada que hacer»</text>
+
+      <text x="40" y="160" font-size="15" font-weight="700" fill="var(--arcilla-deep)">Modelo integrado · convivencia</text>
+      <polygon points="40,174 590,174 40,226" fill="var(--piedra-soft)" stroke="var(--piedra)" stroke-width="1.5"/>
+      <polygon points="40,226 590,174 590,226" fill="var(--arcilla)" opacity=".85"/>
+      <rect x="590" y="174" width="30" height="52" fill="var(--arcilla)" opacity=".45"/>
+      <text x="56" y="194" font-size="14" fill="var(--piedra-deep)">dirigido a la enfermedad</text>
+      <text x="470" y="216" text-anchor="middle" font-size="14" font-weight="700" fill="var(--blanco)">paliativo</text>
+
+      <g font-size="13" fill="var(--gris)">
+        <path d="M40 244 V 254 M590 244 V 254 M620 244 V 254" stroke="var(--gris-claro)" stroke-width="1.5"/>
+        <text x="40" y="272">diagnóstico</text>
+        <text x="590" y="272" text-anchor="end">muerte</text>
+        <text x="620" y="290" text-anchor="end" class="serif">duelo</text>
+      </g>
+    </svg>
+    </div>
+    <figcaption>
+      Esquema conceptual, no datos. <strong>Lo que cambia no es la cantidad de cuidado paliativo
+      sino cuándo empieza y con quién convive.</strong>
+    </figcaption>
+  </figure>
+  <div class="tabla" style="margin-top:.9rem">
+    <table>
+      <thead><tr><th scope="col">Componente</th><th scope="col">Tradicional</th><th scope="col">Integrado</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Momento</strong></td><td class="no">Por pronóstico, tarde</td><td>Por necesidad, desde el diagnóstico</td></tr>
+        <tr><td><strong>Población</strong></td><td class="no">Casi solo cáncer</td><td>Toda enfermedad avanzada: falla cardíaca, EPOC, demencia, renal</td></tr>
+        <tr><td><strong>Equipo</strong></td><td class="no">El especialista es la puerta</td><td>Todo clínico hace lo básico; el especialista, lo complejo</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="nota" style="margin-top:.8rem">
+    <strong>La sesión 3 ya lo anticipó.</strong> La sentencia C-233 de 2021 cambió el criterio de la
+    eutanasia del pronóstico al sufrimiento. Los modelos de atención hicieron el mismo movimiento:
+    dejar de preguntar <em>cuánto le queda</em> y empezar a preguntar <em>qué necesita</em>.
+    Instrumentos como el NECPAL existen para identificar por necesidad (Gómez-Batiste et al., 2017).
+  </p>
+</section>
+
+<!-- 6 ─ Cuatro maneras de integrar ─────────────────────────────────────── -->
+<section class="d" aria-label="Cuatro maneras de integrar el cuidado paliativo">
+  <p class="d__eyebrow">«Integrado» dice poco hasta que se dice cómo</p>
+  <h2>Cuatro maneras de integrar</h2>
+  <p class="lead">
+    Hui y Bruera (2015) describieron cuatro modelos conceptuales de integración. Sirven para leer
+    cualquier programa: lo primero es preguntar cuál de las cuatro lógicas usa —y casi siempre
+    mezcla varias—.
+  </p>
+  <div class="bloques">
+    <div class="bloque">
+      <p class="n">1 · Por tiempo</p>
+      <h3>En un momento fijo</h3>
+      <p>Al diagnóstico, a la progresión, a cierta semana del tratamiento. Es lo que hizo el ensayo
+        de Temel.</p>
+    </div>
+    <div class="bloque">
+      <p class="n">2 · Por proveedor</p>
+      <h3>Según quién atiende</h3>
+      <p>Cuidado paliativo primario —todo clínico—, secundario —equipos de interconsulta— y
+        terciario —unidades de referencia—.</p>
+    </div>
+    <div class="bloque">
+      <p class="n">3 · Por problema</p>
+      <h3>Según qué se necesita</h3>
+      <p>Del oncólogo que lo resuelve todo solo, a varios especialistas en paralelo, a un equipo
+        que atiende de forma coordinada.</p>
+    </div>
+    <div class="bloque">
+      <p class="n">4 · Por sistema</p>
+      <h3>Con criterios de derivación</h3>
+      <p>Reglas estandarizadas que disparan la remisión, sin depender del juicio de cada
+        clínico.</p>
+    </div>
+  </div>
+  <p class="nota" style="margin-top:1rem">
+    <strong>La idea que sostiene el modelo por proveedor</strong> tiene nombre propio en la
+    literatura: <em>generalista más especialista</em> (Quill y Abernethy, 2013). No hay
+    especialistas suficientes para todas las personas que necesitan cuidado paliativo; la única
+    cobertura posible pasa por que lo básico lo haga todo el mundo. En Colombia, donde la mitad
+    del territorio no tiene un servicio registrado (Correa-Morales et al., 2026), esa no es una
+    opción teórica.
+  </p>
+</section>
+
+<!-- 7 ─ Parte II ───────────────────────────────────────────────────────── -->
+<section class="d d--parte" aria-label="Segunda parte">
+  <p class="n">II</p>
+  <h2>Cómo se sabe que funciona</h2>
+  <p>Un ensayo de 2010, lo que vino después, y por qué la cifra que más circula no es la que el ensayo quería medir.</p>
+</section>
+
+<!-- 8 ─ Temel 2010 ─────────────────────────────────────────────────────── -->
+<section class="d" aria-label="El ensayo de Temel de 2010">
+  <p class="d__eyebrow">El ensayo que todos citan</p>
+  <h2>Temel y colaboradores, 2010</h2>
+  <p class="lead">
+    Personas con cáncer de pulmón no microcítico metastásico, asignadas al azar a cuidado
+    paliativo precoz integrado con la oncología, o a atención oncológica estándar. <strong>Un
+    solo centro, 151 personas.</strong>
+  </p>
+  <div class="tabla">
+    <table>
+      <thead><tr><th scope="col">Desenlace</th><th scope="col">CP precoz</th><th scope="col">Estándar</th><th scope="col">p</th></tr></thead>
+      <tbody>
+        <tr><td>Calidad de vida (FACT-L, semana 12)</td><td class="mono">98,0</td><td class="mono">91,5</td><td class="mono">0,03</td></tr>
+        <tr><td>Síntomas depresivos</td><td class="mono">16 %</td><td class="mono">38 %</td><td class="mono">0,01</td></tr>
+        <tr><td>Cuidados agresivos al final de la vida</td><td class="mono">33 %</td><td class="mono">54 %</td><td class="mono">0,05</td></tr>
+        <tr><td>Supervivencia mediana</td><td class="mono">11,6 meses</td><td class="mono">8,9 meses</td><td class="mono">0,02</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="nota" style="margin-top:.9rem">
+    <strong>Cómo se lee.</strong> La supervivencia es la cifra que más se repite y <strong>no era
+    el desenlace primario</strong>. El ensayo se diseñó para medir el <em>cambio</em> en calidad de
+    vida entre el inicio y la semana 12, y con la escala completa ese cambio fue solo una tendencia
+    (p = 0,09); fue significativo en uno de sus índices (TOI, p = 0,04). La tabla muestra la
+    puntuación a las 12 semanas, que es otra cosa. Y esas puntuaciones se midieron en quienes
+    seguían vivos y respondieron.
+  </p>
+  <p class="nota nota--entregable" style="margin-top:.7rem">
+    <strong>Lo que falta en esta diapositiva, a propósito:</strong> a quién incluyó y a quién
+    dejó fuera el ensayo. Eso es la pregunta 2 del entregable, y está en la sección de métodos
+    del artículo.
+  </p>
+</section>
+
+<!-- 9 ─ Dos maneras de perder personas ─────────────────────────────────── -->
+<section class="d" aria-label="Dos maneras de perder personas en un estudio">
+  <p class="d__eyebrow">Herramienta de lectura</p>
+  <h2>Dos maneras de perder personas</h2>
+  <p class="lead">
+    Cuando se pregunta «¿a quién no vio este estudio?» hay dos respuestas distintas, y
+    confundirlas es el error más frecuente al leer un ensayo.
+  </p>
+  <div class="bloques">
+    <div class="bloque">
+      <p class="n">Por diseño</p>
+      <h3>Nunca pudieron entrar</h3>
+      <p>Los criterios de inclusión y exclusión, el lugar donde se reclutó, el idioma de los
+        cuestionarios, la tecnología que se exigía. <strong>Define a quién se le puede aplicar
+        el resultado.</strong></p>
+    </div>
+    <div class="bloque bloque--piedra">
+      <p class="n">Por el camino</p>
+      <h3>Entraron y se fueron</h3>
+      <p>Muerte, abandono, cuestionarios sin responder. <strong>Define cuánto se puede confiar en
+        el resultado</strong> dentro de la población que sí entró.</p>
+    </div>
+  </div>
+  <p style="margin-top:1rem">
+    Las dos importan, pero responden preguntas distintas. La primera es de
+    <strong>trasladabilidad</strong>: ¿se parece la gente del ensayo a la de mi servicio? La
+    segunda es de <strong>validez</strong>: ¿el resultado es cierto para la gente del ensayo?
+  </p>
+  <p class="nota">
+    <strong>Dónde se encuentra cada una.</strong> La primera, en los métodos: criterios de
+    elegibilidad y ámbito. La segunda, en el diagrama de flujo de participantes, que casi todos
+    los ensayos publican como primera figura.
+  </p>
+</section>
+
+<!-- 10 ─ Lo que pasó después ───────────────────────────────────────────── -->
+<section class="d d--larga" aria-label="Los ensayos que vinieron después">
+  <p class="d__eyebrow">Replicar es la parte que no sale en los titulares</p>
+  <h2>Lo que pasó después de 2010</h2>
+  <p class="lead">
+    Si el efecto de Temel fuera tan grande como su titular, los ensayos siguientes lo habrían
+    encontrado sin esfuerzo. No fue así.
+  </p>
+  <div class="tabla">
+    <table>
+      <thead><tr><th scope="col">Estudio</th><th scope="col">Diseño</th><th scope="col">Desenlace primario</th><th scope="col">Lo que encontró</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Zimmermann 2014</strong><br><span class="pequeno">Toronto · <em>Lancet</em></span></td>
+          <td>Por conglomerados · 24 clínicas · 461 personas</td>
+          <td>Calidad de vida (FACIT-Sp), a 3 meses</td>
+          <td>Sin diferencia a los 3 meses (p = 0,07); mejoras en casi todos los desenlaces a los 4</td></tr>
+        <tr><td><strong>ENABLE III · Bakitas 2015</strong><br><span class="pequeno">EE. UU. · <em>J Clin Oncol</em></span></td>
+          <td>Precoz frente a diferido 3 meses · 207 personas</td>
+          <td>Calidad de vida</td>
+          <td>Sin diferencia en calidad de vida; supervivencia a 1 año 63 % frente a 48 %</td></tr>
+        <tr><td><strong>Temel 2017</strong><br><span class="pequeno">EE. UU. · <em>J Clin Oncol</em></span></td>
+          <td>Pulmón y gastrointestinal · 350 personas</td>
+          <td>Calidad de vida, semana 12</td>
+          <td>Sin diferencia en la semana 12 (p = 0,34); diferencia en la 24, sobre todo en pulmón</td></tr>
+        <tr><td><strong>Vanbutsele 2018</strong><br><span class="pequeno">Gante · <em>Lancet Oncol</em></span></td>
+          <td>Tumores sólidos avanzados · 186 personas</td>
+          <td>Calidad de vida global, semana 12</td>
+          <td>+7,6 puntos a favor del cuidado paliativo precoz (p = 0,03)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="nota" style="margin-top:.9rem">
+    <strong>Un detalle que conecta con la segunda mitad de la sesión.</strong> La intervención de
+    ENABLE III ya incluía sesiones de acompañamiento de enfermería <strong>a distancia</strong>. La
+    telesalud no llegó con la pandemia: estaba dentro de los ensayos de modelos desde antes.
+  </p>
+</section>
+
+<!-- 11 ─ El conjunto · FIGURA forest ───────────────────────────────────── -->
+<section class="d" aria-label="Lo que dice el conjunto de ensayos">
+  <p class="d__eyebrow">Cuando se juntan todos</p>
+  <h2>El efecto existe, es pequeño, y la certeza es baja</h2>
+  <figure class="fig">
+    <div class="fig__lienzo">
+    <svg viewBox="0 0 640 250" role="img" aria-labelledby="tForest">
+      <title id="tForest">Diagrama de bosque de la revisión Cochrane de Haun y colaboradores, 2017, siete ensayos. Calidad de vida: diferencia de medias estandarizada 0,27, intervalo 0,15 a 0,38, certeza baja. Intensidad de síntomas: menos 0,23, intervalo menos 0,35 a menos 0,10, certeza baja. Depresión: menos 0,11, intervalo menos 0,26 a 0,03, cruza el cero, certeza muy baja.</title>
+      <!-- eje: -0,6 → x=230 ; 0 → x=395 ; +0,6 → x=560 (275 px por unidad) -->
+      <rect x="340" y="30" width="110" height="150" fill="var(--piedra-soft)" opacity=".7"/>
+      <line x1="395" y1="26" x2="395" y2="184" stroke="var(--pizarra)" stroke-width="1.5"/>
+      <g font-size="14" fill="var(--pizarra)">
+        <text x="0" y="66">Calidad de vida</text>
+        <text x="0" y="116">Intensidad de síntomas</text>
+        <text x="0" y="166">Depresión</text>
+      </g>
+      <g stroke="var(--arcilla-deep)" stroke-width="2.5">
+        <line x1="436" y1="61" x2="500" y2="61"/>
+        <line x1="299" y1="111" x2="368" y2="111"/>
+        <line x1="324" y1="161" x2="403" y2="161"/>
+      </g>
+      <g fill="var(--arcilla)">
+        <rect x="462" y="54" width="14" height="14"/>
+        <rect x="325" y="104" width="14" height="14"/>
+        <rect x="358" y="154" width="14" height="14" fill="var(--piedra)"/>
+      </g>
+      <g font-size="12.5" class="mono" fill="var(--gris)">
+        <text x="572" y="58">0,27</text><text x="572" y="74" font-size="11.5">baja</text>
+        <text x="572" y="108">−0,23</text><text x="572" y="124" font-size="11.5">baja</text>
+        <text x="572" y="158">−0,11</text><text x="572" y="174" font-size="11.5">muy baja</text>
+      </g>
+      <g font-size="12" fill="var(--gris)" text-anchor="middle">
+        <line x1="230" y1="190" x2="560" y2="190" stroke="var(--gris-claro)" stroke-width="1"/>
+        <text x="230" y="208" class="mono">−0,6</text>
+        <text x="395" y="208" class="mono">0</text>
+        <text x="560" y="208" class="mono">+0,6</text>
+      </g>
+      <text x="395" y="236" text-anchor="middle" font-size="12.5" fill="var(--gris)">diferencia de medias estandarizada · franja gris: efecto menor de 0,2</text>
+    </svg>
+    </div>
+    <figcaption>
+      Haun et al. (2017), revisión Cochrane, 7 ensayos y 1 614 participantes. En calidad de vida,
+      más es mejor; en síntomas y depresión, menos es mejor. <strong>La supervivencia: HR 0,85
+      (0,56–1,28), certeza muy baja</strong> — el intervalo cruza el 1.
+    </figcaption>
+  </figure>
+  <p class="nota" style="margin-top:.8rem">
+    <strong>Otra revisión, la misma lección.</strong> Kavalieratos et al. (2016) juntaron 43
+    ensayos de cuidado paliativo: mejora en calidad de vida y síntomas, sin efecto demostrado en
+    supervivencia. <strong>Cuando se miran solo los ensayos con bajo riesgo de sesgo, el efecto en
+    calidad de vida se reduce (DME 0,20) y el de síntomas deja de ser significativo.</strong> El
+    titular de 2010 no desaparece; se encoge.
+  </p>
+</section>
+
+<!-- 12 ─ La pregunta cambió ────────────────────────────────────────────── -->
+<section class="d" aria-label="La pregunta cambió: menos visitas y a distancia">
+  <p class="d__eyebrow">El mismo grupo, catorce años después</p>
+  <h2>La pregunta ya no es si funciona, sino con cuánto y por qué vía</h2>
+  <div class="bloques">
+    <div class="bloque">
+      <p class="n">Temel et al., 2024 · JAMA</p>
+      <h3>Con menos visitas</h3>
+      <p>507 personas, tres centros. Cuidado paliativo <strong>escalonado</strong>: visitas solo
+        en momentos clave, y más si la calidad de vida caía. Resultado: la mitad de visitas
+        (2,4 frente a 4,7) y calidad de vida <strong>no inferior</strong>. Pero los días en
+        cuidado de hospicio no alcanzaron la no inferioridad (19,5 frente a 34,6).</p>
+    </div>
+    <div class="bloque">
+      <p class="n">Greer et al., 2024 · JAMA · REACH PC</p>
+      <h3>Por video</h3>
+      <p>1 250 personas y 548 cuidadores en 22 centros. Primera visita presencial, las demás por
+        video. Calidad de vida <strong>equivalente</strong> a la atención presencial (99,7 frente a
+        97,7; margen de ±4).</p>
+    </div>
+  </div>
+  <p style="margin-top:1rem">
+    Los dos son ensayos de <strong>no inferioridad o equivalencia</strong>: no buscan demostrar que
+    algo es mejor, sino que es <em>suficientemente parecido</em> costando menos o llegando más
+    lejos. Es otra pregunta, y exige otro diseño.
+  </p>
+  <p class="nota">
+    <strong>Un dato de REACH PC que casi nunca se cita.</strong> Los cuidadores estuvieron en
+    el 36,6 % de las visitas por video y en el 49,7 % de las presenciales. La calidad de vida de la
+    persona fue equivalente; <strong>quién estaba en la habitación, no</strong>. En cuidado
+    paliativo, eso es un desenlace.
+  </p>
+</section>
+
+<!-- 13 ─ Qué diseño responde a qué pregunta ────────────────────────────── -->
+<section class="d d--larga" aria-label="Qué diseño responde a qué pregunta">
+  <p class="d__eyebrow">La capa investigativa de la unidad</p>
+  <h2>Qué diseño responde a qué pregunta</h2>
+  <div class="tabla">
+    <table>
+      <thead><tr><th scope="col">Pregunta sobre un modelo</th><th scope="col">Diseño que la responde</th><th scope="col">Ejemplo de esta sesión</th></tr></thead>
+      <tbody>
+        <tr><td>¿Funciona mejor que lo habitual?</td><td>Ensayo aleatorizado</td><td>Temel 2010 · Vanbutsele 2018</td></tr>
+        <tr><td>¿Funciona cuando se aplica por servicios y no por personas?</td><td>Ensayo por conglomerados</td><td>Zimmermann 2014 · PRO-TECT 2025</td></tr>
+        <tr><td>¿Funciona igual con menos, o a distancia?</td><td>No inferioridad o equivalencia</td><td>Temel 2024 · REACH PC 2024</td></tr>
+        <tr><td>¿Qué dice el conjunto?</td><td>Revisión sistemática y metaanálisis</td><td>Haun 2017 · Kavalieratos 2016</td></tr>
+        <tr><td>¿Qué pasa cuando un sistema lo adopta?</td><td>Observacional con grupo de comparación: cohorte retrospectiva, transversal analítico</td><td>Compensar, Bogotá (2022) · Contigo, EPS Sanitas (2024) · Frome, Reino Unido (2018)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="nota" style="margin-top:.9rem">
+    <strong>La evidencia colombiana sobre modelos existe, y está en la última fila.</strong> Los
+    programas de Compensar y de EPS Sanitas publicaron evaluaciones: menos hospitalizaciones y
+    menor costo en el primero, mejor calidad de vida en el segundo. Son estudios observacionales,
+    con comparadores que no se asignaron al azar. <strong>No es evidencia débil: es evidencia que
+    responde otra pregunta.</strong> Confundir la fila es el error; usar la fila correcta, no.
+  </p>
+  <p class="fuente">
+    Sequeda Ferro et al. (2022), <em>Medicina Paliativa</em> · Rodríguez-Campos et al. (2024),
+    <em>BMC Palliative Care</em> · Abel et al. (2018), <em>British Journal of General Practice</em>,
+    que sus propios autores describen como observacional y sin prueba de causalidad.
+  </p>
+</section>
+
+<!-- 14 ─ Parte III ─────────────────────────────────────────────────────── -->
+<section class="d d--parte" aria-label="Tercera parte">
+  <p class="n">III</p>
+  <h2>Telesalud: qué dice la norma</h2>
+  <p>La norma cambió el 31 de julio de 2026. Esta parte empieza por ahí.</p>
+</section>
+
+<!-- 15 ─ Caso de anclaje: la norma que cambió ──────────────────────────── -->
+<section class="d" aria-label="La norma que cambió mientras se preparaba la sesión">
+  <p class="d__eyebrow">El caso de anclaje de esta sesión</p>
+  <h2>Verificada el 21 de julio, derogada el 31</h2>
+  <p class="lead">
+    La <strong>Resolución 2654 de 2019</strong> reglamentó la telemedicina en Colombia durante
+    casi siete años. Este seminario la verificó el 21 de julio de 2026 para diseñar la unidad.
+    <strong>Diez días después, la Resolución 1644 de 2026 la derogó.</strong>
+  </p>
+  <div class="tabla">
+    <table>
+      <thead><tr><th scope="col"></th><th scope="col">Resolución 2654 de 2019</th><th scope="col">Resolución 1644 de 2026</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Estado</strong></td><td class="derogada">⛔ Derogada (art. 44 de la 1644)</td><td class="vigente">Vigente desde el 31 de julio de 2026</td></tr>
+        <tr><td><strong>Categorías de telemedicina</strong></td><td>Interactiva · no interactiva · telexperticia · telemonitoreo</td><td>Telexperticia · teleconcepto · teleconsulta · telemonitoreo</td></tr>
+        <tr><td><strong>Dónde está la persona</strong></td><td>Dentro o fuera de las instalaciones del prestador (art. 13); telemonitoreo «en cualquier lugar» (art. 18)</td><td>Nombra el <strong>domicilio</strong> como punto de enlace sin habilitación, y la teleconsulta desde el domicilio (núm. 3.28, art. 18)</td></tr>
+        <tr><td><strong>Mensajería instantánea</strong></td><td>La mensajería y las redes sociales figuraban entre las plataformas de telesalud (art. 21); no se nombraba WhatsApp</td><td>Para la telemedicina, <strong>WhatsApp y las redes sociales no cumplen</strong> los requisitos, y se dice por su nombre (núm. 24.5)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="nota" style="margin-top:.9rem">
+    <strong>Y este mismo material cayó en la trampa.</strong> La pregunta 3 del entregable se
+    escribió sobre la 2654 y hubo que corregirla. La sesión 3 mostró normas que se siguen citando y
+    ya no existen; esta muestra lo que viene antes: <strong>una verificación tiene fecha</strong>, y
+    la norma puede cambiar entre la fecha de la verificación y la de la clase.
+  </p>
+  <p class="nota" style="margin-top:.7rem">
+    <strong>Hay transición.</strong> Los prestadores con telemedicina habilitada tienen <strong>doce
+    meses</strong> para ajustarse, y mientras tanto sus habilitaciones siguen valiendo (art. 43). Si en
+    el Registro Especial de Prestadores (REPS) encuentra una categoría con el nombre de 2019, no es
+    necesariamente un error: puede ser una habilitación anterior en plena transición.
+  </p>
+</section>
+
+<!-- 16 ─ Taxonomía ─────────────────────────────────────────────────────── -->
+<section class="d" aria-label="Qué es telesalud y qué es telemedicina según la norma vigente">
+  <p class="d__eyebrow">Resolución 1644 de 2026 · el vocabulario exacto</p>
+  <h2>No todo lo que pasa por una pantalla es telemedicina</h2>
+  <div class="arbol">
+    <div class="arbol__raiz">Telesalud <small>Ley 1419 de 2010, art. 2 · actividades, servicios y métodos de salud a distancia con TIC</small></div>
+    <div class="arbol__ramas">
+      <div class="rama rama--act">
+        <p class="rama__t">Actividades de telesalud · no se habilitan (art. 9)</p>
+        <ul>
+          <li><strong>Teleorientación en salud</strong> — informativa, de orientación y educación</li>
+          <li><strong>Teleapoyo</strong> — educación y consejería entre profesionales</li>
+          <li><strong>Teleeducación en salud</strong> — práctica educativa a distancia</li>
+        </ul>
+      </div>
+      <div class="rama rama--mod">
+        <p class="rama__t">Modalidad telemedicina · se habilita · 4 categorías (art. 15)</p>
+        <ul>
+          <li><strong>Teleconsulta</strong> — una consulta con un profesional desde el nodo de referencia</li>
+          <li><strong>Telexperticia</strong> — sincrónica: la persona, con personal de apoyo o un profesional a su lado, y especialistas a distancia</li>
+          <li><strong>Teleconcepto</strong> — el nodo remisor pide una interconsulta o un concepto</li>
+          <li><strong>Telemonitoreo</strong> — valoración o seguimiento clínico remoto</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <p class="nota" style="margin-top:1rem">
+    <strong>La palabra exacta importa.</strong> En la norma, la <em>modalidad</em> es la
+    telemedicina —junto a la intramural y la extramural—; las cuatro formas son sus
+    <em>categorías</em>. Y las actividades de telesalud, dice el parágrafo 2 del artículo 9,
+    <strong>«en ningún caso constituyen un acto médico ni sustituyen la prestación directa de
+    servicios de salud»</strong>. Una llamada de orientación no es una consulta, aunque la familia
+    la viva como tal.
+  </p>
+  <p class="nota" style="margin-top:.7rem">
+    <strong>Y una diferencia que en cuidado paliativo pesa: dónde se puede formular.</strong> En
+    telexperticia, teleconsulta y teleconcepto, sí; en telemonitoreo, no. Los medicamentos de
+    control especial —los opioides— siguen sus propias reglas, con el recetario oficial cuando
+    aplique (art. 20). La barrera de la morfina de la sesión 3 no desaparece por hacerse a
+    distancia.
+  </p>
+</section>
+
+<!-- 17 ─ La ley de CP ya habla de telemedicina ─────────────────────────── -->
+<section class="d" aria-label="La ley de cuidados paliativos y la telemedicina">
+  <p class="d__eyebrow">Lo que la Ley 1733 dice desde 2022</p>
+  <h2>La ley de cuidado paliativo ya habla de telemedicina</h2>
+  <p class="lead">
+    El texto original de 2014 no la mencionaba. La <strong>Ley 2241 de 2022</strong> modificó su
+    artículo 7 y le añadió este parágrafo:
+  </p>
+  <p class="cita-norma">
+    «Las Entidades Promotoras de Salud (EPS) y las Instituciones Prestadoras de Salud (IPS)
+    fomentarán la capacitación del talento humano para brindar atención, seguimiento y soporte a
+    los pacientes, sus familias y cuidadores, a través de la telemedicina o tele asistencia como
+    alternativa de monitoreo permanente de los casos que requieran cuidados paliativos, siempre y
+    cuando los pacientes, sus familias y cuidadores lo soliciten.»
+  </p>
+  <p>
+    Tres normas, la misma cautela. La Ley 1419 aclara que la telemedicina no exime de
+    <strong>priorizar la prestación personalizada</strong>; la Resolución 1644, que la telesalud no
+    sustituye la atención directa; y la Ley 1733, que la telemedicina es <strong>una alternativa
+    que se solicita</strong>, no un sustituto que se asigna.
+  </p>
+  <p class="nota">
+    <strong>Y la pregunta de la sesión 3 reaparece.</strong> «Siempre y cuando lo soliciten»: ¿quién
+    solicita lo que nadie le ofreció? La barrera del conocimiento —el equipo que no sabe o no
+    ofrece— convierte una alternativa legal en una alternativa que no existe.
+  </p>
+  <p class="fuente">Ley 2241 de 2022 (8 de julio), art. 3 · Diario Oficial 52.089.</p>
+</section>
+
+<!-- 18 ─ La sala de la casa ────────────────────────────────────────────── -->
+<section class="d" aria-label="La consulta en la sala de la casa">
+  <p class="d__eyebrow">Ética de lo digital · la escena de la pregunta 3</p>
+  <h2>La consulta ocurre en la sala de la casa</h2>
+  <p class="lead">
+    Una persona con enfermedad avanzada, en la sala, con la familia alrededor y un celular que es
+    de todos. La norma nueva nombra el domicilio como punto de enlace y no le exige habilitación.
+    Lo que sí exige está en otras partes.
+  </p>
+  <div class="bloques">
+    <div class="bloque bloque--norma">
+      <p class="n">Ley 1581 de 2012 · art. 5</p>
+      <h3>Datos sensibles</h3>
+      <p>Los «datos relativos a la salud» son datos sensibles: los que afectan la intimidad o cuyo
+        uso indebido puede generar discriminación. Protección reforzada.</p>
+    </div>
+    <div class="bloque bloque--norma">
+      <p class="n">Resolución 1644 · art. 7</p>
+      <h3>Consentimiento propio</h3>
+      <p>Hay que informar cómo funciona la atención a distancia, sus riesgos, la privacidad y
+        qué pasa si falla la tecnología. Es distinto de la autorización de datos y se puede
+        revocar.</p>
+    </div>
+    <div class="bloque bloque--norma">
+      <p class="n">Resolución 1644 · num. 24.5</p>
+      <h3>WhatsApp no cumple</h3>
+      <p>Para la telemedicina, la norma dice que las aplicaciones de mensajería inmediata como
+        WhatsApp y las redes sociales no cumplen los requisitos de las plataformas. ¿Cuánto del
+        seguimiento paliativo de su servicio pasa hoy por ahí?</p>
+    </div>
+    <div class="bloque bloque--norma">
+      <p class="n">Resolución 1644 · art. 23</p>
+      <h3>Inteligencia artificial, declarada</h3>
+      <p>Se permite como apoyo, con información previa al usuario y supervisión humana. Es la
+        misma regla que este seminario aplica a sus entregables: se declara.</p>
+    </div>
+  </div>
+  <p class="nota nota--entregable" style="margin-top:1rem">
+    <strong>Lo que la pregunta 3 le pide encontrar:</strong> cuando la confidencialidad se rompe en
+    esa sala, ¿quién responde —el prestador, el profesional, la EPS, la familia— y con qué
+    documento lo sustenta? La respuesta está en la norma. Búsquela ahí.
+  </p>
+</section>
+
+<!-- 19 ─ Parte IV ──────────────────────────────────────────────────────── -->
+<section class="d d--parte" aria-label="Cuarta parte">
+  <p class="n">IV</p>
+  <h2>Telesalud: qué dice la evidencia</h2>
+  <p>De «se describe pero no se evalúa» a un metaanálisis de seis estudios. Y el caso que cambió de resultado.</p>
+</section>
+
+<!-- 20 ─ Tres revisiones ───────────────────────────────────────────────── -->
+<section class="d" aria-label="Tres revisiones sobre telesalud en cuidado paliativo">
+  <p class="d__eyebrow">Siete años de revisiones</p>
+  <h2>De describir a evaluar</h2>
+  <div class="bloques">
+    <div class="bloque bloque--piedra">
+      <p class="n">Hancock et al., 2019</p>
+      <h3>«Se describe pero no se evalúa»</h3>
+      <p>Así se titula la revisión: 30 estudios, en su mayoría pequeños y descriptivos. Evidencia
+        insuficiente para afirmar beneficios.</p>
+    </div>
+    <div class="bloque bloque--piedra">
+      <p class="n">Finucane et al., 2021</p>
+      <h3>Una revisión de revisiones</h3>
+      <p>21 revisiones sistemáticas. Beneficio en educación, comunicación y costos; <strong>no
+        concluyente</strong> en calidad de vida y síntomas. La mayoría de las revisiones, de baja
+        calidad metodológica.</p>
+    </div>
+    <div class="bloque">
+      <p class="n">Kawashima et al., 2026</p>
+      <h3>Seis estudios comparables</h3>
+      <p>42 publicaciones incluidas, <strong>solo 6 en el metaanálisis</strong>. Calidad de vida: DME
+        0,81 (0,09–1,53). Carga de síntomas: −1,44 (−2,24 a −0,65).</p>
+    </div>
+  </div>
+  <p style="margin-top:1rem">
+    Kawashima concluye que la telesalud <strong>«puede ayudar»</strong> —el verbo es exacto— y
+    pide estudiar las barreras de equidad para sostener su expansión. Un intervalo que va de 0,09 a 1,53
+    es compatible con un efecto casi nulo y con uno muy grande: <strong>seis estudios no
+    alcanzan para distinguirlos.</strong>
+  </p>
+  <p class="nota">
+    <strong>Compare con la diapositiva 11.</strong> El cuidado paliativo precoz, con siete ensayos
+    y más de mil personas en el análisis de calidad de vida, mostró un efecto de 0,27. Un efecto tres veces mayor, con menos
+    estudios y un intervalo seis veces más ancho, pide cautela: los efectos grandes que salen de
+    pocos estudios pequeños suelen encogerse cuando llegan más. <strong>Es lo que le pasó a Temel y
+    a Basch.</strong>
+  </p>
+</section>
+
+<!-- 21 ─ Basch → PRO-TECT ──────────────────────────────────────────────── -->
+<section class="d" aria-label="El caso que cambió de resultado">
+  <p class="d__eyebrow">El caso que cambió de resultado</p>
+  <h2>Cinco meses que desaparecieron</h2>
+  <p class="lead">
+    Personas en tratamiento por cáncer reportan sus síntomas por vía electrónica; si algo empeora,
+    el equipo recibe una alerta. Tres publicaciones del mismo investigador principal:
+  </p>
+  <div class="tabla">
+    <table>
+      <thead><tr><th scope="col">Publicación</th><th scope="col">Dónde y con cuántos</th><th scope="col">Desenlace primario</th><th scope="col">Supervivencia</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Basch 2016</strong><br><span class="pequeno"><em>J Clin Oncol</em></span></td>
+          <td>Un centro de referencia oncológica · 766 personas</td>
+          <td>Calidad de vida: mejoró en 34 % frente a 18 %</td>
+          <td class="no">Secundario</td></tr>
+        <tr><td><strong>Basch 2017</strong><br><span class="pequeno"><em>JAMA</em> · carta</span></td>
+          <td>Seguimiento del mismo ensayo</td>
+          <td>—</td>
+          <td><strong>31,2 frente a 26,0 meses</strong> de mediana</td></tr>
+        <tr><td><strong>PRO-TECT 2025</strong><br><span class="pequeno"><em>Nature Medicine</em></span></td>
+          <td>52 prácticas comunitarias · 1 191 personas · por conglomerados</td>
+          <td>Supervivencia</td>
+          <td><strong>Sin diferencia</strong>: HR 0,99 (0,83–1,17); p = 0,86</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="nota" style="margin-top:.9rem">
+    <strong>No todo se desvaneció.</strong> PRO-TECT encontró más tiempo hasta la primera visita
+    a urgencias (HR 0,84; p = 0,03) y un deterioro más lento de la función física (HR 0,73), de los síntomas (HR 0,69) y
+    de la calidad de vida (HR 0,72). <strong>La intervención sirve; lo que no se sostuvo fue la
+    cifra más espectacular</strong>, que además había salido de un desenlace secundario.
+  </p>
+  <p class="nota" style="margin-top:.7rem">
+    <strong>Dos detalles de diseño que se olvidan.</strong> En 2016, el beneficio fue
+    <em>mayor</em> en quienes no tenían experiencia previa con computadores. Y PRO-TECT dejó
+    reportar por teléfono automatizado, no solo por internet. La brecha digital no es contexto: es
+    una decisión de diseño.
+  </p>
+</section>
+
+<!-- 22 ─ Eficacia y efectividad · PRECIS-2 y RE-AIM ────────────────────── -->
+<section class="d d--larga" aria-label="Eficacia y efectividad">
+  <p class="d__eyebrow">Dos palabras que la pregunta 4 le pide distinguir</p>
+  <h2>Eficacia y efectividad</h2>
+  <div class="bloques">
+    <div class="bloque bloque--piedra">
+      <p class="n">Eficacia</p>
+      <h3>¿Funciona en condiciones ideales?</h3>
+      <p>Pacientes seleccionados, equipo entrenado, protocolo vigilado. Un centro. Basch 2016.</p>
+    </div>
+    <div class="bloque">
+      <p class="n">Efectividad</p>
+      <h3>¿Funciona en la práctica real?</h3>
+      <p>La gente que llega, el personal que hay, sin vigilancia extra. Muchos sitios. PRO-TECT.</p>
+    </div>
+  </div>
+  <p style="margin-top:1rem">
+    Entre una y otra no hay un salto sino un continuo. <strong>PRECIS-2</strong> (Loudon et al.,
+    2015) lo hace medible: nueve dominios, cada uno puntuado de <span class="mono">1</span> —muy
+    explicativo— a <span class="mono">5</span> —muy pragmático—.
+  </p>
+  <div class="tabla">
+    <table>
+      <thead><tr><th scope="col">Dominio</th><th scope="col">La pregunta que hace</th></tr></thead>
+      <tbody>
+        <tr><td>Elegibilidad</td><td>¿Los participantes se parecen a quienes recibirían la intervención en la práctica?</td></tr>
+        <tr><td>Reclutamiento</td><td>¿Se reclutó con un esfuerzo que la práctica no tendría?</td></tr>
+        <tr><td>Ámbito</td><td>¿Centro de referencia, o los sitios donde de verdad se atiende?</td></tr>
+        <tr><td>Organización</td><td>¿Con más personal, recursos o experiencia que lo habitual?</td></tr>
+        <tr><td>Flexibilidad en la entrega</td><td>¿Protocolo rígido, o como se haría en la práctica?</td></tr>
+        <tr><td>Flexibilidad en la adherencia</td><td>¿Se vigila y corrige la adherencia más que en la práctica?</td></tr>
+        <tr><td>Seguimiento</td><td>¿Se sigue a los participantes con más intensidad que a cualquier persona?</td></tr>
+        <tr><td>Desenlace primario</td><td>¿Importa a quien recibe la intervención?</td></tr>
+        <tr><td>Análisis primario</td><td>¿Se analiza a todos, incluidos los que no siguieron el protocolo?</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="nota" style="margin-top:.9rem">
+    <strong>RE-AIM</strong> (Glasgow et al., 1999) mira lo mismo desde la implementación: alcance,
+    eficacia, adopción, implementación y mantenimiento. En el artículo original la E es
+    <em>efficacy</em>; la literatura posterior la usa como <em>effectiveness</em>. <strong>Esa
+    oscilación no es un descuido: es exactamente la distancia entre Basch 2016 y
+    PRO-TECT.</strong>
+  </p>
+</section>
+
+<!-- 23 ─ Parte V ───────────────────────────────────────────────────────── -->
+<section class="d d--parte" aria-label="Quinta parte">
+  <p class="n">V</p>
+  <h2>La contracara</h2>
+  <p>La telesalud se propone para los territorios sin servicio. Esos territorios son también los de menos conexión.</p>
+</section>
+
+<!-- 24 ─ Brecha digital · FIGURA ───────────────────────────────────────── -->
+<section class="d" aria-label="La brecha digital en Colombia">
+  <p class="d__eyebrow">Colombia · DANE · Encuesta TIC en Hogares 2024</p>
+  <h2>¿Quién tiene con qué conectarse?</h2>
+  <figure style="align-items:stretch">
+    <ul class="barras" aria-label="Hogares con conexión a internet en 2024, por ámbito">
+      <li class="barra barra--bogota"><span class="barra__et">Bogotá D. C.</span><span class="barra__pista"><span class="barra__val" style="width:82.7%"></span><span class="barra__num">82,7 %</span></span></li>
+      <li class="barra"><span class="barra__et">Cabeceras municipales</span><span class="barra__pista"><span class="barra__val" style="width:72.5%"></span><span class="barra__num">72,5 %</span></span></li>
+      <li class="barra"><span class="barra__et"><strong>Total nacional</strong></span><span class="barra__pista"><span class="barra__val" style="width:65.6%"></span><span class="barra__num">65,6 %</span></span></li>
+      <li class="barra barra--acento"><span class="barra__et">Centros poblados y rural disperso</span><span class="barra__pista"><span class="barra__val" style="width:41.9%"></span><span class="barra__num">41,9 %</span></span></li>
+      <li class="barra barra--acento"><span class="barra__et">Vichada, el más bajo</span><span class="barra__pista"><span class="barra__val" style="width:15.4%"></span><span class="barra__num">15,4 %</span></span></li>
+    </ul>
+    <figcaption style="text-align:left">
+      Hogares con conexión a internet, 2024. DANE, ENTIC Hogares, boletín del 1 de agosto de 2025.
+      La Encuesta de Calidad de Vida 2025 da cifras más altas (73,9 % nacional, 56,9 % rural): es
+      otra encuesta y <strong>no se mezclan</strong>.
+    </figcaption>
+  </figure>
+  <div class="bloques" style="margin-top:1rem">
+    <div class="bloque bloque--piedra">
+      <p class="n">Servicios de cuidado paliativo</p>
+      <h3>Tres departamentos sin ninguno</h3>
+      <p>Amazonas, Vaupés y <strong>Vichada</strong> no tienen un servicio registrado (Correa-Morales
+        et al., 2026). Vichada es también el departamento con menos hogares conectados.</p>
+    </div>
+    <div class="bloque bloque--piedra">
+      <p class="n">Telemedicina en la red pública</p>
+      <h3>Una de cada diez sedes</h3>
+      <p>A mayo de 2025, 415 sedes públicas —el 10,9 %— ofrecían servicios por telemedicina. La meta
+        del cuatrienio es el 50 % (MinSalud, informe al Congreso 2024-2025).</p>
+    </div>
+  </div>
+</section>
+
+<!-- 25 ─ ¿A quién no ve un estudio de telesalud? ───────────────────────── -->
+<section class="d" aria-label="El sesgo de selección digital">
+  <p class="d__eyebrow">El núcleo crítico de la sesión</p>
+  <h2>¿A quién no ve un estudio de telesalud?</h2>
+  <p class="lead">
+    Un estudio que recluta a quienes tienen conexión mide a quienes ya tenían acceso. Es el
+    <strong>sesgo de selección digital</strong>, y se decide en el diseño, no en el análisis.
+  </p>
+  <ol class="pasos">
+    <li><strong>REACH PC lo sabía</strong> y entregó una tableta con datos móviles a quien no tenía
+      tecnología. Aun así, el 82,7 % de sus participantes eran blancos y el 95,2 % no hispanos. Dar
+      el aparato no es lo mismo que llegar a todos.</li>
+    <li><strong>Basch 2016 encontró lo contrario de lo esperable:</strong> más beneficio en quienes
+      nunca habían usado un computador. La brecha no siempre corre en la dirección que se supone —
+      por eso hay que medirla y no suponerla.</li>
+    <li><strong>En Colombia no se ha medido.</strong> En la búsqueda hecha para esta sesión, en
+      septiembre de 2026, no apareció ninguna evaluación publicada de teleconsulta, telemonitoreo o
+      telexperticia en cuidado paliativo en el país. Hay experiencias; no hay evaluaciones. Y
+      desde el 31 de julio la norma lo pide: la Resolución 1644 ordena que la información de
+      telemedicina se reporte <strong>desagregada por categoría, área geográfica, grupo poblacional
+      y resultado en salud</strong> (art. 28.4).</li>
+  </ol>
+  <p class="nota" style="margin-top:.9rem">
+    <strong>Si usted conoce una, tráigala a la sesión.</strong> Sería el hallazgo del día, y una
+    ausencia documentada vale igual que un hallazgo: es el hilo del seminario visto desde la
+    telesalud. <em>Hay norma —ahora, una que exige el dato— y el dato todavía no está
+    publicado.</em>
+  </p>
+</section>
+
+<!-- 26 ─ GOLPE ─────────────────────────────────────────────────────────── -->
+<section class="d d--golpe" aria-label="El punto de la sesión">
+  <p class="d__eyebrow">El punto de la sesión</p>
+  <p class="gran">Eficaz en Boston no es efectivo en Vichada.</p>
+  <p>
+    El ensayo que todos citan se hizo en un centro de referencia de Boston. Vichada tiene un
+    15,4 % de hogares conectados y ningún servicio de cuidado paliativo registrado.
+  </p>
+  <p>
+    <strong>Esto no dice que la telesalud no sirva en Vichada. Dice que nadie lo ha medido</strong>
+    —y que la evidencia que se usa para proponerla viene de lugares que no se le parecen—. La
+    distancia entre esos dos sitios es la pregunta de investigación.
+  </p>
+</section>
+
+<!-- 27 ─ De la afirmación a la pregunta ────────────────────────────────── -->
+<section class="d" aria-label="De la afirmación a la pregunta">
+  <p class="d__eyebrow">El movimiento de siempre · pregunta 4</p>
+  <h2>De la afirmación a la pregunta</h2>
+  <p class="lead">
+    «La telemedicina resolvería el acceso en la zona rural.» Es plausible, y es exactamente el tipo
+    de afirmación que esta sesión enseña a desarmar.
+  </p>
+  <ol class="pasos">
+    <li><strong>Sujeto, lugar y periodo.</strong> ¿Qué personas, en qué municipio, entre qué
+      fechas? «En Colombia» no es un lugar para esto.</li>
+    <li><strong>El dato que la respondería.</strong> ¿Consultas efectivas, tiempo hasta la primera
+      atención, visitas a urgencias, lugar de muerte? Cada uno responde una pregunta distinta.</li>
+    <li><strong>Quién lo tiene.</strong> Con nombre institucional: la IPS, la EPS, la secretaría de
+      salud, el Observatorio Colombiano de Cuidados Paliativos.</li>
+    <li><strong>Si existe.</strong> Búsquelo. Si no existe, la pregunta cambia: ¿por qué no se
+      recoge?</li>
+    <li><strong>Dónde caería en PRECIS-2.</strong> ¿Su estudio se parecería más a Basch 2016 o a
+      PRO-TECT? ¿Qué tendría que cambiar para acercarse a la práctica real?</li>
+  </ol>
+  <p class="nota" style="margin-top:.9rem">
+    <strong>Este es el puente con el producto del segundo corte.</strong> La pregunta que formuló
+    en el primer corte necesita ahora un modelo de atención y un diseño. La pregunta 4 es el primer
+    ensayo de esa capa.
+  </p>
+</section>
+
+<!-- 28 ─ Lo que sigue ──────────────────────────────────────────────────── -->
+<section class="d" aria-label="Lo que sigue">
+  <p class="d__eyebrow">Lo que sigue</p>
+  <h2>Antes, durante y después del 2 de octubre</h2>
+  <div class="bloques">
+    <div class="bloque">
+      <p class="n">Antes · martes 29, 23:59</p>
+      <h3>El entregable previo</h3>
+      <p>Cuatro preguntas, individual. Puede reenviar cuantas veces quiera hasta el cierre; cada
+        envío reemplaza al anterior.</p>
+    </div>
+    <div class="bloque">
+      <p class="n">Durante · viernes 2, 8:00</p>
+      <h3>La sesión sincrónica</h3>
+      <p>Por videollamada. Se proyecta lo que ustedes escribieron, sin nombres —cada quien es una
+        letra—, y la sesión se conduce contrastándolo.</p>
+    </div>
+    <div class="bloque bloque--piedra">
+      <p class="n">Después · viernes 16 de octubre</p>
+      <h3>Sesión 5 y cierre del corte</h3>
+      <p>Presencial. Domicilio, institución y comunidad, con la misma rejilla de siete
+        componentes. Ese día se entrega el producto del segundo corte (35 %).</p>
+    </div>
+  </div>
+  <p class="nota" style="margin-top:1.1rem">
+    <a href="index.html">Volver a la guía de la sesión</a> ·
+    <a href="preparacion.html">Entregable previo</a> ·
+    <a href="../../index.html">Portada del seminario</a>
+  </p>
+</section>
+
+<!-- 29 ─ Fuentes ───────────────────────────────────────────────────────── -->
+<section class="d d--larga" aria-label="Fuentes de esta presentación">
+  <p class="d__eyebrow">Todo lo citado, verificado entre julio y septiembre de 2026</p>
+  <h2>Fuentes</h2>
+  <p>Se citan, no se reproducen. Las normas son documentos públicos.</p>
+
+  <details>
+    <summary>Modelos de atención · ensayos y revisiones</summary>
+    <ul>
+      <li>Bakitas, M. A., Tosteson, T. D., Li, Z., Lyons, K. D., Hull, J. G., Li, Z., Dionne-Odom, J. N., Frost, J., Dragnev, K. H., Hegel, M. T., Azuero, A., &amp; Ahles, T. A. (2015). Early versus delayed initiation of concurrent palliative oncology care: Patient outcomes in the ENABLE III randomized controlled trial. <em>Journal of Clinical Oncology, 33</em>(13), 1438–1445. <a href="https://doi.org/10.1200/JCO.2014.58.6362">https://doi.org/10.1200/JCO.2014.58.6362</a></li>
+      <li>Gómez-Batiste, X., Martínez-Muñoz, M., Blay, C., Amblàs, J., Vila, L., Costa, X., Espaulella, J., Villanueva, A., Oller, R., Martori, J. C., &amp; Constante, C. (2017). Utility of the NECPAL CCOMS-ICO© tool and the Surprise Question as screening tools for early palliative care and to predict mortality in patients with advanced chronic conditions: A cohort study. <em>Palliative Medicine, 31</em>(8), 754–763. <a href="https://doi.org/10.1177/0269216316676647">https://doi.org/10.1177/0269216316676647</a></li>
+      <li>Greer, J. A., Temel, J. S., El-Jawahri, A., Rinaldi, S., Kamdar, M., Park, E. R., Horick, N. K., Pintro, K., Rabideau, D. J., Schwamm, L., Feliciano, J., Chua, I., Leventakos, K., Fischer, S. M., Campbell, T. C., Rabow, M. W., Zachariah, F., Hanson, L. C., Martin, S. F., … Jackson, V. (2024). Telehealth vs in-person early palliative care for patients with advanced lung cancer: A multisite randomized clinical trial. <em>JAMA, 332</em>(14), 1153–1164. <a href="https://doi.org/10.1001/jama.2024.13964">https://doi.org/10.1001/jama.2024.13964</a></li>
+      <li>Haun, M. W., Estel, S., Rücker, G., Friederich, H.-C., Villalobos, M., Thomas, M., &amp; Hartmann, M. (2017). Early palliative care for adults with advanced cancer. <em>Cochrane Database of Systematic Reviews, 2017</em>(6), CD011129. <a href="https://doi.org/10.1002/14651858.CD011129.pub2">https://doi.org/10.1002/14651858.CD011129.pub2</a></li>
+      <li>Hui, D., &amp; Bruera, E. (2015). Models of integration of oncology and palliative care. <em>Annals of Palliative Medicine, 4</em>(3), 89–98. <a href="https://doi.org/10.3978/j.issn.2224-5820.2015.04.01">https://doi.org/10.3978/j.issn.2224-5820.2015.04.01</a></li>
+      <li>Kavalieratos, D., Corbelli, J., Zhang, D., Dionne-Odom, J. N., Ernecoff, N. C., Hanmer, J., Hoydich, Z. P., Ikejiani, D. Z., Klein-Fedyshin, M., Zimmermann, C., Morton, S. C., Arnold, R. M., Heller, L., &amp; Schenker, Y. (2016). Association between palliative care and patient and caregiver outcomes: A systematic review and meta-analysis. <em>JAMA, 316</em>(20), 2104–2114. <a href="https://doi.org/10.1001/jama.2016.16840">https://doi.org/10.1001/jama.2016.16840</a></li>
+      <li>Quill, T. E., &amp; Abernethy, A. P. (2013). Generalist plus specialist palliative care — creating a more sustainable model. <em>New England Journal of Medicine, 368</em>(13), 1173–1175. <a href="https://doi.org/10.1056/NEJMp1215620">https://doi.org/10.1056/NEJMp1215620</a></li>
+      <li>Temel, J. S., Greer, J. A., Muzikansky, A., Gallagher, E. R., Admane, S., Jackson, V. A., Dahlin, C. M., Blinderman, C. D., Jacobsen, J., Pirl, W. F., Billings, J. A., &amp; Lynch, T. J. (2010). Early palliative care for patients with metastatic non-small-cell lung cancer. <em>New England Journal of Medicine, 363</em>(8), 733–742. <a href="https://doi.org/10.1056/NEJMoa1000678">https://doi.org/10.1056/NEJMoa1000678</a></li>
+      <li>Temel, J. S., Greer, J. A., El-Jawahri, A., Pirl, W. F., Park, E. R., Jackson, V. A., Back, A. L., Kamdar, M., Jacobsen, J., Chittenden, E. H., Rinaldi, S. P., Gallagher, E. R., Eusebio, J. R., Li, Z., Muzikansky, A., &amp; Ryan, D. P. (2017). Effects of early integrated palliative care in patients with lung and GI cancer: A randomized clinical trial. <em>Journal of Clinical Oncology, 35</em>(8), 834–841. <a href="https://doi.org/10.1200/JCO.2016.70.5046">https://doi.org/10.1200/JCO.2016.70.5046</a></li>
+      <li>Temel, J. S., Jackson, V. A., El-Jawahri, A., Rinaldi, S. P., Petrillo, L. A., Kumar, P., McGrath, K. A., LeBlanc, T. W., Kamal, A. H., Jones, C. A., Rabideau, D. J., Horick, N., Pintro, K., Gallagher Medeiros, E. R., Post, K. E., &amp; Greer, J. A. (2024). Stepped palliative care for patients with advanced lung cancer: A randomized clinical trial. <em>JAMA, 332</em>(6), 471–481. <a href="https://doi.org/10.1001/jama.2024.10398">https://doi.org/10.1001/jama.2024.10398</a></li>
+      <li>Vanbutsele, G., Pardon, K., Van Belle, S., Surmont, V., De Laat, M., Colman, R., Eecloo, K., Cocquyt, V., Geboes, K., &amp; Deliens, L. (2018). Effect of early and systematic integration of palliative care in patients with advanced cancer: A randomised controlled trial. <em>The Lancet Oncology, 19</em>(3), 394–404. <a href="https://doi.org/10.1016/S1470-2045(18)30060-3">https://doi.org/10.1016/S1470-2045(18)30060-3</a></li>
+      <li>Zimmermann, C., Swami, N., Krzyzanowska, M., Hannon, B., Leighl, N., Oza, A., Moore, M., Rydall, A., Rodin, G., Tannock, I., Donner, A., &amp; Lo, C. (2014). Early palliative care for patients with advanced cancer: A cluster-randomised controlled trial. <em>The Lancet, 383</em>(9930), 1721–1730. <a href="https://doi.org/10.1016/S0140-6736(13)62416-2">https://doi.org/10.1016/S0140-6736(13)62416-2</a></li>
+    </ul>
+  </details>
+
+  <details>
+    <summary>Programas evaluados · Colombia y Reino Unido</summary>
+    <ul>
+      <li>Abel, J., Kingston, H., Scally, A., Hartnoll, J., Hannam, G., Thomson-Moore, A., &amp; Kellehear, A. (2018). Reducing emergency hospital admissions: A population health complex intervention of an enhanced model of primary care and compassionate communities. <em>British Journal of General Practice, 68</em>(676), e803–e810. <a href="https://doi.org/10.3399/bjgp18X699437">https://doi.org/10.3399/bjgp18X699437</a></li>
+      <li>Rodríguez-Campos, L., Rodríguez-Lesmes, P. A., Palomino Cancino, A., del Valle Díaz, I., Gamboa, L. F., Castillo Niuman, A., Salas, J. S., Sarmiento, G., Martínez-Bernal, J., &amp; González-Vélez, A. E. (2024). Cost–utility analysis of a palliative care program in Colombia. <em>BMC Palliative Care, 23</em>, 165. <a href="https://doi.org/10.1186/s12904-024-01476-6">https://doi.org/10.1186/s12904-024-01476-6</a></li>
+      <li>Sequeda Ferro, L., Layton Acevedo, L., Guevara Muñoz, J. E., Quintero, L. A., &amp; Carreño-Moreno, S. (2022). Indicadores de un programa de gestión en cuidado paliativo en Colombia: seguimiento retrospectivo. <em>Medicina Paliativa, 29</em>(2), 63–70. <a href="https://doi.org/10.20986/medpal.2022.1285/2021">https://doi.org/10.20986/medpal.2022.1285/2021</a></li>
+    </ul>
+  </details>
+
+  <details>
+    <summary>Telesalud · evidencia y métodos</summary>
+    <ul>
+      <li>Basch, E., Deal, A. M., Kris, M. G., Scher, H. I., Hudis, C. A., Sabbatini, P., Rogak, L., Bennett, A. V., Dueck, A. C., Atkinson, T. M., Chou, J. F., Dulko, D., Sit, L., Barz, A., Novotny, P., Fruscione, M., Sloan, J. A., &amp; Schrag, D. (2016). Symptom monitoring with patient-reported outcomes during routine cancer treatment: A randomized controlled trial. <em>Journal of Clinical Oncology, 34</em>(6), 557–565. <a href="https://doi.org/10.1200/JCO.2015.63.0830">https://doi.org/10.1200/JCO.2015.63.0830</a></li>
+      <li>Basch, E., Deal, A. M., Dueck, A. C., Scher, H. I., Kris, M. G., Hudis, C., &amp; Schrag, D. (2017). Overall survival results of a trial assessing patient-reported outcomes for symptom monitoring during routine cancer treatment. <em>JAMA, 318</em>(2), 197–198. <a href="https://doi.org/10.1001/jama.2017.7156">https://doi.org/10.1001/jama.2017.7156</a></li>
+      <li>Basch, E., Schrag, D., Jansen, J., Henson, S., Ginos, B., Stover, A. M., Carr, P., Spears, P. A., Jonsson, M., Deal, A. M., Bennett, A. V., Thanarajasingam, G., Rogak, L., Reeve, B. B., Snyder, C., Bruner, D., Cella, D., Kottschade, L. A., Perlmutter, J., … Dueck, A. C. (2025). Symptom monitoring with electronic patient-reported outcomes during cancer treatment: Final results of the PRO-TECT cluster-randomized trial. <em>Nature Medicine, 31</em>(4), 1225–1232. <a href="https://doi.org/10.1038/s41591-025-03507-y">https://doi.org/10.1038/s41591-025-03507-y</a></li>
+      <li>Finucane, A. M., O’Donnell, H., Lugton, J., Gibson-Watt, T., Swenson, C., &amp; Pagliari, C. (2021). Digital health interventions in palliative care: A systematic meta-review. <em>npj Digital Medicine, 4</em>, 64. <a href="https://doi.org/10.1038/s41746-021-00430-7">https://doi.org/10.1038/s41746-021-00430-7</a></li>
+      <li>Glasgow, R. E., Vogt, T. M., &amp; Boles, S. M. (1999). Evaluating the public health impact of health promotion interventions: The RE-AIM framework. <em>American Journal of Public Health, 89</em>(9), 1322–1327. <a href="https://doi.org/10.2105/AJPH.89.9.1322">https://doi.org/10.2105/AJPH.89.9.1322</a></li>
+      <li>Hancock, S., Preston, N., Jones, H., &amp; Gadoud, A. (2019). Telehealth in palliative care is being described but not evaluated: A systematic review. <em>BMC Palliative Care, 18</em>, 114. <a href="https://doi.org/10.1186/s12904-019-0495-5">https://doi.org/10.1186/s12904-019-0495-5</a></li>
+      <li>Kawashima, A., Noguchi, T., Furukawa, T., Unesoko, A., Togashi, S., &amp; Sato, K. (2026). Effectiveness of and implementation requirements for telehealth in palliative care patients with advanced cancer: A systematic review and meta-analysis. <em>Palliative Medicine, 40</em>(5), 588–607. <a href="https://doi.org/10.1177/02692163251403395">https://doi.org/10.1177/02692163251403395</a></li>
+      <li>Loudon, K., Treweek, S., Sullivan, F., Donnan, P., Thorpe, K. E., &amp; Zwarenstein, M. (2015). The PRECIS-2 tool: Designing trials that are fit for purpose. <em>BMJ, 350</em>, h2147. <a href="https://doi.org/10.1136/bmj.h2147">https://doi.org/10.1136/bmj.h2147</a></li>
+    </ul>
+  </details>
+
+  <details>
+    <summary>Colombia · normas y datos</summary>
+    <ul>
+      <li>Congreso de la República de Colombia. (2010, 13 de diciembre). <em>Ley 1419 de 2010</em>, por la cual se establecen los lineamientos para el desarrollo de la Telesalud en Colombia. Diario Oficial 47.922.</li>
+      <li>Congreso de la República de Colombia. (2012, 17 de octubre). <em>Ley Estatutaria 1581 de 2012</em>, por la cual se dictan disposiciones generales para la protección de datos personales. Diario Oficial 48.587.</li>
+      <li>Congreso de la República de Colombia. (2022, 8 de julio). <em>Ley 2241 de 2022</em>, por medio de la cual se fortalece la educación en cuidados paliativos. Diario Oficial 52.089.</li>
+      <li>Ministerio de Salud y Protección Social. (2019, 3 de octubre). <em>Resolución 2654 de 2019</em>, por la cual se establecen disposiciones para la telesalud y parámetros para la práctica de la telemedicina en el país. <strong>Derogada</strong> por la Resolución 1644 de 2026, art. 44.</li>
+      <li>Ministerio de Salud y Protección Social. (2026, 31 de julio). <em>Resolución 1644 de 2026</em>, por la cual se establecen los requisitos y condiciones para el desarrollo de actividades de telesalud y la prestación de servicios de salud en la modalidad de telemedicina en el Sistema General de Seguridad Social en Salud y se deroga la Resolución 2654 de 2019. <a href="https://www.minsalud.gov.co/sites/rid/Lists/BibliotecaDigital/RIDE/DE/DIJ/resolucion-1644-de-2026.pdf">minsalud.gov.co</a></li>
+      <li>Ministerio de Salud y Protección Social. (2025). <em>Informe al Congreso de la República 2024-2025</em>. <a href="https://www.minsalud.gov.co/sites/rid/Lists/BibliotecaDigital/RIDE/DE/informe-congreso-republica-2024-2025.pdf">minsalud.gov.co</a></li>
+      <li>Departamento Administrativo Nacional de Estadística. (2025). <em>Encuesta de Tecnologías de la Información y las Comunicaciones en Hogares (ENTIC Hogares) 2024</em>. Boletín técnico. <a href="https://www.dane.gov.co/files/operaciones/ENTIC/bol-ENTICHogares-2024.pdf">dane.gov.co</a></li>
+      <li>Correa-Morales, J. E., Herrera-Carrasco, K. D., Umbacia, M. A., Bayona, M., Reyes-Rueda, M., Pinzón-Calderón, S., Sánchez-Cárdenas, M. A., Sharma, P., &amp; Kuzhikkat Jayaprakasan, A. (2026). How long do you have to travel to access a palliative care service in Colombia? <em>Journal of Pain and Symptom Management, 72</em>(3), e239–e247. <a href="https://doi.org/10.1016/j.jpainsymman.2026.05.017">https://doi.org/10.1016/j.jpainsymman.2026.05.017</a></li>
+    </ul>
+  </details>
+</section>
+
+</main>
+
+<nav class="nav" aria-label="Navegación de la presentación">
+  <div class="nav__barra" id="barra"></div>
+  <p class="nav__t" id="titulo">Sesión 4<small>Modelos de atención y telesalud</small></p>
+  <button type="button" id="prev" aria-label="Diapositiva anterior">‹</button>
+  <span class="nav__n" id="cuenta">1 / 29</span>
+  <button type="button" id="next" aria-label="Diapositiva siguiente">›</button>
+  <span class="nav__pista">← → · inicio · fin</span>
+</nav>
+
+<script>
+(function () {
+  'use strict';
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.d'));
+  var total = slides.length;
+  var i = 0;
+  var elPrev = document.getElementById('prev');
+  var elNext = document.getElementById('next');
+  var elCuenta = document.getElementById('cuenta');
+  var elBarra = document.getElementById('barra');
+
+  function mostrar(n, conFoco) {
+    i = Math.max(0, Math.min(total - 1, n));
+    slides.forEach(function (s, k) { s.classList.toggle('on', k === i); });
+    elCuenta.textContent = (i + 1) + ' / ' + total;
+    elBarra.style.width = ((i + 1) / total * 100) + '%';
+    elPrev.disabled = i === 0;
+    elNext.disabled = i === total - 1;
+    if (conFoco) { slides[i].setAttribute('tabindex', '-1'); slides[i].focus({ preventScroll: true }); }
+    slides[i].scrollTop = 0;
+    if (history.replaceState) history.replaceState(null, '', '#' + (i + 1));
+  }
+
+  elPrev.addEventListener('click', function () { mostrar(i - 1, true); });
+  elNext.addEventListener('click', function () { mostrar(i + 1, true); });
+
+  document.addEventListener('keydown', function (e) {
+    if (/^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName)) return;
+    if (e.target.tagName === 'SUMMARY' && (e.key === ' ' || e.key === 'Enter')) return;
+    switch (e.key) {
+      case 'ArrowRight': case 'PageDown': mostrar(i + 1, true); break;
+      case 'ArrowLeft':  case 'PageUp':   mostrar(i - 1, true); break;
+      case ' ':          mostrar(i + (e.shiftKey ? -1 : 1), true); e.preventDefault(); break;
+      case 'Home':       mostrar(0, true); break;
+      case 'End':        mostrar(total - 1, true); break;
+      default: return;
+    }
+  });
+
+  var x0 = null, y0 = null;
+  document.addEventListener('touchstart', function (e) {
+    x0 = e.changedTouches[0].clientX; y0 = e.changedTouches[0].clientY;
+  }, { passive: true });
+  document.addEventListener('touchend', function (e) {
+    if (x0 === null) return;
+    var dx = e.changedTouches[0].clientX - x0;
+    var dy = e.changedTouches[0].clientY - y0;
+    if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) mostrar(i + (dx < 0 ? 1 : -1), false);
+    x0 = y0 = null;
+  }, { passive: true });
+
+  var inicial = parseInt((location.hash || '').replace('#', ''), 10);
+  mostrar(isNaN(inicial) ? 0 : inicial - 1, false);
+})();
+</script>
+</html>
