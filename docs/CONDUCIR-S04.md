@@ -4,9 +4,10 @@
 > `CONDUCIR-LA-SESION.md`; esto es lo específico del 2 de octubre, con los datos ya buscados
 > para no tener que buscarlos en vivo.
 >
-> **Estado al escribirla:** viernes 25 de septiembre · el entregable cierra el **martes 29 a las
-> 23:59** · grupo de **7 estudiantes activos**. Los datos de las entregas —anclaje por pregunta,
-> mediana de minutos— **se completan el miércoles 30**, con el tablero ya cerrado.
+> **Estado:** actualizada el **miércoles 30 de septiembre**, con el tablero ya cerrado y las
+> **6 entregas de 7** leídas. El entregable cerró el martes 29 a las 23:59 · grupo de
+> **7 estudiantes activos**. El borrador de síntesis por respuesta está en `PRIVADO_guion-S04.md`,
+> fuera del repositorio: **léalo antes del viernes; no se proyecta.**
 >
 > Sincrónica por videollamada, 8:00 a 11:00. Unidad 2, segundo corte.
 
@@ -59,16 +60,36 @@ que ya se sabía: es que **una verificación tiene fecha**.
 > seminario evalúa. Si nadie lo notó, tampoco es un fallo: la derogatoria salió en plena
 > preparación del semestre y no tuvo ruido de prensa.
 
-**Después, la devolución habitual** (completar el 30 de septiembre):
+**Después, la devolución habitual.** Datos del cierre, leídos del tablero el 30 de septiembre:
 
-| Pregunta | ¿Nombraba dónde buscar? | Ancladas |
-|---|---|---|
-| P1 · siete componentes | Sí (portafolio, REPS, protocolo) | _ de 7 |
-| P2 · Temel 2010 | Sí (resumen y métodos) | _ de 7 |
-| P3 · telemedicina | Sí (Res. 1644, antes 2654) | _ de 7 |
-| P4 · afirmación → pregunta | Sí (OCCP, EPS, secretaría) | _ de 7 |
+**Entregaron 6 de 7.** Una persona no entregó; otra dejó P3 y P4 en blanco.
 
-Mediana de minutos: ___ frente a 180 anunciados.
+| Pregunta | ¿Nombraba dónde buscar? | Respondieron | Se apoyan en fuente |
+|---|---|---|---|
+| P1 · siete componentes | Sí (portafolio, REPS, protocolo) | 6 de 7 | **3** |
+| P2 · Temel 2010 | Sí (resumen y métodos) | 6 de 7 | **5** |
+| P3 · telemedicina | Sí (Res. 1644, antes 2654) | 5 de 7 | **4** |
+| P4 · afirmación → pregunta | Sí (OCCP, EPS, secretaría) | 5 de 7 | **2** |
+
+Mediana de minutos: **200**, frente a 180 anunciados. Declararon el uso de IA cinco de las seis.
+
+**El dato que hay que devolverles, y que es el mejor de las cuatro sesiones:** la pregunta con más
+respuestas ancladas es la que mandaba a **un artículo concreto** (P2, cinco de seis). La que menos,
+la que pedía salir a buscar un dato que quizá no existe (P4, dos). Es el mismo patrón de las
+sesiones 1 y 2, ya por tercera vez: **el anclaje no depende del esfuerzo, depende de que alguien
+diga a qué documento ir.** Y eso, dicho en una sesión sobre modelos de atención, es el argumento:
+un sistema que no dice dónde está el dato produce profesionales que no lo citan.
+
+> **La corrección de la P3 funcionó.** De las cinco personas que respondieron la P3,
+> **cuatro citan la Resolución 1644** y usan sus categorías; una respondió con el vocabulario de la
+> 2654 —interactiva y no interactiva—. Esa persona **no pierde puntos**: así se anunció. Y su
+> respuesta es el mejor material para el §1, porque muestra exactamente lo que pasa cuando una
+> norma derogada sigue circulando: no es ignorancia, es que el vocabulario viejo sigue disponible.
+
+> **Un aviso sobre la carga.** Los minutos declarados van de 120 a 500. La mediana cabe en lo
+> anunciado, pero el extremo alto no: alguien dedicó más de ocho horas. Conviene preguntar en el
+> aula si la carga fue razonable, sin señalar a nadie, antes de calibrar el entregable de la
+> sesión 5.
 
 ---
 
