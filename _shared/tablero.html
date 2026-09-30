@@ -649,7 +649,7 @@ body.proyeccion .tarjeta{box-shadow:var(--shadow-medium)}
      Sigue valiendo el consejo del script: prepararlo antes es mejor. Esto
      es el paracaídas, no el avión.                                        */
   var OLLAMA_URL = CFG.ollamaURL || 'http://localhost:11434';
-  var OLLAMA_MODELO = CFG.ollamaModelo || 'qwen2.5:7b';
+  var OLLAMA_MODELO = CFG.ollamaModelo || 'qwen3.5:9b';
   var sintesis = {};          // { 'S01|p1': {...} } · solo en memoria
   var corriendo = false, cancelar = false;
 
@@ -719,6 +719,10 @@ body.proyeccion .tarjeta{box-shadow:var(--shadow-medium)}
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         model: OLLAMA_MODELO, prompt: promptIA(texto), stream: false,
+        // think:false apaga el razonamiento de los modelos que lo traen
+        // (qwen3.5 y sucesores): sin esto devuelven `response` vacío y el
+        // panel saldría en blanco. Los modelos sin razonamiento lo ignoran.
+        think: false,
         options: { temperature: 0.1, num_predict: 400 }
       })
     }).then(function (r) {

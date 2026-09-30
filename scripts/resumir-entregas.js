@@ -51,7 +51,7 @@ const arg = (n, def) => {
   return i > -1 && process.argv[i + 1] ? process.argv[i + 1] : def;
 };
 const SESION = (arg('--sesion', 'S01')).toUpperCase();
-const MODELO = arg('--modelo', 'qwen2.5:7b');
+const MODELO = arg('--modelo', 'qwen3.5:9b');
 const SIN_IA = process.argv.includes('--sin-ia');
 const OLLAMA = arg('--ollama', 'http://localhost:11434');
 
@@ -132,6 +132,11 @@ async function preguntar(texto) {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       model: MODELO, prompt: PROMPT(texto), stream: false,
+      // think:false apaga el «razonamiento» de los modelos que lo traen
+      // (qwen3.5 y sucesores): sin esto dejan `response` vacío y vuelcan
+      // todo a un campo `thinking` que este script no lee, con lo que el
+      // guion saldría en blanco. Los modelos sin razonamiento lo ignoran.
+      think: false,
       options: { temperature: 0.1, num_predict: 400 }
     })
   });

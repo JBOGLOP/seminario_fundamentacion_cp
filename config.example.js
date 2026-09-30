@@ -41,7 +41,7 @@ window.CONFIG = {
   // Funciona abriendo el tablero con doble clic (file://). Desde la página
   // publicada en HTTPS el navegador bloquea http://localhost.
   // ollamaURL: 'http://localhost:11434',
-  // ollamaModelo: 'qwen2.5:7b',
+  // ollamaModelo: 'qwen3.5:9b',
 };
 
 // ── Nota sobre los tokens de ESCRITURA ─────────────────────────────
