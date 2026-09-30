@@ -156,3 +156,14 @@ sesiones/*/ref/
 # nunca se publican como carpeta.
 sesiones/*/sesion*_cambios/
 *.zip
+
+# ── Guías docentes: privadas, no se publican (30 sep 2026) ──────────
+# Las hojas de conducción y las guías imprimibles llevan las claves de
+# respuesta (🔒) y el análisis de las entregas: son para el docente, no
+# para el estudiante. El repositorio es público y GitHub Pages sirve
+# docs/ tal cual, así que un .md aquí quedaba abierto en la web. Se
+# quedan en el disco; salen del sitio. Las páginas de estudiante no las
+# enlazan —solo las mencionan en comentarios de código.
+docs/CONDUCIR*.md
+docs/Guia_docente_*
+docs/Guía_docente_*
