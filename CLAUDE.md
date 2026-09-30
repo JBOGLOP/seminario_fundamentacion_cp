@@ -72,6 +72,18 @@ antes. Cada sesión tiene tres piezas y un orden fijo:
 4. **`_shared/tablero.html`** — el tablero docente. Se abre en clase, proyecta lo entregado
    **sin nombres** y la sesión se conduce contrastándolo.
 
+> **Síntesis con IA local: qué se proyecta y qué no** (desde el 30 de septiembre de 2026). El
+> motor vive en `_shared/sintesis-ia.js` y lo comparten el tablero y `scripts/resumir-entregas.js`;
+> corre en Ollama, en el equipo del docente, y las respuestas no salen de ahí.
+>
+> - **Resumen por respuesta** (siete campos sobre lo que escribió una persona): **nunca se
+>   proyecta**. Es una paráfrasis de máquina sobre alguien identificable.
+> - **Síntesis del grupo** (ideas sin autor, acuerdos, tensiones, vacíos, citas verificadas):
+>   **sí se proyecta**, con la tecla S, **después de leerla**. El guion de la noche anterior la
+>   escribe y deja `_shared/PRIVADO_sintesis-grupo-SNN.js`, y el tablero proyecta **esa misma**:
+>   lo proyectado es lo leído. Las líneas que repiten un nombre propio de las respuestas —una
+>   ciudad, una clínica— se esconden solas en proyección; es una red, no sustituye la lectura.
+
 > **Sin dependencias de cursos anteriores.** Ninguna página de estudiante enlaza a los
 > repositorios de 2026-I. Si una sesión necesita contenido que estaba allí, **se reconstruye
 > aquí**. Las fuentes externas legítimas (OMS, WHPCA) sí se enlazan: son fuentes primarias, no
@@ -141,6 +153,7 @@ _shared/
   base.css                 componentes · fuente canónica, se copia en línea
   plantilla-sesion.html    molde del que nace cada ficha de sesión
   tablero.html             TABLERO DOCENTE · sirve a las siete sesiones
+  sintesis-ia.js           motor de síntesis local · lo usan el tablero y el guion
   bitacora.js  vendor/     JS y librerías incrustadas
 
 docs/                      programador, cruce de la fusión, diseño de unidades, método

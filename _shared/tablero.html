@@ -144,10 +144,44 @@ mark.r-fue{background:var(--bosque-soft);color:var(--bosque-dark)}
   margin-left:.5rem}
 .ollama button:hover{background:var(--arcilla); color:var(--blanco)}
 
-/* La sintesis de maquina NUNCA se proyecta: el modo proyeccion la esconde,
-   igual que esconde los nombres. */
+/* El resumen POR RESPUESTA nunca se proyecta: es una parafrasis de maquina
+   sobre alguien identificable. El modo proyeccion lo esconde, igual que
+   esconde los nombres. */
 body.proyeccion .ollama,body.proyeccion #resumir{display:none}
 @media print{.ollama{display:none}}
+
+/* --- Sintesis DEL GRUPO · esta si se proyecta ------------------------------
+   Junta todas las respuestas de una pregunta y no distingue a nadie: ni
+   nombres ni letras. Es la vista pensada para el proyector (tecla S). */
+.sintesis{display:none;margin:0 0 1.4rem}
+body.vista-sintesis .sintesis{display:block}
+body.vista-sintesis .respuestas,body.vista-sintesis .faltantes,
+body.vista-sintesis .ollama,body.vista-sintesis .citas{display:none!important}
+.sg-acciones{display:flex;flex-wrap:wrap;gap:.4rem;align-items:center;margin:0 0 1rem}
+.sg-acciones button{font:inherit;font-size:.82rem;font-weight:600;cursor:pointer;border-radius:999px;
+  padding:.3rem .85rem;border:1px solid var(--acento-dark);background:var(--blanco);color:var(--acento-dark)}
+.sg-acciones button:hover{background:var(--acento-soft)}
+.sg-acciones button.otra{border-color:var(--gris-claro);color:var(--gris)}
+.sg-ideas{list-style:none;padding:0;margin:0;display:grid;gap:.6rem}
+.sg-idea{background:var(--blanco);border-radius:var(--radius);box-shadow:var(--shadow-soft);
+  border-left:4px solid var(--acento);padding:.75rem 1.05rem;font-size:calc(1.05rem * var(--escala));line-height:1.45}
+.sg-peso{font-family:var(--mono);font-size:.76em;color:var(--acento-dark);background:var(--acento-soft);
+  border-radius:999px;padding:.05rem .55rem;margin-left:.45rem;white-space:nowrap}
+.sg-bloque{margin-top:1.1rem}
+.sg-bloque h3{font-size:.72rem;font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em;
+  color:var(--gris);margin:0 0 .25rem}
+.sg-bloque p{margin:.15rem 0;font-size:calc(1rem * var(--escala));line-height:1.5}
+.sg-citas{list-style:none;padding:0;margin:.2rem 0;display:grid;gap:.45rem}
+.sg-citas li{font-family:var(--serif);font-style:italic;border-left:3px solid var(--acento-soft);
+  padding-left:.8rem;font-size:calc(1.02rem * var(--escala));line-height:1.45}
+.sg-nombre{display:inline-block;font-family:var(--sans);font-style:normal;font-size:.72rem;font-weight:700;
+  background:var(--arcilla-soft);color:var(--arcilla-deep);border-radius:999px;padding:.05rem .55rem;margin-left:.45rem}
+.sg-meta{font-family:var(--mono);font-size:.74rem;color:var(--gris-claro);margin:1rem 0 0;line-height:1.5}
+.sg-espera{color:var(--gris);font-size:.95rem}
+/* En proyeccion desaparecen los mandos, las marcas de maquina y toda linea
+   que repita un nombre propio de las respuestas. */
+body.proyeccion .sg-acciones,body.proyeccion .sg-meta,body.proyeccion .no-proyectar{display:none!important}
+@media print{.sg-acciones{display:none}}
 
 .citas{background:var(--pizarra);color:var(--lino);border-radius:var(--radius);
   padding:1.1rem 1.3rem;margin:0 0 1.3rem}
@@ -206,7 +240,8 @@ body.proyeccion .tarjeta{box-shadow:var(--shadow-medium)}
     <button type="button" id="recargar" title="Volver a leer las entregas">Recargar</button>
     <button type="button" id="menos" title="Letra más pequeña">A−</button>
     <button type="button" id="mas" title="Letra más grande">A+</button>
-    <button type="button" id="resumir" title="Sintetiza las respuestas de esta pregunta con un modelo local">Síntesis local</button>
+    <button type="button" id="vistaSintesis" title="Ideas agrupadas de todo el grupo, sin autor · se puede proyectar (tecla S)">Síntesis del grupo</button>
+    <button type="button" id="resumir" title="Resumen de cada respuesta con un modelo local · no se proyecta">Resumen por respuesta</button>
     <button type="button" id="proyeccion" title="Oculta nombres y correos">Modo proyección</button>
   </div>
 </div>
@@ -218,7 +253,8 @@ body.proyeccion .tarjeta{box-shadow:var(--shadow-medium)}
   <h1 class="titulo-pregunta" id="titulo">—</h1>
   <p class="sub" id="subtitulo"></p>
   <div class="senales" id="senales"></div>
-  <section class="ollama" id="ollama" hidden aria-label="Síntesis de máquina"></section>
+  <section class="sintesis" id="sintesis" aria-label="Síntesis del grupo"></section>
+  <section class="ollama" id="ollama" hidden aria-label="Resumen por respuesta"></section>
   <section class="citas" id="citas" style="display:none" aria-label="Citas fijadas"></section>
   <div class="respuestas" id="respuestas"></div>
   <p class="pie">
@@ -232,6 +268,9 @@ body.proyeccion .tarjeta{box-shadow:var(--shadow-medium)}
 <button type="button" id="fijar">Fijar cita</button>
 
 <script src="../config.js" onerror="void 0"></script>
+<!-- Motor de síntesis compartido con scripts/resumir-entregas.js. Es un
+     archivo local: el tablero sigue abriendo sin conexión. -->
+<script src="sintesis-ia.js"></script>
 <script>
 (function () {
   'use strict';
@@ -568,6 +607,7 @@ body.proyeccion .tarjeta{box-shadow:var(--shadow-medium)}
     pintarSenales();
     pintarCitas();
     pintarIA();
+    pintarGrupo();
 
     datos.respuestas.forEach(function (r) {
       var texto = String(r.respuestas[preguntaActiva] || '').trim();
@@ -631,106 +671,57 @@ body.proyeccion .tarjeta{box-shadow:var(--shadow-medium)}
 
 
   /* ── Síntesis con Ollama, en local ────────────────────────────────
-     Lo mismo que hace `scripts/resumir-entregas.js` la noche antes, aquí y
-     para una sola pregunta, cuando en clase aparece la que no se preparó.
+     Los prompts, los lectores y la verificación de citas viven en
+     _shared/sintesis-ia.js, compartidos con scripts/resumir-entregas.js.
+     Aquí solo se pide, se pinta y se decide qué se proyecta.
 
-     Las tres reglas del script se mantienen, porque son las que hacen que
-     esto sea admisible en un seminario que evalúa verificar lo que se cita:
+     Dos productos, y solo uno se proyecta:
 
-       · El modelo corre en este equipo. Las respuestas no salen de aquí;
-         mandarlas a una API en la nube no está cubierto por lo que se les
-         declaró a los estudiantes.
-       · La cita se verifica contra el original carácter a carácter. Si no
-         aparece literal, se descarta y se dice. Lo que se muestra es el
-         fragmento DEL ORIGINAL, con sus tildes.
-       · Nada de esto se proyecta: el modo proyección oculta el panel, y el
-         resultado vive solo en la memoria de esta pestaña — no se guarda.
+       · RESUMEN POR RESPUESTA (botón «Resumen por respuesta»): siete campos
+         sobre lo que escribió cada persona. Vive en la memoria de esta
+         pestaña y el modo proyección lo oculta siempre.
+       · SÍNTESIS DEL GRUPO (botón «Síntesis del grupo» o tecla S): todas las
+         respuestas de una pregunta en ideas sin autor. Esta sí se proyecta,
+         como en el tablero de Investigación en CP y Rehabilitación. Se
+         guarda en este navegador para poder prepararla antes de clase, y
+         hay que LEERLA antes de proyectarla: el modo proyección esconde
+         cualquier línea que repita un nombre propio de las respuestas, pero
+         esa red no sustituye la lectura.
 
-     Sigue valiendo el consejo del script: prepararlo antes es mejor. Esto
-     es el paracaídas, no el avión.                                        */
+     Las reglas de siempre siguen en pie: el modelo corre en este equipo y
+     las respuestas no salen de aquí; la cita se verifica contra el original
+     carácter a carácter, y si no aparece literal se descarta.             */
+  var IA = window.SintesisIA || null;
   var OLLAMA_URL = CFG.ollamaURL || 'http://localhost:11434';
-  var OLLAMA_MODELO = CFG.ollamaModelo || 'qwen3.5:9b';
-  var sintesis = {};          // { 'S01|p1': {...} } · solo en memoria
+  var OLLAMA_MODELO = CFG.ollamaModelo || (IA ? IA.MODELO_POR_DEFECTO : 'qwen3.5:9b');
+  var sintesis = {};          // resumen por respuesta · { 'S04|p1': {...} } · solo en memoria
   var corriendo = false, cancelar = false;
 
   function claveIA() { return sesion + '|' + preguntaActiva; }
+  function tituloDe(q) { return (TITULOS[sesion] || {})[q] || q.toUpperCase(); }
 
-  function promptIA(texto) {
-    return [
-      'Eres un asistente que prepara material docente. Analiza la respuesta de un estudiante y devuelve EXACTAMENTE tres bloques, sin añadir nada más y sin repetir estas instrucciones.',
-      '',
-      'SINTESIS: una sola frase de máximo 25 palabras que diga qué sostiene la respuesta.',
-      'DATOS: hasta tres datos concretos del texto (fechas, cifras, instituciones, fuentes), separados por " · ". Si no hay ninguno, escribe: ninguno',
-      'CITA: una frase COPIADA LITERALMENTE del texto, sin cambiar ni una palabra ni una tilde, que sea la más discutible o la más reveladora.',
-      '',
-      'No inventes nada. No interpretes. Si algo no está en el texto, no lo pongas.',
-      '',
-      'TEXTO DEL ESTUDIANTE:',
-      '"""', texto, '"""'
-    ].join('\n');
-  }
-
-  // El grupo de la alternancia va entre paréntesis a propósito: sin él,
-  // SINTESIS|SÍNTESIS se come el resto del patrón. Fue el fallo de la
-  // primera versión del script.
-  function parsearIA(salida) {
-    function saca(etq, sig) {
-      var re = new RegExp('(?:' + etq + ')\\s*:?\\s*([\\s\\S]*?)(?=\\n\\s*(?:' + sig + ')\\s*:|$)', 'i');
-      var m = String(salida).match(re);
-      return m && m[1] ? m[1].trim().replace(/^\d\.\s*/, '').trim() : '';
-    }
-    return {
-      sintesis: saca('SINTESIS|SÍNTESIS', 'DATOS|CITA'),
-      datos: saca('DATOS', 'CITA'),
-      cita: saca('CITA', '$^')
-    };
-  }
-
-  var quitarTildes = function (t) { return t.normalize('NFD').replace(/[̀-ͯ]/g, ''); };
-
-  /* Devuelve el fragmento ORIGINAL si la cita está; null si no. Tolera
-     tildes, mayúsculas y espacios de más —un modelo que devuelve
-     «paliativos.» donde el original dice «paliativos .» no debería costar
-     una cita buena—, pero nada más. */
-  function verificarCita(cita, original) {
-    var limpia = String(cita || '').replace(/^[«"'\s]+|[»"'\s]+$/g, '').trim();
-    if (limpia.length < 20) return null;
-    if (original.indexOf(limpia) !== -1) return limpia;
-
-    var mapa = [], normal = '';
-    for (var i = 0; i < original.length; i++) {
-      var c = quitarTildes(original[i]).toLowerCase();
-      if (/\s/.test(c)) {
-        if (normal.charAt(normal.length - 1) === ' ') continue;
-        normal += ' '; mapa.push(i);
-      } else { normal += c; mapa.push(i); }
-    }
-    var objetivo = quitarTildes(limpia).toLowerCase().replace(/\s+/g, ' ').trim();
-    var j = normal.indexOf(objetivo);
-    if (j === -1) return null;
-    var desde = mapa[j];
-    var hasta = mapa[Math.min(j + objetivo.length - 1, mapa.length - 1)] + 1;
-    return original.slice(desde, hasta).trim();
-  }
-
-  function pedirAOllama(texto) {
+  function pedirAOllama(prompt, tipo) {
     return fetch(OLLAMA_URL + '/api/generate', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        model: OLLAMA_MODELO, prompt: promptIA(texto), stream: false,
-        // think:false apaga el razonamiento de los modelos que lo traen
-        // (qwen3.5 y sucesores): sin esto devuelven `response` vacío y el
-        // panel saldría en blanco. Los modelos sin razonamiento lo ignoran.
-        think: false,
-        options: { temperature: 0.1, num_predict: 400 }
-      })
+      body: JSON.stringify(IA.peticion(OLLAMA_MODELO, prompt, tipo))
     }).then(function (r) {
       if (!r.ok) throw new Error('Ollama respondió ' + r.status);
       return r.json();
     }).then(function (j) { return j.response || ''; });
   }
 
+  // Desde la copia local (file://) Ollama contesta sin OLLAMA_ORIGINS. Desde
+  // la página publicada en HTTPS el navegador bloquea http://localhost por
+  // contenido mixto, y en silencio.
+  function motivoSinOllama() {
+    if (!IA) return 'Falta _shared/sintesis-ia.js junto al tablero: sin él no hay síntesis.';
+    return location.protocol === 'https:'
+      ? 'El navegador bloquea http://localhost desde una página HTTPS. Abra su copia local del tablero (doble clic en _shared/tablero.html).'
+      : 'No responde Ollama en ' + OLLAMA_URL + '. Ábralo (ollama serve) y vuelva a intentarlo.';
+  }
+
+  /* ── Resumen por respuesta · nunca se proyecta ───────────────────── */
   function pintarIA() {
     var el = $('ollama');
     var d = sintesis[claveIA()];
@@ -739,7 +730,7 @@ body.proyeccion .tarjeta{box-shadow:var(--shadow-medium)}
     el.textContent = '';
 
     var h = document.createElement('h2');
-    h.textContent = 'Síntesis de máquina · borrador';
+    h.textContent = 'Resumen por respuesta · borrador de máquina';
     var rehacer = document.createElement('button');
     rehacer.textContent = corriendo ? 'Detener' : 'Rehacer';
     rehacer.onclick = function () { corriendo ? (cancelar = true) : resumirPregunta(true); };
@@ -752,10 +743,9 @@ body.proyeccion .tarjeta{box-shadow:var(--shadow-medium)}
 
     var nota = document.createElement('p');
     nota.className = 'ollama__nota';
-    nota.textContent = 'Lo escribió un modelo, no una persona: léalo antes de usarlo. ' +
-      'Las citas están verificadas contra el texto original; lo que no casó se descartó y se dice. ' +
-      'El modo proyección oculta este panel. La primera llamada tarda —carga el modelo—; ' +
-      'después, un par de segundos por respuesta.';
+    nota.textContent = 'Lo escribió un modelo, no una persona: léalo antes de usarlo. Es sobre cada ' +
+      'estudiante y por eso no se proyecta nunca; para el proyector está la «Síntesis del grupo». ' +
+      'Las citas se verificaron contra el texto original. Unos diez segundos por respuesta.';
     el.appendChild(nota);
 
     var estado = document.createElement('p');
@@ -767,7 +757,6 @@ body.proyeccion .tarjeta{box-shadow:var(--shadow-medium)}
     d.fichas.forEach(function (f) {
       var art = document.createElement('div');
       art.className = 'ficha';
-
       var quien = document.createElement('p');
       quien.className = 'ficha__seudo';
       quien.textContent = f.seudonimo + ' · ' + f.palabras + ' palabras';
@@ -779,18 +768,13 @@ body.proyeccion .tarjeta{box-shadow:var(--shadow-medium)}
         er.textContent = 'No se pudo resumir: ' + f.error;
         art.appendChild(er);
       }
-      if (f.sintesis) {
-        var p1 = document.createElement('p');
-        var e1 = document.createElement('span'); e1.className = 'etq'; e1.textContent = 'síntesis';
-        p1.appendChild(e1); p1.appendChild(document.createTextNode(f.sintesis));
-        art.appendChild(p1);
-      }
-      if (f.datos && !/^ninguno/i.test(f.datos)) {
-        var p2 = document.createElement('p');
-        var e2 = document.createElement('span'); e2.className = 'etq'; e2.textContent = 'datos';
-        p2.appendChild(e2); p2.appendChild(document.createTextNode(f.datos));
-        art.appendChild(p2);
-      }
+      IA.CAMPOS.forEach(function (c) {
+        if (c[0] === 'cita' || !f.campos || !f.campos[c[0]]) return;
+        var p = document.createElement('p');
+        var e = document.createElement('span'); e.className = 'etq'; e.textContent = c[2];
+        p.appendChild(e); p.appendChild(document.createTextNode(f.campos[c[0]]));
+        art.appendChild(p);
+      });
       if (f.cita) {
         var bq = document.createElement('blockquote');
         bq.textContent = '«' + f.cita + '»';
@@ -814,10 +798,8 @@ body.proyeccion .tarjeta{box-shadow:var(--shadow-medium)}
     if (!datos || !datos.entregas || !preguntaActiva) return;
     var clave = claveIA();
     if (sintesis[clave] && !rehacer) { pintarIA(); return; }
-
-    var conTexto = datos.respuestas.filter(function (r) {
-      return String(r.respuestas[preguntaActiva] || '').trim();
-    });
+    var q = preguntaActiva;
+    var conTexto = datos.respuestas.filter(function (r) { return String(r.respuestas[q] || '').trim(); });
     if (!conTexto.length) return;
 
     corriendo = true; cancelar = false;
@@ -826,59 +808,268 @@ body.proyeccion .tarjeta{box-shadow:var(--shadow-medium)}
     $('resumir').textContent = 'Deteniendo…';
     pintarIA();
 
+    if (!IA) { acumulado.estado = motivoSinOllama(); terminar(clave); return; }
     fetch(OLLAMA_URL + '/api/version')
       .then(function (r) { return r.json(); })
       .then(function () { return siguiente(0); })
-      .catch(function () {
-        // Desde la copia local (file://) el navegador no manda cabecera Origin
-        // y Ollama contesta sin configurar OLLAMA_ORIGINS. Desde la página
-        // publicada en HTTPS, en cambio, el navegador bloquea la llamada a
-        // http://localhost por contenido mixto — y lo hace en silencio.
-        acumulado.estado = location.protocol === 'https:'
-          ? 'El navegador bloquea http://localhost desde una página HTTPS. Abra su copia local del tablero (doble clic en _shared/tablero.html) y vuelva a intentarlo.'
-          : 'No responde Ollama en ' + OLLAMA_URL + '. Ábralo (ollama serve) y vuelva a intentarlo.';
-        terminar(clave);
-      });
+      .catch(function () { acumulado.estado = motivoSinOllama(); terminar(clave); });
 
     function siguiente(i) {
       if (cancelar || i >= conTexto.length) { terminar(clave); return Promise.resolve(); }
       var r = conTexto[i];
-      var texto = String(r.respuestas[preguntaActiva]).trim();
+      var texto = String(r.respuestas[q]).trim();
       acumulado.estado = OLLAMA_MODELO + ' · ' + (i + 1) + ' de ' + conTexto.length +
-        (i ? ' · un par de segundos cada una' : ' · la primera tarda: carga el modelo');
+        (i ? ' · unos diez segundos cada una' : ' · la primera tarda más: carga el modelo');
       $('resumir').textContent = 'Detener · ' + (i + 1) + '/' + conTexto.length;
       pintarIA();
 
-      return pedirAOllama(texto).then(function (salida) {
-        var x = parsearIA(salida);
-        var cita = verificarCita(x.cita, texto);
+      return pedirAOllama(IA.promptRespuesta(texto, tituloDe(q)), 'respuesta').then(function (salida) {
+        var x = IA.parsearRespuesta(salida);
+        var cita = IA.verificarCita(x.cita, texto);
         if (cita) acumulado.verificadas++;
         else if (x.cita) acumulado.descartadas++;
-        acumulado.fichas.push({
-          seudonimo: r.seudonimo, palabras: palabras(texto),
-          sintesis: x.sintesis, datos: x.datos, cita: cita, citaPropuesta: x.cita
-        });
+        acumulado.fichas.push({ seudonimo: r.seudonimo, palabras: palabras(texto),
+          campos: x, cita: cita, citaPropuesta: x.cita });
       }).catch(function (err) {
-        acumulado.fichas.push({
-          seudonimo: r.seudonimo, palabras: palabras(texto),
-          error: String(err && err.message || err)
-        });
+        acumulado.fichas.push({ seudonimo: r.seudonimo, palabras: palabras(texto),
+          error: String(err && err.message || err) });
       }).then(function () { return siguiente(i + 1); });
     }
 
     function terminar(k) {
       corriendo = false;
-      $('resumir').textContent = 'Síntesis local';
+      $('resumir').textContent = 'Resumen por respuesta';
       var d = sintesis[k];
       if (!d) { pintarIA(); return; }
       d.hora = new Date().toLocaleTimeString('es-CO');
       if (d.fichas.length) d.estado = '';
       if (cancelar && d.fichas.length) {
-        d.estado = OLLAMA_MODELO + ' · detenida en ' + d.fichas.length + ' de ' +
+        d.estado = OLLAMA_MODELO + ' · detenido en ' + d.fichas.length + ' de ' +
           conTexto.length + ' · citas verificadas ' + d.verificadas + ' · descartadas ' + d.descartadas;
       }
       pintarIA();
     }
+  }
+
+  /* ── Síntesis del grupo · se proyecta ────────────────────────────────
+     Se guarda en este navegador —solo la que salió bien— para poder
+     prepararla antes de clase y leerla. No sale de este equipo.         */
+  var grupo = {};
+  function claveGrupo() { return 'SEM_CP_tablero_sintesis_grupo_' + sesion; }
+
+  /* La síntesis que el script dejó junto al guion (_shared/PRIVADO_sintesis-
+     grupo-SNN.js). Es la que el docente leyó, así que es la que se proyecta
+     mientras no la rehaga aquí. No existe en el sitio publicado: el prefijo
+     PRIVADO_ la deja fuera de git, y si falta no pasa nada. */
+  function preparadaDe(q) {
+    var p = window.SINTESIS_GRUPO && window.SINTESIS_GRUPO[sesion];
+    return p && p[q] ? p[q] : null;
+  }
+  function cargarPreparada() {
+    if (window.SINTESIS_GRUPO && window.SINTESIS_GRUPO[sesion]) { pintarGrupo(); return; }
+    var sc = document.createElement('script');
+    sc.src = 'PRIVADO_sintesis-grupo-' + sesion + '.js';
+    sc.onload = function () { pintarGrupo(); };
+    sc.onerror = function () { /* no hay guion preparado para esta sesión */ };
+    document.body.appendChild(sc);
+  }
+  function cargarGrupo() {
+    try { grupo = JSON.parse(localStorage.getItem(claveGrupo()) || '{}'); } catch (err) { grupo = {}; }
+  }
+  function guardarGrupo() {
+    var limpio = {};
+    Object.keys(grupo).forEach(function (k) { if (grupo[k] && grupo[k].estado === 'ok') limpio[k] = grupo[k]; });
+    try { localStorage.setItem(claveGrupo(), JSON.stringify(limpio)); } catch (err) { /* sin espacio */ }
+  }
+  function textosDe(q) {
+    if (!datos || !datos.respuestas) return [];
+    return datos.respuestas.map(function (r) { return String(r.respuestas[q] || '').trim(); })
+      .filter(function (t) { return t; });
+  }
+
+  function sintetizarGrupo(q) {
+    var textos = textosDe(q);
+    if (!textos.length) return Promise.resolve();
+    if (!IA) { grupo[q] = { estado: 'error', msg: motivoSinOllama() }; pintarGrupo(); return Promise.resolve(); }
+    grupo[q] = { estado: 'cargando' };
+    pintarGrupo();
+    return pedirAOllama(IA.promptGrupo(textos, tituloDe(q)), 'grupo')
+      .then(function (salida) {
+        var res = IA.parsearGrupo(salida, textos);
+        res.estado = res.ideas.length ? 'ok' : 'error';
+        res.cuando = new Date().toLocaleString('es-CO');
+        res.n = textos.length;
+        res.modelo = OLLAMA_MODELO;
+        if (res.estado === 'error') res.msg = 'El modelo no devolvió el formato esperado. Vuelva a intentarlo.';
+        grupo[q] = res;
+        guardarGrupo();
+        pintarGrupo();
+      })
+      .catch(function () { grupo[q] = { estado: 'error', msg: motivoSinOllama() }; pintarGrupo(); });
+  }
+
+  function sintetizarSesionGrupo() {
+    if (!datos || !datos.preguntas) return;
+    var cola = datos.preguntas.slice();
+    (function siguiente() {
+      if (!cola.length) return;
+      var q = cola.shift();
+      if (grupo[q] && grupo[q].estado === 'ok') return siguiente();
+      sintetizarGrupo(q).then(siguiente);
+    })();
+  }
+
+  var BLOQUES = [['acuerdo', 'Coinciden en'], ['tension', 'Tensión para discutir'],
+                 ['fuentes', 'Fuentes que citan'], ['vacio', 'Nadie menciona'],
+                 ['preguntas', 'Para devolver al grupo']];
+
+  function textoGrupo(q) {
+    var res = grupo[q] || {}, L = [tituloDe(q), ''];
+    (res.ideas || []).forEach(function (id) {
+      L.push('- ' + id.texto + (id.apoyos ? ' (≈ ' + id.apoyos + ' de ' + res.n + ')' : ''));
+    });
+    BLOQUES.forEach(function (b) { if (res[b[0]]) L.push('', b[1] + ': ' + res[b[0]]); });
+    (res.citas || []).forEach(function (c) { L.push('«' + c + '»'); });
+    return L.join('\n');
+  }
+
+  // Añade la marca de nombre propio y la clase que lo esconde al proyectar.
+  function marcarNombres(nodo, texto, nombres) {
+    var n = IA ? IA.nombresEn(texto, nombres) : [];
+    if (!n.length) return 0;
+    nodo.classList.add('no-proyectar');
+    var b = document.createElement('span');
+    b.className = 'sg-nombre';
+    b.textContent = 'no se proyecta · ' + n.join(', ');
+    nodo.appendChild(b);
+    return 1;
+  }
+
+  function pintarGrupo() {
+    var cont = $('sintesis');
+    cont.textContent = '';
+    if (!datos || !datos.entregas || !preguntaActiva) return;
+    var q = preguntaActiva, textos = textosDe(q), res = grupo[q] || preparadaDe(q);
+
+    var acc = document.createElement('div');
+    acc.className = 'sg-acciones';
+    var b1 = document.createElement('button');
+    b1.type = 'button';
+    b1.textContent = (res && res.estado === 'ok') ? 'Rehacer esta pregunta' : 'Sintetizar esta pregunta';
+    b1.onclick = function () { sintetizarGrupo(q); };
+    acc.appendChild(b1);
+    var b2 = document.createElement('button');
+    b2.type = 'button'; b2.className = 'otra';
+    b2.textContent = 'Sintetizar toda la sesión';
+    b2.onclick = sintetizarSesionGrupo;
+    acc.appendChild(b2);
+    if (res && res.estado === 'ok') {
+      var b3 = document.createElement('button');
+      b3.type = 'button'; b3.className = 'otra';
+      b3.textContent = 'Copiar';
+      b3.onclick = function () {
+        if (navigator.clipboard) navigator.clipboard.writeText(textoGrupo(q)).then(function () { b3.textContent = 'Copiada'; });
+      };
+      acc.appendChild(b3);
+    }
+    cont.appendChild(acc);
+
+    function espera(txt, proyectable) {
+      var p = document.createElement('p');
+      p.className = 'sg-espera' + (proyectable ? '' : ' no-proyectar');
+      p.textContent = txt;
+      cont.appendChild(p);
+    }
+    if (!textos.length) { espera('Nadie respondió esta pregunta.', true); return; }
+    if (!res) {
+      espera('Todavía no hay síntesis de esta pregunta. Pulse «Sintetizar esta pregunta» —unos quince ' +
+        'segundos— o prepare toda la sesión antes de clase, y léala antes de proyectarla.', false);
+      return;
+    }
+    if (res.estado === 'cargando') { espera('Agrupando las ' + textos.length + ' respuestas con ' + OLLAMA_MODELO + ', en este equipo…', true); return; }
+    if (res.estado === 'error') { espera(res.msg || 'No se pudo generar la síntesis.', false); return; }
+
+    var nombres = IA ? IA.nombresDelGrupo(textos) : [];
+    var marcadas = 0;
+
+    var ul = document.createElement('ul');
+    ul.className = 'sg-ideas';
+    res.ideas.forEach(function (id) {
+      var li = document.createElement('li');
+      li.className = 'sg-idea';
+      li.appendChild(document.createTextNode(id.texto));
+      if (id.apoyos) {
+        var sp = document.createElement('span');
+        sp.className = 'sg-peso';
+        sp.title = 'Estimado por el modelo, no contado';
+        sp.textContent = '≈ ' + id.apoyos + ' de ' + res.n;
+        li.appendChild(sp);
+      }
+      marcadas += marcarNombres(li, id.texto, nombres);
+      ul.appendChild(li);
+    });
+    cont.appendChild(ul);
+
+    BLOQUES.forEach(function (b) {
+      if (!res[b[0]]) return;
+      var d = document.createElement('div');
+      d.className = 'sg-bloque';
+      var h = document.createElement('h3');
+      h.textContent = b[1];
+      var p = document.createElement('p');
+      p.textContent = res[b[0]];
+      d.appendChild(h); d.appendChild(p);
+      marcadas += marcarNombres(d, res[b[0]], nombres);
+      cont.appendChild(d);
+    });
+
+    var verificadas = res.origen === 'guion' ? res.citasVerificadas : (res.citas && res.citas.length);
+    var citas = (res.citas && res.citas.length) ? res.citas : (IA ? IA.citasDeRespaldo(textos, nombres) : []);
+    if (citas.length) {
+      var dc = document.createElement('div');
+      dc.className = 'sg-bloque';
+      var hc = document.createElement('h3');
+      hc.textContent = verificadas ? 'En sus palabras · verificadas, sin autor'
+                                   : 'En sus palabras · frases tomadas de los textos, sin autor';
+      dc.appendChild(hc);
+      var uc = document.createElement('ul');
+      uc.className = 'sg-citas';
+      citas.forEach(function (c) {
+        var li = document.createElement('li');
+        li.textContent = '«' + c + '»';
+        marcadas += marcarNombres(li, c, nombres);
+        uc.appendChild(li);
+      });
+      dc.appendChild(uc);
+      cont.appendChild(dc);
+    }
+
+    // Si llegaron entregas después de prepararla, la síntesis ya no es del
+    // grupo entero: se avisa, y fuera de la proyección.
+    if (res.n && res.n !== textos.length) {
+      var desfase = document.createElement('p');
+      desfase.className = 'sg-espera no-proyectar';
+      desfase.textContent = '⚠️ Se preparó con ' + res.n + ' respuestas y ahora hay ' + textos.length +
+        '. Rehágala («Rehacer esta pregunta») o vuelva a correr el guion antes de proyectarla.';
+      cont.insertBefore(desfase, cont.children[1] || null);
+    }
+
+    var meta = document.createElement('p');
+    meta.className = 'sg-meta';
+    meta.textContent = (res.origen === 'guion' ? 'Preparada en el guion (' + (res.cuando || '') + '): es la que usted leyó. ' : '') +
+      'Borrador de máquina (' + (res.modelo || OLLAMA_MODELO) + ') sobre ' + res.n +
+      ' respuestas · ' + (res.cuando || '') + ' · léalo antes de proyectarlo. Las citas se comprobaron ' +
+      'contra el texto original. Los respaldos «≈» los estima el modelo; las señales de arriba sí están contadas.' +
+      (marcadas ? ' ' + marcadas + ' línea(s) repiten un nombre propio de las respuestas y el modo proyección las oculta.' : '');
+    cont.appendChild(meta);
+  }
+
+  function alternarVistaGrupo() {
+    var on = document.body.classList.toggle('vista-sintesis');
+    var b = $('vistaSintesis');
+    b.classList.toggle('on', on);
+    b.textContent = on ? 'Ver respuestas' : 'Síntesis del grupo';
+    pintarGrupo();
   }
 
   /* ── Controles ──────────────────────────────────────────────────── */
@@ -888,6 +1079,7 @@ body.proyeccion .tarjeta{box-shadow:var(--shadow-medium)}
   $('menos').onclick = function () { escala = Math.max(0.8, escala - 0.12); aplicarEscala(); };
   $('recargar').onclick = cargar;
   $('resumir').onclick = function () { resumirPregunta(false); };
+  $('vistaSintesis').onclick = alternarVistaGrupo;
   $('proyeccion').onclick = function () {
     var on = document.body.classList.toggle('proyeccion');
     this.classList.toggle('on', on);
@@ -896,6 +1088,8 @@ body.proyeccion .tarjeta{box-shadow:var(--shadow-medium)}
   $('sesion').onchange = function () {
     sesion = this.value;
     preguntaActiva = null;
+    cargarGrupo();
+    cargarPreparada();
     history.replaceState(null, '', '?sesion=' + sesion);
     cargar();
   };
@@ -907,8 +1101,11 @@ body.proyeccion .tarjeta{box-shadow:var(--shadow-medium)}
     var i = datos.preguntas.indexOf(preguntaActiva);
     if (e.key === 'ArrowRight' && i < datos.preguntas.length - 1) { preguntaActiva = datos.preguntas[i + 1]; pintarPreguntas(); pintarRespuestas(); }
     if (e.key === 'ArrowLeft'  && i > 0)                          { preguntaActiva = datos.preguntas[i - 1]; pintarPreguntas(); pintarRespuestas(); }
+    if (e.key === 's' || e.key === 'S') alternarVistaGrupo();
   });
 
+  cargarGrupo();
+  cargarPreparada();
   cargar();
 })();
 </script>

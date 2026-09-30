@@ -6,15 +6,24 @@
  *   node scripts/resumir-entregas.js --sesion S01 --modelo llama3.1:8b
  *   node scripts/resumir-entregas.js --sesion S01 --sin-ia     (solo señales)
  *
- * Baja las entregas del Apps Script, pide a un modelo LOCAL (Ollama) una
- * síntesis y una cita por respuesta, y escribe `PRIVADO_guion-SNN.md`.
+ * Baja las entregas del Apps Script y, con un modelo LOCAL (Ollama), escribe
+ * `PRIVADO_guion-SNN.md` con dos cosas por pregunta:
+ *
+ *   · la SÍNTESIS DEL GRUPO —ideas sin autor, acuerdos, tensiones, vacíos y
+ *     citas verificadas—, que es exactamente lo que el tablero puede proyectar
+ *     con la tecla S. Aquí se lee antes, que es la condición para proyectarla;
+ *   · el RESUMEN POR RESPUESTA en siete campos, que no se proyecta nunca.
+ *
+ * Los prompts, los lectores y la verificación de citas viven en
+ * _shared/sintesis-ia.js, compartidos con el tablero: el guion y la pantalla
+ * dicen lo mismo porque salen del mismo código.
  *
  * ────────────────────────────────────────────────────────────────────────
  * SE CORRE LA NOCHE ANTES, NUNCA EN CLASE. Dos razones:
  *
- *   · Tiempo. Poco, en realidad: ~1,6 s por respuesta con el modelo ya
- *     cargado (medido el 18-09-2026), así que 7 × 5 va en un par de
- *     minutos. Lo que no cabe en el aula es LEERLO con cuidado.
+ *   · Tiempo. Unos diez segundos por respuesta y quince por síntesis de
+ *     grupo con qwen3.5:9b (medido el 30-09-2026): una sesión de 7 × 4 va
+ *     en cinco o seis minutos. Lo que no cabe en el aula es LEERLO.
  *   · Y la que manda: **nada generado por máquina se proyecta sin que el
  *     docente lo haya leído antes.** Este seminario evalúa verificar lo
  *     que se cita; proyectar una paráfrasis automática de lo que escribió
@@ -55,6 +64,18 @@ const MODELO = arg('--modelo', 'qwen3.5:9b');
 const SIN_IA = process.argv.includes('--sin-ia');
 const OLLAMA = arg('--ollama', 'http://localhost:11434');
 
+// ── Motor compartido con el tablero ──────────────────────────────────
+const IA = require(path.join(RAIZ, '_shared', 'sintesis-ia.js'));
+
+// Los títulos de las preguntas se leen del propio tablero: una sola fuente.
+function titulosDe(sesion) {
+  const src = fs.readFileSync(path.join(RAIZ, '_shared', 'tablero.html'), 'utf8');
+  const bloque = (src.match(new RegExp(sesion + ':\\s*\\{([\\s\\S]*?)\\}')) || [])[1] || '';
+  const t = {};
+  bloque.replace(/(p\d+)\s*:\s*'([^']*)'/g, (_, k, v) => { t[k] = v; return ''; });
+  return t;
+}
+
 // ── Configuración · los secretos viven en config.js (ignorado) ───────
 function leerConfig() {
   const f = path.join(RAIZ, 'config.js');
@@ -74,90 +95,14 @@ function leerConfig() {
   return cfg;
 }
 
-// ── Normalización para comparar citas ────────────────────────────────
-// Sin tildes, sin dobles espacios y en minúscula. Un modelo puede
-// devolver «paliativos.» donde el original dice «paliativos .» y eso no
-// debería costar una cita buena.
-const quitarTildes = s => s.normalize('NFD').replace(/[̀-ͯ]/g, '');
-const norm = s => quitarTildes(String(s)).toLowerCase().replace(/\s+/g, ' ').trim();
-
-/**
- * Busca la cita en el original y devuelve el FRAGMENTO ORIGINAL, no el que
- * escribió el modelo. Devuelve null si no está: entonces se descarta.
- */
-function verificarCita(cita, original) {
-  const limpia = String(cita || '').replace(/^[«"'\s]+|[»"'\s]+$/g, '').trim();
-  if (limpia.length < 20) return null;
-  if (original.includes(limpia)) return limpia;               // exacta
-
-  // Comparación normalizada, con mapa de posiciones para recuperar el
-  // original: se guarda, por cada carácter de la versión normalizada, de
-  // qué posición del texto real vino.
-  const mapa = [];
-  let normal = '';
-  for (let i = 0; i < original.length; i++) {
-    const c = quitarTildes(original[i]).toLowerCase();
-    if (/\s/.test(c)) {
-      if (normal.endsWith(' ')) continue;
-      normal += ' '; mapa.push(i);
-    } else {
-      normal += c; mapa.push(i);
-    }
-  }
-  const objetivo = norm(limpia);
-  const i = normal.indexOf(objetivo);
-  if (i === -1) return null;
-  const desde = mapa[i];
-  const hasta = mapa[Math.min(i + objetivo.length - 1, mapa.length - 1)] + 1;
-  return original.slice(desde, hasta).trim();
-}
-
-// ── Ollama ───────────────────────────────────────────────────────────
-const PROMPT = (texto) => `Eres un asistente que prepara material docente. Analiza la respuesta de un estudiante y devuelve EXACTAMENTE tres bloques, sin añadir nada más y sin repetir estas instrucciones.
-
-SINTESIS: una sola frase de máximo 25 palabras que diga qué sostiene la respuesta.
-DATOS: hasta tres datos concretos del texto (fechas, cifras, instituciones, fuentes), separados por " · ". Si no hay ninguno, escribe: ninguno
-CITA: una frase COPIADA LITERALMENTE del texto, sin cambiar ni una palabra ni una tilde, que sea la más discutible o la más reveladora.
-
-No inventes nada. No interpretes. Si algo no está en el texto, no lo pongas.
-
-TEXTO DEL ESTUDIANTE:
-"""
-${texto}
-"""`;
-
-async function preguntar(texto) {
+async function pedir(prompt, tipo) {
   const r = await fetch(`${OLLAMA}/api/generate`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      model: MODELO, prompt: PROMPT(texto), stream: false,
-      // think:false apaga el «razonamiento» de los modelos que lo traen
-      // (qwen3.5 y sucesores): sin esto dejan `response` vacío y vuelcan
-      // todo a un campo `thinking` que este script no lee, con lo que el
-      // guion saldría en blanco. Los modelos sin razonamiento lo ignoran.
-      think: false,
-      options: { temperature: 0.1, num_predict: 400 }
-    })
+    body: JSON.stringify(IA.peticion(MODELO, prompt, tipo))
   });
   if (!r.ok) throw new Error(`Ollama respondió ${r.status}`);
   return (await r.json()).response || '';
-}
-
-function parsear(salida) {
-  // La etiqueta va agrupada: sin (?:…) la alternancia SINTESIS|SÍNTESIS se
-  // come el resto del patrón, casa solo la etiqueta y el grupo 1 queda sin
-  // definir. Ese fue el fallo de la primera versión.
-  const saca = (etq, sig) => {
-    const re = new RegExp('(?:' + etq + ')' + '\\s*:?\\s*([\\s\\S]*?)(?=\\n\\s*(?:' + sig + ')\\s*:|$)', 'i');
-    const m = salida.match(re);
-    return m && m[1] ? m[1].trim().replace(/^\d\.\s*/, '').trim() : '';
-  };
-  return {
-    sintesis: saca('SINTESIS|SÍNTESIS', 'DATOS|CITA'),
-    datos: saca('DATOS', 'CITA'),
-    cita: saca('CITA', '$^')
-  };
 }
 
 // ── Señales, las mismas del tablero ──────────────────────────────────
@@ -200,13 +145,20 @@ const palabras = t => (t || '').trim() ? t.trim().split(/\s+/).length : 0;
   out.push(`> ${datos.entregas} de ${datos.inscritos} entregas · ${datos.titulo}`);
   out.push(`>`);
   out.push(`> **Las síntesis son de la máquina: revíselas.** Las citas están verificadas contra`);
-  out.push(`> el texto original carácter a carácter — lo que no casó se descartó y se dice.\n`);
+  out.push(`> el texto original carácter a carácter — lo que no casó se descartó y se dice.`);
+  out.push(`>`);
+  out.push(`> **Por pregunta hay dos cosas.** Arriba, la **síntesis del grupo**: es lo que el tablero`);
+  out.push(`> proyecta con la tecla S, y esta es la lectura que la autoriza. Lo marcado con ⚠️ repite`);
+  out.push(`> un nombre propio de las respuestas y el modo proyección lo oculta. Debajo, el **resumen`);
+  out.push(`> por respuesta**, que no se proyecta nunca.\n`);
 
+  const TITULOS = titulosDe(SESION);
+  const preparada = {};        // síntesis del grupo que el tablero proyectará
   let nCitas = 0, nDescartadas = 0;
 
   for (const q of datos.preguntas) {
     const conTexto = datos.respuestas.filter(r => String(r.respuestas[q] || '').trim());
-    out.push(`\n---\n\n## ${q.toUpperCase()}\n`);
+    out.push(`\n---\n\n## ${q.toUpperCase()}${TITULOS[q] ? ' · ' + TITULOS[q] : ''}\n`);
     if (!conTexto.length) { out.push('_Nadie respondió esta pregunta._\n'); continue; }
 
     const textos = conTexto.map(r => String(r.respuestas[q]).trim());
@@ -218,24 +170,50 @@ const palabras = t => (t || '').trim() ? t.trim().split(/\s+/).length : 0;
       `**${aus}** reportan que no encontraron el dato · ${fue} se apoyan en fuente · ` +
       `mediana ${largos[Math.floor(largos.length / 2)]} palabras\n`);
 
+    // ── Síntesis del grupo: lo que se puede proyectar ──
+    if (!SIN_IA) {
+      process.stdout.write(gris(`  ${q} · síntesis del grupo … `));
+      const nombres = IA.nombresDelGrupo(textos);
+      const aviso = s => { const n = IA.nombresEn(s, nombres); return n.length ? ` ⚠️ _no se proyecta: ${n.join(', ')}_` : ''; };
+      try {
+        const g = IA.parsearGrupo(await pedir(IA.promptGrupo(textos, TITULOS[q]), 'grupo'), textos);
+        console.log(g.ideas.length ? verde(`${g.ideas.length} ideas · ${g.citas.length} citas`) : amar('sin formato'));
+        out.push(`### Síntesis del grupo · proyectable tras leerla\n`);
+        if (!g.ideas.length) out.push(`_El modelo no devolvió el formato esperado. Genérela desde el tablero._\n`);
+        g.ideas.forEach(i => out.push(`- ${i.texto}${i.apoyos ? ` _(≈ ${i.apoyos} de ${textos.length}, estimado)_` : ''}${aviso(i.texto)}`));
+        [['acuerdo', 'Coinciden en'], ['tension', 'Tensión para discutir'], ['fuentes', 'Fuentes que citan'],
+         ['vacio', 'Nadie menciona'], ['preguntas', 'Para devolver al grupo']]
+          .forEach(([k, et]) => { if (g[k]) out.push(`\n**${et}:** ${g[k]}${aviso(g[k])}`); });
+        const citasG = g.citas.length ? g.citas : IA.citasDeRespaldo(textos, nombres);
+        if (g.ideas.length) preparada[q] = Object.assign({}, g, {
+          citas: citasG, citasVerificadas: !!g.citas.length, estado: 'ok', n: textos.length,
+          modelo: MODELO, cuando: new Date().toLocaleString('es-CO'), origen: 'guion' });
+        if (citasG.length) {
+          out.push(`\n**En sus palabras** _(${g.citas.length ? 'verificadas' : 'frases tomadas de los textos'}, sin autor)_:\n`);
+          citasG.forEach(c => out.push(`> «${c}»${aviso(c)}\n`));
+        }
+        out.push('');
+      } catch (err) { console.log(rojo('error: ' + err.message)); }
+      out.push(`### Resumen por respuesta · no se proyecta\n`);
+    }
+
     for (const r of conTexto) {
       const texto = String(r.respuestas[q]).trim();
       process.stdout.write(gris(`  ${q} · ${r.seudonimo} … `));
 
-      let s = { sintesis: '', datos: '', cita: '' };
+      let s = {};
       if (!SIN_IA) {
-        try { s = parsear(await preguntar(texto)); }
+        try { s = IA.parsearRespuesta(await pedir(IA.promptRespuesta(texto, TITULOS[q]), 'respuesta')); }
         catch (err) { console.log(rojo('error: ' + err.message)); }
       }
 
-      const cita = verificarCita(s.cita, texto);
+      const cita = IA.verificarCita(s.cita, texto);
       if (s.cita && !cita) nDescartadas++;
       if (cita) nCitas++;
       console.log(cita ? verde('ok') : (s.cita ? amar('cita descartada') : gris('—')));
 
-      out.push(`\n### ${r.seudonimo} · ${palabras(texto)} palabras\n`);
-      if (s.sintesis) out.push(`**Síntesis (máquina):** ${s.sintesis}\n`);
-      if (s.datos && !/^ninguno/i.test(s.datos)) out.push(`**Datos:** ${s.datos}\n`);
+      out.push(`\n#### ${r.seudonimo} · ${palabras(texto)} palabras\n`);
+      IA.CAMPOS.forEach(([k, , et]) => { if (k !== 'cita' && s[k]) out.push(`**${et}:** ${s[k]}\n`); });
       if (cita) {
         out.push(`> «${cita}»\n`);
         out.push(`_Cita verificada en el original._\n`);
@@ -250,6 +228,18 @@ const palabras = t => (t || '').trim() ? t.trim().split(/\s+/).length : 0;
 
   const destino = path.join(RAIZ, `PRIVADO_guion-${SESION}.md`);
   fs.writeFileSync(destino, out.join('\n'), 'utf8');
+
+  // La síntesis del grupo que se acaba de escribir en el guion es la que el
+  // tablero proyectará: así lo proyectado es exactamente lo que se leyó. Va en
+  // _shared/ con prefijo PRIVADO_ —fuera de git y del sitio publicado— y el
+  // tablero la carga como carga config.js.
+  if (Object.keys(preparada).length) {
+    const js = path.join(RAIZ, '_shared', `PRIVADO_sintesis-grupo-${SESION}.js`);
+    fs.writeFileSync(js, '/* PRIVADO · generado por scripts/resumir-entregas.js · no se publica */\n' +
+      'window.SINTESIS_GRUPO = window.SINTESIS_GRUPO || {};\n' +
+      `window.SINTESIS_GRUPO[${JSON.stringify(SESION)}] = ${JSON.stringify(preparada, null, 1)};\n`, 'utf8');
+    console.log(`${verde('Escrito:')} _shared/PRIVADO_sintesis-grupo-${SESION}.js ${gris('(la síntesis que proyectará el tablero)')}`);
+  }
 
   console.log(`\n${verde('Escrito:')} PRIVADO_guion-${SESION}.md`);
   console.log(gris(`  ${Math.round((Date.now() - t0) / 1000)} s · citas verificadas ${nCitas} · descartadas ${nDescartadas}`));
