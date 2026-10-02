@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Resolución 1644 de 2026 · Ficha normativa didáctica</title>
+<meta name="description" content="Análisis didáctico de la Resolución 1644 de 2026 (telesalud y telemedicina, deroga la Resolución 2654 de 2019) para la Maestría en Cuidados Paliativos de la UAN.">
+<style>
+:root{
+  --paper:#fbfaf7; --panel:#ffffff; --ink:#16202e; --ink-2:#41505f; --muted:#6b7a89;
+  --line:#e3e0d9; --line-2:#cfcabf;
+  --ley:#1b3a6b; --ley-soft:#eaf0f9;
+  --res:#0f6152; --res-soft:#e6f2ef;
+  --warn:#9a5b06; --warn-soft:#fdf3e3;
+  --alert:#8c2230; --alert-soft:#faecec;
+  --doc:#5b3a8c; --doc-soft:#f1ecf8;
+  --serif:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --sans:"DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --accent:var(--ley); --accent-soft:var(--ley-soft);
+}
+html[data-theme="dark"]{
+  --paper:#12161c; --panel:#1a1f27; --ink:#eef1f5; --ink-2:#c3ccd6; --muted:#93a1b0;
+  --line:#2b323c; --line-2:#3a434f;
+  --ley:#8fb3e8; --ley-soft:#1b2534; --res:#6fc8b3; --res-soft:#142623;
+  --warn:#e0a458; --warn-soft:#2a2115; --alert:#e08b93; --alert-soft:#2b1a1d;
+  --doc:#b79ae0; --doc-soft:#221b30;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+  font-size:17px;line-height:1.65;-webkit-text-size-adjust:100%}
+.wrap{max-width:1060px;margin:0 auto;padding:0 20px}
+a{color:var(--accent);text-underline-offset:3px}
+h1,h2,h3,h4,.ui{font-family:var(--sans)}
+h1{font-size:clamp(1.6rem,4.2vw,2.5rem);line-height:1.15;letter-spacing:-.02em;margin:.2em 0 .3em}
+h2{font-size:clamp(1.25rem,2.8vw,1.6rem);line-height:1.25;margin:2.2rem 0 .6rem;letter-spacing:-.01em}
+h3{font-size:1.08rem;margin:1.6rem 0 .4rem;color:var(--ink)}
+h4{font-size:.95rem;margin:1.2rem 0 .3rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+p{margin:.7em 0}
+small,.small{font-size:.86rem}
+/* top bar */
+.topbar{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--paper) 92%,transparent);
+  backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.topbar .wrap{display:flex;gap:12px;align-items:center;justify-content:space-between;
+  padding-block:10px;flex-wrap:wrap}
+.brand{font-family:var(--sans);font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--muted);text-decoration:none}
+.tools{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.btn{font-family:var(--sans);font-size:.78rem;padding:6px 11px;border-radius:999px;
+  border:1px solid var(--line-2);background:var(--panel);color:var(--ink-2);cursor:pointer;
+  text-decoration:none;display:inline-flex;gap:6px;align-items:center}
+.btn:hover{border-color:var(--accent);color:var(--accent)}
+.btn[aria-pressed="true"]{background:var(--doc-soft);border-color:var(--doc);color:var(--doc)}
+/* hero */
+header.hero{padding:36px 0 10px;border-bottom:1px solid var(--line)}
+.kicker{font-family:var(--sans);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--accent);font-weight:600}
+.lead{font-size:1.12rem;color:var(--ink-2);max-width:64ch}
+/* chips */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.chip{font-family:var(--sans);font-size:.76rem;padding:4px 10px;border-radius:999px;
+  border:1px solid var(--line-2);color:var(--ink-2);background:var(--panel)}
+.chip.ok{background:var(--res-soft);border-color:var(--res);color:var(--res)}
+.chip.warn{background:var(--warn-soft);border-color:var(--warn);color:var(--warn)}
+.chip.alert{background:var(--alert-soft);border-color:var(--alert);color:var(--alert)}
+.chip.info{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+/* stat row */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:22px 0}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.stat b{display:block;font-family:var(--sans);font-size:1.55rem;line-height:1.1;color:var(--accent)}
+.stat span{font-family:var(--sans);font-size:.78rem;color:var(--muted);display:block;margin-top:4px}
+/* tabs */
+.tabs{display:flex;gap:6px;overflow-x:auto;padding:14px 0 0;border-bottom:1px solid var(--line);
+  position:sticky;top:49px;background:var(--paper);z-index:30}
+.tabs button{font-family:var(--sans);font-size:.82rem;white-space:nowrap;border:none;background:none;
+  color:var(--muted);padding:8px 12px;border-bottom:2px solid transparent;cursor:pointer;border-radius:6px 6px 0 0}
+.tabs button:hover{color:var(--ink)}
+.tabs button[aria-selected="true"]{color:var(--accent);border-bottom-color:var(--accent);font-weight:600}
+.panel[hidden]{display:none}
+.panel{padding-top:8px;animation:fade .22s ease}
+@keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+/* cards & boxes */
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:14px 0}
+.card h3{margin-top:0}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.art{border-left:3px solid var(--accent);background:var(--panel);border-radius:0 12px 12px 0;
+  padding:14px 18px;margin:12px 0;border-top:1px solid var(--line);border-right:1px solid var(--line);
+  border-bottom:1px solid var(--line)}
+.art .num{font-family:var(--sans);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--accent);font-weight:700}
+.art h3{margin:.2rem 0 .4rem;font-size:1rem}
+.note{border-left:3px solid var(--warn);background:var(--warn-soft);padding:12px 16px;border-radius:0 10px 10px 0;margin:14px 0}
+.crit{border-left:3px solid var(--alert);background:var(--alert-soft);padding:12px 16px;border-radius:0 10px 10px 0;margin:14px 0}
+.thesis{font-size:1.05rem;font-style:italic;border-left:3px solid var(--accent);padding:10px 18px;
+  margin:18px 0;color:var(--ink-2)}
+blockquote{margin:18px 0;padding:14px 20px;border-left:3px solid var(--line-2);background:var(--panel);
+  border-radius:0 10px 10px 0;font-style:italic;color:var(--ink-2)}
+blockquote cite{display:block;font-style:normal;font-family:var(--sans);font-size:.8rem;color:var(--muted);margin-top:8px}
+/* tables */
+.tablewrap{overflow-x:auto;margin:16px 0;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;min-width:520px}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--sans);font-size:.76rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);
+  background:color-mix(in srgb,var(--accent-soft) 60%,transparent)}
+tr:last-child td{border-bottom:none}
+/* timeline */
+.tl{list-style:none;margin:18px 0;padding:0 0 0 22px;border-left:2px solid var(--line-2)}
+.tl li{position:relative;margin:0 0 16px;padding-left:14px}
+.tl li::before{content:"";position:absolute;left:-29px;top:8px;width:10px;height:10px;border-radius:50%;
+  background:var(--accent);border:2px solid var(--paper)}
+.tl .y{font-family:var(--sans);font-size:.78rem;letter-spacing:.06em;color:var(--accent);font-weight:700}
+/* detail */
+details{border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:0 16px;margin:10px 0}
+details summary{font-family:var(--sans);font-size:.92rem;cursor:pointer;padding:12px 0;font-weight:500}
+details[open] summary{border-bottom:1px solid var(--line);margin-bottom:8px}
+details > *:last-child{margin-bottom:12px}
+/* docente */
+.docente{display:none;border:1px dashed var(--doc);background:var(--doc-soft);border-radius:12px;
+  padding:14px 18px;margin:14px 0}
+body.modo-docente .docente{display:block}
+.docente::before{content:"Nota reservada al docente";display:block;font-family:var(--sans);font-size:.72rem;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--doc);font-weight:700;margin-bottom:6px}
+.docente-flag{display:none}
+body.modo-docente .docente-flag{display:inline}
+/* footer */
+footer{margin-top:50px;border-top:1px solid var(--line);padding:24px 0 50px;color:var(--muted);font-size:.86rem}
+footer a{color:var(--ink-2)}
+.srcs{font-size:.84rem;color:var(--muted)}
+.srcs li{margin-bottom:6px}
+@media print{
+  .topbar,.tabs,.btn{display:none!important}
+  .panel[hidden]{display:block!important}
+  body{font-size:11pt;background:#fff}
+  .card,.art,details{break-inside:avoid}
+}
+
+:root{--accent:var(--res);--accent-soft:var(--res-soft)}
+</style>
+<noscript><style>
+/* Sin JavaScript las pestañas no pueden abrirse: se muestran todos los paneles, uno tras otro. */
+.panel[hidden]{display:block!important}.tabs{display:none!important}
+</style></noscript>
+</head>
+<body>
+<div class="topbar"><div class="wrap">
+<a class="brand" href="index.html">&larr; Índice del módulo normativo</a>
+<div class="tools"><a class="btn" href="ley-1733-2014.html#obligaciones">Ley 1733 de 2014 &rarr;</a>
+<button class="btn" id="btn-tema" type="button">Tema claro/oscuro</button>
+<button class="btn" id="btn-docente" type="button" aria-pressed="false">Modo docente</button>
+</div></div></div>
+
+<header class="hero"><div class="wrap">
+<p class="kicker">Ficha normativa 06 &middot; Resolución ministerial</p>
+<h1>Resolución 1644 de 2026</h1>
+<p class="lead">&laquo;Por la cual se establecen los requisitos y condiciones para el desarrollo de actividades de telesalud y la prestación de servicios de salud en la modalidad de telemedicina en el Sistema General de Seguridad Social en Salud y se deroga la Resolución 2654 de 2019&raquo;.</p>
+<div class="chips">
+<span class="chip info">Expedida el 31 de julio de 2026</span>
+<span class="chip ok">Vigente desde su expedición (art. 44)</span>
+<span class="chip">44 artículos en 7 capítulos</span>
+<span class="chip alert">Deroga la Resolución 2654 de 2019</span>
+<span class="chip warn">12 meses para ajustar lo ya habilitado (art. 43)</span>
+</div>
+<div class="stats">
+<div class="stat"><b>44</b><span>artículos</span></div>
+<div class="stat"><b>4</b><span>categorías de telemedicina</span></div>
+<div class="stat"><b>3</b><span>actividades de telesalud, que no se habilitan</span></div>
+<div class="stat"><b>12</b><span>meses de transición para lo habilitado</span></div>
+</div>
+</div></header>
+
+<div class="wrap">
+<div class="tabs" role="tablist">
+<button data-tab="panorama" role="tab">1 &middot; Panorama</button>
+<button data-tab="vocabulario" role="tab">2 &middot; Telesalud y telemedicina</button>
+<button data-tab="categorias" role="tab">3 &middot; Las cuatro categorías</button>
+<button data-tab="responsables" role="tab">4 &middot; Quién responde</button>
+<button data-tab="paliativo" role="tab">5 &middot; El domicilio y el cuidado paliativo</button>
+<button data-tab="cambios" role="tab">6 &middot; Qué cambió</button>
+<button data-tab="practica" role="tab">7 &middot; Dónde está el dato</button>
+</div>
+
+<!-- 1 ───────────────────────────────────────────────────────────── -->
+<section class="panel" id="p-panorama" hidden>
+<h2>Qué hace esta resolución y qué no hace</h2>
+<p>La Resolución 1644 reemplaza la regulación de la telemedicina que regía desde 2019. Su primer gesto es de vocabulario: separa <strong>la telesalud</strong> —orientar, educar y aconsejar a distancia, que no se habilita— de <strong>la telemedicina</strong> —prestar un servicio de salud a distancia, que sí se habilita—. Esa línea decide qué se puede hacer con un teléfono y qué exige un servicio con todas sus condiciones.</p>
+<div class="grid2">
+<div class="card"><h3>Lo que hace</h3>
+<ul>
+<li>Define tres <strong>actividades de telesalud</strong> que no requieren habilitación —teleorientación, teleapoyo y teleeducación— y advierte que «en ningún caso constituyen un acto médico» (art. 9, parágrafo 2).</li>
+<li>Organiza la telemedicina en <strong>cuatro categorías</strong>: telexperticia, teleconcepto, teleconsulta y telemonitoreo, que pueden combinarse (art. 15).</li>
+<li>Reconoce <strong>el domicilio del usuario como punto de enlace</strong>, sin habilitación, para la teleconsulta (num. 3.28 y art. 31).</li>
+<li>Permite la <strong>prescripción a distancia</strong> en tres categorías, incluidos los medicamentos de control especial con recetario oficial cuando aplique (art. 20).</li>
+<li>Admite la <strong>inteligencia artificial</strong> como apoyo, con información previa al usuario y decisión siempre del profesional (art. 23).</li>
+<li>Excluye por su nombre <strong>WhatsApp y las redes sociales</strong> como plataformas para la telemedicina (num. 24.5).</li>
+<li>Prohíbe a las EPS <strong>glosar o devolver</strong> una factura solo por la modalidad, si el servicio está habilitado y soportado (art. 37, parágrafo 2).</li>
+<li>Prevé criterios diferenciales para <strong>municipios con condiciones especiales</strong>, incluida la conectividad intermitente o satelital (arts. 32 y 33).</li>
+</ul></div>
+<div class="card"><h3>Lo que no hace</h3>
+<ul>
+<li>No define todavía <strong>los indicadores</strong> de calidad: dice que el Ministerio los incluirá al actualizar el Sistema de Información para la Calidad (art. 28).</li>
+<li>No crea un servicio nuevo <strong>ni financiación adicional</strong>: se paga lo que se pagaría en presencia, con la misma fuente (art. 36, parágrafo 2).</li>
+<li>No reemplaza la atención presencial: es una modalidad «de igual importancia» que no la sustituye cuando se requiere (art. 14, parágrafo 5).</li>
+<li>No sustituye el <strong>Sistema Único de Habilitación</strong>: la inscripción y la habilitación siguen en la Resolución 3100 de 2019 (art. 1, parágrafo).</li>
+<li>No organiza un servicio de cuidado paliativo: lo nombra como una fase de la telemedicina, sin más (pestaña 5).</li>
+</ul></div>
+</div>
+<p class="thesis">La 1644 le dice al sistema cómo se presta un servicio a distancia. No le dice cuántos se prestan, a quién ni con qué resultado: los indicadores quedaron para después.</p>
+<div class="docente">
+<p><strong>Uso en clase.</strong> Es el caso de anclaje de la sesión 4: se verificó la Resolución 2654 el 21 de julio para diseñar la unidad, y esta resolución la derogó el 31. La lección no es «verifique», que ya se sabía: es que <em>una verificación tiene fecha</em>.</p>
+</div>
+</section>
+
+<!-- 2 ───────────────────────────────────────────────────────────── -->
+<section class="panel" id="p-vocabulario" hidden>
+<h2>No todo lo que pasa por una pantalla es telemedicina</h2>
+<p>La resolución obliga a usar sus definiciones «de manera uniforme y obligatoria» (art. 38). La primera distinción es la que más se confunde en la práctica:</p>
+<div class="grid2">
+<div class="card"><h3>Actividades de telesalud · no se habilitan</h3>
+<ul>
+<li><strong>Teleorientación en salud</strong> (art. 10): consejería en promoción, prevención y autocuidado; puede recomendar la derivación. No formula medicamentos, órdenes, incapacidades ni certificados (parágrafo 2).</li>
+<li><strong>Teleapoyo</strong> (art. 11): consejería entre profesionales. La responsabilidad recae en quien pide el apoyo, y quien lo da no formula (parágrafo 4).</li>
+<li><strong>Teleeducación en salud</strong> (art. 12): formación a distancia del talento humano, de usuarios y de comunidades.</li>
+</ul>
+<p class="small">«…en ningún caso constituyen un acto médico ni sustituyen la prestación directa de servicios de salud» (art. 9, parágrafo 2).</p></div>
+<div class="card"><h3>Modalidad de telemedicina · se habilita</h3>
+<ul>
+<li>Es una de las <strong>tres modalidades</strong> de prestación, junto a la intramural y la extramural (num. 3.20).</li>
+<li>Se habilita por el <strong>Sistema Único de Habilitación</strong> (art. 1, parágrafo).</li>
+<li>Usa solo comunicación <strong>interactiva</strong>, sincrónica o asincrónica (art. 14, parágrafo 5).</li>
+<li>El usuario puede preferirla cuando sea <strong>clínicamente equivalente</strong>, sin limitar la autonomía del profesional (art. 14, parágrafo 6).</li>
+</ul></div>
+</div>
+<h3>Los cuatro tipos de comunicación</h3>
+<div class="tablewrap"><table>
+<thead><tr><th></th><th>Interactiva (bidireccional)</th><th>No interactiva</th></tr></thead>
+<tbody>
+<tr><td><strong>Sincrónica</strong> (en tiempo real)</td><td>Interacción en vivo en los dos sentidos (num. 3.8)</td><td>Transmisión en tiempo real sin respuesta (num. 3.9)</td></tr>
+<tr><td><strong>Asincrónica</strong> (en momentos distintos)</td><td>Intercambio bidireccional no simultáneo (num. 3.6)</td><td>Información disponible para consulta posterior (num. 3.7)</td></tr>
+</tbody></table></div>
+<p>La telemedicina se mueve en la columna izquierda. La derecha —una transmisión sin respuesta, un video grabado— puede servir a la telesalud, no a la telemedicina.</p>
+<div class="note"><p><strong>Por qué importa la palabra.</strong> En la norma, lo que se llama «modalidad» es la telemedicina; las cuatro formas son sus <em>categorías</em>. Llamar «modalidad» a la teleconsulta es usar el vocabulario de 2019.</p></div>
+</section>
+
+<!-- 3 ───────────────────────────────────────────────────────────── -->
+<section class="panel" id="p-categorias" hidden>
+<h2>Las cuatro categorías de la telemedicina</h2>
+<p>Pueden combinarse según el servicio, la condición clínica y la complejidad (art. 15).</p>
+<div class="tablewrap"><table>
+<thead><tr><th>Categoría</th><th>Qué es</th><th>Comunicación</th><th>Dónde está la persona</th></tr></thead>
+<tbody>
+<tr><td><strong>Telexperticia</strong> · art. 16</td><td>Consulta profesional o especializada con intervención a distancia de especialistas, con la persona presente en el nodo remisor junto a un profesional o personal de apoyo</td><td>Solo sincrónica interactiva</td><td>En el servicio que remite, acompañada</td></tr>
+<tr><td><strong>Teleconcepto</strong> · art. 17</td><td>Interconsulta o concepto entre profesionales, con «responsabilidad diferenciada»: el remisor responde por la veracidad de la información que aporta</td><td>Sincrónica o asincrónica interactiva</td><td>No necesita participar</td></tr>
+<tr><td><strong>Teleconsulta</strong> · art. 18</td><td>Consulta o apoyo diagnóstico desde el nodo de referencia, con la persona en un punto de enlace o en su domicilio, o con otro profesional</td><td>Sincrónica o asincrónica interactiva</td><td>En un punto de enlace o <strong>en su casa</strong></td></tr>
+<tr><td><strong>Telemonitoreo</strong> · art. 19</td><td>Valoración o seguimiento clínico remoto, orientado a alertas tempranas y continuidad del cuidado; incluye atención prehospitalaria</td><td>Sincrónica o asincrónica interactiva</td><td>«Desde cualquier ubicación»</td></tr>
+</tbody></table></div>
+<h3>Tres reglas que suelen sorprender</h3>
+<ul>
+<li><strong>La teleconsulta no aplica dentro de la misma sede</strong> desde la que se atiende (art. 18, parágrafo).</li>
+<li><strong>La teleconsulta asincrónica tiene tiempos máximos de respuesta</strong> que el prestador documenta por tipo de servicio y debe informar al usuario al inicio (art. 18, parágrafo).</li>
+<li><strong>Un profesional no puede atender a la vez varias conexiones sincrónicas</strong> de uno o varios nodos remisores (num. 29.6).</li>
+</ul>
+<h3>Formular a distancia</h3>
+<div class="crit">
+<p>La prescripción se puede hacer <strong>en telexperticia, teleconsulta y teleconcepto; no en telemonitoreo</strong>. Los medicamentos de control especial siguen sus propias normas, con recetario oficial cuando aplique, y el prescriptor puede abstenerse si no tiene la información clínica suficiente (art. 20). La teleorientación y el teleapoyo, que son telesalud, no formulan nunca (arts. 10 y 11).</p>
+</div>
+<p>Para los programas de enfermedades crónicas, el telemonitoreo exige que el prestador defina la frecuencia mínima de seguimiento según el riesgo, umbrales de alerta, la integración de los datos a la historia clínica y protocolos de escalamiento (art. 19, parágrafo 1).</p>
+</section>
+
+<!-- 4 ───────────────────────────────────────────────────────────── -->
+<section class="panel" id="p-responsables" hidden>
+<h2>Quién responde por los datos y la confidencialidad</h2>
+<p>La norma no nombra a un solo responsable: <strong>reparte</strong>.</p>
+<div class="tablewrap"><table>
+<thead><tr><th>Quién</th><th>Qué le toca</th><th>Dónde</th></tr></thead>
+<tbody>
+<tr><td><strong>Prestador que habilita</strong></td><td>El régimen de protección de datos; los de salud son sensibles y exigen autorización «previa, expresa e informada»; responde por las plataformas y por el proveedor tecnológico que contrate</td><td>Art. 6, art. 24, art. 26 y num. 3.27</td></tr>
+<tr><td><strong>Profesional del nodo de referencia</strong>, en teleconsulta sincrónica</td><td>Identificar a la persona, obtener el consentimiento, «la seguridad y confidencialidad de la información» y verificar las condiciones técnicas</td><td>Num. 18.1</td></tr>
+<tr><td><strong>Prestador del nodo de referencia</strong></td><td>Validar las condiciones tecnológicas y operativas del punto de enlace <strong>o del domicilio</strong></td><td>Num. 31.5</td></tr>
+<tr><td><strong>El propio usuario</strong></td><td>«garantizar la interacción directa durante la atención, las condiciones de privacidad y seguridad de la información» (sincrónica); en la asincrónica, «del uso adecuado de las tecnologías, de la privacidad y seguridad de la información»</td><td>Nums. 18.1 y 18.2</td></tr>
+<tr><td><strong>Talento humano responsable</strong></td><td>El consentimiento informado, que incluye «los riesgos de violación a la confidencialidad durante las consultas»</td><td>Art. 7</td></tr>
+</tbody></table></div>
+<div class="crit">
+<p><strong>La última fila es la discusión.</strong> En la teleconsulta desde la casa, la norma le asigna a la persona —que puede ser una persona con enfermedad avanzada, en su sala, con la familia alrededor y el celular de todos— la responsabilidad por las condiciones de privacidad. ¿Es razonable? ¿Qué necesitaría para poder cumplirla?</p>
+</div>
+<h3>Lo demás que conviene saber</h3>
+<ul>
+<li><strong>El consentimiento es aparte de la autorización de datos</strong>: el primero es para la atención; la segunda se rige por la Ley 1581 de 2012. Se puede firmar a mano, en digital o en electrónico, y se puede revocar (art. 7).</li>
+<li><strong>Niñas, niños y adolescentes</strong>: además del consentimiento de quien los representa, su asentimiento cuando su madurez lo permita; lo mismo para personas con discapacidad que requieran apoyos (art. 7).</li>
+<li><strong>Entre nodos no hay responsabilidad solidaria</strong>: cada prestador responde por lo suyo, salvo concurrencia de causas en el daño (art. 16, parágrafo).</li>
+<li><strong>Grabar una videollamada</strong> exige autorización del usuario y del profesional, y la grabación va a la historia clínica (art. 24, parágrafo).</li>
+<li><strong>WhatsApp y las redes sociales no cumplen</strong> los requisitos de las plataformas para la telemedicina (num. 24.5). Para las <em>actividades</em> de telesalud, en cambio, se admiten «sistemas de mensajería» que cumplan estándares de seguridad (art. 22).</li>
+</ul>
+</section>
+
+<!-- 5 ───────────────────────────────────────────────────────────── -->
+<section class="panel" id="p-paliativo" hidden>
+<h2>El domicilio y el cuidado paliativo</h2>
+<h3>La palabra que entró</h3>
+<p>La misma resolución transcribe la definición de telemedicina de la Ley 1419 de 2010: servicios a distancia en «promoción, prevención, diagnóstico, tratamiento y rehabilitación» (num. 3.36). Sin paliación. Pero su propia definición de la modalidad dice otra cosa:</p>
+<blockquote>«Es la forma de prestar un servicio de salud a distancia, en los componentes de promoción, prevención, diagnóstico, tratamiento, rehabilitación y <strong>cuidados paliativos</strong>, mediante el uso de Tecnologías de la Información y las Comunicaciones.»<cite>Num. 3.21 · y el objetivo de la modalidad repite «paliación» (art. 14)</cite></blockquote>
+<p class="thesis">Dieciséis años después de la Ley 1419, el cuidado paliativo aparece por su nombre en la norma de telemedicina. Aparece como fase, no como servicio: nadie queda obligado a ofrecerlo a distancia.</p>
+<h3>Lo que la norma permite en la casa</h3>
+<ul>
+<li><strong>Teleconsulta desde el domicilio</strong>, que es punto de enlace y no requiere habilitación, si tiene las condiciones básicas (num. 3.28, art. 18).</li>
+<li><strong>Telemonitoreo «desde cualquier ubicación»</strong>, con alertas tempranas y continuidad del cuidado (art. 19).</li>
+<li><strong>Prescripción a distancia</strong>, incluidos los medicamentos de control especial —los opioides— con recetario oficial cuando aplique, en telexperticia, teleconsulta y teleconcepto (art. 20).</li>
+<li><strong>Acompañamiento en la casa</strong> por personal de apoyo o equipos básicos de salud durante la teleconsulta, en lugares de difícil acceso (art. 18, parágrafo).</li>
+<li><strong>Sabedores ancestrales, dinamizadores e intérpretes</strong> como acompañantes, con consentimiento y deber de confidencialidad, en territorios con población étnica (art. 34).</li>
+</ul>
+<h3>Lo que ya decía la ley de cuidados paliativos</h3>
+<p>Desde 2022, el artículo 7 de la Ley 1733 —modificado por la Ley 2241— dice que EPS e IPS fomentarán la capacitación para atender, hacer seguimiento y dar soporte a pacientes, familias y cuidadores «a través de la telemedicina o tele asistencia», siempre que lo soliciten. <a href="ley-1733-2014.html#obligaciones">Ver la ficha de la Ley 1733</a>.</p>
+<div class="note">
+<p><strong>Dos normas, la misma cautela.</strong> La Ley 1733 trata la telemedicina como una alternativa <em>que se solicita</em>; la Resolución 1644, como una modalidad que no reemplaza la atención presencial cuando esta se requiere (art. 14, parágrafo 5). Ninguna de las dos dice qué pasa cuando nadie la ofrece.</p>
+</div>
+<h3>Municipios con condiciones especiales</h3>
+<p>La resolución admite criterios diferenciales —infraestructura, dotación, conectividad intermitente, satelital o fuera de línea— en los municipios del Plan Nacional de Salud Rural y en otros con condiciones especiales: de 20 000 habitantes o menos, PDET, ZOMAC, PNIS, zonas de dispersión geográfica, con presencia significativa de comunidades étnicas, entre otros. Esos criterios no pueden comprometer la calidad, la seguridad ni la privacidad (arts. 32 y 33).</p>
+</section>
+
+<!-- 6 ───────────────────────────────────────────────────────────── -->
+<section class="panel" id="p-cambios" hidden>
+<h2>Qué cambió frente a la Resolución 2654 de 2019</h2>
+<p>El artículo 44 es literal: «La presente resolución rige a partir de la fecha de su expedición, y deroga la Resolución 2654 de 2019». La derogatoria es inmediata; los doce meses del artículo 43 son para que los prestadores con telemedicina ya habilitada ajusten sus servicios, y durante ese plazo sus habilitaciones conservan validez.</p>
+<div class="tablewrap"><table>
+<thead><tr><th>Tema</th><th>Resolución 2654 de 2019</th><th>Resolución 1644 de 2026</th></tr></thead>
+<tbody>
+<tr><td>Estado</td><td>⛔ Derogada</td><td>✅ Vigente desde el 31 de julio de 2026</td></tr>
+<tr><td>Categorías de telemedicina</td><td>Interactiva · no interactiva · telexperticia · telemonitoreo</td><td>Telexperticia · teleconcepto · teleconsulta · telemonitoreo</td></tr>
+<tr><td>El domicilio</td><td>La persona podía estar dentro o fuera de las instalaciones del prestador</td><td>Punto de enlace sin habilitación, nombrado expresamente</td></tr>
+<tr><td>Mensajería</td><td>Contaba entre las plataformas de telesalud; no nombraba WhatsApp</td><td>WhatsApp y redes sociales no cumplen para la telemedicina (num. 24.5)</td></tr>
+<tr><td>Prescripción</td><td>Solo en telemedicina interactiva y telexperticia sincrónica</td><td>En telexperticia, teleconsulta y teleconcepto (art. 20)</td></tr>
+</tbody></table></div>
+<p class="small">La columna de 2019 resume el material verificado para la sesión 4 contra el texto de la Resolución 2654; la de 2026, el PDF firmado de la 1644.</p>
+<div class="note">
+<p><strong>Si el registro dice otra cosa, no es un error de quien consulta.</strong> Por la transición del artículo 43, el REPS puede seguir mostrando las categorías de 2019. Y el manual de habilitación sigue siendo la Resolución 3100 de 2019 (art. 1, parágrafo), que aún usa esas categorías.</p>
+</div>
+<div class="docente">
+<p>La sesión 3 enseñó a desconfiar de las normas que siguen circulando derogadas. El entregable de la sesión 4 cayó en eso mismo: se publicó sobre la 2654 y se corrigió el 25 de septiembre. Es el mejor ejemplo del curso de por qué la fecha de una verificación importa.</p>
+</div>
+</section>
+
+<!-- 7 ───────────────────────────────────────────────────────────── -->
+<section class="panel" id="p-practica" hidden>
+<h2>Dónde está el dato · y cinco preguntas para el servicio</h2>
+<p>Para quien diga que no hay forma de saber cuánta telemedicina paliativa se hace, la norma dice dónde debería estar el dato:</p>
+<ul>
+<li><strong>En los RIPS.</strong> El prestador debe reportar la modalidad en el campo <code>modalidadGrupoServicioTecSal</code> de los Registros Individuales de Prestación de Servicios de Salud y facturar con los códigos CUPS del servicio efectivamente prestado (art. 37, parágrafo 1).</li>
+<li><strong>En los indicadores de calidad,</strong> cuando existan: la información deberá desagregarse por categoría, área geográfica, grupo poblacional y resultado en salud (art. 28). Hoy no están definidos.</li>
+<li><strong>En los registros de eventos adversos</strong> propios de la telemedicina, que las IPS deben incorporar a su sistema de reporte (num. 29.5).</li>
+</ul>
+<p class="thesis">El dato debería existir en los RIPS desde el 31 de julio de 2026. Que exista y que alguien lo haya mirado son dos cosas distintas, y la segunda es una pregunta investigable.</p>
+<h3>Cinco preguntas para llevar al propio servicio</h3>
+<ol>
+<li>¿El seguimiento a distancia que hace su servicio es teleorientación, teleconsulta o telemonitoreo? ¿Lo sabe quién lo hace?</li>
+<li>¿Cuánto de ese seguimiento pasa hoy por WhatsApp? ¿Alguien firmó algo?</li>
+<li>¿El consentimiento para la atención a distancia es distinto de la autorización de datos, como exige el artículo 7?</li>
+<li>Si la persona está en su casa, ¿quién verifica las condiciones de privacidad antes de empezar, como pide el numeral 31.5?</li>
+<li>¿Su servicio reporta la modalidad en los RIPS? ¿Quién podría contar cuántas atenciones paliativas se hicieron a distancia en un año?</li>
+</ol>
+<div class="note">
+<p><strong>Antes de citarla en un trabajo.</strong> Esta ficha resume el texto oficial leído completo; las citas entre comillas son literales. Una cita formal se hace contra el PDF firmado, de 31 hojas. Si encuentra una diferencia, gana el PDF.</p>
+</div>
+<h3>En el resto del material del seminario</h3>
+<ul>
+<li><a href="../../s04-modelos-telesalud/clase.html">Presentación de la sesión 4</a>, diapositivas 15 a 18.</li>
+<li><a href="ley-1733-2014.html#obligaciones">Ficha 01 · Ley 1733 de 2014</a>, para la telemedicina en la ley de cuidados paliativos.</li>
+<li><a href="index.html">Índice del módulo normativo</a>.</li>
+</ul>
+<div class="srcs">
+<h4>Fuentes</h4>
+<ul>
+<li>Ministerio de Salud y Protección Social. (2026, 31 de julio). <em>Resolución 1644 de 2026</em>. Bogotá: MinSalud. 31 hojas.</li>
+<li>Congreso de Colombia. (2010, 13 de diciembre). <em>Ley 1419 de 2010</em>. Diario Oficial 47.922.</li>
+<li>Congreso de Colombia. (2014). <em>Ley 1733 de 2014</em>, art. 7, modificado por la Ley 2241 de 2022.</li>
+<li>Congreso de Colombia. (2012). <em>Ley Estatutaria 1581 de 2012</em>, régimen de protección de datos personales.</li>
+</ul>
+</div>
+</section>
+</div>
+
+<footer><div class="wrap">
+<p><strong>Universidad Antonio Nari&ntilde;o</strong> &middot; Facultad de Enfermer&iacute;a &middot; Maestr&iacute;a en Cuidados Paliativos<br>
+Material aut&oacute;nomo de consulta &middot; Docente: Jorge Wilhem Bogoya L&oacute;pez &middot; Actualizado: 2 de octubre de 2026</p>
+<p class="small">Modo docente: <code>?docente=true</code> en la URL o <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>D</kbd>.
+Las notas reservadas no se imprimen ni se muestran a los estudiantes por defecto.</p>
+<p class="small">Elaborado con asistencia de Claude (Anthropic) sobre el texto oficial de la resoluci&oacute;n, le&iacute;do completo el 2 de octubre de 2026. Espa&ntilde;ol acad&eacute;mico &middot; APA 7.</p>
+</div></footer>
+<script>
+(function(){
+  var root=document.documentElement;
+  try{var t=sessionStorage.getItem('tema');if(t)root.setAttribute('data-theme',t);}catch(e){}
+  function toggleTema(){
+    var d=root.getAttribute('data-theme')==='dark'?'light':'dark';
+    root.setAttribute('data-theme',d);
+    try{sessionStorage.setItem('tema',d);}catch(e){}
+  }
+  function setDocente(on){
+    document.body.classList.toggle('modo-docente',on);
+    var b=document.getElementById('btn-docente');
+    if(b){b.setAttribute('aria-pressed',on?'true':'false');
+      b.textContent=on?'Modo docente activo':'Modo docente';}
+    try{sessionStorage.setItem('docente',on?'1':'0');}catch(e){}
+  }
+  document.addEventListener('DOMContentLoaded',function(){
+    var p=new URLSearchParams(location.search);
+    var on=p.get('docente')==='true'||p.get('docente')==='1';
+    try{if(!on&&sessionStorage.getItem('docente')==='1')on=true;}catch(e){}
+    setDocente(on);
+    var bd=document.getElementById('btn-docente');
+    if(bd)bd.addEventListener('click',function(){setDocente(!document.body.classList.contains('modo-docente'));});
+    var bt=document.getElementById('btn-tema');
+    if(bt)bt.addEventListener('click',toggleTema);
+    document.addEventListener('keydown',function(e){
+      if(e.ctrlKey&&e.shiftKey&&(e.key==='D'||e.key==='d')){
+        e.preventDefault();setDocente(!document.body.classList.contains('modo-docente'));}
+    });
+    // tabs
+    var tabs=document.querySelectorAll('.tabs button');
+    function activar(id){
+      tabs.forEach(function(b){
+        var sel=b.dataset.tab===id;b.setAttribute('aria-selected',sel?'true':'false');
+        var pn=document.getElementById('p-'+b.dataset.tab);if(pn)pn.hidden=!sel;
+      });
+      try{history.replaceState(null,'','#'+id);}catch(e){}
+    }
+    tabs.forEach(function(b){b.addEventListener('click',function(){activar(b.dataset.tab);
+      window.scrollTo({top:document.querySelector('.tabs').offsetTop-60,behavior:'smooth'});});});
+    var h=location.hash.replace('#','');
+    if(h&&document.getElementById('p-'+h))activar(h);else if(tabs.length)activar(tabs[0].dataset.tab);
+  });
+})();
+</script>
+</body>
+</html>
