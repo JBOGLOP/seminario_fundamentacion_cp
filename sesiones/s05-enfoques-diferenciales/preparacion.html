@@ -1,0 +1,765 @@
+<!doctype html>
+<html lang="es">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Entregable previo · Sesión 5 — Seminario de fundamentación en CP</title>
+<meta name="description" content="Entregable previo a la sesión 5 del Seminario de fundamentación en cuidados paliativos, y producto del segundo corte: tres preguntas para llevar una pregunta de investigación del ámbito al método.">
+
+<!-- ===========================================================================
+     ENTREGABLE PREVIO · SESIÓN 5 · Y PRODUCTO DEL SEGUNDO CORTE
+     Abierto del 3 al 14 de octubre de 2026, 23:59. La celda Cierre de la
+     pestaña Config debe llevar la HORA (14/10/2026 23:59): sin hora, el motor
+     cierra a las 00:00 de ese día.
+
+     UN SOLO TRABAJO, NO DOS. Decisión del docente (2 de octubre): el
+     entregable de la sesión 5 es el producto del segundo corte —la segunda
+     capa del anteproyecto: del ámbito al método—, individual y más corto que
+     el de la sesión 4.
+
+     TRES PREGUNTAS, NO CUATRO. La sesión 4 anunció tres horas y la mediana
+     declarada fue de unos 210 minutos: por la regla de calibración, se quita
+     una pregunta y no se recortan las que quedan. Se anuncian dos horas y
+     media, que es lo que sale de la mediana por pregunta.
+
+     El anclaje de la sesión 4 confirmó el patrón por tercera vez: la pregunta
+     que mandaba a un artículo concreto quedó apoyada en fuente en 6 de 7
+     respuestas; la que pedía salir a buscar un dato, en 2 de 6. Por eso la
+     P3 dice dónde está el dato (historia clínica, RIPS, certificados).
+
+     «ENFOQUE DIFERENCIAL» EN SUS DOS SENTIDOS, también decisión del docente:
+     el ámbito (domiciliario, institucional, comunitario) organiza; el enfoque
+     poblacional (etnia, género, discapacidad, curso de vida, ruralidad,
+     víctimas) atraviesa. La P1 pide los dos.
+
+     FUENTES verificadas el 2 de octubre contra PubMed, Crossref, Europe PMC y
+     los editores. Ojo: la fuente sobre preferencia de lugar de muerte es Gomes
+     et al. 2013 (BMC Palliat Care), no «Forjaz de Lacerda y Gomes 2017», que
+     trata de niños en Portugal; y la revisión Cochrane de Gomes 2013 no usa
+     GRADE. Registro completo en docs/VERIFICACION-FUENTES-S05.md.
+
+     PORTABILIDAD (regla 1). Se lee, se responde y se guarda SIN CONEXIÓN; solo
+     el envío necesita red, y si no la hay, «Copiar todo» deja el trabajo listo
+     para mandarlo por correo.
+     =========================================================================== -->
+
+<style>
+:root{
+  --bosque:#2F5D50;    --bosque-dark:#234639;    --bosque-deep:#17302A;  --bosque-soft:#D6E3DD;
+  --arcilla:#C4714F;   --arcilla-dark:#A2563A;   --arcilla-deep:#6F3823; --arcilla-soft:#F3DCD1;
+  --malva:#7A5C8A;     --malva-dark:#5F4570;     --malva-deep:#402C4D;   --malva-soft:#E4DAEA;
+  --piedra:#8A8578;    --piedra-dark:#6B6659;    --piedra-deep:#4E4A40;  --piedra-soft:#EFEBE3;
+  --pizarra:#22282A;   --gris:#565E5C;           --gris-claro:#9AA09D;
+  --blanco:#FFFFFF;    --lino:#FAF8F4;
+  --shadow-soft:0 2px 8px rgba(34,40,42,.07);
+  --shadow-medium:0 6px 20px rgba(34,40,42,.11);
+  --radius:14px; --radius-sm:9px;
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif;
+  --mono:'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace;
+  --serif:Georgia,'Times New Roman',serif;
+
+  /* Unidad 2 → arcilla */
+  --acento:var(--arcilla); --acento-dark:var(--arcilla-deep); --acento-soft:var(--arcilla-soft);
+}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;font-family:var(--sans);color:var(--pizarra);background:var(--lino);line-height:1.62}
+:focus-visible{outline:3px solid var(--acento);outline-offset:2px}
+a{color:var(--acento-dark)}
+.envoltura{max-width:48rem;margin:0 auto;padding:0 1.25rem}
+.saltar{position:absolute;left:-9999px;background:var(--pizarra);color:var(--lino);padding:.6rem 1rem;z-index:20}
+.saltar:focus{left:0}
+
+.nav-sesion{background:var(--pizarra);color:var(--lino);padding:.55rem 1rem;font-size:.82rem;
+  display:flex;flex-wrap:wrap;align-items:center;gap:.3rem .9rem}
+.nav-sesion a{color:var(--piedra-soft);text-decoration:none;border-bottom:1px solid transparent}
+.nav-sesion a:hover,.nav-sesion a:focus{border-bottom-color:var(--piedra)}
+.nav-sesion .ns-curso{font-weight:700}
+@media print{.nav-sesion,.saltar{display:none}}
+
+.hero{background:linear-gradient(160deg,var(--lino) 0%,var(--acento-soft) 100%);
+  padding:clamp(1.8rem,5vw,3rem) 0 clamp(1.3rem,3vw,2rem);border-bottom:1px solid rgba(45,45,45,.08)}
+.hero__eyebrow{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--acento-dark);font-weight:700;margin:0 0 .5rem}
+h1{font-size:clamp(1.5rem,4vw,2.3rem);line-height:1.15;letter-spacing:-.015em;margin:0 0 .6rem}
+.hero__sub{font-size:1rem;color:var(--gris);max-width:52ch;margin:0}
+.meta{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:1.1rem}
+.chip{background:var(--blanco);border:1px solid rgba(45,45,45,.1);border-radius:999px;
+  padding:.28rem .85rem;font-size:.82rem;box-shadow:var(--shadow-soft)}
+
+section{padding:clamp(1.5rem,3.5vw,2.4rem) 0}
+h2{font-size:clamp(1.15rem,2.6vw,1.5rem);margin:0 0 .3rem;line-height:1.25}
+h3{font-size:1rem;margin:0 0 .35rem;color:var(--acento-dark)}
+p{max-width:60ch}
+.intro{color:var(--gris);max-width:60ch;margin:0 0 1.2rem}
+
+/* Estado de la entrega */
+.estado{border-radius:var(--radius);padding:.9rem 1.15rem;margin:1.2rem 0 0;
+  font-size:.92rem;border-left:4px solid var(--gris-claro);background:var(--blanco);
+  box-shadow:var(--shadow-soft);max-width:60ch}
+.estado--ok{border-left-color:var(--bosque);background:var(--bosque-soft)}
+.estado--aviso{border-left-color:var(--piedra);background:var(--piedra-soft);color:var(--piedra-deep)}
+.estado--malo{border-left-color:var(--arcilla);background:var(--arcilla-soft);color:var(--arcilla-dark)}
+.estado strong{display:block;margin-bottom:.2rem}
+
+/* Cómo funciona */
+.pasos{list-style:none;padding:0;margin:1rem 0 0;display:grid;gap:.55rem;max-width:60ch;counter-reset:p}
+.pasos li{background:var(--blanco);border-radius:var(--radius-sm);padding:.75rem 1rem .75rem 2.6rem;
+  box-shadow:var(--shadow-soft);position:relative;font-size:.94rem}
+.pasos li::before{counter-increment:p;content:counter(p);position:absolute;left:.85rem;top:.75rem;
+  width:1.3rem;height:1.3rem;border-radius:50%;background:var(--acento);color:var(--blanco);
+  font-size:.75rem;font-weight:700;display:flex;align-items:center;justify-content:center}
+
+/* Identidad */
+.identidad{background:var(--blanco);border-radius:var(--radius);padding:1.1rem 1.25rem;
+  box-shadow:var(--shadow-soft);border-top:3px solid var(--acento);max-width:60ch}
+.campo{margin-bottom:.9rem}
+.campo:last-child{margin-bottom:0}
+label{display:block;font-size:.85rem;font-weight:600;margin-bottom:.3rem}
+.pista{font-size:.8rem;color:var(--gris);font-weight:400;margin:.15rem 0 .4rem}
+input[type=text],input[type=email],input[type=number],textarea{
+  width:100%;font:inherit;font-size:.95rem;padding:.55rem .7rem;border:1px solid #C9C4BA;
+  border-radius:var(--radius-sm);background:var(--blanco);color:var(--pizarra)}
+textarea{min-height:9rem;resize:vertical;line-height:1.6}
+input:focus,textarea:focus{border-color:var(--acento)}
+
+/* Preguntas */
+.pregunta{background:var(--blanco);border-radius:var(--radius);padding:1.2rem 1.35rem;
+  box-shadow:var(--shadow-soft);border-left:4px solid var(--acento);margin-bottom:1.3rem}
+.pregunta__n{font-family:var(--mono);font-size:.75rem;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--acento-dark);margin:0 0 .3rem}
+.pregunta h3{font-size:1.08rem;color:var(--pizarra);margin-bottom:.5rem;line-height:1.3}
+.pregunta__ctx{font-size:.93rem;color:var(--gris);margin:0 0 .8rem;max-width:58ch}
+.pregunta__q{font-family:var(--serif);font-size:1.04rem;color:var(--acento-dark);
+  border-left:3px solid var(--acento-soft);padding:.3em 0 .3em .9em;margin:0 0 .9rem;max-width:56ch}
+.espera{background:var(--piedra-soft);border-radius:var(--radius-sm);padding:.7rem .9rem;
+  font-size:.86rem;color:var(--piedra-deep);margin:0 0 .9rem;max-width:58ch}
+.espera strong{display:block;margin-bottom:.2rem}
+.espera ul{margin:.3rem 0 0;padding-left:1.05rem}
+.espera li{margin-bottom:.2rem}
+.contador{font-family:var(--mono);font-size:.78rem;color:var(--gris);text-align:right;margin:.35rem 0 0}
+.contador.corto{color:var(--piedra-deep)}
+.contador.bien{color:var(--bosque-dark);font-weight:700}
+
+/* Envío */
+.envio{background:var(--blanco);border-radius:var(--radius);padding:1.2rem 1.35rem;
+  box-shadow:var(--shadow-medium);border-top:4px solid var(--piedra)}
+.botones{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1rem}
+button{font:inherit;font-weight:600;cursor:pointer;border-radius:999px;padding:.55rem 1.3rem;
+  border:1px solid var(--acento);background:var(--blanco);color:var(--acento-dark)}
+button:hover{background:var(--acento-soft)}
+button.primario{background:var(--acento-dark);color:var(--blanco);border-color:var(--acento-dark)}
+button.primario:hover{background:var(--bosque)}
+button[disabled]{opacity:.5;cursor:default}
+.autoguardado{font-size:.8rem;color:var(--gris);margin:.7rem 0 0;font-family:var(--mono)}
+
+.nota{background:var(--blanco);border-left:4px solid var(--piedra);border-radius:var(--radius-sm);
+  padding:.95rem 1.15rem;box-shadow:var(--shadow-soft);font-size:.9rem;color:var(--gris);max-width:60ch}
+.nota strong{color:var(--pizarra)}
+
+.lecturas{list-style:none;padding:0;margin:1rem 0 0;display:grid;gap:.55rem;max-width:60ch}
+.lecturas li{background:var(--blanco);border-radius:var(--radius-sm);padding:.8rem 1rem;
+  box-shadow:var(--shadow-soft);border-left:3px solid var(--piedra);font-size:.92rem}
+.lecturas .tipo{display:block;font-family:var(--mono);font-size:.71rem;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--piedra-deep);font-weight:700;margin-bottom:.2rem}
+
+footer{background:var(--pizarra);color:var(--lino);margin-top:2rem;padding:2rem 0;font-size:.86rem}
+footer a{color:var(--piedra-soft)}
+footer p{margin:0 0 .5rem;max-width:60ch}
+.footer__legal{color:#B8B8B8;font-size:.79rem;margin-top:.9rem}
+@media (prefers-reduced-motion:reduce){*{transition:none !important}}
+</style>
+
+<a class="saltar" href="#formulario">Saltar al formulario</a>
+
+<nav class="nav-sesion" aria-label="Navegación del seminario">
+  <a class="ns-curso" href="../../index.html">← Seminario de fundamentación en CP</a>
+  <a href="index.html">Guía de la sesión</a>
+</nav>
+
+<header class="hero">
+  <div class="envoltura">
+    <p class="hero__eyebrow">Sesión 5 · Entregable previo · Individual · Producto del segundo corte</p>
+    <h1>Antes de la sesión 5</h1>
+    <p class="hero__sub">
+      Tres preguntas, y esta vez son <strong>el producto del segundo corte</strong>. Elija una
+      pregunta de investigación —de las que salieron el 2 de octubre o la suya del primer corte— y
+      llévela de la idea al método: <strong>qué modelo pone a prueba, qué dice la evidencia y cómo
+      se estudiaría en su territorio.</strong>
+    </p>
+    <div class="meta">
+      <span class="chip">Cierra: miércoles 14 de octubre, 23:59</span>
+      <span class="chip">3 preguntas</span>
+      <span class="chip">≈ 2 horas y media</span>
+      <span class="chip">Producto del segundo corte · 35 %</span>
+    </div>
+    <div id="estado" class="estado">
+      <strong>Comprobando el plazo…</strong>
+      Si no hay conexión, no pasa nada: puede leer y escribir igual, y enviar cuando la tenga.
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section>
+  <div class="envoltura">
+    <h2>Cómo funciona</h2>
+    <ol class="pasos">
+      <li><strong>Elija su pregunta y empiece por las lecturas señaladas.</strong> Están abajo, con el enlace a cada una. La presentación de la sesión se publica en la guía durante esta semana; las preguntas se pueden responder antes, porque cada una dice a qué documento ir.</li>
+      <li><strong>Escriba aquí mismo.</strong> El texto se guarda solo en su navegador. Puede cerrar y volver, y puede trabajar sin internet.</li>
+      <li><strong>Envíe antes del miércoles 14 de octubre a las 23:59.</strong> Puede reenviar cuantas veces quiera hasta esa hora: cada envío reemplaza al anterior. Volver sobre lo escrito es parte del trabajo, no una corrección de última hora.</li>
+      <li><strong>El viernes 16 de octubre, presencial, de 8:00 a 11:00, ponemos en común lo escrito, sin nombres.</strong> Cada quien aparece con una letra. La sesión sale de lo que ustedes escriban.</li>
+    </ol>
+
+    <p class="nota" style="margin-top:1.2rem">
+      <strong>Un solo trabajo, no dos.</strong> El seminario construye un anteproyecto por capas: el
+      primer corte fue la pregunta; este es el modelo y el método. No hay otra entrega aparte del
+      producto: es esta.
+    </p>
+    <p class="nota" style="margin-top:.8rem">
+      <strong>Lo que salió de la sesión 4.</strong> La mediana de dedicación fue de unos
+      <strong>210 minutos</strong>, por encima de las tres horas anunciadas: por eso esta vez son tres
+      preguntas y no cuatro. Y el patrón se confirmó por tercera vez: la pregunta que mandaba a un
+      artículo concreto quedó apoyada en fuente en seis de siete respuestas; la que pedía salir a buscar
+      un dato, en dos de seis. Por eso la pregunta 3 de hoy dice dónde está el dato.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="envoltura">
+    <h2>Qué estudiar antes de responder</h2>
+    <p class="intro">
+      Cada fuente está señalada con la pregunta a la que sirve. De las revisiones basta con el
+      resumen; no hay que leerlas enteras.
+    </p>
+    <ul class="lecturas">
+      <li>
+        <span class="tipo">Primero · material de la sesión</span>
+        <strong>Enfoques diferenciales: domiciliario, institucional y comunitario</strong> — la
+        presentación se publica en la <a href="index.html">guía de la sesión</a> durante esta semana.
+      </li>
+      <li>
+        <span class="tipo">Para la pregunta 1</span>
+        <strong>Ficha de la Resolución 1644 de 2026</strong> —la norma vigente de telesalud—: los
+        municipios con condiciones especiales (art. 32), los acompañantes interculturales (art. 34) y
+        el domicilio como punto de enlace.
+        <a href="../s03-marco-legal-barreras/leyes_construir/resolucion-1644-2026.html#paliativo">Abrir la ficha</a>
+      </li>
+      <li>
+        <span class="tipo">Para la pregunta 2 · en inglés</span>
+        <strong>Gomes B, Calanzani N, Curiale V, McCrone P, Higginson IJ (2013).</strong> «Effectiveness
+        and cost-effectiveness of home palliative care services for adults with advanced illness and
+        their caregivers». <em>Cochrane Database of Systematic Reviews</em>, CD007760. Basta con el
+        resumen y las conclusiones de los autores.
+        <a href="https://doi.org/10.1002/14651858.CD007760.pub2">doi.org/10.1002/14651858.CD007760.pub2</a>
+      </li>
+      <li>
+        <span class="tipo">Para la pregunta 2 · una segunda fuente, la más cercana a su pregunta</span>
+        Tres experiencias colombianas, cada una con su alcance:
+        <strong>Sequeda Ferro et al. (2022)</strong>, indicadores del programa «Cerca de Ti» de una EPS
+        en Bogotá, <em>Medicina Paliativa</em>
+        (<a href="https://doi.org/10.20986/medpal.2022.1285/2021">doi</a>) ·
+        <strong>Rodríguez-Campos et al. (2024)</strong>, costo-utilidad del programa «Contigo» de otra
+        EPS, <em>BMC Palliative Care</em>, en inglés
+        (<a href="https://doi.org/10.1186/s12904-024-01476-6">doi</a>) ·
+        <strong>González-Jaramillo et al. (2025)</strong>, beneficios de las comunidades compasivas
+        en Berna, Buenos Aires y Medellín, <em>Palliative Care and Social Practice</em>, en inglés
+        (<a href="https://doi.org/10.1177/26323524251314899">doi</a>).
+      </li>
+      <li>
+        <span class="tipo">Para la pregunta 3 · en inglés</span>
+        <strong>Gomes B, Calanzani N, Gysels M, Hall S, Higginson IJ (2013).</strong> «Heterogeneity
+        and changes in preferences for dying at home: a systematic review». <em>BMC Palliative
+        Care, 12</em>, 7 —sobre lo que supone usar el lugar de muerte como indicador—.
+        <a href="https://doi.org/10.1186/1472-684X-12-7">doi.org/10.1186/1472-684X-12-7</a>
+        · Y <strong>Seitz et al. (2022)</strong>, lugar de muerte en doce países de América Latina,
+        Colombia incluida, <em>Journal of Global Health, 12</em>, 04031.
+        <a href="https://doi.org/10.7189/jogh.12.04031">doi.org/10.7189/jogh.12.04031</a>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section id="formulario">
+  <div class="envoltura">
+    <h2>Quién entrega</h2>
+    <div class="identidad">
+      <div class="campo">
+        <label for="correo">Correo institucional</label>
+        <p class="pista">El que la maestría tiene registrado. Es su identificación: no hay contraseña.</p>
+        <input type="email" id="correo" autocomplete="email" placeholder="nombre@uan.edu.co">
+      </div>
+      <div class="campo">
+        <label for="nombre">Nombre completo</label>
+        <input type="text" id="nombre" autocomplete="name" placeholder="Apellidos y nombres">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="envoltura">
+    <h2>Las tres preguntas</h2>
+    <p class="intro">
+      Cada una dice dónde buscar. Si busca donde se le indica y no encuentra nada,
+      <strong>eso es una respuesta completa</strong> — cuéntelo así, con lo que buscó y dónde. La
+      ausencia documentada vale igual que el hallazgo.
+    </p>
+
+    <!-- ── P1 ───────────────────────────────────────────────────────── -->
+    <article class="pregunta">
+      <p class="pregunta__n">Pregunta 1 · del ámbito al modelo, y a quién deja fuera</p>
+      <h3>Elija su pregunta y desarme el modelo que pone a prueba</h3>
+      <p class="pregunta__ctx">
+        El programa llama <strong>enfoques diferenciales</strong> a los ámbitos de la atención:
+        domiciliario, institucional y comunitario. En la política colombiana, en cambio, <em>enfoque
+        diferencial</em> es otra cosa: adecuar la atención según etnia, género, discapacidad, curso de
+        vida, ruralidad o condición de víctima. Esta sesión trabaja los dos, porque se cruzan: la
+        pregunta «¿domicilio o institución?» no se responde igual en una capital que en una zona rural
+        dispersa. Las preguntas que salieron en clase el 2 de octubre, ya reformuladas, sirven como
+        punto de partida:
+      </p>
+      <ul style="margin:.2rem 0 1rem;padding-left:1.2rem;font-size:.95rem;line-height:1.55;max-width:62ch">
+        <li>¿Qué requisitos de habilitación cumplen hoy las sedes de primer nivel de un departamento para operar como nodo remisor de telemedicina en cuidado paliativo?</li>
+        <li>¿Cuántos municipios sin servicio de cuidado paliativo tienen una sede habilitada en telemedicina, y a qué tiempo de viaje queda su población?</li>
+        <li>¿Qué barreras reportan los equipos de primer nivel para ofrecer atención paliativa a distancia?</li>
+        <li>En personas con ECOG 3-4 en un programa domiciliario, ¿cambian las hospitalizaciones, las consultas a urgencias o los síntomas con atención a distancia?</li>
+        <li>¿Qué cambia en la conducta del médico general después de una interconsulta a distancia con un especialista en cuidado paliativo?</li>
+        <li>En un programa domiciliario, ¿la atención a distancia se asocia con menos hospitalizaciones no programadas y menor costo?</li>
+      </ul>
+      <p class="pregunta__q">
+        Escriba la pregunta que eligió, <strong>situada: sujeto, lugar y periodo</strong>. Diga en qué
+        ámbito vive el modelo que pone a prueba —domicilio, institución o comunidad— y descríbalo con
+        los siete componentes de la sesión 4, una línea cada uno. Cierre con el enfoque diferencial:
+        <strong>¿a quién deja fuera ese modelo, y de dónde sale que lo deja fuera?</strong>
+      </p>
+      <div class="espera">
+        <strong>Qué hace buena a esta respuesta</strong>
+        <ul>
+          <li>La pregunta tiene sujeto, lugar y periodo. «En Colombia» no es un lugar para esto.</li>
+          <li>Cada componente dice de dónde sale: portafolio, REPS, protocolo o «no está escrito».</li>
+          <li>La población excluida tiene nombre concreto —«quien vive a más de dos horas», «quien no tiene cuidador»—, no «los vulnerables». <strong>Si nadie la ha contado, decirlo es el hallazgo.</strong></li>
+        </ul>
+      </div>
+      <textarea id="p1" data-min="180" placeholder="La pregunta situada, el ámbito, los siete componentes con su fuente, y a quién deja fuera el modelo…"></textarea>
+      <p class="contador" data-para="p1">0 palabras</p>
+    </article>
+
+    <!-- ── P2 ───────────────────────────────────────────────────────── -->
+    <article class="pregunta">
+      <p class="pregunta__n">Pregunta 2 · lectura de fuente en inglés</p>
+      <h3>¿Qué permite afirmar la evidencia sobre su modelo, y qué no?</h3>
+      <p class="pregunta__ctx">
+        La revisión Cochrane de <strong>Gomes y colaboradores (2013)</strong> es la más citada sobre
+        cuidado paliativo domiciliario: 23 estudios y 37 561 participantes. Encontró que recibirlo
+        <strong>aumenta la probabilidad de morir en casa</strong> (OR 2,21; IC 95 % 1,31–3,71), un efecto
+        pequeño pero significativo sobre la carga de síntomas y ninguno sobre el duelo del cuidador.
+        Sobre el costo-efectividad, la evidencia le resultó <em>inconclusive</em>. Y no gradúa la
+        certeza con GRADE, sino con otra escala: vale la pena mirar cuál.
+      </p>
+      <p class="pregunta__q">
+        Lea el resumen de esa revisión y <strong>una segunda fuente</strong>, la más cercana al ámbito
+        de su pregunta —están señaladas arriba—. Responda: ¿qué permite afirmar esa evidencia sobre el
+        modelo que eligió, y <strong>qué no permite afirmar en su territorio</strong>? Incluya una
+        frase literal en inglés, con la sección de donde la tomó.
+      </p>
+      <div class="espera">
+        <strong>Qué hace buena a esta respuesta</strong>
+        <ul>
+          <li>Distingue lo que la fuente demostró de lo que se le suele atribuir.</li>
+          <li>Compara la población de los estudios con la de su territorio, y dice en qué se parecen y en qué no.</li>
+          <li><strong>Si no hay evidencia sobre su modelo en Colombia, documente la búsqueda</strong>: dónde, con qué términos, cuántos resultados. Ese vacío es un hallazgo.</li>
+        </ul>
+      </div>
+      <textarea id="p2" data-min="180" placeholder="Lo que dice cada fuente, la cita en inglés con su sección, y qué no se puede afirmar en su territorio…"></textarea>
+      <p class="contador" data-para="p2">0 palabras</p>
+    </article>
+
+    <!-- ── P3 ───────────────────────────────────────────────────────── -->
+    <article class="pregunta">
+      <p class="pregunta__n">Pregunta 3 · de la afirmación a la pregunta · el método</p>
+      <h3>¿Con qué diseño y con qué dato se respondería su pregunta?</h3>
+      <p class="pregunta__ctx">
+        Comparar ámbitos tiene una trampa: nadie asigna al azar quién se va a casa y quién se queda en
+        el hospital. Quienes reciben atención domiciliaria son distintos de quienes no, y esa diferencia
+        —la <strong>confusión por indicación</strong>— puede producir un resultado que parece efecto
+        del modelo y no lo es. El <strong>lugar de muerte</strong> tiene otra: se usa como indicador de
+        calidad, pero la preferencia por morir en casa no es universal. En los estudios de mejor calidad
+        de la revisión de Gomes y colaboradores (2013) va del 31 % al 87 % entre pacientes. En
+        Colombia, en 2017, el 26,5 % de las muertes ocurrió en casa (Seitz et al., 2022).
+      </p>
+      <p class="pregunta__q">
+        Proponga el <strong>diseño</strong> con que respondería su pregunta y diga por qué ese y no
+        otro. Defina el <strong>desenlace primario</strong> y cómo se mediría. Y diga <strong>dónde
+        está el dato</strong>: historia clínica, RIPS —que desde el 31 de julio registran la modalidad
+        de telemedicina (Res. 1644, art. 37)—, certificados de defunción, o un registro que habría que
+        crear. Búsquelo: ¿existe, y quién lo tiene?
+      </p>
+      <div class="espera">
+        <strong>Qué hace buena a esta respuesta</strong>
+        <ul>
+          <li>El diseño corresponde a la pregunta —describir, comparar o evaluar una implementación— y, si compara ámbitos, se hace cargo de la confusión por indicación.</li>
+          <li>El desenlace se puede medir y dice con qué. Si usa el lugar de muerte, dice qué supone ese indicador.</li>
+          <li><strong>«No existe y nadie lo recoge» es una respuesta completa</strong>, si dice dónde buscó y a quién le preguntó.</li>
+        </ul>
+      </div>
+      <textarea id="p3" data-min="180" placeholder="El diseño y por qué, el desenlace primario y cómo se mide, dónde está el dato y qué encontró al buscarlo…"></textarea>
+      <p class="contador" data-para="p3">0 palabras</p>
+    </article>
+  </div>
+</section>
+
+<section>
+  <div class="envoltura">
+    <h2>Antes de enviar</h2>
+    <div class="identidad" style="margin-bottom:1.3rem">
+      <div class="campo">
+        <label for="ia">Declaración de uso de inteligencia artificial</label>
+        <p class="pista">
+          Qué herramienta usó y para qué: buscar, ordenar ideas, traducir, redactar, nada.
+          <strong>Declararlo suma; una fuente inventada resta.</strong> Verificar lo que se cita
+          es exactamente la competencia que este seminario evalúa.
+        </p>
+        <textarea id="ia" style="min-height:5rem" placeholder="Ej.: usé un asistente para traducir el resumen de la revisión Cochrane y para ordenar el borrador de la P3. Las fuentes las verifiqué una por una en el documento original."></textarea>
+      </div>
+      <div class="campo">
+        <label for="minutos">¿Cuántos minutos le llevó en total?</label>
+        <p class="pista">Sirve para calibrar la carga de las siguientes sesiones. No afecta la nota.</p>
+        <input type="number" id="minutos" min="0" max="1500" step="10" placeholder="150">
+      </div>
+    </div>
+
+    <div class="envio">
+      <h3 style="margin-top:0">Enviar el entregable</h3>
+      <p style="font-size:.92rem;color:var(--gris);margin:0">
+        Puede reenviar cuantas veces quiera hasta el miércoles 14 de octubre a las 23:59. Cada
+        envío reemplaza al anterior y queda registrado como una versión nueva.
+      </p>
+      <div class="botones">
+        <button type="button" id="enviar" class="primario">Enviar</button>
+        <button type="button" id="copiar">Copiar todo</button>
+        <button type="button" id="borrar">Borrar el borrador</button>
+      </div>
+      <div id="resultado" class="estado" style="display:none"></div>
+      <p class="autoguardado" id="autoguardado">Borrador vacío</p>
+
+      <p class="nota" style="margin-top:1.1rem">
+        <strong>Si no tiene conexión.</strong> «Copiar todo» pone el entregable completo en el
+        portapapeles, con sus respuestas y sus datos. Péguelo en un correo a
+        <a href="mailto:jbogoya63@uan.edu.co">jbogoya63@uan.edu.co</a> y cuenta igual. Si la red
+        falla el día del cierre, tiene esa salida y no se queda sin entregar.
+      </p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="envoltura">
+    <p>
+      <strong>Entregable previo · Sesión 5 · Enfoques diferenciales · Producto del segundo corte</strong><br>
+      Seminario de fundamentación en cuidados paliativos · código 32264001 ·
+      Maestría en Cuidados Paliativos · Facultad de Enfermería · Universidad Antonio Nariño · 2026-II
+    </p>
+    <p>
+      Docente: Jorge Wilhem Bogoya López ·
+      <a href="mailto:jbogoya63@uan.edu.co">jbogoya63@uan.edu.co</a> ·
+      <a href="index.html">Guía de la sesión</a>
+    </p>
+    <p class="footer__legal">
+      <strong>Tratamiento de datos.</strong> Se recogen su nombre, su correo institucional y sus
+      respuestas, con la única finalidad de desarrollar y evaluar este espacio académico. Se
+      guardan en una hoja de cálculo privada del docente y no se publican ni se comparten con
+      terceros (Ley 1581 de 2012 y Decreto 1377 de 2013). En clase las respuestas se proyectan
+      <strong>sin nombre ni correo</strong>, identificadas solo por una letra. Puede pedir
+      consulta, corrección o supresión escribiendo al correo del docente.
+    </p>
+  </div>
+</footer>
+
+<script>
+/* ===========================================================================
+   CONFIGURACIÓN — rellenar tras desplegar el Apps Script.
+   Ver scripts/apps-script/INSTALACION.md, pasos 6 y 7.
+
+   Los dos valores son PÚBLICOS POR DISEÑO: viajan dentro de una página
+   pública y solo enrutan la entrega a su sesión. No abren nada: quien no
+   esté en el roster no entra aunque los copie. El token que sí es secreto
+   —el de lectura del tablero— no está en este archivo ni puede estarlo.
+   =========================================================================== */
+var CONFIG = {
+  ENDPOINT: 'https://script.google.com/macros/s/AKfycbw6_slQHCvXK5X-J5y3A7yEPB7BfVVDBgCV9eZ03Cl2dTruJ9WBGbXoophVKnN8Xd2u/exec',
+  TOKEN:    'S05_SEM_CP_2026II_urzebi',
+  SESION:   'S05',
+  CIERRE_LEGIBLE: 'miércoles 14 de octubre, 23:59'
+};
+
+(function () {
+  'use strict';
+
+  var CLAVE = 'SEM_CP_2026II_S05_borrador';
+  var IDS_TEXTO = ['p1', 'p2', 'p3'];
+  var IDS_TODOS = IDS_TEXTO.concat(['correo', 'nombre', 'ia', 'minutos']);
+  var $ = function (id) { return document.getElementById(id); };
+
+  var configurado = CONFIG.ENDPOINT.indexOf('http') === 0 &&
+                    CONFIG.TOKEN.indexOf('PEGAR') !== 0;
+
+  /* ── Borrador local ─────────────────────────────────────────────────
+     Sin esto, media hora de escritura se pierde al cerrar la pestaña.
+     Es también lo que permite trabajar sin conexión.                  */
+  function guardar() {
+    var d = {};
+    IDS_TODOS.forEach(function (id) { var el = $(id); if (el) d[id] = el.value; });
+    try {
+      localStorage.setItem(CLAVE, JSON.stringify({ datos: d, cuando: Date.now() }));
+      var h = new Date().toLocaleTimeString('es-CO', { hour: '2-digit', minute: '2-digit' });
+      $('autoguardado').textContent = 'Borrador guardado en este navegador · ' + h;
+    } catch (err) {
+      $('autoguardado').textContent = 'No se pudo guardar el borrador en este navegador.';
+    }
+  }
+
+  function restaurar() {
+    var crudo;
+    try { crudo = localStorage.getItem(CLAVE); } catch (err) { return; }
+    if (!crudo) return;
+    try {
+      var d = JSON.parse(crudo).datos || {};
+      IDS_TODOS.forEach(function (id) { var el = $(id); if (el && d[id]) el.value = d[id]; });
+      $('autoguardado').textContent = 'Borrador recuperado de este navegador.';
+    } catch (err) { /* borrador ilegible: se ignora */ }
+  }
+
+  /* ── Contadores de palabras ─────────────────────────────────────── */
+  function contar(t) {
+    var limpio = (t || '').trim();
+    return limpio ? limpio.split(/\s+/).length : 0;
+  }
+
+  function actualizarContador(id) {
+    var area = $(id);
+    var salida = document.querySelector('.contador[data-para="' + id + '"]');
+    if (!area || !salida) return;
+    var n = contar(area.value);
+    var min = parseInt(area.getAttribute('data-min'), 10) || 0;
+    salida.textContent = n + (n === 1 ? ' palabra' : ' palabras') +
+      (n < min ? ' · orientativo: ' + min + '+' : '');
+    salida.className = 'contador' + (n === 0 ? '' : n < min ? ' corto' : ' bien');
+  }
+
+  /* ── Estado del plazo ───────────────────────────────────────────── */
+  function pintarEstado(clase, titulo, texto) {
+    var el = $('estado');
+    el.className = 'estado ' + clase;
+    el.innerHTML = '<strong></strong>';
+    el.firstChild.textContent = titulo;
+    el.appendChild(document.createTextNode(' ' + texto));
+  }
+
+  function consultarEstado() {
+    if (!configurado) {
+      pintarEstado('estado--aviso', 'Entregable todavía sin conectar.',
+        'Puede leerlo y escribir; el envío se habilitará cuando el docente publique la conexión. ' +
+        'Mientras tanto, «Copiar todo» funciona.');
+      return;
+    }
+    if (!navigator.onLine) {
+      pintarEstado('estado--aviso', 'Sin conexión.',
+        'Puede leer y escribir con normalidad: el borrador se guarda en este navegador. ' +
+        'Envíelo cuando recupere la red, o use «Copiar todo». Cierra el ' + CONFIG.CIERRE_LEGIBLE + '.');
+      return;
+    }
+    var url = CONFIG.ENDPOINT + '?action=estado&token=' + encodeURIComponent(CONFIG.TOKEN);
+    fetch(url)
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        if (!d.ok) {
+          pintarEstado('estado--malo', 'El servidor no reconoce este entregable.', 'Avísele al docente: ' + (d.error || '') + '.');
+        } else if (d.abierta) {
+          pintarEstado('estado--ok', 'Entrega abierta.', 'Cierra el ' + CONFIG.CIERRE_LEGIBLE + '. Puede reenviar hasta esa hora.');
+        } else if (!d.activa) {
+          pintarEstado('estado--aviso', 'Todavía no está habilitada.', 'El docente la abre unos días antes de la sesión.');
+        } else if (d.apertura && d.ahora && d.ahora < d.apertura) {
+          // Antes de la apertura NO es «fuera de plazo»: es que aún no empieza.
+          // Las dos fechas vienen del servidor como «yyyy-MM-dd HH:mm», así que
+          // se comparan como texto sin ambigüedad de zona horaria.
+          pintarEstado('estado--aviso', 'Todavía no abre.',
+            'La entrega se habilita el ' + d.apertura + ' y cierra el ' + d.cierre +
+            '. Puede ir leyendo y escribiendo desde ya: el borrador se guarda solo.');
+        } else {
+          pintarEstado('estado--malo', 'El plazo se cerró.',
+            'La ventana era ' + (d.apertura || '') + ' – ' + (d.cierre || '') + '. Escríbale al docente.');
+        }
+      })
+      .catch(function () {
+        pintarEstado('estado--aviso', 'No se pudo comprobar el plazo.',
+          'Puede escribir igual: el borrador se guarda aquí. Intente enviar más tarde, o use «Copiar todo».');
+      });
+  }
+
+  /* ── Envío ──────────────────────────────────────────────────────── */
+  function mostrarResultado(clase, titulo, texto) {
+    var el = $('resultado');
+    el.style.display = 'block';
+    el.className = 'estado ' + clase;
+    el.innerHTML = '<strong></strong>';
+    el.firstChild.textContent = titulo;
+    el.appendChild(document.createTextNode(' ' + texto));
+  }
+
+  var ERRORES = {
+    token_invalido:       'El entregable no está bien conectado. Avísele al docente.',
+    sesion_cerrada:       'La entrega de esta sesión no está habilitada.',
+    aun_no_abre:          'La entrega todavía no abre.',
+    plazo_vencido:        'El plazo se cerró. Escríbale al docente.',
+    correo_no_reconocido: 'Ese correo no aparece en la lista del curso. Revise que sea el institucional registrado; si está bien, avísele al docente.',
+    sin_respuestas:       'No se envió ninguna respuesta.',
+    ocupado:              'El servidor estaba ocupado. Vuelva a intentarlo.'
+  };
+
+  function enviar() {
+    var correo = $('correo').value.trim();
+    var nombre = $('nombre').value.trim();
+
+    if (!correo || correo.indexOf('@') < 1) { mostrarResultado('estado--malo', 'Falta el correo.', 'Escriba su correo institucional arriba.'); $('correo').focus(); return; }
+    if (!nombre)                            { mostrarResultado('estado--malo', 'Falta el nombre.', 'Escriba su nombre completo arriba.'); $('nombre').focus(); return; }
+
+    var vacias = IDS_TEXTO.filter(function (id) { return !contar($(id).value); });
+    if (vacias.length === IDS_TEXTO.length) { mostrarResultado('estado--malo', 'Está todo vacío.', 'Responda al menos una pregunta antes de enviar.'); return; }
+    if (vacias.length && !confirm('Quedan ' + vacias.length + ' pregunta(s) sin responder (' + vacias.join(', ') + ').\n\n¿Enviar de todas formas? Podrá reenviar hasta el cierre.')) return;
+
+    if (!configurado) { mostrarResultado('estado--aviso', 'El envío no está conectado todavía.', 'Use «Copiar todo» y mándelo por correo.'); return; }
+
+    var respuestas = {};
+    IDS_TEXTO.forEach(function (id) { respuestas[id] = $(id).value.trim(); });
+
+    var boton = $('enviar');
+    boton.disabled = true;
+    boton.textContent = 'Enviando…';
+    mostrarResultado('estado', 'Enviando…', 'No cierre la página.');
+
+    fetch(CONFIG.ENDPOINT, {
+      method: 'POST',
+      // text/plain evita la petición CORS de comprobación previa, que
+      // Apps Script no responde. El servidor lo parsea como JSON igual.
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify({
+        token: CONFIG.TOKEN,
+        sesion: CONFIG.SESION,
+        correo: correo,
+        nombre: nombre,
+        minutos: $('minutos').value,
+        declaracionIA: $('ia').value.trim(),
+        respuestas: respuestas
+      })
+    })
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        if (d.ok) {
+          mostrarResultado('estado--ok',
+            d.version > 1 ? 'Entrega actualizada (versión ' + d.version + ').' : 'Entrega registrada.',
+            'Quedó a nombre de ' + d.nombre + '. En clase aparecerá como «' + d.seudonimo +
+            '», sin su nombre. Puede seguir corrigiendo y reenviar hasta el cierre.');
+        } else {
+          mostrarResultado('estado--malo', 'No se pudo registrar.',
+            ERRORES[d.error] || ('Error: ' + (d.error || 'desconocido') + '.'));
+        }
+      })
+      .catch(function () {
+        mostrarResultado('estado--malo', 'No se pudo conectar.',
+          'Su borrador está guardado aquí. Intente de nuevo, o use «Copiar todo» y mándelo por correo.');
+      })
+      .finally(function () {
+        boton.disabled = false;
+        boton.textContent = 'Enviar';
+      });
+  }
+
+  /* ── Copiar todo · salida de emergencia sin conexión ────────────── */
+  function textoPlano() {
+    var l = [];
+    l.push('ENTREGABLE PREVIO · SESIÓN 5 · Enfoques diferenciales · Producto del segundo corte');
+    l.push('Seminario de fundamentación en cuidados paliativos · 32264001 · UAN · 2026-II');
+    l.push('');
+    l.push('Nombre: ' + $('nombre').value.trim());
+    l.push('Correo: ' + $('correo').value.trim());
+    l.push('Minutos dedicados: ' + ($('minutos').value || '—'));
+    l.push('');
+    var titulos = {
+      p1: 'P1 · Elija su pregunta y desarme el modelo que pone a prueba (ámbito y enfoque diferencial)',
+      p2: 'P2 · ¿Qué permite afirmar la evidencia sobre su modelo, y qué no? (fuente en inglés)',
+      p3: 'P3 · ¿Con qué diseño y con qué dato se respondería su pregunta?'
+    };
+    IDS_TEXTO.forEach(function (id) {
+      l.push('─────────────────────────────────────────────');
+      l.push(titulos[id]);
+      l.push('');
+      l.push($(id).value.trim() || '(sin responder)');
+      l.push('');
+    });
+    l.push('─────────────────────────────────────────────');
+    l.push('Declaración de uso de IA:');
+    l.push($('ia').value.trim() || '(sin declarar)');
+    return l.join('\n');
+  }
+
+  function copiar() {
+    var texto = textoPlano();
+    var listo = function () {
+      mostrarResultado('estado--ok', 'Copiado.',
+        'Péguelo en un correo a jbogoya63@uan.edu.co y cuenta como entrega.');
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(texto).then(listo, respaldoCopiar);
+    } else {
+      respaldoCopiar();
+    }
+    function respaldoCopiar() {
+      // Sin API de portapapeles (o sin permiso): se selecciona para copiar a mano.
+      var ta = document.createElement('textarea');
+      ta.value = texto;
+      ta.style.position = 'fixed';
+      ta.style.top = '-1000px';
+      document.body.appendChild(ta);
+      ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (err) { ok = false; }
+      document.body.removeChild(ta);
+      ok ? listo() : mostrarResultado('estado--aviso', 'No se pudo copiar solo.',
+        'Seleccione sus respuestas con el ratón y cópielas a mano.');
+    }
+  }
+
+  /* ── Arranque ───────────────────────────────────────────────────── */
+  restaurar();
+  IDS_TEXTO.forEach(actualizarContador);
+
+  IDS_TODOS.forEach(function (id) {
+    var el = $(id);
+    if (!el) return;
+    el.addEventListener('input', function () {
+      if (IDS_TEXTO.indexOf(id) !== -1) actualizarContador(id);
+      clearTimeout(el._t);
+      el._t = setTimeout(guardar, 700);
+    });
+  });
+
+  $('enviar').addEventListener('click', enviar);
+  $('copiar').addEventListener('click', copiar);
+  $('borrar').addEventListener('click', function () {
+    if (!confirm('Esto borra el borrador guardado en este navegador y vacía el formulario.\n\nSi ya envió, la entrega registrada NO se borra.')) return;
+    try { localStorage.removeItem(CLAVE); } catch (err) { /* nada que borrar */ }
+    IDS_TODOS.forEach(function (id) { var el = $(id); if (el) el.value = ''; });
+    IDS_TEXTO.forEach(actualizarContador);
+    $('autoguardado').textContent = 'Borrador vacío';
+    mostrarResultado('estado', 'Borrador borrado.', 'El formulario quedó en blanco.');
+  });
+
+  window.addEventListener('online', consultarEstado);
+  window.addEventListener('offline', consultarEstado);
+  consultarEstado();
+})();
+</script>
+</html>
