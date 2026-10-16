@@ -1,0 +1,568 @@
+<!doctype html>
+<html lang="es">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Simulador docente HexCom — Seminario de fundamentación en CP</title>
+<meta name="description" content="Simulador docente de la sesión 5: aplica la regla de agregación publicada del modelo HexCom de complejidad en atención paliativa domiciliaria a casos ficticios. No es el instrumento clínico.">
+
+<!-- ===========================================================================
+     SIMULADOR DOCENTE · HexCom · SESIÓN 5
+
+     QUÉ ES Y QUÉ NO. Un modelo de enseñanza construido SOLO con lo que publican
+     los artículos de acceso abierto del modelo HexCom:
+       · las 6 áreas de necesidad y sus 18 subáreas (Busquet-Duran et al.,
+         2020, tabla 2) — los nombres en español son traducción del curso;
+       · los 3 niveles (alta = refractaria, media = difícil, baja = sin
+         complejidad) y la opción «no evaluable»;
+       · la regla de agregación: el área toma el nivel más alto de sus
+         subáreas; el global, el más alto de las áreas;
+       · el puntaje ordinal H×100 + M×10 + L×1 (NA excluido), 2020, métodos.
+     NO incluye los descriptores de cada nivel de los formularios originales
+     (material suplementario de Busquet-Duran et al., 2021). HexCom-Red® y
+     HexCom-Clin® son marcas registradas; para uso clínico, el formulario de
+     los autores. Decisión del docente, 15 de octubre de 2026.
+
+     Los casos son ficticios y generalizados (regla 2): describen patrones, no
+     personas. La página no guarda ni envía nada: sin localStorage, sin red.
+
+     Portabilidad: tokens en línea, JavaScript en línea, cero recursos externos.
+     =========================================================================== -->
+
+<style>
+/* --- tokens.css en línea · FUENTE CANÓNICA: _shared/tokens.css ------------ */
+:root{
+  --bosque:#2F5D50;    --bosque-dark:#234639;    --bosque-deep:#17302A;  --bosque-soft:#D6E3DD;
+  --arcilla:#C4714F;   --arcilla-dark:#A2563A;   --arcilla-deep:#6F3823; --arcilla-soft:#F3DCD1;
+  --malva:#7A5C8A;     --malva-dark:#5F4570;     --malva-deep:#402C4D;   --malva-soft:#E4DAEA;
+  --piedra:#8A8578;    --piedra-dark:#6B6659;    --piedra-deep:#4E4A40;  --piedra-soft:#EFEBE3;
+  --pizarra:#22282A;   --gris:#565E5C;           --gris-claro:#9AA09D;
+  --blanco:#FFFFFF;    --lino:#FAF8F4;
+  --shadow-soft:0 2px 8px rgba(34,40,42,.07);
+  --radius:14px; --radius-sm:9px;
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif;
+  --mono:'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace;
+  --serif:Georgia,'Times New Roman',serif;
+
+  --acento:var(--arcilla); --acento-dark:var(--arcilla-deep); --acento-soft:var(--arcilla-soft);
+
+  /* Niveles: tonos de la misma unidad, más oscuro = más complejo. */
+  --nivel-b:var(--piedra-soft); --nivel-m:var(--arcilla-soft); --nivel-a:var(--arcilla);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;font-family:var(--sans);color:var(--pizarra);background:var(--lino);line-height:1.55}
+:focus-visible{outline:3px solid var(--acento);outline-offset:2px}
+a{color:var(--acento-dark)}
+.envoltura{max-width:68rem;margin:0 auto;padding:0 clamp(1rem,4vw,2.5rem)}
+.saltar{position:absolute;left:-999px;top:0;background:var(--pizarra);color:var(--blanco);padding:.6rem 1rem;z-index:10}
+.saltar:focus{left:0}
+
+.cabecera{background:var(--blanco);border-bottom:4px solid var(--acento);padding:clamp(1.4rem,4vw,2.4rem) 0}
+.migas{font-size:.85rem;color:var(--gris);margin:0 0 1rem}
+.eyebrow{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--acento-dark);margin:0 0 .45rem}
+h1{font-size:clamp(1.6rem,4.6vw,2.3rem);line-height:1.15;margin:0 0 .7rem;color:var(--acento-dark)}
+.sub{font-family:var(--serif);font-size:1.05rem;color:var(--gris);max-width:64ch;margin:0}
+.aviso{margin:1.1rem 0 0;background:var(--piedra-soft);border-left:4px solid var(--piedra-deep);border-radius:var(--radius-sm);padding:.75rem 1rem;font-size:.92rem;max-width:68ch}
+
+main{padding:clamp(1.4rem,4vw,2.4rem) 0 3rem}
+h2{font-size:1.25rem;margin:0 0 .6rem;color:var(--acento-dark)}
+h3{font-size:1rem;margin:0 0 .4rem}
+p{max-width:68ch}
+
+.panel{background:var(--blanco);border-radius:var(--radius);box-shadow:var(--shadow-soft);padding:1.1rem 1.25rem;margin-bottom:1.2rem}
+
+/* --- Casos ----------------------------------------------------------------- */
+.casos{display:flex;flex-wrap:wrap;gap:.5rem;margin:.2rem 0 .9rem}
+.boton{font:inherit;font-size:.9rem;border:1.5px solid var(--acento);background:var(--blanco);color:var(--acento-dark);border-radius:999px;padding:.4rem .95rem;cursor:pointer}
+.boton[aria-pressed="true"]{background:var(--acento);color:var(--blanco)}
+.boton--sec{border-color:var(--piedra);color:var(--piedra-deep)}
+.vineta{font-family:var(--serif);font-size:1.02rem;border-left:4px solid var(--acento);padding:.2rem 0 .2rem 1rem;margin:0;max-width:70ch}
+.vineta p{margin:.4rem 0}
+.yasi{font-size:.92rem;color:var(--gris);margin-top:.7rem}
+
+/* --- Diseño en dos columnas ------------------------------------------------ */
+.rejilla{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:1.2rem;align-items:start}
+@media (max-width:860px){.rejilla{grid-template-columns:1fr}}
+.pegado{position:sticky;top:1rem}
+@media (max-width:860px){.pegado{position:static}}
+
+/* --- Modo ------------------------------------------------------------------ */
+.modo{display:flex;flex-wrap:wrap;gap:.4rem 1rem;align-items:center;font-size:.92rem;margin-bottom:.8rem}
+.modo fieldset{border:0;padding:0;margin:0;display:flex;gap:.4rem;flex-wrap:wrap}
+.modo legend{font-weight:700;margin-right:.4rem;float:left;padding-top:.3rem}
+
+/* --- Áreas ----------------------------------------------------------------- */
+.area{border:1px solid var(--piedra-soft);border-radius:var(--radius-sm);margin-bottom:.8rem;overflow:hidden}
+.area__cab{display:flex;justify-content:space-between;align-items:center;gap:.6rem;padding:.55rem .8rem;background:var(--lino)}
+.area__nombre{font-weight:700}
+.area__nivel{font:700 .8rem var(--mono);padding:.15rem .55rem;border-radius:999px;background:var(--blanco);border:1px solid var(--piedra-soft);white-space:nowrap}
+.area__nivel[data-n="B"]{background:var(--nivel-b)}
+.area__nivel[data-n="M"]{background:var(--nivel-m);color:var(--arcilla-deep)}
+.area__nivel[data-n="A"]{background:var(--nivel-a);color:var(--blanco);border-color:var(--nivel-a)}
+.fila{display:grid;grid-template-columns:minmax(8rem,1fr) auto;gap:.4rem .8rem;align-items:center;padding:.45rem .8rem;border-top:1px solid var(--piedra-soft)}
+@media (max-width:520px){.fila{grid-template-columns:1fr}}
+.fila__et{font-size:.92rem}
+.fila__et small{display:block;color:var(--gris);font-size:.78rem}
+.niveles{display:flex;gap:.25rem;border:0;padding:0;margin:0}
+.niveles legend{position:absolute;left:-999px}
+.niveles label{position:relative}
+.niveles input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.niveles span{display:inline-block;min-width:2.4rem;text-align:center;font:700 .8rem var(--mono);padding:.32rem .45rem;border:1.5px solid var(--piedra-soft);border-radius:var(--radius-sm);background:var(--blanco);color:var(--gris)}
+.niveles input:focus-visible + span{outline:3px solid var(--acento);outline-offset:2px}
+.niveles input:checked + span{border-color:var(--pizarra);color:var(--pizarra)}
+.niveles input[value="B"]:checked + span{background:var(--nivel-b)}
+.niveles input[value="M"]:checked + span{background:var(--nivel-m);color:var(--arcilla-deep);border-color:var(--arcilla-dark)}
+.niveles input[value="A"]:checked + span{background:var(--nivel-a);color:var(--blanco);border-color:var(--arcilla-deep)}
+.niveles input[value="N"]:checked + span{background:var(--blanco);border-style:dashed}
+
+/* --- Resultado ------------------------------------------------------------- */
+.global{display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap;margin:.2rem 0 .3rem}
+.global__nivel{font-size:1.7rem;font-weight:800;color:var(--acento-dark)}
+.puntaje{font:700 1.5rem var(--mono)}
+.explica{font-size:.9rem;color:var(--gris);margin:.2rem 0 .8rem}
+.hexagono{display:block;width:100%;max-width:380px;margin:.4rem auto}
+.hexagono text{font-family:var(--sans)}
+.leyenda{display:flex;flex-wrap:wrap;gap:.3rem .9rem;font-size:.8rem;color:var(--gris);justify-content:center;margin:.2rem 0 .8rem}
+.leyenda i{display:inline-block;width:.9rem;height:.9rem;border-radius:3px;vertical-align:-.15rem;margin-right:.3rem;border:1px solid var(--piedra)}
+.preguntas{font-size:.93rem;padding-left:1.1rem;margin:.4rem 0 0}
+.preguntas li{margin-bottom:.45rem}
+
+.recursos{display:grid;grid-template-columns:1fr 1fr;gap:.35rem .8rem;font-size:.92rem;margin:.5rem 0}
+@media (max-width:520px){.recursos{grid-template-columns:1fr}}
+.recursos label{display:flex;gap:.45rem;align-items:flex-start}
+
+table{border-collapse:collapse;width:100%;font-size:.86rem}
+th,td{text-align:left;padding:.4rem .55rem;border-bottom:1px solid var(--piedra-soft)}
+th{background:var(--acento-soft);color:var(--acento-dark);font-size:.78rem}
+td.num{font-family:var(--mono);text-align:right}
+.tabla{overflow-x:auto}
+.fuente{font-size:.8rem;color:var(--gris);margin:.5rem 0 0}
+
+footer{border-top:1px solid var(--piedra-soft);background:var(--blanco);padding:1.6rem 0;font-size:.86rem;color:var(--gris)}
+
+@media print{
+  .saltar,.casos,.modo,.boton{display:none}
+  body{background:var(--blanco)}
+  .panel{box-shadow:none;border:1px solid var(--piedra-soft)}
+  .rejilla{grid-template-columns:1fr}
+  .pegado{position:static}
+}
+</style>
+
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+
+<header class="cabecera">
+  <div class="envoltura">
+    <p class="migas">
+      <a href="../../index.html">Seminario de fundamentación en CP</a> ·
+      <a href="index.html">Sesión 5</a> · Simulador docente
+    </p>
+    <p class="eyebrow">Sesión 5 · Domicilio · Complejidad</p>
+    <h1>Simulador docente HexCom</h1>
+    <p class="sub">
+      HexCom no suma puntos: un equipo discute el caso y decide, área por área, si la situación
+      es de complejidad baja, media o alta. Lo que sí tiene una regla es cómo se juntan esas
+      decisiones. Este simulador aplica esa regla a casos ficticios, para ver qué empuja la
+      complejidad de la atención en casa.
+    </p>
+    <p class="aviso">
+      <strong>Modelo de enseñanza, no instrumento clínico.</strong> Usa solo la estructura que
+      publican los artículos —áreas, subáreas, niveles y regla de agregación—, sin los descriptores
+      de los formularios originales. No está validado en Colombia. Para uso clínico, el formulario de
+      los autores (HexCom-Red® y HexCom-Clin® son marcas registradas). Esta página no guarda ni envía
+      nada.
+    </p>
+  </div>
+</header>
+
+<main id="contenido">
+  <div class="envoltura">
+
+    <section class="panel" aria-labelledby="h-caso">
+      <h2 id="h-caso">1 · Elija un caso</h2>
+      <div class="casos" role="group" aria-label="Casos">
+        <button type="button" class="boton" data-caso="0" aria-pressed="false">Caso 1 · zona rural dispersa</button>
+        <button type="button" class="boton" data-caso="1" aria-pressed="false">Caso 2 · ciudad, familia joven</button>
+        <button type="button" class="boton" data-caso="2" aria-pressed="false">Caso 3 · territorio étnico</button>
+        <button type="button" class="boton" data-caso="3" aria-pressed="false">Caso del grupo</button>
+      </div>
+      <div id="vineta" class="vineta" aria-live="polite">
+        <p>Elija uno de los tres casos ficticios, o «caso del grupo» para trabajar uno que construyan en el taller.</p>
+      </div>
+    </section>
+
+    <div class="rejilla">
+      <section class="panel" aria-labelledby="h-valorar">
+        <h2 id="h-valorar">2 · Valore las necesidades</h2>
+        <div class="modo">
+          <fieldset>
+            <legend>Detalle:</legend>
+            <button type="button" class="boton boton--sec" id="modoArea" aria-pressed="true">6 áreas</button>
+            <button type="button" class="boton boton--sec" id="modoSub" aria-pressed="false">18 subáreas</button>
+          </fieldset>
+          <button type="button" class="boton boton--sec" id="reiniciar">Borrar valoración</button>
+        </div>
+        <p style="font-size:.88rem;color:var(--gris);margin:0 0 .8rem">
+          <strong>B</strong> baja: sin complejidad · <strong>M</strong> media: situación difícil ·
+          <strong>A</strong> alta: situación refractaria, en la que hay sufrimiento ·
+          <strong>N</strong> no evaluable. En «18 subáreas», cada área toma el nivel más alto de las suyas.
+        </p>
+        <div id="areas"></div>
+
+        <h3 style="margin-top:1.1rem">Recursos y fortalezas que sostienen la situación</h3>
+        <p style="font-size:.88rem;color:var(--gris);margin:0">
+          No entran en el puntaje. En el modelo, el equipo los pone frente a las necesidades y decide si
+          compensan: es un juicio, no una resta. Los cuatro dominios son los del artículo de 2020; el de
+          2021 los reemplazó por cinco sistemas de fortaleza.
+        </p>
+        <div class="recursos" id="recursos">
+          <label><input type="checkbox" value="intrapersonal"> <span><strong>Intrapersonales</strong> · personalidad resistente, capacidad de decidir, control emocional</span></label>
+          <label><input type="checkbox" value="interpersonal"> <span><strong>Interpersonales</strong> · sentirse querido, relaciones positivas, familia que cuida</span></label>
+          <label><input type="checkbox" value="transpersonal"> <span><strong>Transpersonales</strong> · confianza en el futuro, vivir el presente, religiosidad y ritos</span></label>
+          <label><input type="checkbox" value="practico"> <span><strong>Prácticos</strong> · capacidad de organizarse y de entretenerse</span></label>
+        </div>
+      </section>
+
+      <section class="panel pegado" aria-labelledby="h-resultado">
+        <h2 id="h-resultado">3 · Resultado</h2>
+        <div class="global">
+          <span>Complejidad global:</span>
+          <span class="global__nivel" id="global">—</span>
+        </div>
+        <div class="global">
+          <span>Puntaje:</span>
+          <span class="puntaje" id="puntaje">—</span>
+        </div>
+        <p class="explica" id="explica" aria-live="polite">Valore al menos un área.</p>
+
+        <svg class="hexagono" id="hex" viewBox="-110 -30 520 360" role="img" aria-labelledby="hexTitulo">
+          <title id="hexTitulo">Hexágono con las seis áreas de necesidad, coloreadas según el nivel asignado</title>
+        </svg>
+        <p class="leyenda" aria-hidden="true">
+          <span><i style="background:var(--blanco);border-style:dashed"></i>sin valorar / N</span>
+          <span><i style="background:var(--nivel-b)"></i>baja</span>
+          <span><i style="background:var(--nivel-m)"></i>media</span>
+          <span><i style="background:var(--nivel-a)"></i>alta</span>
+        </p>
+
+        <h3>Para discutir</h3>
+        <ul class="preguntas" id="preguntas">
+          <li>¿Qué área decide el nivel global? Con la regla del máximo, basta una.</li>
+          <li>Esa área, ¿la resuelve un equipo clínico, o un trabajador social, un intérprete, una red comunitaria?</li>
+          <li>¿Cuánto de lo que marcó como «N» es en realidad algo que nadie preguntó?</li>
+        </ul>
+      </section>
+    </div>
+
+    <section class="panel" aria-labelledby="h-regla">
+      <h2 id="h-regla">Cómo calcula, y qué no significa el número</h2>
+      <ul>
+        <li><strong>Nivel de cada área:</strong> el más alto de sus subáreas. Una sola subárea en alta pone el área en alta.</li>
+        <li><strong>Nivel global:</strong> el más alto de las seis áreas.</li>
+        <li><strong>Puntaje:</strong> número de áreas en alta × 100 + en media × 10 + en baja × 1; las «no evaluables» no cuentan. Un <span style="font-family:var(--mono)">231</span> quiere decir dos áreas en alta, tres en media y una en baja.</li>
+      </ul>
+      <p>
+        <strong>El puntaje es ordinal, no una medida.</strong> Cada cifra cuenta áreas de un nivel: un 102
+        no es «el doble de complejo» que un 51, y no tiene sentido promediarlo como si fuera una escala
+        continua. Los autores lo usaron para ordenar a las personas y comparar grupos con medianas.
+      </p>
+      <p>
+        <strong>«No evaluable» no es «baja».</strong> En el estudio de 2020, el área clínica casi nunca
+        quedó sin valorar, pero las subáreas espirituales quedaron sin valorar entre el 22,6 % y el 35,5 %
+        de las veces. Los autores lo atribuyen en parte a la dificultad de los equipos para detectar esas
+        necesidades.
+      </p>
+    </section>
+
+    <section class="panel" aria-labelledby="h-referencia">
+      <h2 id="h-referencia">Para comparar: 832 personas atendidas en casa en Cataluña</h2>
+      <div class="tabla">
+        <table>
+          <caption class="fuente" style="caption-side:bottom;text-align:left">Busquet-Duran et al. (2020), tabla 2. 43 equipos de soporte domiciliario. Porcentajes sobre las personas valoradas en cada área.</caption>
+          <thead><tr><th scope="col">Área</th><th scope="col">Baja</th><th scope="col">Media</th><th scope="col">Alta</th></tr></thead>
+          <tbody>
+            <tr><td>Clínica</td><td class="num">36,3 %</td><td class="num">47,3 %</td><td class="num">16,5 %</td></tr>
+            <tr><td>Psicoemocional</td><td class="num">52,3 %</td><td class="num">35,2 %</td><td class="num">12,5 %</td></tr>
+            <tr><td>Espiritual</td><td class="num">68,7 %</td><td class="num">23,4 %</td><td class="num">7,9 %</td></tr>
+            <tr><td><strong>Sociofamiliar</strong></td><td class="num">31,4 %</td><td class="num">44,4 %</td><td class="num"><strong>24,2 %</strong></td></tr>
+            <tr><td>Ética</td><td class="num">70,4 %</td><td class="num">21,5 %</td><td class="num">8,1 %</td></tr>
+            <tr><td>Relacionada con la muerte</td><td class="num">42,2 %</td><td class="num">36,7 %</td><td class="num">21,1 %</td></tr>
+            <tr><td><strong>Global</strong></td><td class="num">10,6 %</td><td class="num">47,0 %</td><td class="num"><strong>42,4 %</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:.9rem">
+        La subárea con más complejidad alta fue el <strong>lugar de muerte</strong> (22,2 %). Es el puente
+        con la <a href="lectura-lugar-de-muerte.html">lectura guiada sobre el lugar de muerte</a>: decidir
+        dónde morir es, en casa, una de las situaciones más difíciles de sostener.
+      </p>
+      <p>
+        <strong>Ojo al compararse.</strong> Cataluña tiene equipos de soporte domiciliario con trabajo
+        social y psicología. Una complejidad «media» allí puede ser «alta» donde el equipo es una
+        enfermera que visita cada quince días: la complejidad, en este modelo, es la distancia entre lo
+        que se necesita y lo que el servicio puede dar.
+      </p>
+    </section>
+
+    <section class="panel" aria-labelledby="h-fuentes">
+      <h2 id="h-fuentes">Fuentes</h2>
+      <ul style="font-size:.9rem">
+        <li>Busquet-Duran, X., et al. (2020). Describing complexity in palliative home care through HexCom: A cross-sectional, multicenter study. <em>Journal of Multidisciplinary Healthcare, 13</em>, 297–308. <a href="https://doi.org/10.2147/JMDH.S240835">https://doi.org/10.2147/JMDH.S240835</a> — áreas, subáreas, regla de agregación, puntaje y datos de referencia.</li>
+        <li>Busquet-Duran, X., et al. (2021). Assessing face validity of the HexCom model for capturing complexity in clinical practice: A Delphi study. <em>Healthcare, 9</em>(2), 165. <a href="https://doi.org/10.3390/healthcare9020165">https://doi.org/10.3390/healthcare9020165</a> — versiones del instrumento y formularios originales en su material suplementario.</li>
+        <li>Busquet-Duran, X., et al. (2022). Intra-rater reliability and feasibility of the HexCom advanced disease complexity assessment model. <em>Atención Primaria, 54</em>(6), 102343. <a href="https://doi.org/10.1016/j.aprim.2022.102343">https://doi.org/10.1016/j.aprim.2022.102343</a> — fiabilidad y tiempo de respuesta de HexCom-Red y HexCom-Clin.</li>
+      </ul>
+      <p class="fuente">Los nombres de áreas y subáreas en español son traducción del curso, no una versión validada.</p>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="envoltura">
+    <p>
+      <strong>Seminario de fundamentación en cuidados paliativos</strong> · código 32264001 ·
+      Maestría en Cuidados Paliativos · Universidad Antonio Nariño · 2026-II ·
+      <a href="index.html">Guía de la sesión 5</a> · <a href="clase.html">Presentación</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  // Áreas y subáreas: Busquet-Duran et al. (2020), tabla 2. Traducción del curso.
+  var AREAS = [
+    { id: 'cli', nombre: 'Clínica', corto: 'Clínica', subs: [
+      ['Física', 'síntomas'], ['Terapéutica', 'tratamientos y su manejo'] ] },
+    { id: 'psi', nombre: 'Psicoemocional', corto: 'Psicoemocional', subs: [
+      ['Personalidad', ''], ['Emocional', 'de la persona'] ] },
+    { id: 'esp', nombre: 'Espiritual', corto: 'Espiritual', subs: [
+      ['Sentido', ''], ['Conexión', ''], ['Trascendencia', ''] ] },
+    { id: 'soc', nombre: 'Sociofamiliar', corto: 'Sociofamiliar', subs: [
+      ['Relaciones', ''], ['Emocional', 'de la familia'], ['Práctica', 'cuidado diario'],
+      ['Apoyo externo', ''], ['Económica', ''] ] },
+    { id: 'eti', nombre: 'Ética', corto: 'Ética', subs: [
+      ['Información', ''], ['Adecuación del esfuerzo terapéutico', ''], ['Deseo de adelantar la muerte', ''] ] },
+    { id: 'mue', nombre: 'Relacionada con la muerte', corto: 'Muerte', subs: [
+      ['Lugar', 'dónde morir'], ['Situación de los últimos días', ''], ['Duelo', ''] ] }
+  ];
+
+  var CASOS = [
+    { titulo: 'Caso 1 · zona rural dispersa',
+      texto: ['Mujer de 78 años con insuficiencia cardiaca avanzada. Vive con su esposo, de 82, en una vereda a tres horas de la cabecera municipal; la señal de celular llega a ratos. La falta de aire mejora con el tratamiento, pero no del todo, y empeora de noche.',
+              'El esposo ya no puede movilizarla solo. Los hijos viven en la ciudad. Ella ha dicho que quiere quedarse en su casa; la familia pregunta si no sería mejor llevarla al hospital «para que no haya problemas con el certificado».'],
+      yasi: '¿Y si uno de los hijos se mudara a la vereda? ¿Qué áreas bajarían, y cuáles no?' },
+    { titulo: 'Caso 2 · ciudad, familia joven',
+      texto: ['Hombre de 54 años con cáncer de páncreas avanzado, atendido por un programa domiciliario en una capital. El dolor no cede del todo pese a varios ajustes. Tiene dos hijos adolescentes; perdió el empleo y con él el principal ingreso del hogar.',
+              'En la última visita pidió, con calma, que «esto se acabe pronto». Su pareja no quiere que se hable de eso delante de los hijos, y los hijos no saben qué tan avanzada está la enfermedad.'],
+      yasi: '¿Y si el dolor se controlara? ¿Bajaría la complejidad global, o la sostendría otra área?' },
+    { titulo: 'Caso 3 · territorio étnico',
+      texto: ['Mujer de 67 años de una comunidad étnica, con cáncer avanzado, que regresó a su territorio después de un tratamiento en la ciudad. Quiere morir allí. Habla poco español; las decisiones se toman con su familia y con un sabedor tradicional.',
+              'El equipo de salud atiende por teleconsulta desde el hospital departamental y solo habla español. Nadie del equipo sabe qué espera ella de los últimos días ni qué rituales importan para su familia.'],
+      yasi: '¿Y si hubiera un acompañante intercultural en la consulta, como prevé la Res. 1644 (art. 34)? ¿Qué subáreas cambiarían?' },
+    { titulo: 'Caso del grupo',
+      texto: ['Construyan un caso en el taller a partir de un patrón que conozcan en su territorio, sin datos que permitan reconocer a nadie: ni nombres, ni lugares exactos, ni fechas.',
+              'Valórenlo primero cada quien por su cuenta y después comparen: ¿en qué áreas no coinciden, y por qué?'],
+      yasi: 'Si dos personas valoran distinto la misma área, ¿qué dato les falta para ponerse de acuerdo?' }
+  ];
+
+  var ORDEN = { N: 0, B: 1, M: 2, A: 3 };
+  var NOMBRE = { B: 'baja', M: 'media', A: 'alta', N: 'no evaluable' };
+  var modo = 'area';
+  var estado = {}; // estado['cli'] = 'M' (modo área) · estado['cli.0'] = 'A' (modo subárea)
+
+  var elAreas = document.getElementById('areas');
+
+  function grupoNiveles(nombreGrupo, etiqueta) {
+    var fs = document.createElement('fieldset');
+    fs.className = 'niveles';
+    var lg = document.createElement('legend');
+    lg.textContent = etiqueta;
+    fs.appendChild(lg);
+    ['B', 'M', 'A', 'N'].forEach(function (v) {
+      var lb = document.createElement('label');
+      var inp = document.createElement('input');
+      inp.type = 'radio'; inp.name = nombreGrupo; inp.value = v;
+      inp.setAttribute('aria-label', etiqueta + ': ' + NOMBRE[v]);
+      if (estado[nombreGrupo] === v) inp.checked = true;
+      inp.addEventListener('change', function () { estado[nombreGrupo] = v; calcular(); });
+      var sp = document.createElement('span');
+      sp.textContent = v;
+      sp.title = NOMBRE[v];
+      lb.appendChild(inp); lb.appendChild(sp);
+      fs.appendChild(lb);
+    });
+    return fs;
+  }
+
+  function dibujarAreas() {
+    elAreas.innerHTML = '';
+    AREAS.forEach(function (a) {
+      var caja = document.createElement('div');
+      caja.className = 'area';
+      var cab = document.createElement('div');
+      cab.className = 'area__cab';
+      var nom = document.createElement('span');
+      nom.className = 'area__nombre'; nom.textContent = a.nombre;
+      cab.appendChild(nom);
+      if (modo === 'area') {
+        cab.appendChild(grupoNiveles(a.id, a.nombre));
+      } else {
+        var niv = document.createElement('span');
+        niv.className = 'area__nivel'; niv.id = 'nivel-' + a.id; niv.textContent = '—';
+        cab.appendChild(niv);
+      }
+      caja.appendChild(cab);
+      if (modo === 'sub') {
+        a.subs.forEach(function (s, k) {
+          var fila = document.createElement('div');
+          fila.className = 'fila';
+          var et = document.createElement('span');
+          et.className = 'fila__et';
+          et.textContent = s[0];
+          if (s[1]) { var sm = document.createElement('small'); sm.textContent = s[1]; et.appendChild(sm); }
+          fila.appendChild(et);
+          fila.appendChild(grupoNiveles(a.id + '.' + k, a.nombre + ' · ' + s[0]));
+          caja.appendChild(fila);
+        });
+      }
+      elAreas.appendChild(caja);
+    });
+  }
+
+  function maximo(niveles) {
+    var m = null;
+    niveles.forEach(function (n) { if (n && (m === null || ORDEN[n] > ORDEN[m])) m = n; });
+    return m;
+  }
+
+  function nivelArea(a) {
+    if (modo === 'area') return estado[a.id] || null;
+    return maximo(a.subs.map(function (_, k) { return estado[a.id + '.' + k]; }));
+  }
+
+  function calcular() {
+    var niveles = AREAS.map(nivelArea);
+    if (modo === 'sub') {
+      AREAS.forEach(function (a, i) {
+        var el = document.getElementById('nivel-' + a.id);
+        var n = niveles[i];
+        el.textContent = n ? NOMBRE[n] : '—';
+        if (n) el.setAttribute('data-n', n); else el.removeAttribute('data-n');
+      });
+    }
+    var cuenta = { A: 0, M: 0, B: 0, N: 0 };
+    niveles.forEach(function (n) { if (n) cuenta[n]++; });
+    var valoradas = cuenta.A + cuenta.M + cuenta.B;
+    var g = maximo(niveles.filter(function (n) { return n && n !== 'N'; }));
+
+    document.getElementById('global').textContent = g ? NOMBRE[g] : '—';
+    var p = cuenta.A * 100 + cuenta.M * 10 + cuenta.B;
+    document.getElementById('puntaje').textContent = valoradas ? String(p) : '—';
+
+    var sinValorar = 6 - valoradas - cuenta.N;
+    var txt;
+    if (!valoradas) {
+      txt = cuenta.N ? 'Todas las áreas valoradas son «no evaluables»: no hay nivel global.' : 'Valore al menos un área.';
+    } else {
+      var decide = AREAS.filter(function (a, i) { return niveles[i] === g; }).map(function (a) { return a.nombre.toLowerCase(); });
+      txt = cuenta.A + ' en alta, ' + cuenta.M + ' en media, ' + cuenta.B + ' en baja' +
+            (cuenta.N ? ', ' + cuenta.N + ' no evaluable' + (cuenta.N > 1 ? 's' : '') : '') +
+            '. El nivel global lo decide' + (decide.length > 1 ? 'n' : '') + ': ' + decide.join(', ') + '.' +
+            (sinValorar ? ' Faltan ' + sinValorar + ' área' + (sinValorar > 1 ? 's' : '') + ' por valorar: el resultado puede subir.' : '');
+    }
+    document.getElementById('explica').textContent = txt;
+    dibujarHex(niveles);
+  }
+
+  function dibujarHex(niveles) {
+    var svg = document.getElementById('hex');
+    var NS = 'http://www.w3.org/2000/svg';
+    Array.prototype.slice.call(svg.childNodes).forEach(function (n) {
+      if (n.nodeName !== 'title') svg.removeChild(n);
+    });
+    var cx = 150, cy = 150, r = 120;
+    function punto(i, rad) {
+      var ang = (-90 + i * 60) * Math.PI / 180;
+      return [cx + rad * Math.cos(ang), cy + rad * Math.sin(ang)];
+    }
+    var colores = { B: 'var(--nivel-b)', M: 'var(--nivel-m)', A: 'var(--nivel-a)' };
+    AREAS.forEach(function (a, i) {
+      var p1 = punto(i, r), p2 = punto(i + 1, r);
+      var n = niveles[i];
+      var tri = document.createElementNS(NS, 'polygon');
+      tri.setAttribute('points', cx + ',' + cy + ' ' + p1.join(',') + ' ' + p2.join(','));
+      tri.setAttribute('fill', colores[n] || 'var(--blanco)');
+      tri.setAttribute('stroke', 'var(--piedra)');
+      tri.setAttribute('stroke-width', '1.5');
+      if (!n || n === 'N') tri.setAttribute('stroke-dasharray', '5 4');
+      svg.appendChild(tri);
+      // letra del nivel dentro del sector
+      var c = punto(i + 0.5, r * 0.58);
+      var t = document.createElementNS(NS, 'text');
+      t.setAttribute('x', c[0]); t.setAttribute('y', c[1] + 6);
+      t.setAttribute('text-anchor', 'middle');
+      t.setAttribute('font-size', '18'); t.setAttribute('font-weight', '700');
+      t.setAttribute('fill', n === 'A' ? 'var(--blanco)' : 'var(--pizarra)');
+      t.textContent = n || '·';
+      svg.appendChild(t);
+      // nombre del área fuera del hexágono
+      var e = punto(i + 0.5, r + 26);
+      var tt = document.createElementNS(NS, 'text');
+      tt.setAttribute('x', e[0]); tt.setAttribute('y', e[1] + 5);
+      var ax = e[0] - cx;
+      tt.setAttribute('text-anchor', Math.abs(ax) < 10 ? 'middle' : (ax > 0 ? 'start' : 'end'));
+      tt.setAttribute('font-size', '14'); tt.setAttribute('fill', 'var(--gris)');
+      tt.textContent = a.corto;
+      svg.appendChild(tt);
+    });
+  }
+
+  function cambiarModo(nuevo) {
+    // Al pasar de subáreas a áreas se conserva el nivel calculado de cada área;
+    // al pasar de áreas a subáreas se empieza en blanco: el detalle no se inventa.
+    if (nuevo === modo) return;
+    if (nuevo === 'area') {
+      var niveles = AREAS.map(nivelArea);
+      estado = {};
+      AREAS.forEach(function (a, i) { if (niveles[i]) estado[a.id] = niveles[i]; });
+    } else {
+      estado = {};
+    }
+    modo = nuevo;
+    document.getElementById('modoArea').setAttribute('aria-pressed', String(modo === 'area'));
+    document.getElementById('modoSub').setAttribute('aria-pressed', String(modo === 'sub'));
+    dibujarAreas(); calcular();
+  }
+
+  document.getElementById('modoArea').addEventListener('click', function () { cambiarModo('area'); });
+  document.getElementById('modoSub').addEventListener('click', function () { cambiarModo('sub'); });
+  document.getElementById('reiniciar').addEventListener('click', function () {
+    estado = {};
+    Array.prototype.forEach.call(document.querySelectorAll('#recursos input'), function (c) { c.checked = false; });
+    dibujarAreas(); calcular();
+  });
+
+  Array.prototype.forEach.call(document.querySelectorAll('[data-caso]'), function (b) {
+    b.addEventListener('click', function () {
+      var c = CASOS[+b.getAttribute('data-caso')];
+      Array.prototype.forEach.call(document.querySelectorAll('[data-caso]'), function (o) {
+        o.setAttribute('aria-pressed', String(o === b));
+      });
+      var v = document.getElementById('vineta');
+      v.innerHTML = '';
+      c.texto.forEach(function (par) { var p = document.createElement('p'); p.textContent = par; v.appendChild(p); });
+      var y = document.createElement('p'); y.className = 'yasi';
+      y.textContent = 'Para después: ' + c.yasi;
+      v.appendChild(y);
+      estado = {};
+      Array.prototype.forEach.call(document.querySelectorAll('#recursos input'), function (k) { k.checked = false; });
+      dibujarAreas(); calcular();
+    });
+  });
+
+  dibujarAreas(); calcular();
+})();
+</script>
+</html>
