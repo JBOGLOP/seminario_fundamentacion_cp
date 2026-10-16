@@ -27,15 +27,16 @@ Cantera de Investigación en Cuidados Paliativos (2026-I)
 
 ## Estado
 
-- [x] **Entregable / producto** (`preparacion.html`) · tres preguntas · ventana del 3 al 14 de
+- [x] **Entregable / producto** (`preparacion.html`) · tres preguntas · ventana del 15 al 20 de
       octubre, 23:59 · token S05 en el HTML
 - [x] Enlazado desde la guía, la portada y el tablero (`TITULOS.S05`)
 - [x] Fuentes verificadas: `docs/VERIFICACION-FUENTES-S05.md`
-- [ ] 🔴 **Ventana en la pestaña Config:** Apertura `03/10/2026 00:00`, Cierre `14/10/2026 23:59`
-      (con hora), Activa `Sí`. Hoy la fila está vacía y en `No`: el entregable no recibe nada
+- [x] **Ventana en la pestaña Config:** Apertura `15/10/2026 00:00`, Cierre `20/10/2026 23:59`,
+      Activa `Sí`. Debía abrir el 3 de octubre y no se configuró: nadie pudo enviar. Decisión del 15
+      de octubre: plazo corrido una semana y la sesión del 16 convertida en taller
 - [ ] Presentación (`clase.html`)
-- [ ] Rúbrica del segundo corte
-- [ ] Hoja de conducción
+- [x] Rúbrica del segundo corte · `docs/RUBRICA-C2.md`, resumida en la guía
+- [x] Guía docente del taller · `docs/Guia_docente_S05_2026-10-16.docx` (privada, en `.gitignore`)
 
 ## Calibración del entregable
 
