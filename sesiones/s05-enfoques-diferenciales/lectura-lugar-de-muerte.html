@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="es">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lectura guiada · El lugar de muerte como indicador — Seminario de fundamentación en CP</title>
+<meta name="description" content="Guía de lectura en español de dos artículos para la pregunta 3 de la sesión 5: Gomes et al. (2013) sobre las preferencias por morir en casa y Seitz et al. (2022) sobre el lugar de muerte en doce países de América Latina, Colombia incluida.">
+
+<!-- ===========================================================================
+     LECTURA GUIADA · SESIÓN 5 · PREGUNTA 3
+
+     Qué es: una guía de lectura en español, NO una traducción. Los dos artículos
+     son de acceso abierto (CC BY), pero la regla 4 se mantiene: se citan, no se
+     reproducen. Aquí van las cifras, lo que permiten afirmar y lo que no, y en
+     qué sección del original está cada cosa. Sin citas literales: la pregunta
+     del entregable pide leer la fuente en inglés, y esta página orienta esa
+     lectura, no la sustituye.
+
+     Verificación (15 de octubre de 2026): texto completo de los dos artículos en
+     Europe PMC (PMC3623898 y PMC9078151); las cifras de Gomes, cotejadas además
+     con el PDF del editor (13 páginas); autores y títulos, contra Crossref. Las
+     razones de probabilidades de Colombia salen de la tabla 2 de Seitz, columna CO.
+
+     Portabilidad: tokens en línea, cero recursos externos, cero JavaScript.
+     =========================================================================== -->
+
+<style>
+/* --- tokens.css en línea · FUENTE CANÓNICA: _shared/tokens.css ------------ */
+:root{
+  --bosque:#2F5D50;    --bosque-dark:#234639;    --bosque-deep:#17302A;  --bosque-soft:#D6E3DD;
+  --arcilla:#C4714F;   --arcilla-dark:#A2563A;   --arcilla-deep:#6F3823; --arcilla-soft:#F3DCD1;
+  --malva:#7A5C8A;     --malva-dark:#5F4570;     --malva-deep:#402C4D;   --malva-soft:#E4DAEA;
+  --piedra:#8A8578;    --piedra-dark:#6B6659;    --piedra-deep:#4E4A40;  --piedra-soft:#EFEBE3;
+  --pizarra:#22282A;   --gris:#565E5C;           --gris-claro:#9AA09D;
+  --blanco:#FFFFFF;    --lino:#FAF8F4;
+  --shadow-soft:0 2px 8px rgba(34,40,42,.07);
+  --radius:14px; --radius-sm:9px;
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif;
+  --mono:'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace;
+  --serif:Georgia,'Times New Roman',serif;
+
+  --acento:var(--arcilla); --acento-dark:var(--arcilla-deep); --acento-soft:var(--arcilla-soft);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;font-family:var(--sans);color:var(--pizarra);background:var(--lino);line-height:1.6}
+:focus-visible{outline:3px solid var(--acento);outline-offset:2px}
+a{color:var(--acento-dark)}
+.envoltura{max-width:52rem;margin:0 auto;padding:0 clamp(1rem,4vw,2.5rem)}
+
+.saltar{position:absolute;left:-999px;top:0;background:var(--pizarra);color:var(--blanco);padding:.6rem 1rem;z-index:10}
+.saltar:focus{left:0}
+
+/* --- Cabecera ------------------------------------------------------------ */
+.cabecera{background:var(--blanco);border-bottom:4px solid var(--acento);padding:clamp(1.6rem,5vw,2.8rem) 0 clamp(1.4rem,4vw,2.2rem)}
+.migas{font-size:.85rem;color:var(--gris);margin:0 0 1.1rem}
+.eyebrow{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--acento-dark);margin:0 0 .5rem}
+h1{font-size:clamp(1.7rem,5vw,2.5rem);line-height:1.15;margin:0 0 .8rem;color:var(--acento-dark)}
+.sub{font-family:var(--serif);font-size:clamp(1.02rem,2.4vw,1.18rem);color:var(--gris);max-width:62ch;margin:0}
+.chips{display:flex;flex-wrap:wrap;gap:.45rem;list-style:none;padding:0;margin:1.1rem 0 0}
+.chip{font-size:.8rem;padding:.25rem .7rem;border-radius:999px;background:var(--acento-soft);color:var(--acento-dark);border:1px solid transparent}
+
+/* --- Índice ---------------------------------------------------------------- */
+.indice{background:var(--blanco);border-bottom:1px solid var(--piedra-soft);position:sticky;top:0;z-index:5}
+.indice ol{display:flex;gap:.3rem 1.1rem;flex-wrap:wrap;list-style:none;margin:0;padding:.65rem 0;font-size:.88rem}
+.indice a{text-decoration:none;color:var(--gris)}
+.indice a:hover,.indice a:focus-visible{color:var(--acento-dark);text-decoration:underline}
+.indice .n{font-family:var(--mono);color:var(--acento);margin-right:.25rem}
+
+/* --- Cuerpo ---------------------------------------------------------------- */
+main{padding:clamp(1.6rem,5vw,2.8rem) 0 3rem}
+section{margin-bottom:clamp(2.2rem,6vw,3.4rem);scroll-margin-top:3.5rem}
+h2{font-size:clamp(1.3rem,3.4vw,1.65rem);line-height:1.25;margin:0 0 .3rem;color:var(--acento-dark)}
+h2 .n{font-family:var(--mono);font-size:.8em;color:var(--acento);margin-right:.35rem}
+h3{font-size:1.05rem;margin:1.6rem 0 .5rem}
+p,li{max-width:66ch}
+.lead{font-family:var(--serif);font-size:1.08rem;color:var(--gris)}
+.pregunta{font-family:var(--serif);font-size:1.15rem;border-left:4px solid var(--acento);padding:.3rem 0 .3rem 1rem;margin:1.2rem 0}
+
+.ficha{background:var(--blanco);border-radius:var(--radius);box-shadow:var(--shadow-soft);padding:1.1rem 1.25rem;margin:1rem 0 1.4rem}
+.ficha dl{display:grid;grid-template-columns:minmax(7.5rem,auto) 1fr;gap:.35rem 1rem;margin:0;font-size:.93rem}
+.ficha dt{font-weight:700;color:var(--acento-dark)}
+.ficha dd{margin:0}
+@media (max-width:520px){.ficha dl{grid-template-columns:1fr}.ficha dt{margin-top:.45rem}}
+
+.nota{background:var(--blanco);border-left:4px solid var(--piedra);border-radius:var(--radius-sm);padding:.8rem 1rem;font-size:.95rem;max-width:66ch}
+.nota--acento{border-left-color:var(--acento)}
+.donde{font-size:.82rem;color:var(--gris);font-family:var(--mono)}
+
+.dos{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1rem 0}
+@media (max-width:640px){.dos{grid-template-columns:1fr}}
+.caja{background:var(--blanco);border-radius:var(--radius);box-shadow:var(--shadow-soft);padding:1rem 1.15rem;border-top:4px solid var(--bosque)}
+.caja--no{border-top-color:var(--acento)}
+.caja h3{margin:0 0 .5rem;font-size:1rem}
+.caja ul{margin:0;padding-left:1.1rem;font-size:.93rem}
+.caja li{margin-bottom:.4rem}
+
+/* --- Gráfico de rangos (HTML, para que se lea a 375 px) ------------------ */
+.rangos{list-style:none;padding:0;margin:1rem 0 .4rem;max-width:40rem}
+.rango{display:grid;grid-template-columns:8.5rem 1fr;align-items:center;gap:.6rem;margin-bottom:.7rem}
+.rango__et{font-size:.9rem}
+.rango__pista{position:relative;height:1.6rem;background:var(--piedra-soft);border-radius:4px}
+.rango__val{position:absolute;top:0;bottom:0;background:var(--acento);border-radius:4px;display:flex;justify-content:space-between;align-items:center;padding:0 .35rem;color:var(--blanco);font:700 .78rem var(--mono)}
+.rango__ref{position:absolute;top:-.3rem;bottom:-.3rem;border-left:2px dashed var(--piedra-deep)}
+.eje{display:grid;grid-template-columns:8.5rem 1fr;gap:.6rem;max-width:40rem;font:.75rem var(--mono);color:var(--gris)}
+.eje span{display:flex;justify-content:space-between}
+@media (max-width:420px){.rango,.eje{grid-template-columns:5.6rem 1fr}.rango__et{font-size:.8rem}}
+
+/* --- Barras por país ------------------------------------------------------ */
+.barras{list-style:none;padding:0;margin:1rem 0 .4rem;max-width:40rem}
+.barra{display:grid;grid-template-columns:7.5rem 1fr;align-items:center;gap:.6rem;margin-bottom:.35rem;font-size:.88rem}
+.barra__pista{background:var(--piedra-soft);border-radius:3px;height:1.15rem;position:relative}
+.barra__val{position:absolute;left:0;top:0;bottom:0;background:var(--piedra);border-radius:3px}
+.barra__num{position:absolute;top:0;bottom:0;display:flex;align-items:center;font:.75rem var(--mono);color:var(--pizarra);padding-left:.35rem}
+.barra--co{font-weight:700}
+.barra--co .barra__val{background:var(--acento)}
+
+/* --- Tabla ----------------------------------------------------------------- */
+.tabla{overflow-x:auto;margin:1rem 0;background:var(--blanco);border-radius:var(--radius-sm);box-shadow:var(--shadow-soft)}
+table{border-collapse:collapse;width:100%;font-size:.88rem}
+th,td{text-align:left;padding:.5rem .7rem;border-bottom:1px solid var(--piedra-soft);vertical-align:top}
+th{background:var(--acento-soft);color:var(--acento-dark);font-size:.8rem}
+td.num{font-family:var(--mono);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+caption{caption-side:bottom;text-align:left;font-size:.8rem;color:var(--gris);padding:.5rem .7rem}
+
+.pasos{counter-reset:p;list-style:none;padding:0}
+.pasos li{counter-increment:p;position:relative;padding-left:2.4rem;margin-bottom:.9rem}
+.pasos li::before{content:counter(p);position:absolute;left:0;top:.05rem;width:1.7rem;height:1.7rem;border-radius:50%;background:var(--acento);color:var(--blanco);font:700 .85rem var(--mono);display:flex;align-items:center;justify-content:center}
+
+.refs li{margin-bottom:.7rem;font-size:.92rem;padding-left:1.6rem;text-indent:-1.6rem;list-style:none}
+.refs{padding:0}
+
+footer{border-top:1px solid var(--piedra-soft);background:var(--blanco);padding:1.8rem 0;font-size:.86rem;color:var(--gris)}
+footer p{max-width:68ch}
+
+@media print{
+  .saltar,.indice{display:none}
+  body{background:var(--blanco)}
+  .ficha,.caja,.nota,.tabla{box-shadow:none;border:1px solid var(--piedra-soft)}
+  section{break-inside:avoid-page}
+  a[href^="http"]::after{content:" (" attr(href) ")";font-size:.8em;color:var(--gris)}
+}
+</style>
+
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+
+<header class="cabecera">
+  <div class="envoltura">
+    <p class="migas">
+      <a href="../../index.html">Seminario de fundamentación en CP</a> ·
+      <a href="index.html">Sesión 5</a> · Lectura guiada
+    </p>
+    <p class="eyebrow">Sesión 5 · Lectura guiada · Para la pregunta 3</p>
+    <h1>El lugar de muerte como indicador</h1>
+    <p class="sub">
+      Dos artículos que se leen juntos: uno pregunta si es verdad que la mayoría quiere morir en
+      casa; el otro, qué significa en América Latina que alguien muera en casa. Esta página los
+      resume en español para orientar la lectura. <strong>No reemplaza el original</strong>: la
+      fuente que se cita en el entregable es el artículo, no esta guía.
+    </p>
+    <ul class="chips">
+      <li class="chip">Gomes et al., 2013 · BMC Palliative Care</li>
+      <li class="chip">Seitz et al., 2022 · Journal of Global Health</li>
+      <li class="chip">Acceso abierto</li>
+      <li class="chip">≈ 20 minutos</li>
+    </ul>
+  </div>
+</header>
+
+<nav class="indice" aria-label="Índice de la lectura">
+  <div class="envoltura">
+    <ol>
+      <li><a href="#por-que"><span class="n">1</span>Por qué importa</a></li>
+      <li><a href="#gomes"><span class="n">2</span>Gomes 2013</a></li>
+      <li><a href="#seitz"><span class="n">3</span>Seitz 2022</a></li>
+      <li><a href="#juntos"><span class="n">4</span>Leídos juntos</a></li>
+      <li><a href="#pregunta3"><span class="n">5</span>Para su pregunta 3</a></li>
+      <li><a href="#referencias"><span class="n">·</span>Referencias</a></li>
+    </ol>
+  </div>
+</nav>
+
+<main id="contenido">
+  <div class="envoltura">
+
+<!-- 1 ─────────────────────────────────────────────────────────────────── -->
+<section id="por-que" aria-labelledby="h-por-que">
+  <h2 id="h-por-que"><span class="n">1</span>Por qué importa</h2>
+  <p class="lead">
+    El porcentaje de muertes que ocurren en casa se usa a menudo como señal de que el cuidado al
+    final de la vida funciona. Detrás de ese uso hay dos supuestos que casi nunca se dicen.
+  </p>
+  <ol class="pasos">
+    <li><strong>Que la mayoría de las personas prefiere morir en casa</strong>, de modo que más
+      muertes en casa significarían más deseos cumplidos. Es lo que examina Gomes et al. (2013).</li>
+    <li><strong>Que morir en casa es una elección</strong>, y no lo que queda cuando no se llega a
+      otro lugar. Es lo que pone en duda Seitz et al. (2022) para América Latina.</li>
+  </ol>
+  <p class="pregunta">Si alguno de los dos supuestos falla, ¿qué mide en realidad el indicador?</p>
+</section>
+
+<!-- 2 ─────────────────────────────────────────────────────────────────── -->
+<section id="gomes" aria-labelledby="h-gomes">
+  <h2 id="h-gomes"><span class="n">2</span>Gomes et al. (2013) · ¿quién prefiere morir en casa?</h2>
+  <p class="lead">
+    <em>Heterogeneity and changes in preferences for dying at home: a systematic review.</em>
+    Revisión sistemática sobre las preferencias de lugar de cuidado y de muerte en personas adultas,
+    con una novedad: por primera vez examina si la preferencia cambia a medida que avanza la enfermedad.
+  </p>
+
+  <div class="ficha">
+    <dl>
+      <dt>Diseño</dt><dd>Revisión sistemática con listado PRISMA. <strong>Sin metaanálisis</strong>: la heterogeneidad entre estudios impidió calcular una medida resumen, así que se reportan rangos.</dd>
+      <dt>Búsqueda</dt><dd>MEDLINE, EMBASE, PsycINFO y CINAHL hasta mayo de 2011; seis revistas de cuidados paliativos revisadas a mano (2006–2011); referencias de los estudios incluidos.</dd>
+      <dt>Qué entró</dt><dd>210 estudios, algo más de 100 000 personas de 33 países: 34 021 pacientes, 19 514 cuidadores y 29 926 personas del público general, además de personas mayores, profesionales y estudiantes.</dd>
+      <dt>Calidad</dt><dd>Solo 34 estudios (16 %) fueron de calidad alta. De los cuantitativos, cerca de dos tercios fueron de calidad baja. <strong>Apenas 76 estudios dijeron qué pregunta exacta usaron</strong> para averiguar la preferencia.</dd>
+      <dt>Cómo gradúa</dt><dd>Con un algoritmo propio de fuerza de la evidencia —calidad, cantidad y consistencia de los estudios—, adaptado de una revisión anterior. No es GRADE.</dd>
+    </dl>
+  </div>
+
+  <h3>Lo que encontró</h3>
+  <p>
+    <strong>Evidencia moderada de que la mayoría prefiere morir en casa</strong>: en el 75 % de los
+    130 estudios que dieron un porcentaje, más de la mitad de las personas eligió la casa. No llegó a
+    evidencia fuerte porque entre los estudios de calidad alta solo 9 de 14 coincidían. Lo decisivo es
+    el rango, incluso en esos estudios de mejor calidad y dejando fuera los extremos:
+  </p>
+
+  <ul class="rangos" aria-label="Rango de preferencia por morir en casa en los estudios de calidad alta, por grupo">
+    <li class="rango"><span class="rango__et">Pacientes</span>
+      <span class="rango__pista"><span class="rango__val" style="left:31%;right:13%"><span>31</span><span>87</span></span><span class="rango__ref" style="left:26.5%" aria-hidden="true"></span></span></li>
+    <li class="rango"><span class="rango__et">Cuidadores</span>
+      <span class="rango__pista"><span class="rango__val" style="left:25%;right:36%"><span>25</span><span>64</span></span><span class="rango__ref" style="left:26.5%" aria-hidden="true"></span></span></li>
+    <li class="rango"><span class="rango__et">Público general</span>
+      <span class="rango__pista"><span class="rango__val" style="left:49%;right:30%"><span>49</span><span>70</span></span><span class="rango__ref" style="left:26.5%" aria-hidden="true"></span></span></li>
+  </ul>
+  <div class="eje" aria-hidden="true"><span></span><span><b>0 %</b><b>50 %</b><b>100 %</b></span></div>
+  <p class="donde">
+    Rangos: Gomes et al. (2013), resumen y sección «Heterogeneity between and within population
+    groups». Línea punteada: 26,5 % de muertes en casa en Colombia en 2017 (Seitz et al., 2022). Son dos
+    fuentes y dos poblaciones distintas: la línea sirve para situar, no para restar.
+  </p>
+
+  <h3>Cuatro matices que suelen perderse</h3>
+  <div class="tabla">
+    <table>
+      <thead><tr><th scope="col">Matiz</th><th scope="col">Qué dice el artículo</th></tr></thead>
+      <tbody>
+        <tr><td><strong>La preferencia cambia… a veces</strong></td>
+          <td>De 1 395 pacientes seguidos en diez estudios, 277 cambiaron de preferencia (20 %), con un rango
+            enorme entre estudios: del 2 % al 80 %. <strong>Nadie probó si el cambio era estadísticamente
+            significativo</strong>. La dirección varió: del hospital a la casa, de la casa al hospicio y de la
+            casa al hospital.</td></tr>
+        <tr><td><strong>Por qué cambia</strong></td>
+          <td>Los estudios cualitativos describen motivos para dejar la casa —síntomas sin control, eventos
+            agudos como caídas, la carga del cuidador, la dependencia creciente— y para volver a ella —asumir
+            el pronóstico, la falta de camas, malas experiencias en el hospital, tener apoyo de servicios en casa—.</td></tr>
+        <tr><td><strong>Cuidar en casa no es morir en casa</strong></td>
+          <td>Más personas prefieren <em>ser cuidadas</em> en casa que <em>morir</em> en casa. En un estudio de
+            Madrid con 380 personas con cáncer avanzado, 89 % frente a 80 % (p &lt; 0,001). En los demás, la
+            diferencia no se probó.</td></tr>
+        <tr><td><strong>Pacientes y cuidadores no siempre coinciden</strong></td>
+          <td>En la mayoría de los estudios con datos de ambos, la preferencia por la casa fue más frecuente
+            en pacientes que en cuidadores. La evidencia sobre si la diferencia es real quedó inconclusa.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p class="nota nota--acento">
+    <strong>Una advertencia de los propios autores.</strong> Que los estudios den porcentajes tan
+    distintos sugiere que las personas prefieren cosas distintas, pero inferirlo así es un salto: la
+    variación entre estudios no es lo mismo que la variación entre personas. Ellos mismos lo llaman
+    riesgo de <em>falacia ecológica</em> (sección «Heterogeneity» de la discusión).
+  </p>
+
+  <div class="dos">
+    <div class="caja">
+      <h3>Permite afirmar</h3>
+      <ul>
+        <li>Que en los países estudiados la casa es la preferencia más frecuente, con evidencia moderada.</li>
+        <li>Que esa preferencia varía mucho entre poblaciones y estudios, incluso en los de mejor calidad.</li>
+        <li>Que alrededor de cuatro de cada cinco pacientes no cambiaron de preferencia en los estudios que lo siguieron.</li>
+      </ul>
+    </div>
+    <div class="caja caja--no">
+      <h3>No permite afirmar</h3>
+      <ul>
+        <li>Que «todos» o «casi todos» quieren morir en casa.</li>
+        <li><strong>Nada sobre América Latina</strong>: entre los 33 países no figura ninguno de la región. Hay estudios de España, de varios países de África y de Asia, pero no latinoamericanos.</li>
+        <li>Que la preferencia sea estable: el cambio no se probó estadísticamente.</li>
+        <li>Nada específico de enfermedades no oncológicas: la búsqueda solo usó «cáncer» como término de enfermedad, y los autores lo señalan como límite.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 3 ─────────────────────────────────────────────────────────────────── -->
+<section id="seitz" aria-labelledby="h-seitz">
+  <h2 id="h-seitz"><span class="n">3</span>Seitz et al. (2022) · ¿dónde se muere en América Latina?</h2>
+  <p class="lead">
+    <em>Place of death and associated factors in 12 Latin American countries: A total population study
+    using death certificate data.</em> No pregunta qué quiere la gente, sino dónde ocurre de hecho la
+    muerte, y qué se asocia con morir en casa o en el hospital.
+  </p>
+
+  <div class="ficha">
+    <dl>
+      <dt>Diseño</dt><dd>Estudio observacional de población total con los certificados de defunción de un año: el más reciente disponible en cada país, 2016, 2017 o 2018.</dd>
+      <dt>Qué entró</dt><dd>2 994 685 muertes de personas de un año o más en 12 países —Argentina, Brasil, Chile, Colombia, Costa Rica, Ecuador, El Salvador, Guatemala, México, Paraguay, Perú y Uruguay—. <strong>Colombia: 220 580 muertes de 2017</strong>, con datos del DANE a través de su Archivo Nacional de Datos (ANDA).</dd>
+      <dt>Análisis</dt><dd>Regresión logística por país —morir en casa frente a morir en el hospital— con causa de muerte, edad, sexo, estado civil, escolaridad y, donde había dato, residencia rural o urbana. Una regresión jerárquica para comparar países. Correlaciones con indicadores de cada país. Y una discusión de grupo con diez colaboradores de ocho países para interpretar los resultados.</dd>
+      <dt>Lugar de muerte</dt><dd>Tres categorías: casa, hospital y «otros lugares» (vía pública, trabajo, otros centros de salud, entre otros, según el país).</dd>
+    </dl>
+  </div>
+
+  <h3>Lo que encontró</h3>
+  <p>
+    En el conjunto, el 31,3 % de las muertes ocurrió en casa y el 57,6 % en el hospital, pero con una
+    variación muy grande entre países. <strong>Colombia está entre los países donde menos se muere en
+    casa</strong>: solo Brasil y Colombia tuvieron menos probabilidad de muerte en casa que Paraguay, el
+    país de referencia.
+  </p>
+  <ul class="barras" aria-label="Porcentaje de muertes en casa por país">
+    <li class="barra"><span>Guatemala</span><span class="barra__pista"><span class="barra__val" style="width:67.9%"></span><span class="barra__num" style="left:67.9%">67,9 %</span></span></li>
+    <li class="barra"><span>El Salvador</span><span class="barra__pista"><span class="barra__val" style="width:50.7%"></span><span class="barra__num" style="left:50.7%">50,7 %</span></span></li>
+    <li class="barra"><span>Chile</span><span class="barra__pista"><span class="barra__val" style="width:49.7%"></span><span class="barra__num" style="left:49.7%">49,7 %</span></span></li>
+    <li class="barra"><span>Ecuador</span><span class="barra__pista"><span class="barra__val" style="width:48.9%"></span><span class="barra__num" style="left:48.9%">48,9 %</span></span></li>
+    <li class="barra"><span>México</span><span class="barra__pista"><span class="barra__val" style="width:47.0%"></span><span class="barra__num" style="left:47.0%">47,0 %</span></span></li>
+    <li class="barra"><span>Perú</span><span class="barra__pista"><span class="barra__val" style="width:43.0%"></span><span class="barra__num" style="left:43.0%">43,0 %</span></span></li>
+    <li class="barra"><span>Uruguay</span><span class="barra__pista"><span class="barra__val" style="width:39.3%"></span><span class="barra__num" style="left:39.3%">39,3 %</span></span></li>
+    <li class="barra"><span>Costa Rica</span><span class="barra__pista"><span class="barra__val" style="width:37.1%"></span><span class="barra__num" style="left:37.1%">37,1 %</span></span></li>
+    <li class="barra"><span>Paraguay</span><span class="barra__pista"><span class="barra__val" style="width:30.7%"></span><span class="barra__num" style="left:30.7%">30,7 %</span></span></li>
+    <li class="barra barra--co"><span>Colombia</span><span class="barra__pista"><span class="barra__val" style="width:26.5%"></span><span class="barra__num" style="left:26.5%">26,5 %</span></span></li>
+    <li class="barra"><span>Argentina</span><span class="barra__pista"><span class="barra__val" style="width:22.9%"></span><span class="barra__num" style="left:22.9%">22,9 %</span></span></li>
+    <li class="barra"><span>Brasil</span><span class="barra__pista"><span class="barra__val" style="width:20.0%"></span><span class="barra__num" style="left:20.0%">20,0 %</span></span></li>
+  </ul>
+  <p class="donde">Seitz et al. (2022), tabla 3. Año de los datos: 2017 en la mayoría; 2016 en Chile y Costa Rica; 2018 en Uruguay.</p>
+
+  <h3>Un gradiente social al revés</h3>
+  <p>
+    En Europa occidental y Norteamérica, las personas con más escolaridad y con pareja tienen
+    <em>más</em> probabilidad de morir en casa: usan sus recursos para lograrlo. En la mayoría de los
+    países latinoamericanos estudiados ocurre lo contrario: <strong>los recursos sirven para llegar al
+    hospital</strong>. En Colombia, ajustando por las demás variables:
+  </p>
+  <div class="tabla">
+    <table>
+      <caption>Razón de probabilidades de morir en casa frente a morir en el hospital, Colombia 2017 (n = 199 823). Seitz et al. (2022), tabla 2, columna CO.</caption>
+      <thead><tr><th scope="col">Característica</th><th scope="col">Frente a</th><th scope="col">OR (IC 95 %)</th></tr></thead>
+      <tbody>
+        <tr><td>Residencia rural</td><td>urbana</td><td class="num">1,39 (1,35–1,43)</td></tr>
+        <tr><td>Muerte por cáncer</td><td>otra causa</td><td class="num">1,27 (1,24–1,30)</td></tr>
+        <tr><td>Primaria completa</td><td>menos que primaria</td><td class="num">0,76 (0,74–0,78)</td></tr>
+        <tr><td>Educación terciaria completa</td><td>menos que primaria</td><td class="num">0,70 (0,67–0,73)</td></tr>
+        <tr><td>Edad de 1 a 69 años</td><td>80 años o más</td><td class="num">0,56 (0,55–0,58)</td></tr>
+        <tr><td>Mujer</td><td>hombre</td><td class="num">0,90 (0,89–0,92)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>
+    Por encima de 1, más probable morir en casa; por debajo, menos. <strong>En Colombia, vivir en zona
+    rural y tener menos escolaridad se asocian con morir en casa.</strong> Es un dato de asociación, no
+    de causa, y no dice nada sobre si esas personas querían estar ahí.
+  </p>
+
+  <h3>Lo que el número de camas no explica</h3>
+  <p>
+    Los factores de las personas no explicaron las diferencias entre países. El número de camas
+    hospitalarias tuvo una correlación negativa moderada con las muertes en casa, pero los autores
+    señalan una excepción que involucra a Colombia: <strong>Colombia y Ecuador tienen ingreso por
+    habitante y camas por habitante parecidos, y sin embargo en Ecuador muere en casa el 48,9 % y en
+    Colombia el 26,5 %</strong>. Algo más —el sistema de salud, la política, la regulación— está
+    decidiendo dónde se muere.
+  </p>
+
+  <h3>Lo que dijeron quienes conocen cada país</h3>
+  <p>
+    En la discusión de grupo surgieron tres ideas que los autores incorporan a la interpretación
+    (tabla 4 del artículo; ninguna de las intervenciones citadas es de Colombia):
+  </p>
+  <ul>
+    <li><strong>Morir en casa no siempre es elegir.</strong> Puede significar estar fuera del sistema
+      de salud, sin la atención que se necesitaría.</li>
+    <li><strong>En zonas rurales, morir en casa puede ser la única opción</strong>, por la distancia
+      a la atención de mayor complejidad.</li>
+    <li><strong>El certificado de defunción empuja hacia el hospital.</strong> Cuando alguien muere en
+      casa, conseguir el certificado puede exigir a la familia horas de espera, policía o medicina
+      legal; en el hospital es un trámite. Por eso hay familias que llevan a la persona al hospital aun
+      si prefería la casa.</li>
+  </ul>
+
+  <div class="dos">
+    <div class="caja">
+      <h3>Permite afirmar</h3>
+      <ul>
+        <li>Dónde ocurrieron las muertes en Colombia en 2017, con datos de toda la población.</li>
+        <li>Que en Colombia morir en casa se asocia con vivir en zona rural y con menos escolaridad.</li>
+        <li>Que el significado de morir en casa en la región no es el de los países de ingresos altos.</li>
+      </ul>
+    </div>
+    <div class="caja caja--no">
+      <h3>No permite afirmar</h3>
+      <ul>
+        <li>Nada sobre preferencias: el certificado registra dónde, no dónde se quería.</li>
+        <li>Nada sobre si hubo cuidado paliativo: el certificado no lo registra.</li>
+        <li>Que las cifras sean de muertes esperables: incluye todas las causas, también las externas. Un análisis que excluyó cardiopatía aguda y causas externas no cambió mucho los resultados.</li>
+        <li>Diferencias dentro del país: los autores piden análisis subnacionales que ellos no hicieron.</li>
+      </ul>
+    </div>
+  </div>
+  <p class="nota">
+    <strong>Sobre la calidad del dato colombiano.</strong> Los autores clasificaron las bases de
+    certificados por calidad y advierten valores faltantes: en Colombia faltaba la escolaridad en una
+    proporción de entre el 19 % y el 27 % —el artículo da ese rango para cuatro países juntos— y el
+    estado civil en el 13,2 %. La exactitud del certificado depende de quien lo diligencia. Hay una fe de
+    erratas de 2024 que, según la verificación del curso, no afecta la cifra del 26,5 %.
+  </p>
+</section>
+
+<!-- 4 ─────────────────────────────────────────────────────────────────── -->
+<section id="juntos" aria-labelledby="h-juntos">
+  <h2 id="h-juntos"><span class="n">4</span>Leídos juntos</h2>
+  <p class="lead">
+    Gomes muestra que la preferencia por la casa es frecuente pero no universal, y la estudia en países
+    donde la casa suele ser una elección. Seitz muestra que en América Latina, y en Colombia en
+    particular, la casa puede ser lo que queda cuando el sistema no llega.
+  </p>
+  <div class="tabla">
+    <table>
+      <thead><tr><th scope="col"></th><th scope="col">Gomes et al. (2013)</th><th scope="col">Seitz et al. (2022)</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Qué mide</strong></td><td>Dónde quieren las personas</td><td>Dónde ocurre la muerte</td></tr>
+        <tr><td><strong>De dónde sale el dato</strong></td><td>Encuestas y entrevistas en 210 estudios</td><td>Certificados de defunción de toda la población</td></tr>
+        <tr><td><strong>América Latina</strong></td><td>No incluye ningún estudio de la región</td><td>Doce países, Colombia incluida</td></tr>
+        <tr><td><strong>Lo que no ve</strong></td><td>Lo que pasa después: si la preferencia se cumplió</td><td>Lo que la persona quería, y si tuvo cuidado</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="pregunta">
+    Ninguno de los dos artículos mide, para una persona concreta, si murió donde quería. Ese dato
+    —la congruencia entre el lugar preferido y el lugar real— es el que haría útil el indicador, y en
+    Colombia no aparece en ninguna de estas dos fuentes.
+  </p>
+  <p>
+    Por eso el porcentaje de muertes en casa, solo, puede engañar en las dos direcciones: subir porque
+    mejoró el cuidado en casa o porque empeoró el acceso al hospital; bajar porque la gente eligió otro
+    lugar o porque el trámite del certificado la llevó al hospital. <strong>La ausencia de ese dato es un
+    hallazgo, no un fracaso</strong>: es una pregunta de investigación disponible.
+  </p>
+</section>
+
+<!-- 5 ─────────────────────────────────────────────────────────────────── -->
+<section id="pregunta3" aria-labelledby="h-pregunta3">
+  <h2 id="h-pregunta3"><span class="n">5</span>Para su pregunta 3</h2>
+  <p>Si su desenlace tiene que ver con el lugar de muerte, estas preguntas le ayudan a escribir la respuesta:</p>
+  <ol class="pasos">
+    <li><strong>¿Qué supone su indicador?</strong> Si cuenta muertes en casa como logro, diga por qué
+      cree que en su población la casa es lo preferido. Gomes le da el rango; no le da a su población.</li>
+    <li><strong>¿Puede distinguir la casa elegida de la casa sin alternativa?</strong> En una zona
+      rural, la respuesta de Seitz es que no siempre se puede. Diga qué variable le permitiría separarlas.</li>
+    <li><strong>¿Dónde está registrada la preferencia?</strong> Búsquelo en su servicio: historia
+      clínica, formato de ingreso, documento de voluntad anticipada. Si no está escrita en ningún lado,
+      ese es su dato.</li>
+    <li><strong>¿Usa el certificado de defunción?</strong> Seitz trabajó con los microdatos del DANE,
+      disponibles a través de su Archivo Nacional de Datos. Diga qué variables trae y cuáles no
+      —por ejemplo, si la persona recibía cuidado paliativo—.</li>
+    <li><strong>¿Compara ámbitos?</strong> Recuerde la confusión por indicación de la presentación: a la
+      casa no se va al azar. Ruralidad, escolaridad y edad, que en Colombia se asocian con el lugar de
+      muerte, son candidatas obvias a variables que confunden.</li>
+  </ol>
+  <p class="nota nota--acento">
+    <strong>Cómo citar.</strong> En el entregable se citan los artículos, no esta página. Si toma una
+    cifra de aquí, búsquela en el original —la sección o la tabla va indicada— antes de usarla. La
+    pregunta 3 no pide una frase literal en inglés, pero la fuente en inglés solo cuenta si el texto
+    muestra qué sacó de ella.
+  </p>
+</section>
+
+<!-- Referencias ─────────────────────────────────────────────────────────── -->
+<section id="referencias" aria-labelledby="h-referencias">
+  <h2 id="h-referencias">Referencias</h2>
+  <ul class="refs">
+    <li>Gomes, B., Calanzani, N., Gysels, M., Hall, S., &amp; Higginson, I. J. (2013). Heterogeneity and changes in preferences for dying at home: A systematic review. <em>BMC Palliative Care, 12</em>, 7. <a href="https://doi.org/10.1186/1472-684X-12-7">https://doi.org/10.1186/1472-684X-12-7</a></li>
+    <li>Seitz, K., Cohen, J., Deliens, L., Cartin, A., Castañeda de la Lanza, C., Cardozo, E. A., Marcucci, F. C. I., Viana, L., Rodrigues, L. F., Colorado, M., Samayoa, V. R., Tripodoro, V. A., Pozo, X., &amp; Pastrana, T. (2022). Place of death and associated factors in 12 Latin American countries: A total population study using death certificate data. <em>Journal of Global Health, 12</em>, 04031. <a href="https://doi.org/10.7189/jogh.12.04031">https://doi.org/10.7189/jogh.12.04031</a></li>
+  </ul>
+  <p class="donde">Los dos artículos son de acceso abierto con licencia CC BY. Esta guía los resume con palabras propias; no los traduce ni los reproduce.</p>
+</section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="envoltura">
+    <p>
+      <strong>Seminario de fundamentación en cuidados paliativos</strong> · código 32264001 ·
+      Maestría en Cuidados Paliativos · Facultad de Enfermería · Universidad Antonio Nariño · 2026-II
+    </p>
+    <p>
+      <a href="index.html">Guía de la sesión 5</a> ·
+      <a href="clase.html">Presentación</a> ·
+      <a href="preparacion.html">Entregable y producto del corte</a> ·
+      <a href="../../index.html">Portada del seminario</a>
+    </p>
+  </div>
+</footer>
+</html>
