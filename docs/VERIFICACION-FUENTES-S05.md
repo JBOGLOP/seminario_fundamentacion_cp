@@ -90,18 +90,27 @@ retirar el soporte vital) y el 17 % en casa (38 % en oncología).
 
 ## F · Sequeda Ferro et al. 2022 · programa «Cerca de Ti» · ✅ con correcciones
 
-Sequeda Ferro, L., Layton Acevedo, L., Guevara Muñoz, J. E., Quintero, L. A., & Carreño-Moreno, S.
+Sequeda Ferro, L., Layton-Acevedo, L., Guevara Muñoz, J. E., Quintero González, L. A., & Carreño-Moreno, S.
 (2022). Indicadores de un programa de gestión en cuidado paliativo en Colombia: seguimiento
 retrospectivo. *Medicina Paliativa, 29*(2), 63–70. https://doi.org/10.20986/medpal.2022.1285/2021
 
-- Programa «Cerca de Ti» de una EPS en Bogotá; descriptivo, comparativo y retrospectivo (marzo de
+- Programa «Cerca de Ti» de Compensar EPS en Bogotá; descriptivo, comparativo y retrospectivo (marzo de
   2019 a febrero de 2020); cohorte de 391 personas. **Sin inferencia causal.**
 - Por mes y usuario, fuera frente a dentro del programa: hospitalizaciones 0,69 frente a 0,37; UCI
   0,17 frente a 0,02; urgencias 0,62 frente a 0,23 (p < 0,01).
 - Opioides en el último mes de vida: 9,7 % frente a 21,4 %. Costo del último trimestre, menor en
   el programa (p < 0,01).
-- ⚠️ **Incoherencia interna:** el resumen dice bienestar «por encima del 80%», pero la tabla V del
-  manuscrito aceptado da 59,7 %. **[DATO POR VERIFICAR]** en el PDF final antes de citarlo.
+- ⚠️ **Incoherencia interna, confirmada en el PDF publicado el 15 de octubre de 2026.** El resumen y
+  los resultados (p. 5) dicen que satisfacción y bienestar superan el 80 %; la tabla V (p. 6) da
+  bienestar total 59,7 %, control del dolor 74,1 %, satisfacción 94,6 % y calidad de vida 82,2 %. Solo
+  satisfacción y calidad de vida pasan del 80 %. Son autovaloraciones de usuarios del programa, sin
+  grupo de comparación. **No es un error de la versión aceptada: está en el artículo publicado.** Si se
+  cita, se cita la tabla y se dice la contradicción.
+- Días de estancia hospitalaria: 2,97 frente a 2,27, **p = 0,06, no significativo**.
+- **Conflicto de intereses declarado:** los cuatro primeros autores trabajan para Compensar EPS en el
+  programa evaluado.
+- Autores cotejados con el PDF: «Layton-Acevedo» con guion y «Quintero González», no «Layton Acevedo»
+  ni «Quintero». Corregido en las presentaciones de S04 y S05.
 - **No reporta lugar de muerte:** «no contamos con evidencia del lugar de la muerte».
 
 ## G · Rodríguez-Campos et al. 2024 · programa «Contigo» · ✅ con correcciones
