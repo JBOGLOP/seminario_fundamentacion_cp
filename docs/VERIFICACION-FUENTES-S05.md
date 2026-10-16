@@ -106,7 +106,7 @@ retrospectivo. *Medicina Paliativa, 29*(2), 63–70. https://doi.org/10.20986/me
 
 ## G · Rodríguez-Campos et al. 2024 · programa «Contigo» · ✅ con correcciones
 
-Rodríguez-Campos, L., Rodríguez-Lesmes, P. A., Palomino Cancino, A., del Valle Díaz, I., Gamboa, L.
+Rodríguez-Campos, L., Rodriguez-Lesmes, P. A., Palomino Cancino, A., del Valle Díaz, I., Gamboa, L.
 F., Castillo Niuman, A., Salas, J. S., Sarmiento, G., Martínez-Bernal, J., & González-Vélez, A. E.
 (2024). Cost–utility analysis of a palliative care program in Colombia. *BMC Palliative Care, 23*,
 165. https://doi.org/10.1186/s12904-024-01476-6
@@ -115,7 +115,15 @@ F., Castillo Niuman, A., Salas, J. S., Sarmiento, G., Martínez-Bernal, J., & Go
   frente a 16** con manejo convencional.
 - Costo menor en el programa (diferencia de 1 924 USD), **pero P = 0,18: no significativo**.
 - Calidad de vida: EQ-5D-3L +0,25 y MQOL +1,55 (p < 0,01).
-- La normalización de tres nombres de autor es inferencia; verificar en el PDF.
+- **Autores cotejados con el PDF del editor el 15 de octubre de 2026**: el segundo se escribe
+  «Rodriguez-Lesmes», sin tilde; los demás, como están. Corregido en las presentaciones de S04 y S05.
+- Diseño, según el PDF: transversal analítico y retrospectivo, con microcosteo y horizonte de 6 meses
+  antes de la muerte. Calidad de vida con EQ-5D-3L y McGill (MQOL), referida a los 15 días previos a
+  la encuesta.
+- **El grupo de comparación lo define la geografía**: personas con las mismas necesidades en ciudades
+  sin el programa (Bucaramanga, Fusagasugá, Tunja y Villavicencio), frente a Bogotá, Medellín y Cali.
+  Los autores lo presentan como ventaja frente a la autoselección; para la sesión 5 es un ejemplo de
+  confusión por indicación desplazada al territorio, porque las ciudades difieren en más que el programa.
 - El artículo usa «terminally ill patients»: en la voz del curso se parafrasea (regla 3).
 
 ## H · González-Jaramillo et al. 2025 · comunidades compasivas · ✅ con correcciones
