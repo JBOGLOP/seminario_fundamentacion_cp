@@ -34,7 +34,7 @@ Cantera de Investigación en Cuidados Paliativos (2026-I)
 - [x] **Ventana en la pestaña Config:** Apertura `15/10/2026 00:00`, Cierre `20/10/2026 23:59`,
       Activa `Sí`. Debía abrir el 3 de octubre y no se configuró: nadie pudo enviar. Decisión del 15
       de octubre: plazo corrido una semana y la sesión del 16 convertida en taller
-- [ ] Presentación (`clase.html`)
+- [x] Presentación (`clase.html`) · 19 diapositivas, fuentes de `docs/VERIFICACION-FUENTES-S05.md`
 - [x] Rúbrica del segundo corte · `docs/RUBRICA-C2.md`, resumida en la guía
 - [x] Guía docente del taller · `docs/Guia_docente_S05_2026-10-16.docx` (privada, en `.gitignore`)
 
