@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="es">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sesión 6 · Deliberar un caso — Seminario de fundamentación en CP</title>
+<meta name="description" content="Material de aula de la sesión 6 del Seminario de fundamentación en cuidados paliativos (32264001), Universidad Antonio Nariño. Deliberación de un caso construido para el curso por el método de Gracia: autonomía, sufrimiento y escasez en un territorio rural.">
+
+<!-- ===========================================================================
+     MATERIAL DE AULA · SESIÓN 6 · presentación autocontenida
+     viernes 30 de octubre de 2026 · sincrónica · tercer corte
+
+     Deliberación de un caso por el método de Gracia (DISENO_UNIDAD_3 §2.4).
+     Sirve sola o como complemento de una intervención invitada: no la nombra.
+
+     EL CASO ES FICTICIO y construido para el curso: no describe a ninguna
+     persona, institución ni municipio real. No es googleable a propósito.
+
+     Las diapositivas 3 a 8 se proyectan; la 9 y la 10 cierran la plenaria.
+     Las respuestas de los pasos NO están aquí: las construyen los grupos.
+
+     RIGOR DE LAS FUENTES. Garrafa y Porto, cotejado en Crossref el 30 de
+     octubre de 2026. Ley 1733 art. 5 num. 2, Res. 2665/2018, Res. 813/2026
+     art. 9 y T-438/2025, verificados para la sesión 3
+     (docs/INVESTIGACION-TEMA3-marco-legal-barreras.md).
+     =========================================================================== -->
+
+<style>
+/* --- tokens.css en línea · FUENTE CANÓNICA: _shared/tokens.css ----------- */
+:root{
+  --bosque:#2F5D50;    --bosque-dark:#234639;    --bosque-deep:#17302A;  --bosque-soft:#D6E3DD;
+  --arcilla:#C4714F;   --arcilla-dark:#A2563A;   --arcilla-deep:#6F3823; --arcilla-soft:#F3DCD1;
+  --malva:#7A5C8A;     --malva-dark:#5F4570;     --malva-deep:#402C4D;   --malva-soft:#E4DAEA;
+  --piedra:#8A8578;    --piedra-dark:#6B6659;    --piedra-deep:#4E4A40;  --piedra-soft:#EFEBE3;
+  --pizarra:#22282A;   --gris:#565E5C;           --gris-claro:#9AA09D;
+  --blanco:#FFFFFF;    --lino:#FAF8F4;
+  --shadow-soft:0 2px 8px rgba(34,40,42,.07);
+  --radius:14px; --radius-sm:9px;
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif;
+  --mono:'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace;
+  --serif:Georgia,'Times New Roman',serif;
+
+  /* Unidad 3 → malva. La norma (unidad 1) conserva su bosque cuando aparece. */
+  --acento:var(--malva); --acento-dark:var(--malva-deep); --acento-soft:var(--malva-soft);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;font-family:var(--sans);color:var(--pizarra);background:var(--lino);line-height:1.5;overflow:hidden}
+:focus-visible{outline:3px solid var(--acento);outline-offset:3px}
+a{color:var(--acento-dark)}
+.saltar{position:absolute;left:-9999px;background:var(--pizarra);color:var(--lino);padding:.6rem 1rem;z-index:99}
+.saltar:focus{left:0}
+
+.deck{position:fixed;inset:0 0 62px 0}
+.d{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-start;
+  padding:clamp(1.4rem,4vw,3.4rem) clamp(1.25rem,6vw,5.5rem);
+  opacity:0;visibility:hidden;transition:opacity .28s ease;overflow-y:auto}
+.d.on{opacity:1;visibility:visible}
+@media (prefers-reduced-motion:reduce){.d{transition:none}}
+.d>:first-child{margin-top:auto !important}
+.d>:last-child{margin-bottom:auto !important}
+.d>*{flex-shrink:0}
+
+.d__eyebrow{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--acento-dark);margin:0 0 .7rem}
+h1{font-size:clamp(1.9rem,5.2vw,3.4rem);line-height:1.08;letter-spacing:-.02em;margin:0 0 .8rem;max-width:20ch}
+h2{font-size:clamp(1.35rem,3.4vw,2.3rem);line-height:1.15;letter-spacing:-.015em;margin:0 0 .8rem;max-width:28ch;color:var(--acento-dark)}
+h3{font-size:clamp(.98rem,1.8vw,1.15rem);margin:0 0 .35rem;color:var(--acento-dark)}
+p{font-size:clamp(.96rem,1.5vw,1.1rem);max-width:62ch;margin:0 0 .8em}
+.lead{font-size:clamp(1.02rem,1.95vw,1.3rem);color:var(--gris);max-width:56ch}
+strong{color:var(--pizarra)}
+
+.d--portada{background:linear-gradient(150deg,var(--lino) 0%,var(--malva-soft) 100%)}
+.meta{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.5rem;font-size:.85rem}
+.meta span{background:var(--blanco);border:1px solid rgba(34,40,42,.09);border-radius:999px;padding:.3rem .9rem;box-shadow:var(--shadow-soft)}
+.firma{margin-top:1.8rem;font-size:.85rem;color:var(--gris);max-width:44ch}
+
+.d--golpe{background:var(--malva-soft)}
+.gran{font-family:var(--serif);font-size:clamp(1.5rem,4.6vw,3rem);line-height:1.2;color:var(--malva-deep);max-width:24ch;margin:0 0 1rem}
+.d--golpe p{color:var(--malva-deep);max-width:56ch}
+.d--golpe strong{color:var(--malva-deep)}
+
+.d--parte{background:var(--malva-deep);color:var(--lino)}
+.d--parte .n{font-family:var(--mono);font-size:clamp(3rem,11vw,7rem);font-weight:700;line-height:.9;color:rgba(228,218,234,.3);letter-spacing:-.04em;margin:0 0 .4rem}
+.d--parte h2{color:var(--blanco);max-width:22ch;font-size:clamp(1.6rem,4.6vw,3rem);margin-bottom:.6rem}
+.d--parte p{color:var(--malva-soft);max-width:50ch;font-size:clamp(1rem,1.8vw,1.2rem);margin:0}
+
+.caso{background:var(--blanco);border-radius:var(--radius);box-shadow:var(--shadow-soft);border-left:5px solid var(--acento);
+  padding:clamp(1rem,2.4vw,1.6rem) clamp(1rem,2.6vw,1.8rem);max-width:72ch}
+.caso p{font-size:clamp(.95rem,1.45vw,1.06rem);margin:0 0 .7em}
+.caso p:last-child{margin-bottom:0}
+.caso .dicho{font-family:var(--serif);font-style:italic;color:var(--malva-deep)}
+
+.bloques{display:grid;gap:.85rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,14.5rem),1fr));margin-top:.5rem;max-width:68rem}
+.bloque{background:var(--blanco);border-radius:var(--radius);padding:.95rem 1.1rem;box-shadow:var(--shadow-soft);border-left:4px solid var(--acento)}
+.bloque .n{font-family:var(--mono);font-size:.73rem;color:var(--acento-dark);font-weight:700;letter-spacing:.06em;margin:0}
+.bloque h3{margin:.2rem 0 .25rem}
+.bloque p{font-size:.9rem;color:var(--gris);margin:0}
+.bloque--norma{border-left-color:var(--bosque)}
+.bloque--norma .n,.bloque--norma h3{color:var(--bosque-dark)}
+.bloque--piedra{border-left-color:var(--piedra)}
+.bloque--piedra .n,.bloque--piedra h3{color:var(--piedra-deep)}
+
+.pasos{list-style:none;counter-reset:p;margin:.5rem 0 0;padding:0;display:grid;gap:.55rem;max-width:72ch}
+.pasos li{counter-increment:p;background:var(--blanco);border-radius:var(--radius-sm);padding:.7rem 1rem .7rem 2.9rem;box-shadow:var(--shadow-soft);position:relative;font-size:.94rem;color:var(--gris)}
+.pasos li strong{color:var(--pizarra)}
+.pasos li::before{content:counter(p);position:absolute;left:.85rem;top:.68rem;width:1.45rem;height:1.45rem;border-radius:50%;background:var(--acento);color:var(--blanco);font-family:var(--mono);font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center}
+.pasos li.fase{background:transparent;box-shadow:none;padding:.4rem 0 0;font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--acento-dark);counter-increment:none}
+.pasos li.fase::before{display:none}
+/* En pantalla ancha, dos columnas: hechos y valores a la izquierda, deberes y pruebas a la derecha. */
+@media (min-width:900px){.pasos{display:block;columns:2;column-gap:1rem;max-width:68rem}
+  .pasos li{break-inside:avoid;margin-bottom:.55rem}
+  .pasos li.fase--col{break-before:column}}
+
+.pregunta{font-family:var(--serif);font-style:italic;font-size:clamp(1.05rem,2.3vw,1.5rem);color:var(--acento-dark);border-left:4px solid var(--acento);padding:.4em 0 .4em 1em;max-width:48ch;margin:.3rem 0 1rem}
+.preguntas{list-style:none;margin:.4rem 0 0;padding:0;display:grid;gap:.6rem;max-width:70ch}
+.preguntas li{background:var(--blanco);border-radius:var(--radius-sm);box-shadow:var(--shadow-soft);padding:.7rem 1rem;font-size:.95rem}
+.nota{background:var(--blanco);border-left:4px solid var(--piedra);border-radius:var(--radius-sm);padding:.85rem 1.05rem;box-shadow:var(--shadow-soft);font-size:.9rem;color:var(--gris);max-width:64ch;margin-top:1rem}
+.nota strong{color:var(--pizarra)}
+.reloj{display:flex;flex-wrap:wrap;gap:.5rem;margin:.2rem 0 1rem}
+.reloj span{font-family:var(--mono);font-size:.8rem;background:var(--acento);color:var(--blanco);border-radius:999px;padding:.25rem .8rem}
+
+.tabla{overflow-x:auto;margin-top:.5rem;width:100%;max-width:68rem}
+table{border-collapse:collapse;width:100%;min-width:32rem;background:var(--blanco);border-radius:var(--radius-sm);overflow:hidden;box-shadow:var(--shadow-soft);font-size:.88rem}
+th,td{padding:.58rem .75rem;text-align:left;vertical-align:top;border-bottom:1px solid rgba(34,40,42,.07)}
+th{background:var(--acento-soft);color:var(--acento-dark);font-size:.8rem}
+tbody tr:last-child td{border-bottom:0}
+
+.refs{list-style:none;margin:.4rem 0 0;padding:0;max-width:74ch}
+.refs li{font-size:.86rem;color:var(--gris);padding:.5rem 0 .5rem 1.6rem;text-indent:-1.6rem;border-bottom:1px solid rgba(34,40,42,.07)}
+
+.nav{position:fixed;left:0;right:0;bottom:0;height:62px;display:flex;align-items:center;gap:.8rem;padding:0 clamp(.8rem,3vw,1.6rem);background:var(--pizarra);color:var(--lino);z-index:40}
+.nav__barra{position:absolute;top:0;left:0;height:3px;background:var(--malva-soft);transition:width .28s ease}
+@media (prefers-reduced-motion:reduce){.nav__barra{transition:none}}
+.nav__t{flex:1;font-size:.84rem;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;margin:0}
+.nav__t small{display:block;font-weight:400;font-size:.72rem;color:var(--gris-claro)}
+.nav button{width:38px;height:38px;border-radius:50%;border:1px solid rgba(250,248,244,.32);background:transparent;color:var(--lino);font-size:1.05rem;cursor:pointer;line-height:1;flex-shrink:0}
+.nav button:hover:not([disabled]){background:rgba(250,248,244,.14)}
+.nav button[disabled]{opacity:.28;cursor:default}
+.nav__n{font-family:var(--mono);font-size:.84rem;min-width:4.4rem;text-align:center;flex-shrink:0}
+.nav__pista{font-family:var(--mono);font-size:.7rem;opacity:.55;flex-shrink:0}
+@media (max-width:760px){.nav__pista{display:none}}
+
+@media print{
+  body{overflow:visible;background:var(--blanco)}
+  .deck{position:static;inset:auto}
+  .d{position:static;opacity:1;visibility:visible;page-break-after:always;min-height:auto;padding:1.4rem 0}
+  .d--parte{background:none;color:var(--pizarra)}
+  .d--parte h2{color:var(--acento-dark)} .d--parte p{color:var(--gris)} .d--parte .n{color:var(--gris-claro)}
+  .nav,.saltar{display:none}
+}
+</style>
+
+<noscript>
+  <style>
+    body{overflow:auto}
+    .deck{position:static;inset:auto}
+    .d{position:static;opacity:1;visibility:visible;min-height:auto;padding:2.2rem clamp(1.25rem,6vw,5.5rem);border-bottom:1px solid var(--malva-soft)}
+    .d--parte{background:var(--lino);color:var(--pizarra)}
+    .d--parte h2{color:var(--acento-dark)} .d--parte p{color:var(--gris)} .d--parte .n{color:var(--gris-claro)}
+    .nav{display:none}
+  </style>
+</noscript>
+
+<a class="saltar" href="#d1">Saltar al contenido</a>
+
+<main class="deck" id="deck">
+
+<!-- 1 ─ Portada ────────────────────────────────────────────────────────── -->
+<section class="d on d--portada" id="d1" aria-label="Portada">
+  <p class="d__eyebrow">Unidad 3 · Material de aula</p>
+  <h1>Deliberar un caso: autonomía, sufrimiento y escasez</h1>
+  <p class="lead">
+    Un caso construido para el curso y un método para no saltar a la conclusión. Lo que se busca
+    no es la respuesta correcta, sino la mejor decisión que pueda sostenerse en voz alta.
+  </p>
+  <div class="meta">
+    <span>Sesión 6</span>
+    <span>viernes 30 de octubre de 2026</span>
+    <span>Sincrónica · 8:00 a 11:00</span>
+    <span>Tercer corte</span>
+  </div>
+  <p class="firma">
+    Seminario de fundamentación en cuidados paliativos · 32264001<br>
+    Maestría en Cuidados Paliativos · Universidad Antonio Nariño · 2026-II
+  </p>
+</section>
+
+<!-- 2 ─ La pregunta de la unidad ──────────────────────────────────────── -->
+<section class="d d--golpe" id="d2" aria-label="La pregunta de la sesión">
+  <p class="d__eyebrow">La pregunta que atraviesa la sesión</p>
+  <p class="gran">¿Tiene sentido discutir la autonomía para rechazar un tratamiento, cuando el problema real del territorio es que no hay opioides?</p>
+  <p>
+    Garrafa y Porto (2003) distinguen problemas <strong>emergentes</strong> —los de la tecnología de
+    punta— y <strong>persistentes</strong>: exclusión, pobreza, falta de acceso. Sostienen que la
+    bioética de los países centrales se ocupa de los primeros, mientras los segundos definen la vida
+    en los países periféricos.
+  </p>
+  <p>El caso de hoy tiene los dos a la vez. No se puede deliberar uno sin el otro.</p>
+</section>
+
+<!-- 3 ─ El caso ──────────────────────────────────────────────────────── -->
+<section class="d" id="d3" aria-label="El caso">
+  <p class="d__eyebrow">El caso · ficticio, construido para el curso</p>
+  <h2>Rosa, en la vereda</h2>
+  <div class="caso">
+    <p>
+      Rosa tiene 68 años y vive con su hijo mayor en una vereda a tres horas de la cabecera municipal,
+      por carretera destapada. Es una persona con enfermedad avanzada: cáncer gástrico con
+      compromiso hepático, diagnosticado hace cuatro meses en la capital del departamento. El dolor ha
+      subido en las últimas dos semanas y ya no cede con lo que tiene.
+    </p>
+    <p>
+      La droguería del municipio no dispensa morfina. El punto de dispensación más cercano queda en la
+      capital, a cinco horas. La EPS ofrece trasladarla a un hospital de allá «para controlar el dolor».
+    </p>
+    <p>
+      En una teleconsulta, el hijo pide a la enfermera, en privado:
+      <span class="dicho">«No le diga que es cáncer. Si sabe, se deja morir.»</span>
+    </p>
+    <p>
+      Minutos después, Rosa le pregunta a la misma enfermera:
+      <span class="dicho">«¿Qué es lo que tengo? ¿Me voy a mejorar?»</span>
+      Una vecina cuenta que Rosa le dijo hace años que no quería morirse en un hospital. No firmó
+      ningún documento de voluntad anticipada.
+    </p>
+  </div>
+</section>
+
+<!-- 4 ─ El método ───────────────────────────────────────────────────── -->
+<section class="d" id="d4" aria-label="El método de Gracia">
+  <p class="d__eyebrow">El método · Gracia (2008)</p>
+  <h2>Deliberar es recorrer los pasos en orden</h2>
+  <ol class="pasos">
+    <li class="fase">Los hechos</li>
+    <li><strong>Hechos clínicos y de contexto.</strong> Qué se sabe, qué no se sabe y qué habría que averiguar antes de decidir.</li>
+    <li class="fase">Los valores</li>
+    <li><strong>Problemas morales.</strong> Enumérenlos todos y elijan el fundamental: el que, resuelto, ordena los demás.</li>
+    <li><strong>Valores en conflicto.</strong> Nómbrenlos como valores, no como personas: no «el hijo contra Rosa».</li>
+    <li class="fase fase--col">Los deberes</li>
+    <li><strong>Cursos extremos.</strong> Los dos que salvan un valor y sacrifican por completo el otro.</li>
+    <li><strong>Cursos intermedios.</strong> Todos los que puedan. Aquí está el trabajo de la sesión.</li>
+    <li><strong>Curso óptimo.</strong> El que lesiona menos los valores en juego, y por qué.</li>
+    <li class="fase">Las pruebas</li>
+    <li><strong>Pruebas de consistencia.</strong> ¿Es legal? ¿Lo defenderían en público? ¿Decidirían lo mismo con unas horas más?</li>
+  </ol>
+</section>
+
+<!-- 5 ─ Reglas ──────────────────────────────────────────────────────── -->
+<section class="d" id="d5" aria-label="Reglas de la deliberación">
+  <p class="d__eyebrow">Antes de entrar a las salas</p>
+  <h2>Tres reglas</h2>
+  <div class="bloques">
+    <div class="bloque">
+      <p class="n">01</p>
+      <h3>No saltar a la conclusión</h3>
+      <p>Si el grupo ya sabe qué haría antes del paso 5, se devuelve al paso 1. La conclusión rápida es justo lo que el método existe para frenar.</p>
+    </div>
+    <div class="bloque">
+      <p class="n">02</p>
+      <h3>Los extremos no son el óptimo</h3>
+      <p>«Decirle todo ya» y «no decirle nada» son cursos extremos. El óptimo casi nunca está en una punta.</p>
+    </div>
+    <div class="bloque bloque--piedra">
+      <p class="n">03</p>
+      <h3>Lo que falta es un hecho</h3>
+      <p>Si para decidir hace falta un dato que el caso no da, se anota como hecho por averiguar. No se inventa.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 6 ─ Consigna de salas ──────────────────────────────────────────── -->
+<section class="d d--parte" id="d6" aria-label="Trabajo en salas">
+  <p class="n">50′</p>
+  <h2>A las salas</h2>
+  <p>
+    Cada grupo recorre los siete pasos y vuelve con un relator. Traigan a la plenaria tres cosas: el
+    problema moral fundamental, sus cursos intermedios y su curso óptimo con la prueba que más les costó pasar.
+  </p>
+</section>
+
+<!-- 7 ─ Lo que se trae a plenaria ──────────────────────────────────── -->
+<section class="d" id="d7" aria-label="Plantilla para la plenaria">
+  <p class="d__eyebrow">Para el relator · lo que se presenta</p>
+  <h2>Cinco minutos por grupo</h2>
+  <div class="reloj"><span>salas 50′</span><span>plenaria 40′</span><span>norma 15′</span><span>investigación 25′</span></div>
+  <div class="tabla">
+    <table>
+      <thead><tr><th>Paso</th><th>Lo que el grupo trae</th></tr></thead>
+      <tbody>
+        <tr><td>1 · Hechos</td><td>Un hecho que cambiaría la decisión si fuera distinto, y uno que falta</td></tr>
+        <tr><td>2 · Problema fundamental</td><td>En una frase, como pregunta</td></tr>
+        <tr><td>3 · Valores</td><td>Los dos o tres que chocan</td></tr>
+        <tr><td>4 y 5 · Cursos</td><td>Los dos extremos y al menos tres intermedios</td></tr>
+        <tr><td>6 · Óptimo</td><td>Cuál y por qué lesiona menos</td></tr>
+        <tr><td>7 · Pruebas</td><td>La que más les costó pasar</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 8 ─ Preguntas de plenaria ─────────────────────────────────────── -->
+<section class="d" id="d8" aria-label="Preguntas para la plenaria">
+  <p class="d__eyebrow">Plenaria · contrastar, no votar</p>
+  <h2>Lo que se pregunta a todos los grupos</h2>
+  <ul class="preguntas">
+    <li>¿Eligieron el mismo problema fundamental? Si no, ¿qué decisión cambia según cuál se elija?</li>
+    <li>¿El pacto de silencio protege a Rosa o protege a la familia? ¿Cómo lo sabrían?</li>
+    <li>¿Qué pesa más en su curso óptimo: lo que Rosa pregunta hoy o lo que le dijo a la vecina hace años?</li>
+    <li>Si el municipio tuviera morfina, ¿seguiría existiendo el dilema del traslado? ¿Qué parte del caso es ética y qué parte es acceso?</li>
+    <li>¿Quién en el caso podría ser un <strong>apoyo para interpretar</strong> la voluntad de Rosa, y quién no?</li>
+  </ul>
+</section>
+
+<!-- 9 ─ La norma ──────────────────────────────────────────────────── -->
+<section class="d" id="d9" aria-label="Lo que dice la norma">
+  <p class="d__eyebrow">Prueba de legalidad · lo que ya vimos en la unidad 1</p>
+  <h2>La norma no decide el caso, pero lo acota</h2>
+  <div class="bloques">
+    <div class="bloque bloque--norma">
+      <p class="n">Ley 1733 de 2014 · art. 5, num. 2</p>
+      <h3>Derecho a la información</h3>
+      <p>Información clara y completa sobre diagnóstico, pronóstico y alternativas. El titular es la persona, no su familia.</p>
+    </div>
+    <div class="bloque bloque--norma">
+      <p class="n">Res. 2665 de 2018 · vigente</p>
+      <h3>Voluntad anticipada</h3>
+      <p>Toda persona capaz, sana o enferma, puede suscribirla. Rosa no lo hizo. ¿Todavía puede?</p>
+    </div>
+    <div class="bloque bloque--norma">
+      <p class="n">Res. 813 de 2026 · art. 9</p>
+      <h3>Cinco medios de manifestar la voluntad</h3>
+      <p>El documento de voluntad anticipada es uno de ellos, no el único. Lo que Rosa dice hoy también cuenta.</p>
+    </div>
+    <div class="bloque bloque--norma">
+      <p class="n">T-438 de 2025</p>
+      <h3>Interpretar la voluntad, no reemplazarla</h3>
+      <p>Del «consentimiento sustituto» a los apoyos. La pregunta a la familia ya no es «¿qué decide usted?», sino «¿qué nos consta que ella quería?».</p>
+    </div>
+  </div>
+</section>
+
+<!-- 10 ─ Puente a la investigación ────────────────────────────────── -->
+<section class="d" id="d10" aria-label="Del caso a la investigación">
+  <p class="d__eyebrow">Del caso a la pregunta de investigación</p>
+  <h2>Ética <em>de</em> la investigación e investigación <em>sobre</em> ética</h2>
+  <div class="tabla">
+    <table>
+      <thead><tr><th>Si la pregunta es…</th><th>Aproximación</th><th>En el caso de Rosa</th></tr></thead>
+      <tbody>
+        <tr><td>¿Qué experimentan quienes deciden?</td><td>Cualitativa fenomenológica</td><td>La enfermera entre el hijo y Rosa</td></tr>
+        <tr><td>¿Qué razones se dan?</td><td>Análisis de contenido</td><td>Por qué las familias piden silencio</td></tr>
+        <tr><td>¿Con qué frecuencia ocurre?</td><td>Descriptiva sobre registros</td><td>¿Hay registro que lo capture? Probablemente no</td></tr>
+        <tr><td>¿Es justo el acceso?</td><td>Análisis de equidad</td><td>Quién recibe opioides en casa y quién debe trasladarse</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="nota">
+    <strong>Y la otra cara:</strong> investigar con Rosa plantearía sus propios problemas —vulnerabilidad,
+    consentimiento con información incompleta, carga de participar, el hijo como informante
+    sustituto—. Llévenlo a la pregunta que el grupo construyó el 16 de octubre: ¿qué problema ético
+    tiene estudiarla, y quién lo aprobaría?
+  </p>
+</section>
+
+<!-- 11 ─ Fuentes ──────────────────────────────────────────────────── -->
+<section class="d" id="d11" aria-label="Fuentes">
+  <p class="d__eyebrow">Fuentes</p>
+  <h2>Para citar lo que se usó hoy</h2>
+  <ul class="refs">
+    <li>Garrafa, V., &amp; Porto, D. (2003). Intervention bioethics: A proposal for peripheral countries in a context of power and injustice. <em>Bioethics, 17</em>(5–6), 399–416. <a href="https://doi.org/10.1111/1467-8519.00356">https://doi.org/10.1111/1467-8519.00356</a></li>
+    <li>Gracia, D. (2008). <em>Procedimientos de decisión en ética clínica</em> (3.ª ed.). Triacastela.</li>
+    <li>Congreso de Colombia. (2014). <em>Ley 1733 de 2014</em> (Ley Consuelo Devis Saavedra), art. 5.</li>
+    <li>Ministerio de Salud y Protección Social. (2018). <em>Resolución 2665 de 2018</em>, sobre el documento de voluntad anticipada.</li>
+    <li>Ministerio de Salud y Protección Social. (2026, 28 de abril). <em>Resolución 813 de 2026</em>, art. 9.</li>
+    <li>Corte Constitucional de Colombia. (2025). <em>Sentencia T-438 de 2025</em>. <a href="https://www.corteconstitucional.gov.co/relatoria/2025/T-438-25.htm">corteconstitucional.gov.co</a></li>
+  </ul>
+  <p class="nota">El caso de Rosa es ficticio y fue construido para este seminario. No describe a ninguna persona, institución ni municipio real.</p>
+</section>
+
+</main>
+
+<nav class="nav" aria-label="Navegación de la presentación">
+  <div class="nav__barra" id="barra"></div>
+  <p class="nav__t">Sesión 6<small>Deliberar un caso</small></p>
+  <button type="button" id="prev" aria-label="Diapositiva anterior">‹</button>
+  <span class="nav__n" id="cuenta">1 / 11</span>
+  <button type="button" id="next" aria-label="Diapositiva siguiente">›</button>
+  <span class="nav__pista">← → · inicio · fin</span>
+</nav>
+
+<script>
+(function () {
+  'use strict';
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.d'));
+  var total = slides.length;
+  var i = 0;
+  var elPrev = document.getElementById('prev');
+  var elNext = document.getElementById('next');
+  var elCuenta = document.getElementById('cuenta');
+  var elBarra = document.getElementById('barra');
+
+  function mostrar(n, conFoco) {
+    i = Math.max(0, Math.min(total - 1, n));
+    slides.forEach(function (s, k) { s.classList.toggle('on', k === i); });
+    elCuenta.textContent = (i + 1) + ' / ' + total;
+    elBarra.style.width = ((i + 1) / total * 100) + '%';
+    elPrev.disabled = i === 0;
+    elNext.disabled = i === total - 1;
+    if (conFoco) { slides[i].setAttribute('tabindex', '-1'); slides[i].focus({ preventScroll: true }); }
+    slides[i].scrollTop = 0;
+    if (history.replaceState) history.replaceState(null, '', '#' + (i + 1));
+  }
+
+  elPrev.addEventListener('click', function () { mostrar(i - 1, true); });
+  elNext.addEventListener('click', function () { mostrar(i + 1, true); });
+
+  document.addEventListener('keydown', function (e) {
+    if (/^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName)) return;
+    switch (e.key) {
+      case 'ArrowRight': case 'PageDown': mostrar(i + 1, true); break;
+      case 'ArrowLeft':  case 'PageUp':   mostrar(i - 1, true); break;
+      case ' ':          mostrar(i + (e.shiftKey ? -1 : 1), true); e.preventDefault(); break;
+      case 'Home':       mostrar(0, true); break;
+      case 'End':        mostrar(total - 1, true); break;
+      default: return;
+    }
+  });
+
+  var x0 = null, y0 = null;
+  document.addEventListener('touchstart', function (e) {
+    x0 = e.changedTouches[0].clientX; y0 = e.changedTouches[0].clientY;
+  }, { passive: true });
+  document.addEventListener('touchend', function (e) {
+    if (x0 === null) return;
+    var dx = e.changedTouches[0].clientX - x0;
+    var dy = e.changedTouches[0].clientY - y0;
+    if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) mostrar(i + (dx < 0 ? 1 : -1), false);
+    x0 = y0 = null;
+  }, { passive: true });
+
+  var inicial = parseInt((location.hash || '').replace('#', ''), 10);
+  mostrar(isNaN(inicial) ? 0 : inicial - 1, false);
+})();
+</script>
+</html>
