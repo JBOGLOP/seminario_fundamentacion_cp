@@ -101,6 +101,11 @@ a{color:var(--acento-dark)}
   background:var(--blanco); border-radius:var(--radius-sm); box-shadow:var(--shadow-soft);
   border-left:3px solid var(--acento); padding:.75rem 1rem; margin-bottom:.6rem;
 }
+/* Los siete pasos de Gracia, dentro de la sección 3 del producto final. */
+.temas .gracia{margin:.6rem 0 .4rem; padding-left:1.4rem}
+.temas .gracia li{background:none; box-shadow:none; border:0; border-radius:0; padding:0; margin-bottom:.4rem; font-size:.95rem}
+.temas .gracia li::marker{color:var(--acento-dark); font-weight:700}
+.gracia__nota{font-size:.92rem; color:var(--gris); margin:.5rem 0 0}
 
 /* Estado del material. Mientras diga «en preparación» no hay enlace que
    pueda romperse: el estado se dice, no se finge con un enlace muerto. */
@@ -217,8 +222,34 @@ footer a{color:var(--acento-dark)}
           por capas, no como etiqueta; quién consiente y qué pasa si la persona pierde la capacidad; la
           categoría de riesgo según la Resolución 8430 de 1993; y qué comité lo revisaría.</li>
         <li><strong>3 · El dilema, deliberado · 25.</strong> Un dilema bioético que el problema estudiado plantea
-          en la práctica clínica, recorrido con los siete pasos de Gracia: hechos, problema fundamental,
-          valores, cursos extremos, al menos tres intermedios, curso óptimo y pruebas.</li>
+          en la práctica clínica, recorrido con los siete pasos de Gracia. Lo que el documento tiene que
+          mostrar en cada paso:
+          <ol class="gracia">
+            <li><strong>Hechos.</strong> Los clínicos y los del territorio de la pregunta: qué se sabe, qué no
+              se sabe y qué habría que averiguar antes de decidir.</li>
+            <li><strong>Problema moral fundamental.</strong> Enumeren los problemas morales y elijan el que,
+              resuelto, ordena los demás. Escríbanlo como pregunta.</li>
+            <li><strong>Valores en conflicto.</strong> Nombrados como valores —autonomía, alivio del
+              sufrimiento, equidad en el acceso, protección de quien cuida—, no como personas: no «la hija
+              contra el médico».</li>
+            <li><strong>Cursos extremos.</strong> Los dos que salvan un valor y sacrifican del todo el otro. Se
+              escriben para descartarlos.</li>
+            <li><strong>Cursos intermedios.</strong> Al menos tres, distintos entre sí. Aquí se ve si el grupo
+              deliberó o justificó una conclusión que ya tenía.</li>
+            <li><strong>Curso óptimo.</strong> El que menos lesiona los valores en juego, y por qué ese y no
+              otro de los intermedios.</li>
+            <li><strong>Pruebas de consistencia.</strong> <em>Legalidad</em>, con la norma vigente (Ley 1733
+              de 2014, Res. 2665 de 2018, Res. 813 de 2026, T-438 de 2025, según el caso);
+              <em>publicidad</em>: ¿lo defenderían en público?; <em>temporalidad</em>: ¿decidirían lo mismo
+              con unas horas más? Digan cuál prueba les costó más y por qué.</li>
+          </ol>
+          <p class="gracia__nota"><strong>El dilema sale de la pregunta</strong>, no es un caso inventado aparte.
+            Si la pregunta es sobre acceso a opioides en zona rural, el dilema puede ser el traslado que la
+            persona no quiere; no la eutanasia en abstracto. <strong>Y no se confunde con la sección 2:</strong>
+            la sección 2 es la ética de investigar; la 3 es lo que un clínico tiene que decidir frente a una
+            persona concreta. Si al llegar al paso 5 ya saben qué harían, vuelvan al paso 1. El método completo
+            está en la <a href="../s06-bioetica-decisiones/deliberacion.html#4">presentación de la sesión 6</a>.</p>
+        </li>
         <li><strong>4 · Viabilidad · 20.</strong> Recursos, tiempo, acceso al campo, dónde está el dato y quién lo
           tiene, y el obstáculo que podría hundir el proyecto, con su salida.</li>
         <li><strong>5 · Fuentes, inglés, IA y aportes · 10.</strong> Referencias en APA 7 con DOI o URL, al menos
