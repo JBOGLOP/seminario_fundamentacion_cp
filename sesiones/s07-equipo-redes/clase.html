@@ -124,6 +124,21 @@ th,td{padding:.58rem .75rem;text-align:left;vertical-align:top;border-bottom:1px
 th{background:var(--acento-soft);color:var(--acento-dark);font-size:.8rem}
 tbody tr:last-child td{border-bottom:0}
 
+/* Acordeón de la diapositiva 7: el dato se busca, no se expone de entrada. */
+.acordeon{display:grid;gap:.55rem;max-width:72ch;margin-top:.3rem}
+.acordeon details{background:var(--blanco);border-radius:var(--radius-sm);box-shadow:var(--shadow-soft);border-left:4px solid var(--acento)}
+.acordeon summary{cursor:pointer;padding:.65rem 1rem;font-weight:700;font-size:.95rem;color:var(--malva-deep);list-style:none;display:flex;align-items:center;gap:.6rem}
+.acordeon summary::-webkit-details-marker{display:none}
+.acordeon summary::before{content:'+';font-family:var(--mono);width:1.35rem;height:1.35rem;border-radius:50%;background:var(--acento);color:var(--blanco);display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0}
+.acordeon details[open] summary::before{content:'−'}
+.acordeon__cuerpo{padding:0 1rem .85rem 2.95rem}
+.d--golpe .acordeon__cuerpo p{font-size:.9rem;color:var(--pizarra);margin:0 0 .5em}
+.d--golpe .acordeon__cuerpo strong{color:var(--pizarra)}
+.hallazgos{margin:0 0 .6rem;padding-left:1.1rem;font-size:.88rem;color:var(--gris)}
+.hallazgos li{margin-bottom:.35rem}
+.d--golpe .acordeon__cuerpo .aviso{border-top:1px solid rgba(34,40,42,.09);padding-top:.5rem;margin:0;color:var(--gris)}
+@media (max-width:520px){.acordeon__cuerpo{padding-left:1rem}}
+
 .refs{list-style:none;margin:.4rem 0 0;padding:0;max-width:74ch}
 .refs li{font-size:.86rem;color:var(--gris);padding:.36rem 0 .36rem 1.6rem;text-indent:-1.6rem;border-bottom:1px solid rgba(34,40,42,.07)}
 
@@ -277,6 +292,63 @@ tbody tr:last-child td{border-bottom:0}
     <strong>Del juicio al dato:</strong> ¿cuántos equipos de cuidado paliativo en Colombia miden el
     desgaste de sus integrantes? ¿Dónde estaría ese dato, y quién lo tendría?
   </p>
+  <div class="acordeon">
+    <details name="desgaste">
+      <summary>Lo que se encontró en Colombia</summary>
+      <div class="acordeon__cuerpo">
+        <p><strong>No hay dato.</strong> Ningún estudio publicado cuenta cuántos equipos miden el desgaste de su
+          gente. Lo publicado mide cuánto desgaste tienen las personas, no si sus equipos lo vigilan.</p>
+        <ul class="hallazgos">
+          <li><a href="https://doi.org/10.5209/psic.88671">Krikorian et al. (2023), <em>Psicooncología</em></a>:
+            108 profesionales de cuidado paliativo en Colombia, con el ProQOL. El 75,9 % con burnout medio o alto
+            y el 81,5 % con trauma secundario, durante la pandemia.</li>
+          <li><a href="https://repository.urosario.edu.co/items/b49a458d-3754-4956-948c-10438d943927/full">Tesis de
+            la Universidad del Rosario (2021)</a>: burnout severo en trabajadores de unidades de cuidado paliativo,
+            encuesta de 2019. Es una tesis, no un artículo revisado por pares.</li>
+        </ul>
+        <p><strong>¿Dónde estaría el dato?</strong> En el sistema de riesgos laborales, no en el de salud:</p>
+        <ul class="hallazgos">
+          <li><a href="https://cancilleria.gov.co/normograma/compilacion/docs/resolucion_mtra_2764_2022.htm">Res. 2764
+            de 2022</a> (Ministerio del Trabajo): cada institución evalúa el riesgo psicosocial cada año si es alto y
+            cada dos si es medio o bajo. El informe es confidencial, suele ser de toda la institución y no mide
+            burnout con un instrumento específico.</li>
+          <li><a href="https://www.funcionpublica.gov.co/eva/gestornormativo/documentos/tabla1-decreto1477.pdf">Decreto
+            1477 de 2014</a>: el «síndrome de agotamiento profesional (síndrome de Burnout)», Z73.0, es enfermedad
+            laboral reconocida.</li>
+          <li><a href="https://www.minsalud.gov.co/sites/rid/Lists/BibliotecaDigital/RIDE/DE/DIJ/Resolucion-3100-de-2019.pdf">Res.
+            3100 de 2019</a> (habilitación, vigente): no pide medir el desgaste ni el bienestar del personal. Por eso el
+            REPS tampoco lo registra.</li>
+        </ul>
+      </div>
+    </details>
+    <details name="desgaste">
+      <summary>Fuera de Colombia, 2021–2026</summary>
+      <div class="acordeon__cuerpo">
+        <p><strong>Tampoco hay dato.</strong> No se encontró ningún estudio que cuente cuántos servicios miden de forma
+          rutinaria el desgaste de su personal. Donde más se acerca, quien mide es la investigación, no el servicio.</p>
+        <ul class="hallazgos">
+          <li><a href="https://doi.org/10.1136/spcare-2022-004056">Bedendo et al. (2023), <em>BMJ Supportive &amp;
+            Palliative Care</em></a>: 31 de 52 hospicios pediátricos del Reino Unido y 583 trabajadores. Burnout del
+            11 %. Lo midieron los investigadores, no los hospicios.</li>
+          <li><a href="https://capc.org/blog/palliative-care-leadership-during-the-pandemic-results-from-a-recent-survey">CAPC
+            (2022)</a>, Estados Unidos: el 93 % de 150 líderes de programas está preocupado por el bienestar de su
+            equipo. Lo que hacen es informal; ninguno informa una medición.</li>
+          <li><a href="https://doi.org/10.1016/j.jpainsymman.2021.04.004">Dijxhoorn et al. (2021), <em>Journal of Pain
+            and Symptom Management</em></a>, Países Bajos: el 7 % estuvo de incapacidad por burnout, y los
+            profesionales piden medidas del equipo y de la organización.</li>
+          <li><a href="https://doi.org/10.1177/0269216320956825">Dijxhoorn et al. (2021), <em>Palliative
+            Medicine</em></a>: revisión de 59 estudios. Burnout del 3 % al 66 %, con instrumentos distintos que no se
+            pueden sumar.</li>
+          <li><a href="https://palliativecare.org.au/policy_priority/wellbeing-in-palliative-care-workforces-national-workforce-survey-findings-report-1/">Palliative
+            Care Australia (2024)</a>: el 44 % del personal de cuidado paliativo especializado tiene señales de burnout
+            con frecuencia.</li>
+        </ul>
+        <p class="aviso"><strong>Cuidado con Kamal et al. (2016):</strong> el estudio estadounidense más citado sobre
+          burnout en cuidado paliativo está <a href="https://doi.org/10.1016/j.jpainsymman.2015.10.020">retractado</a>.
+          Una revista de alto impacto no garantiza que el dato siga en pie.</p>
+      </div>
+    </details>
+  </div>
 </section>
 
 <!-- 8 ─ Parte 2 ───────────────────────────────────────────────────────── -->
@@ -561,6 +633,8 @@ tbody tr:last-child td{border-bottom:0}
 
   document.addEventListener('keydown', function (e) {
     if (/^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName)) return;
+    // La barra espaciadora sobre un acordeón o un enlace lo activa; no pasa de diapositiva.
+    if (e.key === ' ' && /^(SUMMARY|A|BUTTON)$/.test(e.target.tagName)) return;
     switch (e.key) {
       case 'ArrowRight': case 'PageDown': mostrar(i + 1, true); break;
       case 'ArrowLeft':  case 'PageUp':   mostrar(i - 1, true); break;
@@ -582,6 +656,21 @@ tbody tr:last-child td{border-bottom:0}
     if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) mostrar(i + (dx < 0 ? 1 : -1), false);
     x0 = y0 = null;
   }, { passive: true });
+
+  // Al abrir un panel del acordeón, la diapositiva se desplaza hasta él.
+  Array.prototype.forEach.call(document.querySelectorAll('.acordeon details'), function (d) {
+    d.addEventListener('toggle', function () {
+      if (d.open) d.scrollIntoView({ block: 'start', behavior: 'smooth' });
+    });
+  });
+
+  // Al imprimir, los acordeones salen abiertos: el papel no tiene botones.
+  window.addEventListener('beforeprint', function () {
+    // Sin el atributo name, porque el grupo exclusivo cerraría uno al abrir el otro.
+    Array.prototype.forEach.call(document.querySelectorAll('details'), function (d) {
+      d.removeAttribute('name'); d.open = true;
+    });
+  });
 
   var inicial = parseInt((location.hash || '').replace('#', ''), 10);
   mostrar(isNaN(inicial) ? 0 : inicial - 1, false);
