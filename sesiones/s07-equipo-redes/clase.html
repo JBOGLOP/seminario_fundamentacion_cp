@@ -1,0 +1,590 @@
+<!doctype html>
+<html lang="es">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sesión 7 · Equipo, comunicación y redes — Seminario de fundamentación en CP</title>
+<meta name="description" content="Presentación de la sesión 7 y cierre del Seminario de fundamentación en cuidados paliativos (32264001), Universidad Antonio Nariño. Equipo interprofesional, comunicación, redes de apoyo, la norma de voluntad anticipada y el producto final del tercer corte.">
+
+<!-- ===========================================================================
+     PRESENTACIÓN · SESIÓN 7 · cierre del seminario
+     viernes 20 de noviembre de 2026 · presencial · tercer corte
+
+     Contenido de DISENO_UNIDAD_3 §4.1 (equipo, comunicación, redes, programas)
+     más la parte normativa que la sesión 6 no alcanzó a cubrir (Ley 1733,
+     Res. 2665/2018, Res. 813/2026, T-438/2025).
+
+     Decisión del 19 de noviembre de 2026: el documento del producto final se
+     entrega el viernes 27 de noviembre; en esta sesión se hace la defensa oral
+     de avance. Ver docs/RUBRICA-C3.md.
+
+     RIGOR DE LAS FUENTES. Las normas, verificadas para la sesión 3
+     (docs/INVESTIGACION-TEMA3-marco-legal-barreras.md). Baile et al. (2000),
+     Hudson et al. (2008), Kellehear (2013) y Luna (2009): título, revista,
+     volumen, páginas y autores cotejados en Crossref el 19 de noviembre de 2026.
+     =========================================================================== -->
+
+<style>
+/* --- tokens.css en línea · FUENTE CANÓNICA: _shared/tokens.css ----------- */
+:root{
+  --bosque:#2F5D50;    --bosque-dark:#234639;    --bosque-deep:#17302A;  --bosque-soft:#D6E3DD;
+  --arcilla:#C4714F;   --arcilla-dark:#A2563A;   --arcilla-deep:#6F3823; --arcilla-soft:#F3DCD1;
+  --malva:#7A5C8A;     --malva-dark:#5F4570;     --malva-deep:#402C4D;   --malva-soft:#E4DAEA;
+  --piedra:#8A8578;    --piedra-dark:#6B6659;    --piedra-deep:#4E4A40;  --piedra-soft:#EFEBE3;
+  --pizarra:#22282A;   --gris:#565E5C;           --gris-claro:#9AA09D;
+  --blanco:#FFFFFF;    --lino:#FAF8F4;
+  --shadow-soft:0 2px 8px rgba(34,40,42,.07);
+  --radius:14px; --radius-sm:9px;
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif;
+  --mono:'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace;
+  --serif:Georgia,'Times New Roman',serif;
+
+  /* Unidad 3 → malva. La norma (unidad 1) conserva su bosque cuando aparece. */
+  --acento:var(--malva); --acento-dark:var(--malva-deep); --acento-soft:var(--malva-soft);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;font-family:var(--sans);color:var(--pizarra);background:var(--lino);line-height:1.5;overflow:hidden}
+:focus-visible{outline:3px solid var(--acento);outline-offset:3px}
+a{color:var(--acento-dark)}
+.saltar{position:absolute;left:-9999px;background:var(--pizarra);color:var(--lino);padding:.6rem 1rem;z-index:99}
+.saltar:focus{left:0}
+
+.deck{position:fixed;inset:0 0 62px 0}
+.d{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-start;
+  padding:clamp(1.4rem,4vw,3.4rem) clamp(1.25rem,6vw,5.5rem);
+  opacity:0;visibility:hidden;transition:opacity .28s ease;overflow-y:auto}
+.d.on{opacity:1;visibility:visible}
+@media (prefers-reduced-motion:reduce){.d{transition:none}}
+.d>:first-child{margin-top:auto !important}
+.d>:last-child{margin-bottom:auto !important}
+.d>*{flex-shrink:0}
+
+.d__eyebrow{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--acento-dark);margin:0 0 .7rem}
+h1{font-size:clamp(1.9rem,5.2vw,3.4rem);line-height:1.08;letter-spacing:-.02em;margin:0 0 .8rem;max-width:20ch}
+h2{font-size:clamp(1.35rem,3.4vw,2.3rem);line-height:1.15;letter-spacing:-.015em;margin:0 0 .8rem;max-width:28ch;color:var(--acento-dark)}
+h3{font-size:clamp(.98rem,1.8vw,1.15rem);margin:0 0 .35rem;color:var(--acento-dark)}
+p{font-size:clamp(.96rem,1.5vw,1.1rem);max-width:62ch;margin:0 0 .8em}
+.lead{font-size:clamp(1.02rem,1.95vw,1.3rem);color:var(--gris);max-width:56ch}
+strong{color:var(--pizarra)}
+
+.d--portada{background:linear-gradient(150deg,var(--lino) 0%,var(--malva-soft) 100%)}
+.meta{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.5rem;font-size:.85rem}
+.meta span{background:var(--blanco);border:1px solid rgba(34,40,42,.09);border-radius:999px;padding:.3rem .9rem;box-shadow:var(--shadow-soft)}
+.firma{margin-top:1.8rem;font-size:.85rem;color:var(--gris);max-width:44ch}
+
+.d--golpe{background:var(--malva-soft)}
+.gran{font-family:var(--serif);font-size:clamp(1.5rem,4.6vw,3rem);line-height:1.2;color:var(--malva-deep);max-width:24ch;margin:0 0 1rem}
+.d--golpe p{color:var(--malva-deep);max-width:56ch}
+.d--golpe strong{color:var(--malva-deep)}
+
+.d--parte{background:var(--malva-deep);color:var(--lino)}
+.d--parte .n{font-family:var(--mono);font-size:clamp(3rem,11vw,7rem);font-weight:700;line-height:.9;color:rgba(228,218,234,.3);letter-spacing:-.04em;margin:0 0 .4rem}
+.d--parte h2{color:var(--blanco);max-width:22ch;font-size:clamp(1.6rem,4.6vw,3rem);margin-bottom:.6rem}
+.d--parte p{color:var(--malva-soft);max-width:50ch;font-size:clamp(1rem,1.8vw,1.2rem);margin:0}
+
+.caso{background:var(--blanco);border-radius:var(--radius);box-shadow:var(--shadow-soft);border-left:5px solid var(--acento);
+  padding:clamp(1rem,2.4vw,1.6rem) clamp(1rem,2.6vw,1.8rem);max-width:72ch}
+.caso p{font-size:clamp(.95rem,1.45vw,1.06rem);margin:0 0 .7em}
+.caso p:last-child{margin-bottom:0}
+.caso .dicho{font-family:var(--serif);font-style:italic;color:var(--malva-deep)}
+
+.bloques{display:grid;gap:.85rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,14.5rem),1fr));margin-top:.5rem;max-width:68rem}
+.bloque{background:var(--blanco);border-radius:var(--radius);padding:.95rem 1.1rem;box-shadow:var(--shadow-soft);border-left:4px solid var(--acento)}
+.bloque .n{font-family:var(--mono);font-size:.73rem;color:var(--acento-dark);font-weight:700;letter-spacing:.06em;margin:0}
+.bloque h3{margin:.2rem 0 .25rem}
+.bloque p{font-size:.9rem;color:var(--gris);margin:0}
+.bloque--norma{border-left-color:var(--bosque)}
+.bloque--norma .n,.bloque--norma h3{color:var(--bosque-dark)}
+.bloque--piedra{border-left-color:var(--piedra)}
+.bloque--piedra .n,.bloque--piedra h3{color:var(--piedra-deep)}
+
+.pasos{list-style:none;counter-reset:p;margin:.5rem 0 0;padding:0;display:grid;gap:.55rem;max-width:72ch}
+.pasos li{counter-increment:p;background:var(--blanco);border-radius:var(--radius-sm);padding:.7rem 1rem .7rem 2.9rem;box-shadow:var(--shadow-soft);position:relative;font-size:.94rem;color:var(--gris)}
+.pasos li strong{color:var(--pizarra)}
+.pasos li::before{content:counter(p);position:absolute;left:.85rem;top:.68rem;width:1.45rem;height:1.45rem;border-radius:50%;background:var(--acento);color:var(--blanco);font-family:var(--mono);font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center}
+.pasos li.fase{background:transparent;box-shadow:none;padding:.4rem 0 0;font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--acento-dark);counter-increment:none}
+.pasos li.fase::before{display:none}
+/* En pantalla ancha, dos columnas: hechos y valores a la izquierda, deberes y pruebas a la derecha. */
+@media (min-width:900px){.pasos{display:block;columns:2;column-gap:1rem;max-width:68rem}
+  .pasos li{break-inside:avoid;margin-bottom:.55rem}
+  .pasos li.fase--col{break-before:column}}
+
+.pregunta{font-family:var(--serif);font-style:italic;font-size:clamp(1.05rem,2.3vw,1.5rem);color:var(--acento-dark);border-left:4px solid var(--acento);padding:.4em 0 .4em 1em;max-width:48ch;margin:.3rem 0 1rem}
+.preguntas{list-style:none;margin:.4rem 0 0;padding:0;display:grid;gap:.6rem;max-width:70ch}
+.preguntas li{background:var(--blanco);border-radius:var(--radius-sm);box-shadow:var(--shadow-soft);padding:.7rem 1rem;font-size:.95rem}
+.nota{background:var(--blanco);border-left:4px solid var(--piedra);border-radius:var(--radius-sm);padding:.85rem 1.05rem;box-shadow:var(--shadow-soft);font-size:.9rem;color:var(--gris);max-width:64ch;margin-top:1rem}
+.nota strong{color:var(--pizarra)}
+.reloj{display:flex;flex-wrap:wrap;gap:.5rem;margin:.2rem 0 1rem}
+.reloj span{font-family:var(--mono);font-size:.8rem;background:var(--acento);color:var(--blanco);border-radius:999px;padding:.25rem .8rem}
+
+.tabla{overflow-x:auto;margin-top:.5rem;width:100%;max-width:68rem}
+table{border-collapse:collapse;width:100%;min-width:32rem;background:var(--blanco);border-radius:var(--radius-sm);overflow:hidden;box-shadow:var(--shadow-soft);font-size:.88rem}
+th,td{padding:.58rem .75rem;text-align:left;vertical-align:top;border-bottom:1px solid rgba(34,40,42,.07)}
+th{background:var(--acento-soft);color:var(--acento-dark);font-size:.8rem}
+tbody tr:last-child td{border-bottom:0}
+
+.refs{list-style:none;margin:.4rem 0 0;padding:0;max-width:74ch}
+.refs li{font-size:.86rem;color:var(--gris);padding:.36rem 0 .36rem 1.6rem;text-indent:-1.6rem;border-bottom:1px solid rgba(34,40,42,.07)}
+
+.nav{position:fixed;left:0;right:0;bottom:0;height:62px;display:flex;align-items:center;gap:.8rem;padding:0 clamp(.8rem,3vw,1.6rem);background:var(--pizarra);color:var(--lino);z-index:40}
+.nav__barra{position:absolute;top:0;left:0;height:3px;background:var(--malva-soft);transition:width .28s ease}
+@media (prefers-reduced-motion:reduce){.nav__barra{transition:none}}
+.nav__t{flex:1;font-size:.84rem;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;margin:0}
+.nav__t small{display:block;font-weight:400;font-size:.72rem;color:var(--gris-claro)}
+.nav button{width:38px;height:38px;border-radius:50%;border:1px solid rgba(250,248,244,.32);background:transparent;color:var(--lino);font-size:1.05rem;cursor:pointer;line-height:1;flex-shrink:0}
+.nav button:hover:not([disabled]){background:rgba(250,248,244,.14)}
+.nav button[disabled]{opacity:.28;cursor:default}
+.nav__n{font-family:var(--mono);font-size:.84rem;min-width:4.4rem;text-align:center;flex-shrink:0}
+.nav__pista{font-family:var(--mono);font-size:.7rem;opacity:.55;flex-shrink:0}
+@media (max-width:760px){.nav__pista{display:none}}
+
+@media print{
+  body{overflow:visible;background:var(--blanco)}
+  .deck{position:static;inset:auto}
+  .d{position:static;opacity:1;visibility:visible;page-break-after:always;min-height:auto;padding:1.4rem 0}
+  .d--parte{background:none;color:var(--pizarra)}
+  .d--parte h2{color:var(--acento-dark)} .d--parte p{color:var(--gris)} .d--parte .n{color:var(--gris-claro)}
+  .nav,.saltar{display:none}
+}
+</style>
+
+<noscript>
+  <style>
+    body{overflow:auto}
+    .deck{position:static;inset:auto}
+    .d{position:static;opacity:1;visibility:visible;min-height:auto;padding:2.2rem clamp(1.25rem,6vw,5.5rem);border-bottom:1px solid var(--malva-soft)}
+    .d--parte{background:var(--lino);color:var(--pizarra)}
+    .d--parte h2{color:var(--acento-dark)} .d--parte p{color:var(--gris)} .d--parte .n{color:var(--gris-claro)}
+    .nav{display:none}
+  </style>
+</noscript>
+
+
+<a class="saltar" href="#d1">Saltar al contenido</a>
+
+<main class="deck" id="deck">
+
+<!-- 1 ─ Portada ────────────────────────────────────────────────────────── -->
+<section class="d on d--portada" id="d1" aria-label="Portada">
+  <p class="d__eyebrow">Unidad 3 · Cierre del seminario</p>
+  <h1>Quién sostiene el cuidado: equipo, comunicación y redes</h1>
+  <p class="lead">
+    Cuando ni la norma ni la evidencia alcanzan, la decisión no la toma una persona sola. Hoy se
+    mira quién la sostiene y se defiende en voz propia la última capa del anteproyecto.
+  </p>
+  <div class="meta">
+    <span>Sesión 7</span>
+    <span>viernes 20 de noviembre de 2026</span>
+    <span>Presencial · 8:00 a 11:00</span>
+    <span>Producto final · 30 %</span>
+  </div>
+  <p class="firma">
+    Seminario de fundamentación en cuidados paliativos · 32264001<br>
+    Maestría en Cuidados Paliativos · Universidad Antonio Nariño · 2026-II
+  </p>
+</section>
+
+<!-- 2 ─ El hilo ───────────────────────────────────────────────────────── -->
+<section class="d d--golpe" id="d2" aria-label="El hilo del seminario">
+  <p class="d__eyebrow">El hilo del seminario, en tres tiempos</p>
+  <p class="gran">Hay norma. No hay datos. Y aun así hay que decidir.</p>
+  <p>
+    La unidad 1 mostró que la norma existe. La unidad 2 enseñó a leer la evidencia que falta. La
+    unidad 3 se ocupa de lo que queda: decidir <strong>con otros</strong>, y decirlo de manera que la
+    persona con enfermedad avanzada y su familia puedan sostenerlo.
+  </p>
+</section>
+
+<!-- 3 ─ La mañana ─────────────────────────────────────────────────────── -->
+<section class="d" id="d3" aria-label="Cómo va la mañana">
+  <p class="d__eyebrow">Cómo va la mañana</p>
+  <h2>Primero contenido, después el producto</h2>
+  <div class="reloj"><span>contenido 40′</span><span>norma 15′</span><span>producto 15′</span><span>taller 40′</span><span>defensas 30′</span><span>cierre 20′</span></div>
+  <div class="tabla">
+    <table>
+      <thead><tr><th>Hora</th><th>Qué pasa</th></tr></thead>
+      <tbody>
+        <tr><td>8:10</td><td>Equipo, comunicación, redes y programas «exitosos»</td></tr>
+        <tr><td>8:50</td><td>La norma de voluntad anticipada que quedó pendiente de la sesión 6</td></tr>
+        <tr><td>9:05</td><td>El producto final: qué se entrega, cuándo y cómo se califica</td></tr>
+        <tr><td>9:30</td><td>Taller en grupos, después del receso</td></tr>
+        <tr><td>10:10</td><td>Defensa oral de avance, diez minutos por grupo</td></tr>
+        <tr><td>10:40</td><td>Cierre del seminario: qué quedó dicho y qué queda por investigar</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="nota"><strong>El documento del producto final se entrega el viernes 27 de noviembre</strong>, no hoy. Hoy se defiende el avance.</p>
+</section>
+
+<!-- 4 ─ Parte 1 ───────────────────────────────────────────────────────── -->
+<section class="d d--parte" id="d4" aria-label="Parte 1: el equipo">
+  <p class="n">01</p>
+  <h2>El equipo</h2>
+  <p>Juntar profesiones no es lo mismo que trabajar entre profesiones.</p>
+</section>
+
+<!-- 5 ─ Multi, inter, trans ───────────────────────────────────────────── -->
+<section class="d" id="d5" aria-label="Multi, inter y transdisciplinario">
+  <p class="d__eyebrow">Tres maneras de estar juntos</p>
+  <h2>La diferencia está en quién decide y cómo</h2>
+  <div class="tabla">
+    <table>
+      <thead><tr><th></th><th>Cómo trabaja</th><th>Quién decide</th><th>Cómo se reconoce en la historia clínica</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Multidisciplinario</strong></td><td>Cada profesión valora y actúa por su lado</td><td>Cada una, sobre lo suyo</td><td>Notas paralelas que no se citan entre sí</td></tr>
+        <tr><td><strong>Interdisciplinario</strong></td><td>Se valora por separado y se decide en conjunto</td><td>El equipo, con un plan común</td><td>Un plan con objetivos compartidos y responsables</td></tr>
+        <tr><td><strong>Transdisciplinario</strong></td><td>Los límites entre profesiones se cruzan a propósito</td><td>El equipo con la persona y la familia</td><td>Un solo plan, que la familia también conoce</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="nota"><strong>Para su terreno:</strong> ¿el equipo donde usted trabaja se reúne a decidir, o solo se deja notas? ¿Cómo se sabría sin preguntárselo a nadie?</p>
+</section>
+
+<!-- 6 ─ Liderazgo ─────────────────────────────────────────────────────── -->
+<section class="d" id="d6" aria-label="Liderazgo y conflicto">
+  <p class="d__eyebrow">Liderazgo colaborativo</p>
+  <h2>Quién lidera depende de qué se necesita</h2>
+  <div class="bloques">
+    <div class="bloque">
+      <p class="n">01</p>
+      <h3>Liderazgo distribuido</h3>
+      <p>El síntoma refractario lo lidera medicina; la red en casa, trabajo social o enfermería; la pregunta por el sentido, quien acompañe lo espiritual. El liderazgo se mueve con la necesidad.</p>
+    </div>
+    <div class="bloque">
+      <p class="n">02</p>
+      <h3>Enfermería coordina</h3>
+      <p>Es quien está en cada transición: del hospital a la casa, del turno de día al de noche, de la familia al equipo. Coordinar el cuidado es una función, no un favor.</p>
+    </div>
+    <div class="bloque bloque--piedra">
+      <p class="n">03</p>
+      <h3>El conflicto se investiga</h3>
+      <p>El desacuerdo dentro del equipo no es una falla de carácter: es un fenómeno con causas, frecuencia y consecuencias. Por eso se puede estudiar.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 7 ─ Quién cuida al que cuida ─────────────────────────────────────── -->
+<section class="d d--golpe" id="d7" aria-label="Quién cuida al que cuida">
+  <p class="d__eyebrow">Lo que salió en la sesión 6</p>
+  <p class="gran">¿Y quién cuida al que cuida?</p>
+  <p>
+    En la sesión 6 la pregunta apareció dos veces: por la vulnerabilidad de quien acompaña y por la
+    falta de formación para dar malas noticias. Nouwen la planteó hace medio siglo en
+    <em>El sanador herido</em>: se acompaña desde la propia herida reconocida, no desde una salud completa.
+  </p>
+  <p>
+    <strong>Del juicio al dato:</strong> ¿cuántos equipos de cuidado paliativo en Colombia miden el
+    desgaste de sus integrantes? ¿Dónde estaría ese dato, y quién lo tendría?
+  </p>
+</section>
+
+<!-- 8 ─ Parte 2 ───────────────────────────────────────────────────────── -->
+<section class="d d--parte" id="d8" aria-label="Parte 2: la comunicación">
+  <p class="n">02</p>
+  <h2>La comunicación</h2>
+  <p>No es una habilidad blanda: es una intervención, y como toda intervención tiene desenlaces que se pueden medir.</p>
+</section>
+
+<!-- 9 ─ Comunicación como intervención ────────────────────────────────── -->
+<section class="d" id="d9" aria-label="Comunicación como intervención">
+  <p class="d__eyebrow">Tres momentos que se pueden estudiar</p>
+  <h2>Comunicar también se evalúa</h2>
+  <div class="bloques">
+    <div class="bloque">
+      <p class="n">Malas noticias</p>
+      <h3>Un protocolo, no un guion</h3>
+      <p>SPIKES (Baile et al., 2000) ordena la conversación en seis pasos: el entorno, lo que la persona sabe, lo que quiere saber, la información, las emociones y el plan. Ordena; no reemplaza la escucha.</p>
+    </div>
+    <div class="bloque">
+      <p class="n">Conferencia familiar</p>
+      <h3>Una reunión con método</h3>
+      <p>Preparación, objetivos acordados, quién habla y quién registra, y un plan que todos se llevan (Hudson et al., 2008). Sin método, es una reunión donde gana quien grita más fuerte.</p>
+    </div>
+    <div class="bloque">
+      <p class="n">Pacto de silencio</p>
+      <h3>Rosa, otra vez</h3>
+      <p>El hijo pedía no decirle que era cáncer, y ella preguntaba qué tenía. El pacto se aborda con la familia antes de llegar a la persona, sin romperlo de golpe ni obedecerlo sin más.</p>
+    </div>
+  </div>
+  <p class="nota"><strong>¿Qué desenlace medirían?</strong> Ansiedad de la familia, concordancia entre lo que la persona quería y lo que recibió, duelo complicado, conflictos con el equipo. Elegir el desenlace es la mitad del método.</p>
+</section>
+
+<!-- 10 ─ Parte 3 ──────────────────────────────────────────────────────── -->
+<section class="d d--parte" id="d10" aria-label="Parte 3: las redes">
+  <p class="n">03</p>
+  <h2>Las redes</h2>
+  <p>El equipo está unas horas. La red está el resto del tiempo.</p>
+</section>
+
+<!-- 11 ─ Redes de apoyo ───────────────────────────────────────────────── -->
+<section class="d" id="d11" aria-label="Redes de apoyo">
+  <p class="d__eyebrow">Alrededor de la persona y de quien la cuida</p>
+  <h2>Tres anillos de la red</h2>
+  <div class="bloques">
+    <div class="bloque">
+      <p class="n">Primaria</p>
+      <h3>Familia, vecinos, amigos</h3>
+      <p>Hacen la mayor parte del cuidado y casi nunca aparecen en un registro. La persona cuidadora principal es también alguien en riesgo.</p>
+    </div>
+    <div class="bloque">
+      <p class="n">Comunitaria</p>
+      <h3>Lo que hay en el territorio</h3>
+      <p>Juntas de acción comunal, parroquias, líderes, promotores, la droguería del pueblo. Las comunidades compasivas (Kellehear, 2013) parten de que el final de la vida es responsabilidad de todos, no solo del sistema de salud.</p>
+    </div>
+    <div class="bloque">
+      <p class="n">Institucional</p>
+      <h3>El sistema de salud</h3>
+      <p>EPS, IPS, atención domiciliaria, telesalud. Es el anillo que más documentos produce y el que menos horas está.</p>
+    </div>
+  </div>
+  <p class="nota"><strong>Para su pregunta de investigación:</strong> ¿en qué anillo está el dato que necesita? Si está en el primario, probablemente nadie lo ha recogido todavía.</p>
+</section>
+
+<!-- 12 ─ Programas exitosos ──────────────────────────────────────────── -->
+<section class="d" id="d12" aria-label="Qué hace exitoso a un programa">
+  <p class="d__eyebrow">La misma pregunta de la unidad 2</p>
+  <h2>¿Qué hace «exitoso» a un programa?</h2>
+  <div class="tabla">
+    <table>
+      <thead><tr><th>Criterio</th><th>La pregunta</th><th>Qué dato lo mostraría</th></tr></thead>
+      <tbody>
+        <tr><td>Cobertura</td><td>¿A cuántos de los que lo necesitan llega?</td><td>Personas atendidas sobre necesidad estimada en el territorio</td></tr>
+        <tr><td>Desenlaces</td><td>¿Cambia algo para la persona y su familia?</td><td>Control de síntomas, lugar de muerte acorde con la preferencia, duelo</td></tr>
+        <tr><td>Sostenibilidad</td><td>¿Sobrevive al cambio de contrato o de gerente?</td><td>Años de funcionamiento, fuente de financiación</td></tr>
+        <tr><td>Equidad</td><td>¿Llega igual a la vereda que a la cabecera?</td><td>Cobertura desagregada por zona, régimen y edad</td></tr>
+        <tr><td>Replicabilidad</td><td>¿Funcionaría en otro municipio?</td><td>Descripción suficiente de qué se hizo y con qué recursos</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="nota">Un programa que se declara exitoso sin decir con cuál de estos criterios es un programa que se describe, no uno que se evalúa.</p>
+</section>
+
+<!-- 13 ─ Parte 4 ──────────────────────────────────────────────────────── -->
+<section class="d d--parte" id="d13" aria-label="Parte 4: la norma pendiente">
+  <p class="n">04</p>
+  <h2>La norma que quedó pendiente</h2>
+  <p>La sesión 6 no alcanzó a llegar a la voluntad anticipada. Quince minutos para lo esencial.</p>
+</section>
+
+<!-- 14 ─ La norma ─────────────────────────────────────────────────────── -->
+<section class="d" id="d14" aria-label="Lo que dice la norma">
+  <p class="d__eyebrow">Planificación anticipada · lo que obliga hoy</p>
+  <h2>La voluntad no está solo en un documento</h2>
+  <div class="bloques">
+    <div class="bloque bloque--norma">
+      <p class="n">Ley 1733 de 2014 · art. 5, num. 2</p>
+      <h3>Derecho a la información</h3>
+      <p>Información clara y completa sobre diagnóstico, pronóstico y alternativas. El titular es la persona, no su familia.</p>
+    </div>
+    <div class="bloque bloque--norma">
+      <p class="n">Res. 2665 de 2018 · vigente</p>
+      <h3>Documento de voluntad anticipada</h3>
+      <p>Toda persona capaz, sana o enferma, puede suscribirlo. Se puede modificar o revocar.</p>
+    </div>
+    <div class="bloque bloque--norma">
+      <p class="n">Res. 813 de 2026 · art. 9</p>
+      <h3>Cinco medios de manifestar la voluntad</h3>
+      <p>El documento es uno de ellos, no el único. Lo que la persona dice hoy también cuenta.</p>
+    </div>
+    <div class="bloque bloque--norma">
+      <p class="n">T-438 de 2025</p>
+      <h3>Interpretar la voluntad, no reemplazarla</h3>
+      <p>Del «consentimiento sustituto» a los apoyos. A la familia no se le pregunta «¿qué decide usted?», sino «¿qué nos consta que ella quería?».</p>
+    </div>
+  </div>
+  <p class="nota"><strong>Cuidado con lo derogado:</strong> la Res. 971 de 2021 y la Res. 825 de 2018 ya no rigen; las derogó la Res. 813 de 2026. Si su material las cita, hay que actualizarlo.</p>
+</section>
+
+<!-- 15 ─ Parte 5 ──────────────────────────────────────────────────────── -->
+<section class="d d--parte" id="d15" aria-label="Parte 5: el producto final">
+  <p class="n">05</p>
+  <h2>El producto final</h2>
+  <p>La tercera capa del anteproyecto: la ética, el dilema y la viabilidad.</p>
+</section>
+
+<!-- 16 ─ El producto ──────────────────────────────────────────────────── -->
+<section class="d" id="d16" aria-label="Qué se entrega">
+  <p class="d__eyebrow">Por grupo · documento el viernes 27 de noviembre, 23:59</p>
+  <h2>Una pregunta, tres capas</h2>
+  <p>Cada grupo elige <strong>una</strong> de las preguntas que sus integrantes trabajaron en el segundo corte y le añade la última capa.</p>
+  <div class="tabla">
+    <table>
+      <thead><tr><th>#</th><th>Sección</th><th>Puntos</th></tr></thead>
+      <tbody>
+        <tr><td>—</td><td><strong>Defensa oral de avance</strong> · hoy en clase</td><td>20</td></tr>
+        <tr><td>1</td><td><strong>La pregunta, en una página</strong> · pregunta, modelo y método del segundo corte, resumidos</td><td>5</td></tr>
+        <tr><td>2</td><td><strong>Consideraciones éticas de la investigación</strong> · vulnerabilidad, consentimiento, riesgo, comité</td><td>20</td></tr>
+        <tr><td>3</td><td><strong>El dilema, deliberado</strong> · los siete pasos de Gracia sobre un dilema que el problema plantea en la práctica</td><td>25</td></tr>
+        <tr><td>4</td><td><strong>Viabilidad</strong> · recursos, tiempo, acceso al campo, dónde está el dato, obstáculos</td><td>20</td></tr>
+        <tr><td>5</td><td><strong>Fuentes, inglés, IA y aportes</strong> · APA 7, una fuente en inglés usada, declaración de IA, quién hizo qué</td><td>10</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 17 ─ Ética de la investigación ───────────────────────────────────── -->
+<section class="d" id="d17" aria-label="Consideraciones éticas">
+  <p class="d__eyebrow">Sección 2 · cuatro preguntas que la sección responde</p>
+  <h2>¿Qué problema ético tiene estudiar esto?</h2>
+  <ol class="pasos">
+    <li><strong>Vulnerabilidad por capas.</strong> No «población vulnerable» como etiqueta: qué capas se superponen —clínica, relacional, socioeconómica, institucional— y cuáles podría agravar el estudio (Luna, 2009).</li>
+    <li><strong>Consentimiento.</strong> Quién consiente, con qué información, y qué se hace si la persona pierde la capacidad durante el estudio: ¿quién sería su apoyo?</li>
+    <li><strong>Riesgo.</strong> La categoría de la Res. 8430 de 1993: sin riesgo, riesgo mínimo o mayor que el mínimo. Y por qué esa.</li>
+    <li><strong>Comité.</strong> Qué comité de ética lo revisaría en su institución, y si existe.</li>
+  </ol>
+  <p class="nota"><strong>Dos cosas distintas:</strong> la sección 2 es la ética <em>de</em> investigar. La sección 3 es un dilema <em>de la práctica</em> que la pregunta pone al descubierto. No se mezclan.</p>
+</section>
+
+<!-- 18 ─ El dilema ────────────────────────────────────────────────────── -->
+<section class="d" id="d18" aria-label="El dilema deliberado">
+  <p class="d__eyebrow">Sección 3 · la que más pesa</p>
+  <h2>Deliberar, no opinar</h2>
+  <p>
+    El dilema sale del problema que la pregunta estudia, no de un caso inventado aparte. Se recorre con
+    los siete pasos de Gracia, que están en la
+    <a href="../s06-bioetica-decisiones/deliberacion.html">presentación de la sesión 6</a>.
+  </p>
+  <div class="bloques">
+    <div class="bloque">
+      <p class="n">Lo que se lee primero</p>
+      <h3>Los cursos intermedios</h3>
+      <p>Al menos tres. Es donde se ve si el grupo deliberó o justificó una conclusión que ya tenía.</p>
+    </div>
+    <div class="bloque">
+      <p class="n">Lo que se lee después</p>
+      <h3>Las pruebas</h3>
+      <p>Legalidad con la norma vigente, publicidad y tiempo. La prueba que más les costó pasar, dicha con honestidad.</p>
+    </div>
+    <div class="bloque bloque--piedra">
+      <p class="n">Lo que resta</p>
+      <h3>Saltar a la conclusión</h3>
+      <p>Un curso óptimo sin cursos extremos ni intermedios no es una deliberación: es una opinión con siete títulos.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 19 ─ Taller ───────────────────────────────────────────────────────── -->
+<section class="d d--parte" id="d19" aria-label="Taller en grupos">
+  <p class="n">40′</p>
+  <h2>Al taller</h2>
+  <p>
+    Formen grupos de dos o tres. Elijan una pregunta del segundo corte, nombren el dilema que pone en la
+    práctica y recorran los pasos 1 a 3 de Gracia. Preparen diez minutos para defender el avance.
+  </p>
+</section>
+
+<!-- 20 ─ Defensa de avance ───────────────────────────────────────────── -->
+<section class="d" id="d20" aria-label="Defensa oral de avance">
+  <p class="d__eyebrow">Defensa oral · seis minutos de exposición y cuatro de preguntas</p>
+  <h2>Lo que cada grupo presenta</h2>
+  <div class="tabla">
+    <table>
+      <thead><tr><th>Qué</th><th>En una frase</th></tr></thead>
+      <tbody>
+        <tr><td>La pregunta</td><td>Sujeto, lugar y periodo, y de quién era en el segundo corte</td></tr>
+        <tr><td>El dilema</td><td>Como pregunta, y los dos valores que chocan</td></tr>
+        <tr><td>El problema ético de investigarla</td><td>La capa de vulnerabilidad que más preocupa</td></tr>
+        <tr><td>El obstáculo de viabilidad</td><td>El que podría hundir el proyecto</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="nota"><strong>Todas las personas del grupo responden al menos una pregunta.</strong> La defensa se califica por grupo y se ajusta por persona si hace falta.</p>
+</section>
+
+<!-- 21 ─ Cierre ───────────────────────────────────────────────────────── -->
+<section class="d d--golpe" id="d21" aria-label="Cierre del seminario">
+  <p class="d__eyebrow">Cierre del seminario</p>
+  <p class="gran">¿Qué pregunta se lleva usted que no tenía en agosto?</p>
+  <p>
+    Una por persona, en voz alta y sin explicarla. El seminario no buscaba que todos supieran lo
+    mismo, sino que cada quien saliera con una pregunta sobre su propio terreno y una idea de qué
+    dato la respondería. <strong>La ausencia del dato es un hallazgo, no un fracaso.</strong>
+  </p>
+</section>
+
+<!-- 22 ─ Fuentes ──────────────────────────────────────────────────────── -->
+<section class="d" id="d22" aria-label="Fuentes">
+  <p class="d__eyebrow">Fuentes</p>
+  <h2>Para citar lo que se usó hoy</h2>
+  <ul class="refs">
+    <li>Baile, W. F., Buckman, R., Lenzi, R., Glober, G., Beale, E. A., &amp; Kudelka, A. P. (2000). SPIKES—A six-step protocol for delivering bad news: Application to the patient with cancer. <em>The Oncologist, 5</em>(4), 302–311. <a href="https://doi.org/10.1634/theoncologist.5-4-302">https://doi.org/10.1634/theoncologist.5-4-302</a></li>
+    <li>Gracia, D. (2008). <em>Procedimientos de decisión en ética clínica</em> (3.ª ed.). Triacastela.</li>
+    <li>Hudson, P., Quinn, K., O’Hanlon, B., &amp; Aranda, S. (2008). Family meetings in palliative care: Multidisciplinary clinical practice guidelines. <em>BMC Palliative Care, 7</em>, 12. <a href="https://doi.org/10.1186/1472-684X-7-12">https://doi.org/10.1186/1472-684X-7-12</a></li>
+    <li>Kellehear, A. (2013). Compassionate communities: End-of-life care as everyone’s responsibility. <em>QJM, 106</em>(12), 1071–1075. <a href="https://doi.org/10.1093/qjmed/hct200">https://doi.org/10.1093/qjmed/hct200</a></li>
+    <li>Luna, F. (2009). Elucidating the concept of vulnerability: Layers not labels. <em>International Journal of Feminist Approaches to Bioethics, 2</em>(1), 121–139. <a href="https://doi.org/10.3138/ijfab.2.1.121">https://doi.org/10.3138/ijfab.2.1.121</a></li>
+    <li>Nouwen, H. J. M. (1996). <em>El sanador herido</em> (E. Ortega, Trad.). PPC. (Obra original publicada en 1971)</li>
+    <li>Congreso de Colombia. (2014). <em>Ley 1733 de 2014</em> (Ley Consuelo Devis Saavedra), art. 5.</li>
+    <li>Ministerio de Salud. (1993). <em>Resolución 8430 de 1993</em>, normas científicas, técnicas y administrativas para la investigación en salud.</li>
+    <li>Ministerio de Salud y Protección Social. (2018). <em>Resolución 2665 de 2018</em>, sobre el documento de voluntad anticipada.</li>
+    <li>Ministerio de Salud y Protección Social. (2026, 28 de abril). <em>Resolución 813 de 2026</em>, art. 9.</li>
+    <li>Corte Constitucional de Colombia. (2025). <em>Sentencia T-438 de 2025</em>. <a href="https://www.corteconstitucional.gov.co/relatoria/2025/T-438-25.htm">corteconstitucional.gov.co</a></li>
+  </ul>
+</section>
+
+</main>
+
+<nav class="nav" aria-label="Navegación de la presentación">
+  <div class="nav__barra" id="barra"></div>
+  <p class="nav__t">Sesión 7<small>Equipo, comunicación y redes</small></p>
+  <button type="button" id="prev" aria-label="Diapositiva anterior">‹</button>
+  <span class="nav__n" id="cuenta">1 / 22</span>
+  <button type="button" id="next" aria-label="Diapositiva siguiente">›</button>
+  <span class="nav__pista">← → · inicio · fin</span>
+</nav>
+
+<script>
+(function () {
+  'use strict';
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.d'));
+  var total = slides.length;
+  var i = 0;
+  var elPrev = document.getElementById('prev');
+  var elNext = document.getElementById('next');
+  var elCuenta = document.getElementById('cuenta');
+  var elBarra = document.getElementById('barra');
+
+  function mostrar(n, conFoco) {
+    i = Math.max(0, Math.min(total - 1, n));
+    slides.forEach(function (s, k) { s.classList.toggle('on', k === i); });
+    elCuenta.textContent = (i + 1) + ' / ' + total;
+    elBarra.style.width = ((i + 1) / total * 100) + '%';
+    elPrev.disabled = i === 0;
+    elNext.disabled = i === total - 1;
+    if (conFoco) { slides[i].setAttribute('tabindex', '-1'); slides[i].focus({ preventScroll: true }); }
+    slides[i].scrollTop = 0;
+    if (history.replaceState) history.replaceState(null, '', '#' + (i + 1));
+  }
+
+  elPrev.addEventListener('click', function () { mostrar(i - 1, true); });
+  elNext.addEventListener('click', function () { mostrar(i + 1, true); });
+
+  document.addEventListener('keydown', function (e) {
+    if (/^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName)) return;
+    switch (e.key) {
+      case 'ArrowRight': case 'PageDown': mostrar(i + 1, true); break;
+      case 'ArrowLeft':  case 'PageUp':   mostrar(i - 1, true); break;
+      case ' ':          mostrar(i + (e.shiftKey ? -1 : 1), true); e.preventDefault(); break;
+      case 'Home':       mostrar(0, true); break;
+      case 'End':        mostrar(total - 1, true); break;
+      default: return;
+    }
+  });
+
+  var x0 = null, y0 = null;
+  document.addEventListener('touchstart', function (e) {
+    x0 = e.changedTouches[0].clientX; y0 = e.changedTouches[0].clientY;
+  }, { passive: true });
+  document.addEventListener('touchend', function (e) {
+    if (x0 === null) return;
+    var dx = e.changedTouches[0].clientX - x0;
+    var dy = e.changedTouches[0].clientY - y0;
+    if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) mostrar(i + (dx < 0 ? 1 : -1), false);
+    x0 = y0 = null;
+  }, { passive: true });
+
+  var inicial = parseInt((location.hash || '').replace('#', ''), 10);
+  mostrar(isNaN(inicial) ? 0 : inicial - 1, false);
+})();
+</script>
+</html>

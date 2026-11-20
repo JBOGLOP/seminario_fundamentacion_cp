@@ -167,3 +167,9 @@ sesiones/*/sesion*_cambios/
 docs/CONDUCIR*.md
 docs/Guia_docente_*
 docs/Guía_docente_*
+
+# ── Presentaciones de invitados (30 oct 2026) ───────────────────────
+# Material de terceros: se cita, no se reproduce (regla 4). Ningún
+# .pptx está versionado; si alguno debe publicarse, se exporta a HTML.
+*.pptx
+*.ppt
