@@ -163,6 +163,17 @@ tbody tr:last-child td{border-bottom:0}
 @media (prefers-reduced-motion:reduce){.crit,.medidor i,.veredicto{transition:none}.crit:hover{transform:none}}
 @media print{.crit{box-shadow:none}.crit__estado,.medidor,.veredicto__reinicio,.examen__consigna{display:none}}
 
+/* Diapositiva 16: los siete pasos de Gracia, desplegables dentro de la tabla. */
+.desplegable{margin-top:.45rem}
+.desplegable summary{cursor:pointer;display:inline-flex;align-items:center;gap:.45rem;font-size:.8rem;font-weight:700;color:var(--acento-dark);list-style:none}
+.desplegable summary::-webkit-details-marker{display:none}
+.desplegable summary::before{content:'+';font-family:var(--mono);width:1.1rem;height:1.1rem;border-radius:50%;background:var(--acento);color:var(--blanco);display:inline-flex;align-items:center;justify-content:center;font-size:.78rem}
+.desplegable[open] summary::before{content:'−'}
+.gracia{margin:.55rem 0 .3rem;padding-left:1.3rem;font-size:.84rem;color:var(--gris);display:grid;gap:.3rem}
+.gracia b{color:var(--pizarra)}
+.gracia li::marker{color:var(--acento-dark);font-weight:700;font-family:var(--mono)}
+.gracia__nota{font-size:.8rem !important;color:var(--gris);margin:.2rem 0 0 !important}
+
 /* Botón a un documento de apoyo (diapositiva 14 → voluntad-anticipada.html). */
 .pie-doc{display:flex;flex-wrap:wrap;gap:.9rem;align-items:stretch;max-width:68rem;margin-top:1rem}
 .pie-doc .nota{flex:1 1 22rem;margin-top:0}
@@ -579,7 +590,22 @@ tbody tr:last-child td{border-bottom:0}
         <tr><td>—</td><td><strong>Defensa oral de avance</strong> · hoy en clase</td><td>20</td></tr>
         <tr><td>1</td><td><strong>La pregunta, en una página</strong> · pregunta, modelo y método del segundo corte, resumidos</td><td>5</td></tr>
         <tr><td>2</td><td><strong>Consideraciones éticas de la investigación</strong> · vulnerabilidad, consentimiento, riesgo, comité</td><td>20</td></tr>
-        <tr><td>3</td><td><strong>El dilema, deliberado</strong> · los siete pasos de Gracia sobre un dilema que el problema plantea en la práctica</td><td>25</td></tr>
+        <tr><td>3</td><td><strong>El dilema, deliberado</strong> · los siete pasos de Gracia sobre un dilema que el problema plantea en la práctica
+          <details class="desplegable">
+            <summary>Qué tiene que mostrar el documento en cada paso</summary>
+            <ol class="gracia">
+              <li><b>Hechos.</b> Los clínicos y los del territorio de la pregunta: qué se sabe, qué no y qué habría que averiguar antes de decidir.</li>
+              <li><b>Problema moral fundamental.</b> Enumeren los problemas y elijan el que, resuelto, ordena los demás. Escríbanlo como pregunta.</li>
+              <li><b>Valores en conflicto.</b> Nombrados como valores —autonomía, alivio del sufrimiento, equidad en el acceso—, no como personas.</li>
+              <li><b>Cursos extremos.</b> Los dos que salvan un valor y sacrifican del todo el otro. Se escriben para descartarlos.</li>
+              <li><b>Cursos intermedios.</b> Al menos tres, distintos entre sí. Aquí se ve si el grupo deliberó o justificó lo que ya pensaba.</li>
+              <li><b>Curso óptimo.</b> El que menos lesiona los valores en juego, y por qué ese y no otro intermedio.</li>
+              <li><b>Pruebas de consistencia.</b> Legalidad, con la norma vigente; publicidad: ¿lo defenderían en público?; temporalidad: ¿decidirían lo mismo con más tiempo? Digan cuál les costó más.</li>
+            </ol>
+            <p class="gracia__nota">Si al llegar al paso 5 ya saben qué harían, vuelvan al paso 1. El método está en la
+              <a href="../s06-bioetica-decisiones/deliberacion.html#4">presentación de la sesión 6</a>.</p>
+          </details>
+        </td><td>25</td></tr>
         <tr><td>4</td><td><strong>Viabilidad</strong> · recursos, tiempo, acceso al campo, dónde está el dato, obstáculos</td><td>20</td></tr>
         <tr><td>5</td><td><strong>Fuentes, inglés, IA y aportes</strong> · APA 7, una fuente en inglés usada, declaración de IA, quién hizo qué</td><td>10</td></tr>
       </tbody>
@@ -750,9 +776,9 @@ tbody tr:last-child td{border-bottom:0}
   }, { passive: true });
 
   // Al abrir un panel del acordeón, la diapositiva se desplaza hasta él.
-  Array.prototype.forEach.call(document.querySelectorAll('.acordeon details'), function (d) {
+  Array.prototype.forEach.call(document.querySelectorAll('.acordeon details, details.desplegable'), function (d) {
     d.addEventListener('toggle', function () {
-      if (d.open) d.scrollIntoView({ block: 'start', behavior: 'smooth' });
+      if (d.open) d.scrollIntoView({ block: d.classList.contains('desplegable') ? 'nearest' : 'start', behavior: 'smooth' });
     });
   });
 
