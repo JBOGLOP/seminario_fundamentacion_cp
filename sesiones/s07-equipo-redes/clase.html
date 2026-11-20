@@ -163,6 +163,20 @@ tbody tr:last-child td{border-bottom:0}
 @media (prefers-reduced-motion:reduce){.crit,.medidor i,.veredicto{transition:none}.crit:hover{transform:none}}
 @media print{.crit{box-shadow:none}.crit__estado,.medidor,.veredicto__reinicio,.examen__consigna{display:none}}
 
+/* Botón a un documento de apoyo (diapositiva 14 → voluntad-anticipada.html). */
+.pie-doc{display:flex;flex-wrap:wrap;gap:.9rem;align-items:stretch;max-width:68rem;margin-top:1rem}
+.pie-doc .nota{flex:1 1 22rem;margin-top:0}
+.pie-doc .boton-doc{flex:0 1 22rem;margin-top:0;justify-content:center}
+@media (min-width:900px){.bloques--4{grid-template-columns:repeat(4,1fr)}}
+.boton-doc{display:inline-flex;flex-direction:column;gap:.15rem;margin-top:1rem;max-width:44rem;text-decoration:none;
+  background:var(--acento);color:var(--blanco);border-radius:var(--radius);padding:.75rem 1.2rem;box-shadow:var(--shadow-soft);
+  transition:background-color .18s ease,transform .18s ease}
+.boton-doc:hover{background:var(--malva-deep);transform:translateY(-2px)}
+.boton-doc__t{font-weight:700;font-size:1rem}
+.boton-doc__t::after{content:' →'}
+.boton-doc__s{font-size:.82rem;opacity:.88}
+@media (prefers-reduced-motion:reduce){.boton-doc{transition:none}.boton-doc:hover{transform:none}}
+
 /* Acordeón de la diapositiva 7: el dato se busca, no se expone de entrada. */
 .acordeon{display:grid;gap:.55rem;max-width:72ch;margin-top:.3rem}
 .acordeon details{background:var(--blanco);border-radius:var(--radius-sm);box-shadow:var(--shadow-soft);border-left:4px solid var(--acento)}
@@ -515,7 +529,7 @@ tbody tr:last-child td{border-bottom:0}
 <section class="d" id="d14" aria-label="Lo que dice la norma">
   <p class="d__eyebrow">Planificación anticipada · lo que obliga hoy</p>
   <h2>La voluntad no está solo en un documento</h2>
-  <div class="bloques">
+  <div class="bloques bloques--4">
     <div class="bloque bloque--norma">
       <p class="n">Ley 1733 de 2014 · art. 5, num. 2</p>
       <h3>Derecho a la información</h3>
@@ -528,7 +542,7 @@ tbody tr:last-child td{border-bottom:0}
     </div>
     <div class="bloque bloque--norma">
       <p class="n">Res. 813 de 2026 · art. 9</p>
-      <h3>Cinco medios de manifestar la voluntad</h3>
+      <h3>Ocho medios de manifestar la voluntad</h3>
       <p>El documento es uno de ellos, no el único. Lo que la persona dice hoy también cuenta.</p>
     </div>
     <div class="bloque bloque--norma">
@@ -537,7 +551,13 @@ tbody tr:last-child td{border-bottom:0}
       <p>Del «consentimiento sustituto» a los apoyos. A la familia no se le pregunta «¿qué decide usted?», sino «¿qué nos consta que ella quería?».</p>
     </div>
   </div>
-  <p class="nota"><strong>Cuidado con lo derogado:</strong> la Res. 971 de 2021 y la Res. 825 de 2018 ya no rigen; las derogó la Res. 813 de 2026. Si su material las cita, hay que actualizarlo.</p>
+  <div class="pie-doc">
+    <p class="nota"><strong>Cuidado con lo derogado:</strong> la Res. 971 de 2021 y la Res. 825 de 2018 ya no rigen; las derogó la Res. 813 de 2026. Si su material las cita, hay que actualizarlo.</p>
+    <a class="boton-doc" href="voluntad-anticipada.html">
+      <span class="boton-doc__t">Abrir la presentación de voluntad anticipada</span>
+      <span class="boton-doc__s">13 diapositivas · lo vigente, lo que cambió en 2026, los datos y seis casos</span>
+    </a>
+  </div>
 </section>
 
 <!-- 15 ─ Parte 5 ──────────────────────────────────────────────────────── -->

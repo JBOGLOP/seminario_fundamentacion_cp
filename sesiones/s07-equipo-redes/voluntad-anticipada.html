@@ -1,0 +1,690 @@
+<!doctype html>
+<html lang="es">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Voluntad anticipada · Sesión 7 — Seminario de fundamentación en CP</title>
+<meta name="description" content="Material de apoyo de la sesión 7 del Seminario de fundamentación en cuidados paliativos (32264001), Universidad Antonio Nariño: el documento de voluntad anticipada en Colombia, la Resolución 2665 de 2018, lo que cambió con la Resolución 813 de 2026, la Sentencia T-438 de 2025 y la evidencia colombiana reciente.">
+
+<!-- ===========================================================================
+     VOLUNTAD ANTICIPADA · material de apoyo de la sesión 7 (parte 04)
+     Se abre desde la diapositiva 14 de clase.html y desde la ficha de la sesión.
+
+     Reconstruido aquí, no enlazado: el material de 2026-I (Contexto histórico y
+     legal, clase 7) sirvió de punto de partida, pero ninguna página de estudiante
+     depende de él (CLAUDE.md). Sin nombres de estudiantes.
+
+     RIGOR DE LAS FUENTES · cotejado el 19 de noviembre de 2026
+     - Res. 2665 de 2018: texto completo, normograma de la JEP.
+     - Res. 813 de 2026: PDF oficial firmado; arts. 9 (9.1 a 9.8 y parágrafos),
+       16, 25, 26 y 75 leídos en el original.
+     - T-438 de 2025: relatoría de la Corte Constitucional.
+     - Ley 1996 de 2019, arts. 21 y 22: por fuente secundaria; la Res. 813, art.
+       9.3, confirma que la DA se formaliza según esa ley.
+     - Abad-Pérez y Lemos (2026) y Álvarez Acuña et al. (2023 y 2025): DOI y
+       resumen cotejados en Crossref y en la página del editor.
+     CORRECCIÓN respecto del material de 2026-I: el estudio de los 24 formularios
+     (e1093) es de Álvarez Acuña, Buitrago Martín y Ceballos Vejarano, no de
+     «Castro-Vargas, Castaño-Castrillón y Riveros-Pérez (2024)».
+     =========================================================================== -->
+
+<style>
+/* --- tokens.css en línea · FUENTE CANÓNICA: _shared/tokens.css ----------- */
+:root{
+  --bosque:#2F5D50;    --bosque-dark:#234639;    --bosque-deep:#17302A;  --bosque-soft:#D6E3DD;
+  --arcilla:#C4714F;   --arcilla-dark:#A2563A;   --arcilla-deep:#6F3823; --arcilla-soft:#F3DCD1;
+  --malva:#7A5C8A;     --malva-dark:#5F4570;     --malva-deep:#402C4D;   --malva-soft:#E4DAEA;
+  --piedra:#8A8578;    --piedra-dark:#6B6659;    --piedra-deep:#4E4A40;  --piedra-soft:#EFEBE3;
+  --pizarra:#22282A;   --gris:#565E5C;           --gris-claro:#9AA09D;
+  --blanco:#FFFFFF;    --lino:#FAF8F4;
+  --shadow-soft:0 2px 8px rgba(34,40,42,.07);
+  --radius:14px; --radius-sm:9px;
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif;
+  --mono:'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace;
+  --serif:Georgia,'Times New Roman',serif;
+
+  /* Unidad 3 → malva. La norma (unidad 1) conserva su bosque cuando aparece. */
+  --acento:var(--malva); --acento-dark:var(--malva-deep); --acento-soft:var(--malva-soft);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;font-family:var(--sans);color:var(--pizarra);background:var(--lino);line-height:1.5;overflow:hidden}
+:focus-visible{outline:3px solid var(--acento);outline-offset:3px}
+a{color:var(--acento-dark)}
+.saltar{position:absolute;left:-9999px;background:var(--pizarra);color:var(--lino);padding:.6rem 1rem;z-index:99}
+.saltar:focus{left:0}
+
+.deck{position:fixed;inset:0 0 62px 0}
+.d{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-start;
+  padding:clamp(1.4rem,4vw,3.4rem) clamp(1.25rem,6vw,5.5rem);
+  opacity:0;visibility:hidden;transition:opacity .28s ease;overflow-y:auto}
+.d.on{opacity:1;visibility:visible}
+@media (prefers-reduced-motion:reduce){.d{transition:none}}
+.d>:first-child{margin-top:auto !important}
+.d>:last-child{margin-bottom:auto !important}
+.d>*{flex-shrink:0}
+
+.d__eyebrow{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--acento-dark);margin:0 0 .7rem}
+h1{font-size:clamp(1.9rem,5.2vw,3.4rem);line-height:1.08;letter-spacing:-.02em;margin:0 0 .8rem;max-width:20ch}
+h2{font-size:clamp(1.35rem,3.4vw,2.3rem);line-height:1.15;letter-spacing:-.015em;margin:0 0 .8rem;max-width:28ch;color:var(--acento-dark)}
+h3{font-size:clamp(.98rem,1.8vw,1.15rem);margin:0 0 .35rem;color:var(--acento-dark)}
+p{font-size:clamp(.96rem,1.5vw,1.1rem);max-width:62ch;margin:0 0 .8em}
+.lead{font-size:clamp(1.02rem,1.95vw,1.3rem);color:var(--gris);max-width:56ch}
+strong{color:var(--pizarra)}
+
+.d--portada{background:linear-gradient(150deg,var(--lino) 0%,var(--malva-soft) 100%)}
+.meta{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.5rem;font-size:.85rem}
+.meta span{background:var(--blanco);border:1px solid rgba(34,40,42,.09);border-radius:999px;padding:.3rem .9rem;box-shadow:var(--shadow-soft)}
+.firma{margin-top:1.8rem;font-size:.85rem;color:var(--gris);max-width:44ch}
+
+.d--golpe{background:var(--malva-soft)}
+.gran{font-family:var(--serif);font-size:clamp(1.5rem,4.6vw,3rem);line-height:1.2;color:var(--malva-deep);max-width:24ch;margin:0 0 1rem}
+.d--golpe p{color:var(--malva-deep);max-width:56ch}
+.d--golpe strong{color:var(--malva-deep)}
+
+.d--parte{background:var(--malva-deep);color:var(--lino)}
+.d--parte .n{font-family:var(--mono);font-size:clamp(3rem,11vw,7rem);font-weight:700;line-height:.9;color:rgba(228,218,234,.3);letter-spacing:-.04em;margin:0 0 .4rem}
+.d--parte h2{color:var(--blanco);max-width:22ch;font-size:clamp(1.6rem,4.6vw,3rem);margin-bottom:.6rem}
+.d--parte p{color:var(--malva-soft);max-width:50ch;font-size:clamp(1rem,1.8vw,1.2rem);margin:0}
+
+.caso{background:var(--blanco);border-radius:var(--radius);box-shadow:var(--shadow-soft);border-left:5px solid var(--acento);
+  padding:clamp(1rem,2.4vw,1.6rem) clamp(1rem,2.6vw,1.8rem);max-width:72ch}
+.caso p{font-size:clamp(.95rem,1.45vw,1.06rem);margin:0 0 .7em}
+.caso p:last-child{margin-bottom:0}
+.caso .dicho{font-family:var(--serif);font-style:italic;color:var(--malva-deep)}
+
+.bloques{display:grid;gap:.85rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,14.5rem),1fr));margin-top:.5rem;max-width:68rem}
+.bloque{background:var(--blanco);border-radius:var(--radius);padding:.95rem 1.1rem;box-shadow:var(--shadow-soft);border-left:4px solid var(--acento)}
+.bloque .n{font-family:var(--mono);font-size:.73rem;color:var(--acento-dark);font-weight:700;letter-spacing:.06em;margin:0}
+.bloque h3{margin:.2rem 0 .25rem}
+.bloque p{font-size:.9rem;color:var(--gris);margin:0}
+.bloque--norma{border-left-color:var(--bosque)}
+.bloque--norma .n,.bloque--norma h3{color:var(--bosque-dark)}
+.bloque--piedra{border-left-color:var(--piedra)}
+.bloque--piedra .n,.bloque--piedra h3{color:var(--piedra-deep)}
+
+.pasos{list-style:none;counter-reset:p;margin:.5rem 0 0;padding:0;display:grid;gap:.55rem;max-width:72ch}
+.pasos li{counter-increment:p;background:var(--blanco);border-radius:var(--radius-sm);padding:.7rem 1rem .7rem 2.9rem;box-shadow:var(--shadow-soft);position:relative;font-size:.94rem;color:var(--gris)}
+.pasos li strong{color:var(--pizarra)}
+.pasos li::before{content:counter(p);position:absolute;left:.85rem;top:.68rem;width:1.45rem;height:1.45rem;border-radius:50%;background:var(--acento);color:var(--blanco);font-family:var(--mono);font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center}
+.pasos li.fase{background:transparent;box-shadow:none;padding:.4rem 0 0;font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--acento-dark);counter-increment:none}
+.pasos li.fase::before{display:none}
+/* En pantalla ancha, dos columnas: hechos y valores a la izquierda, deberes y pruebas a la derecha. */
+@media (min-width:900px){.pasos{display:block;columns:2;column-gap:1rem;max-width:68rem}
+  .pasos li{break-inside:avoid;margin-bottom:.55rem}
+  .pasos li.fase--col{break-before:column}}
+
+.pregunta{font-family:var(--serif);font-style:italic;font-size:clamp(1.05rem,2.3vw,1.5rem);color:var(--acento-dark);border-left:4px solid var(--acento);padding:.4em 0 .4em 1em;max-width:48ch;margin:.3rem 0 1rem}
+.preguntas{list-style:none;margin:.4rem 0 0;padding:0;display:grid;gap:.6rem;max-width:70ch}
+.preguntas li{background:var(--blanco);border-radius:var(--radius-sm);box-shadow:var(--shadow-soft);padding:.7rem 1rem;font-size:.95rem}
+.nota{background:var(--blanco);border-left:4px solid var(--piedra);border-radius:var(--radius-sm);padding:.85rem 1.05rem;box-shadow:var(--shadow-soft);font-size:.9rem;color:var(--gris);max-width:64ch;margin-top:1rem}
+.nota strong{color:var(--pizarra)}
+.reloj{display:flex;flex-wrap:wrap;gap:.5rem;margin:.2rem 0 1rem}
+.reloj span{font-family:var(--mono);font-size:.8rem;background:var(--acento);color:var(--blanco);border-radius:999px;padding:.25rem .8rem}
+
+.tabla{overflow-x:auto;margin-top:.5rem;width:100%;max-width:68rem}
+table{border-collapse:collapse;width:100%;min-width:32rem;background:var(--blanco);border-radius:var(--radius-sm);overflow:hidden;box-shadow:var(--shadow-soft);font-size:.88rem}
+th,td{padding:.58rem .75rem;text-align:left;vertical-align:top;border-bottom:1px solid rgba(34,40,42,.07)}
+th{background:var(--acento-soft);color:var(--acento-dark);font-size:.8rem}
+tbody tr:last-child td{border-bottom:0}
+
+/* Diapositiva 12: el examen del «exitoso». Cada criterio se marca si se conoce su dato. */
+.examen__consigna{font-size:clamp(.92rem,1.4vw,1.02rem);color:var(--gris);max-width:70ch;margin:-.2rem 0 .9rem}
+.examen{max-width:70rem;display:grid;gap:.9rem}
+.criterios{display:grid;gap:.65rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,10.4rem),1fr))}
+.crit{font:inherit;text-align:left;cursor:pointer;display:flex;flex-direction:column;gap:.4rem;
+  background:var(--blanco);color:var(--pizarra);border:1.5px solid rgba(34,40,42,.1);border-top:4px solid var(--malva-soft);
+  border-radius:var(--radius);padding:.8rem .85rem .9rem;box-shadow:var(--shadow-soft);
+  transition:transform .18s ease,border-color .18s ease,background-color .18s ease,box-shadow .18s ease}
+.crit:hover{transform:translateY(-3px);border-top-color:var(--acento)}
+.crit__cab{display:flex;justify-content:space-between;align-items:center;gap:.4rem}
+.crit__n{font-family:var(--mono);font-size:.72rem;font-weight:700;color:var(--acento-dark);letter-spacing:.06em}
+.crit__estado{font-family:var(--mono);font-size:.64rem;text-transform:uppercase;letter-spacing:.08em;border-radius:999px;
+  padding:.12rem .55rem;border:1px dashed var(--gris-claro);color:var(--gris)}
+.crit__nombre{font-size:clamp(1rem,1.6vw,1.12rem);font-weight:700;color:var(--malva-deep)}
+.crit__preg{font-family:var(--serif);font-style:italic;font-size:clamp(.92rem,1.35vw,1rem);line-height:1.35;color:var(--pizarra)}
+.crit__dato{font-size:.8rem;line-height:1.4;color:var(--gris);border-top:1px solid rgba(34,40,42,.08);padding-top:.45rem;margin-top:auto}
+.crit__dato b{color:var(--acento-dark);font-weight:700}
+.crit[aria-pressed="true"]{background:var(--malva-soft);border-color:var(--acento);border-top-color:var(--acento);
+  box-shadow:0 0 0 2px var(--acento) inset,var(--shadow-soft)}
+.crit[aria-pressed="true"] .crit__estado{background:var(--acento);border:1px solid var(--acento);color:var(--blanco)}
+.crit[aria-pressed="true"] .crit__estado::before{content:'✓ '}
+.veredicto{display:flex;align-items:center;gap:1.1rem;flex-wrap:wrap;background:var(--blanco);border-radius:var(--radius);
+  box-shadow:var(--shadow-soft);border-left:5px solid var(--piedra);padding:.85rem 1.1rem;transition:border-color .25s ease}
+.veredicto[data-n="5"]{border-left-color:var(--acento)}
+.medidor{display:flex;gap:.3rem;flex-shrink:0}
+.medidor i{display:block;width:1.15rem;height:2.3rem;border-radius:5px;background:rgba(34,40,42,.08);transition:background-color .25s ease,transform .25s ease}
+.medidor i.on{background:var(--acento);transform:scaleY(1.06)}
+.veredicto__texto{flex:1;min-width:14rem}
+.veredicto__texto p{margin:0;max-width:64ch}
+.veredicto__cuenta{font-family:var(--mono);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--acento-dark);font-weight:700}
+.veredicto__frase{font-family:var(--serif);font-size:clamp(.98rem,1.55vw,1.12rem);line-height:1.35;color:var(--pizarra);margin-top:.15rem !important}
+.veredicto__ojo{font-size:.84rem;color:var(--gris);margin-top:.35rem !important}
+.veredicto__ojo::before{content:'Ojo · ';font-weight:700;color:var(--piedra-deep)}
+.veredicto__reinicio{font:inherit;font-size:.8rem;background:transparent;border:1px solid var(--gris-claro);color:var(--gris);
+  border-radius:999px;padding:.35rem .9rem;cursor:pointer;flex-shrink:0}
+.veredicto__reinicio:hover{border-color:var(--acento);color:var(--acento-dark)}
+@media (prefers-reduced-motion:reduce){.crit,.medidor i,.veredicto{transition:none}.crit:hover{transform:none}}
+@media print{.crit{box-shadow:none}.crit__estado,.medidor,.veredicto__reinicio,.examen__consigna{display:none}}
+
+/* Acordeón de la diapositiva 7: el dato se busca, no se expone de entrada. */
+.acordeon{display:grid;gap:.55rem;max-width:72ch;margin-top:.3rem}
+.acordeon details{background:var(--blanco);border-radius:var(--radius-sm);box-shadow:var(--shadow-soft);border-left:4px solid var(--acento)}
+.acordeon summary{cursor:pointer;padding:.65rem 1rem;font-weight:700;font-size:.95rem;color:var(--malva-deep);list-style:none;display:flex;align-items:center;gap:.6rem}
+.acordeon summary::-webkit-details-marker{display:none}
+.acordeon summary::before{content:'+';font-family:var(--mono);width:1.35rem;height:1.35rem;border-radius:50%;background:var(--acento);color:var(--blanco);display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0}
+.acordeon details[open] summary::before{content:'−'}
+.acordeon__cuerpo{padding:0 1rem .85rem 2.95rem}
+.d--golpe .acordeon__cuerpo p{font-size:.9rem;color:var(--pizarra);margin:0 0 .5em}
+.d--golpe .acordeon__cuerpo strong{color:var(--pizarra)}
+.hallazgos{margin:0 0 .6rem;padding-left:1.1rem;font-size:.88rem;color:var(--gris)}
+.hallazgos li{margin-bottom:.35rem}
+.d--golpe .acordeon__cuerpo .aviso{border-top:1px solid rgba(34,40,42,.09);padding-top:.5rem;margin:0;color:var(--gris)}
+@media (max-width:520px){.acordeon__cuerpo{padding-left:1rem}}
+
+.refs{list-style:none;margin:.4rem 0 0;padding:0;max-width:74ch}
+.refs li{font-size:.86rem;color:var(--gris);padding:.36rem 0 .36rem 1.6rem;text-indent:-1.6rem;border-bottom:1px solid rgba(34,40,42,.07)}
+
+.nav{position:fixed;left:0;right:0;bottom:0;height:62px;display:flex;align-items:center;gap:.8rem;padding:0 clamp(.8rem,3vw,1.6rem);background:var(--pizarra);color:var(--lino);z-index:40}
+.nav__barra{position:absolute;top:0;left:0;height:3px;background:var(--malva-soft);transition:width .28s ease}
+@media (prefers-reduced-motion:reduce){.nav__barra{transition:none}}
+.nav__t{flex:1;font-size:.84rem;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;margin:0}
+.nav__t small{display:block;font-weight:400;font-size:.72rem;color:var(--gris-claro)}
+.nav button{width:38px;height:38px;border-radius:50%;border:1px solid rgba(250,248,244,.32);background:transparent;color:var(--lino);font-size:1.05rem;cursor:pointer;line-height:1;flex-shrink:0}
+.nav button:hover:not([disabled]){background:rgba(250,248,244,.14)}
+.nav button[disabled]{opacity:.28;cursor:default}
+.nav__n{font-family:var(--mono);font-size:.84rem;min-width:4.4rem;text-align:center;flex-shrink:0}
+.nav__pista{font-family:var(--mono);font-size:.7rem;opacity:.55;flex-shrink:0}
+@media (max-width:760px){.nav__pista{display:none}}
+
+@media print{
+  body{overflow:visible;background:var(--blanco)}
+  .deck{position:static;inset:auto}
+  .d{position:static;opacity:1;visibility:visible;page-break-after:always;min-height:auto;padding:1.4rem 0}
+  .d--parte{background:none;color:var(--pizarra)}
+  .d--parte h2{color:var(--acento-dark)} .d--parte p{color:var(--gris)} .d--parte .n{color:var(--gris-claro)}
+  .nav,.saltar{display:none}
+}
+
+/* --- Propio de esta presentación ------------------------------------------ */
+.d__eyebrow a,.firma a{color:var(--acento-dark)}
+.firma a{display:inline-block;margin-top:.5rem;font-weight:600}
+.cifras{display:grid;gap:.8rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,11rem),1fr));max-width:62rem;margin:.4rem 0 1rem}
+.cifra{background:var(--blanco);border-radius:var(--radius);box-shadow:var(--shadow-soft);padding:.9rem 1.1rem;border-top:4px solid var(--acento)}
+.cifra b{display:block;font-family:var(--serif);font-size:clamp(1.8rem,4.4vw,2.9rem);line-height:1.05;color:var(--malva-deep);font-weight:700}
+.cifra span{display:block;font-size:.88rem;color:var(--gris);margin-top:.3rem;line-height:1.35}
+.cifras--claras .cifra{border-top-color:var(--malva-soft)}
+.cifras--claras .cifra b{font-size:clamp(1.5rem,3.4vw,2.3rem)}
+.fuente-cifra{font-size:.84rem !important;color:var(--gris) !important;max-width:70ch}
+.tabla th[scope=row]{background:var(--lino);color:var(--acento-dark);font-size:.8rem;white-space:nowrap}
+.tabla td{font-size:.86rem}
+.vias{display:grid;gap:.8rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));max-width:68rem}
+.via{background:var(--blanco);border-radius:var(--radius);box-shadow:var(--shadow-soft);border-top:4px solid var(--bosque);padding:.9rem 1.1rem}
+.via__n{font-family:var(--mono);font-size:.72rem;font-weight:700;letter-spacing:.06em;color:var(--bosque-dark);margin:0 0 .2rem}
+.via h3{color:var(--bosque-dark)}
+.via p{font-size:.9rem;color:var(--gris);margin:0 0 .4rem}
+.via ul{margin:0;padding-left:1.1rem;font-size:.86rem;color:var(--gris)}
+.via li{margin-bottom:.15rem}
+.bloques--3{grid-template-columns:repeat(auto-fit,minmax(min(100%,13rem),1fr))}
+.caso{margin-bottom:.8rem}
+
+/* Diapositiva 11: ¿vale o no vale? */
+.quiz__marcador{font-family:var(--mono);font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;color:var(--acento-dark);font-weight:700;margin:-.3rem 0 .6rem}
+.quiz{display:grid;gap:.6rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,18rem),1fr));max-width:72rem}
+.caso-q{background:var(--blanco);border-radius:var(--radius-sm);box-shadow:var(--shadow-soft);border-left:4px solid var(--malva-soft);padding:.7rem .9rem;display:flex;flex-direction:column;gap:.45rem;transition:border-color .2s ease}
+.caso-q__t{font-size:.88rem !important;margin:0 !important;line-height:1.4}
+.caso-q__botones{display:flex;gap:.4rem}
+.caso-q__botones button{font:inherit;font-size:.82rem;font-weight:700;min-width:3.4rem;padding:.3rem .9rem;border-radius:999px;border:1.5px solid var(--acento);background:var(--blanco);color:var(--acento-dark);cursor:pointer}
+.caso-q__botones button:hover:not([disabled]){background:var(--malva-soft)}
+.caso-q__botones button[disabled]{cursor:default;opacity:.45}
+.caso-q__botones button[aria-pressed="true"]{opacity:1;background:var(--acento);color:var(--blanco)}
+.caso-q__exp{font-size:.82rem !important;margin:0 !important;color:var(--pizarra);background:var(--lino);border-radius:6px;padding:.45rem .6rem}
+.caso-q__exp::before{content:attr(data-veredicto) ' · ';font-weight:700}
+.caso-q__exp:not([data-veredicto])::before{content:none}
+.caso-q.es-ok{border-left-color:var(--acento)}
+.caso-q.es-ok .caso-q__exp::before{color:var(--malva-deep)}
+.caso-q.es-no{border-left-color:var(--piedra)}
+.caso-q.es-no .caso-q__exp::before{color:var(--piedra-deep)}
+.quiz__reinicio{font:inherit;font-size:.8rem;margin-top:.7rem;align-self:flex-start;background:transparent;border:1px solid var(--gris-claro);color:var(--gris);border-radius:999px;padding:.35rem .9rem;cursor:pointer}
+@media (prefers-reduced-motion:reduce){.caso-q{transition:none}}
+@media print{.caso-q__exp[hidden]{display:block}.caso-q__botones,.quiz__reinicio,.quiz__marcador{display:none}}
+</style>
+
+<noscript>
+  <style>
+    body{overflow:auto}
+    .deck{position:static;inset:auto}
+    .d{position:static;opacity:1;visibility:visible;min-height:auto;padding:2.2rem clamp(1.25rem,6vw,5.5rem);border-bottom:1px solid var(--malva-soft)}
+    .d--parte{background:var(--lino);color:var(--pizarra)}
+    .d--parte h2{color:var(--acento-dark)} .d--parte p{color:var(--gris)} .d--parte .n{color:var(--gris-claro)}
+    .nav{display:none}
+    .caso-q__exp[hidden]{display:block} .caso-q__botones,.quiz__marcador{display:none}
+  </style>
+</noscript>
+
+<a class="saltar" href="#d1">Saltar al contenido</a>
+
+<main class="deck" id="deck">
+
+<!-- 1 ─ Portada ───────────────────────────────────────────────────────── -->
+<section class="d on d--portada" id="d1" aria-label="Portada">
+  <p class="d__eyebrow">Sesión 7 · parte 04 · material de apoyo</p>
+  <h1>La voluntad anticipada en Colombia</h1>
+  <p class="lead">Qué obliga hoy, qué cambió en 2026 y qué dicen los datos. Para leer antes del taller y para pasar la
+    prueba de legalidad del producto final.</p>
+  <div class="meta">
+    <span>Res. 2665 de 2018</span><span>Res. 813 de 2026</span><span>Ley 1996 de 2019</span><span>T-438 de 2025</span>
+  </div>
+  <p class="firma">Normas cotejadas contra su texto oficial y estudios contra su DOI el 19 de noviembre de 2026.
+    <a href="clase.html#14">← Volver a la presentación de la sesión</a></p>
+</section>
+
+<!-- 2 ─ El dato ───────────────────────────────────────────────────────── -->
+<section class="d d--golpe" id="d2" aria-label="Casi nadie lo tiene">
+  <p class="d__eyebrow">El derecho existe desde 2014</p>
+  <p class="gran">Casi nadie lo tiene. Casi nadie lo pregunta.</p>
+  <div class="cifras">
+    <div class="cifra"><b>5,78 %</b><span>lo había formalizado</span></div>
+    <div class="cifra"><b>2,89 %</b><span>había sido preguntado por un profesional de salud</span></div>
+    <div class="cifra"><b>79 %</b><span>tenía un conocimiento escaso o nulo del documento</span></div>
+  </div>
+  <p class="fuente-cifra">311 adultos en Colombia · Abad-Pérez y Lemos (2026),
+    <a href="https://doi.org/10.17533/udea.rp.e360029"><em>Revista de Psicología Universidad de Antioquia</em></a>.
+    Es una muestra, no una prevalencia nacional: un indicio, no el dato del país. Ese dato no existe.</p>
+</section>
+
+<!-- 3 ─ Tres instrumentos ─────────────────────────────────────────────── -->
+<section class="d" id="d3" aria-label="Tres instrumentos">
+  <p class="d__eyebrow">No todo es un DVA</p>
+  <h2>Tres instrumentos, tres normas</h2>
+  <div class="tabla">
+    <table>
+      <thead><tr><th></th><th>Documento de voluntad anticipada (DVA)</th><th>Directiva anticipada (DA)</th><th>Registro de solicitud de eutanasia (RSE)</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Norma</th><td>Res. 2665 de 2018 · Res. 813 de 2026, art. 9.4</td><td>Ley 1996 de 2019, arts. 21 y 22 · Res. 813 de 2026, art. 9.3</td><td>Res. 813 de 2026, art. 9.6</td></tr>
+        <tr><th scope="row">Qué es</th><td>La voluntad de someterse o no a tratamientos y las preferencias frente al derecho a morir dignamente. Es una forma de <strong>consentimiento informado directo</strong>.</td><td>Expresión de la voluntad y las preferencias sobre uno o varios asuntos, incluidas las decisiones de salud y el proceso de muerte.</td><td>Lo que la persona dijo directamente a su médico, consignado en la historia clínica.</td></tr>
+        <tr><th scope="row">Cómo se formaliza</th><td>Ante notario, ante dos testigos o ante el médico tratante.</td><td>Escritura pública ante notario o acta de conciliación ante un conciliador extrajudicial en derecho.</td><td>No se firma aparte: lo verifica el Comité Interdisciplinario de Eutanasia.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="nota"><strong>Res. 813, art. 9, parágrafo 1:</strong> para conocer la posición de la persona frente a la eutanasia
+    cuenta cualquiera de los tres. Y, de manera excepcional, un <strong>apoyo para la interpretación de la voluntad</strong>.</p>
+</section>
+
+<!-- 4 ─ Quién y qué ───────────────────────────────────────────────────── -->
+<section class="d" id="d4" aria-label="Quién puede y qué contiene">
+  <p class="d__eyebrow">Res. 2665 de 2018 · arts. 1 a 4</p>
+  <h2>Quién lo firma y qué tiene que decir</h2>
+  <div class="bloques">
+    <div class="bloque bloque--norma">
+      <p class="n">Art. 3</p>
+      <h3>Quién</h3>
+      <p>Toda persona mayor de edad y capaz, sana o enferma. Los adolescentes de 14 a 18 años pueden manifestar su
+        decisión; al cumplir la mayoría de edad deben sustituir el documento.</p>
+    </div>
+    <div class="bloque bloque--norma">
+      <p class="n">Art. 4 · contenido mínimo</p>
+      <h3>Cinco elementos</h3>
+      <p>Ciudad y fecha · identificación · declaración de que está en pleno uso de sus facultades y libre de coacción ·
+        preferencias concretas sobre su cuidado y el final de la vida · firma.</p>
+    </div>
+    <div class="bloque bloque--norma">
+      <p class="n">Art. 4 · parágrafos</p>
+      <h3>Más allá del papel</h3>
+      <p>Valen el video, el audio y los lenguajes alternativos de comunicación. La donación de órganos va expresa
+        (Ley 1805 de 2016). El Ministerio debe publicar un formato modelo.</p>
+    </div>
+    <div class="bloque bloque--piedra">
+      <p class="n">Art. 1 · parágrafo</p>
+      <h3>Manda la voluntad de hoy</h3>
+      <p>Quien firmó «siempre conserva el derecho a decidir y expresar su voluntad actual». El documento habla solo
+        cuando la persona ya no puede.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 5 ─ Formalización ─────────────────────────────────────────────────── -->
+<section class="d" id="d5" aria-label="Tres vías de formalización">
+  <p class="d__eyebrow">Res. 2665 de 2018 · arts. 5 a 9</p>
+  <h2>Tres vías. La elige quien lo firma.</h2>
+  <div class="vias">
+    <div class="via">
+      <p class="via__n">Art. 6</p>
+      <h3>Ante notario</h3>
+      <p>Por escritura pública. Es una opción de quien lo suscribe: <strong>un tercero no puede exigirla</strong> para
+        reconocer el documento.</p>
+    </div>
+    <div class="via">
+      <p class="via__n">Art. 7</p>
+      <h3>Ante dos testigos</h3>
+      <p>Se identifican y firman. No pueden serlo:</p>
+      <ul>
+        <li>menores de edad;</li>
+        <li>quien no entienda el idioma del otorgante, sin intérprete;</li>
+        <li>quien tenga con él relación laboral, patrimonial o de servicio;</li>
+        <li>extranjeros no domiciliados, entre otros.</li>
+      </ul>
+    </div>
+    <div class="via">
+      <p class="via__n">Art. 8</p>
+      <h3>Ante el médico tratante</h3>
+      <p>Con nombre, documento, registro médico y firma del médico. <strong>No requiere testigos.</strong></p>
+    </div>
+  </div>
+  <p class="nota"><strong>Art. 9:</strong> si la persona no sabe o no puede leer o firmar, se le lee y firman dos testigos o un
+    familiar con huella. Si no domina el castellano, la asesora un intérprete que también firma.</p>
+</section>
+
+<!-- 6 ─ Modificar ─────────────────────────────────────────────────────── -->
+<section class="d" id="d6" aria-label="Modificar, sustituir, revocar">
+  <p class="d__eyebrow">Res. 2665 de 2018 · arts. 10 y 11</p>
+  <h2>No es para siempre</h2>
+  <div class="bloques bloques--3">
+    <div class="bloque">
+      <p class="n">Modificar</p>
+      <h3>Cambiar una parte</h3>
+      <p>El documento sigue vigente con el cambio.</p>
+    </div>
+    <div class="bloque">
+      <p class="n">Sustituir</p>
+      <h3>Reemplazarlo</h3>
+      <p>Pierde efectos y se otorga uno nuevo en su lugar.</p>
+    </div>
+    <div class="bloque">
+      <p class="n">Revocar</p>
+      <h3>Dejarlo sin efectos</h3>
+      <p>Pierde efectos sin otorgar otro.</p>
+    </div>
+  </div>
+  <p class="nota">En cualquier momento, por cualquiera de las tres vías de formalización. El nuevo documento dice cuál
+    modifica, sustituye o revoca, y en qué sentido (art. 11).</p>
+</section>
+
+<!-- 7 ─ Cuando llega el momento ───────────────────────────────────────── -->
+<section class="d" id="d7" aria-label="Cuando llega el momento">
+  <p class="d__eyebrow">Res. 2665 de 2018 · arts. 12 a 16</p>
+  <h2>Un documento que nadie pregunta no existe</h2>
+  <ol class="pasos">
+    <li><strong>Cualquier persona</strong> puede informar que existe o aportarlo (art. 12).</li>
+    <li><strong>El médico tratante</strong> lo incorpora a la historia clínica, con copia (art. 13).</li>
+    <li><strong>El médico tratante debe preguntar</strong> a la persona, a la familia o en la historia clínica si existe, y
+      tenerlo en cuenta sin desconocer la lex artis (art. 14).</li>
+    <li>Quien lo conozca guarda <strong>confidencialidad</strong> (art. 15). La Superintendencia de Salud vigila que se
+      cumpla (art. 16).</li>
+  </ol>
+  <p class="nota"><strong>La resolución no crea un registro nacional.</strong> El documento vive en la historia clínica y en
+    quien lo lleve. Por eso el 2,89 % de la diapositiva 2 importa: el artículo 14 obliga a preguntar.</p>
+</section>
+
+<!-- 8 ─ Lo que cambió en 2026 ─────────────────────────────────────────── -->
+<section class="d" id="d8" aria-label="Lo que cambió con la Resolución 813">
+  <p class="d__eyebrow">Res. 813 de 2026 · 28 de abril</p>
+  <h2>Lo que cambió en 2026</h2>
+  <div class="bloques">
+    <div class="bloque bloque--norma">
+      <p class="n">Art. 9 · ocho medios</p>
+      <h3>La voluntad tiene varias vías</h3>
+      <p>Solicitud, solicitud de adecuación del esfuerzo terapéutico, DA, DVA, reiteración, RSE, consentimiento
+        informado y consentimiento sustituto.</p>
+    </div>
+    <div class="bloque bloque--norma">
+      <p class="n">Art. 9, parágrafo 2</p>
+      <h3>El DVA puede hablar por la persona</h3>
+      <p>Vale como reiteración y como consentimiento para la eutanasia cuando una condición clínica le impide hacerlo
+        directamente.</p>
+    </div>
+    <div class="bloque bloque--norma">
+      <p class="n">Art. 16</p>
+      <h3>Adecuación del esfuerzo terapéutico</h3>
+      <p>Si hay DVA con preferencias relevantes, es el referente preferente. No es requisito si la persona conserva su
+        capacidad.</p>
+    </div>
+    <div class="bloque bloque--norma">
+      <p class="n">Arts. 25 y 26</p>
+      <h3>Lo que activa al comité</h3>
+      <p>Quien recibe una solicitud por DVA informa a la familia o al designado, empezando por el derecho a cuidados
+        paliativos. Una solicitud de un tercero sin DVA ni RSE no activa el comité.</p>
+    </div>
+  </div>
+  <p class="nota"><strong>Art. 75:</strong> deroga las Res. 971 de 2021 y 825 de 2018. <strong>La Res. 2665 de 2018 sigue
+    vigente</strong>: la 813 remite a ella para la formalidad del DVA.</p>
+</section>
+
+<!-- 9 ─ T-438 ─────────────────────────────────────────────────────────── -->
+<section class="d" id="d9" aria-label="Sentencia T-438 de 2025">
+  <p class="d__eyebrow">Corte Constitucional · 23 de octubre de 2025</p>
+  <h2>T-438 de 2025: cuando no hay documento</h2>
+  <div class="caso">
+    <p>Un hombre de 50 años en estado de mínima conciencia, sin forma de comunicarse. Su madre pidió la eutanasia: él le
+      había dicho que no quería quedar postrado. El comité la negó, entre otras razones, <strong>porque no había DVA ni
+      solicitud explícita y reiterada</strong>. Murió antes del fallo.</p>
+  </div>
+  <div class="bloques">
+    <div class="bloque bloque--norma">
+      <p class="n">Lo que dijo la Corte</p>
+      <h3>El DVA no es el único medio</h3>
+      <p>El trámite fue solo formal: no indagó por la voluntad de la persona. Hubo vulneración del derecho.</p>
+    </div>
+    <div class="bloque bloque--norma">
+      <p class="n">El criterio</p>
+      <h3>Interpretar, no sustituir</h3>
+      <p>La mejor interpretación de la voluntad y las preferencias reemplaza al criterio del «interés superior».</p>
+    </div>
+  </div>
+  <p class="pregunta">A la familia no se le pregunta «¿qué decide usted?», sino «¿qué nos consta que él quería?».</p>
+</section>
+
+<!-- 10 ─ Los formularios ──────────────────────────────────────────────── -->
+<section class="d" id="d10" aria-label="Lo que dicen los formularios">
+  <p class="d__eyebrow">La evidencia colombiana</p>
+  <h2>Los formularios que circulan se quedan cortos</h2>
+  <div class="cifras cifras--claras">
+    <div class="cifra"><b>24</b><span>formularios de servicios de dolor y cuidado paliativo, evaluados con 20 variables</span></div>
+    <div class="cifra"><b>14 de 20</b><span>cumplía el más completo</span></div>
+    <div class="cifra"><b>70 %</b><span>cumplía 10 variables o menos</span></div>
+    <div class="cifra"><b>50 %</b><span>traía enunciados cerrados</span></div>
+  </div>
+  <p class="fuente-cifra">Álvarez Acuña, Buitrago Martín y Ceballos Vejarano (2023),
+    <a href="https://doi.org/10.5554/22562087.e1093"><em>Colombian Journal of Anesthesiology</em></a>.</p>
+  <p class="nota"><strong>Y la respuesta:</strong> el mismo grupo construyó y validó con expertos, por consenso Delphi, un
+    formulario con criterios éticos, clínicos y legales, disponible para que lo adopten servicios e instituciones
+    (<a href="https://doi.org/10.5554/22562087.e1138">Álvarez Acuña et al., 2025</a>).</p>
+</section>
+
+<!-- 11 ─ ¿Vale o no vale? ─────────────────────────────────────────────── -->
+<section class="d" id="d11" aria-label="Seis casos para decidir">
+  <p class="d__eyebrow">Ejercicio · respondan antes de mirar</p>
+  <h2>¿Vale o no vale?</h2>
+  <p class="quiz__marcador" id="quiz-marcador" aria-live="polite">0 de 6 respondidos</p>
+  <div class="quiz" id="quiz">
+    <div class="caso-q" data-correcta="no">
+      <p class="caso-q__t">Lo firmó ante dos testigos. Uno es la auxiliar que ella misma contrató para cuidarla en casa.
+        <strong>¿Es válido ese testigo?</strong></p>
+      <div class="caso-q__botones"><button type="button" data-r="si">Sí</button><button type="button" data-r="no">No</button></div>
+      <p class="caso-q__exp" hidden>No. Tiene con ella una relación laboral: es inhábil como testigo (Res. 2665, art. 7.6).</p>
+    </div>
+    <div class="caso-q" data-correcta="no">
+      <p class="caso-q__t">La aseguradora dice que solo lo tendrá en cuenta si está en escritura pública.
+        <strong>¿Puede exigirlo?</strong></p>
+      <div class="caso-q__botones"><button type="button" data-r="si">Sí</button><button type="button" data-r="no">No</button></div>
+      <p class="caso-q__exp" hidden>No. La notaría es una opción de quien lo firma y ningún tercero puede exigirla (art. 6, parágrafo).</p>
+    </div>
+    <div class="caso-q" data-correcta="si">
+      <p class="caso-q__t">Lo grabó en video ante su médico tratante, que se identifica: fecha, nombre, documento y una
+        decisión clara. <strong>¿Es válido?</strong></p>
+      <div class="caso-q__botones"><button type="button" data-r="si">Sí</button><button type="button" data-r="no">No</button></div>
+      <p class="caso-q__exp" hidden>Sí. Se admiten video y audio si permiten establecer contenido y autoría (art. 4, parágrafo 2, y art. 8).</p>
+    </div>
+    <div class="caso-q" data-correcta="si">
+      <p class="caso-q__t">Tiene 16 años y quiere dejar su voluntad por escrito. <strong>¿Puede hacerlo?</strong></p>
+      <div class="caso-q__botones"><button type="button" data-r="si">Sí</button><button type="button" data-r="no">No</button></div>
+      <p class="caso-q__exp" hidden>Sí. De 14 a 18 años puede manifestar su decisión; al cumplir 18 debe sustituir el documento (art. 3, parágrafo).</p>
+    </div>
+    <div class="caso-q" data-correcta="no">
+      <p class="caso-q__t">Hoy, consciente y capaz, dice algo distinto de lo que firmó hace dos años.
+        <strong>¿Manda el documento?</strong></p>
+      <div class="caso-q__botones"><button type="button" data-r="si">Sí</button><button type="button" data-r="no">No</button></div>
+      <p class="caso-q__exp" hidden>No. Siempre conserva el derecho a expresar su voluntad actual (art. 1, parágrafo).</p>
+    </div>
+    <div class="caso-q" data-correcta="si">
+      <p class="caso-q__t">No firmó nada, pero se lo dijo muchas veces a su familia. Hoy no puede comunicarse.
+        <strong>¿Su voluntad puede tenerse en cuenta?</strong></p>
+      <div class="caso-q__botones"><button type="button" data-r="si">Sí</button><button type="button" data-r="no">No</button></div>
+      <p class="caso-q__exp" hidden>Sí, de forma excepcional y verificable: apoyo para interpretar la voluntad (Res. 813, art. 9, parágrafo 1; T-438 de 2025). No es un DVA.</p>
+    </div>
+  </div>
+  <button type="button" class="quiz__reinicio" id="quiz-reinicio" hidden>Volver a empezar</button>
+</section>
+
+<!-- 12 ─ Para el producto final ───────────────────────────────────────── -->
+<section class="d d--golpe" id="d12" aria-label="Para el producto final">
+  <p class="d__eyebrow">Para la sección 3 del producto final</p>
+  <p class="gran">¿Qué instrumento existe en su caso?</p>
+  <p>Si el dilema de su grupo depende de lo que la persona quería, la prueba de legalidad empieza por ahí:
+    <strong>DVA, directiva anticipada, registro en la historia clínica o ninguno.</strong> Si es ninguno, ¿qué le consta
+    al equipo y quién podría ser apoyo para interpretarla?</p>
+  <p><strong>Citen lo vigente:</strong> Ley 1733 de 2014, art. 5, num. 4 · Res. 2665 de 2018 · Ley 1996 de 2019 ·
+    Res. 813 de 2026 · T-438 de 2025. <strong>Citar la Res. 971 de 2021 o la Res. 825 de 2018 como vigentes es un error de
+    anclaje.</strong></p>
+</section>
+
+<!-- 13 ─ Fuentes ──────────────────────────────────────────────────────── -->
+<section class="d" id="d13" aria-label="Fuentes">
+  <p class="d__eyebrow">Fuentes · APA 7</p>
+  <h2>Fuentes</h2>
+  <ul class="refs">
+    <li>Abad-Pérez, V., &amp; Lemos, M. (2026). Conocimientos y percepciones asociados al documento de voluntad anticipada en población colombiana. <em>Revista de Psicología Universidad de Antioquia, 17</em>(2), e360029. <a href="https://doi.org/10.17533/udea.rp.e360029">https://doi.org/10.17533/udea.rp.e360029</a></li>
+    <li>Álvarez Acuña, A. M., Buitrago Martín, C. L., &amp; Ceballos Vejarano, A. (2023). Content of the advance directives form of the pain and palliative care services in Colombia: Cross-sectional study. <em>Colombian Journal of Anesthesiology, 52</em>(2), e1093. <a href="https://doi.org/10.5554/22562087.e1093">https://doi.org/10.5554/22562087.e1093</a></li>
+    <li>Álvarez Acuña, A. M., Ceballos Vejarano, A., Pinto Bustamante, B. J., &amp; Prieto Martínez, P. (2025). Construction and content validation of an Advance Directive Document form for advance care planning in Colombia: A Delphi study. <em>Colombian Journal of Anesthesiology, 53</em>(2). <a href="https://doi.org/10.5554/22562087.e1138">https://doi.org/10.5554/22562087.e1138</a></li>
+    <li>Congreso de Colombia. (2014). <em>Ley 1733 de 2014</em> (Ley Consuelo Devis Saavedra), art. 5.</li>
+    <li>Congreso de Colombia. (2019). <em>Ley 1996 de 2019</em>, por medio de la cual se establece el régimen para el ejercicio de la capacidad legal de las personas con discapacidad mayores de edad, arts. 21 y 22.</li>
+    <li>Corte Constitucional de Colombia. (2025). <em>Sentencia T-438 de 2025</em> (M. P. Natalia Ángel Cabo). <a href="https://www.corteconstitucional.gov.co/relatoria/2025/T-438-25.htm">corteconstitucional.gov.co</a></li>
+    <li>Ministerio de Salud y Protección Social. (2018). <em>Resolución 2665 de 2018</em>, por medio de la cual se reglamenta parcialmente la Ley 1733 de 2014 en cuanto al derecho a suscribir el documento de voluntad anticipada.</li>
+    <li>Ministerio de Salud y Protección Social. (2026, 28 de abril). <em>Resolución 813 de 2026</em>, arts. 9, 16, 25, 26 y 75.</li>
+  </ul>
+</section>
+
+</main>
+
+<nav class="nav" aria-label="Navegación de la presentación">
+  <div class="nav__barra" id="barra"></div>
+  <p class="nav__t">Voluntad anticipada<small>Sesión 7 · material de apoyo</small></p>
+  <button type="button" id="prev" aria-label="Diapositiva anterior">‹</button>
+  <span class="nav__n" id="cuenta">1 / 13</span>
+  <button type="button" id="next" aria-label="Diapositiva siguiente">›</button>
+  <span class="nav__pista">← → · inicio · fin</span>
+</nav>
+
+<script>
+(function () {
+  'use strict';
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.d'));
+  var total = slides.length;
+  var i = 0;
+  var elPrev = document.getElementById('prev');
+  var elNext = document.getElementById('next');
+  var elCuenta = document.getElementById('cuenta');
+  var elBarra = document.getElementById('barra');
+
+  function mostrar(n, conFoco) {
+    i = Math.max(0, Math.min(total - 1, n));
+    slides.forEach(function (s, k) { s.classList.toggle('on', k === i); });
+    elCuenta.textContent = (i + 1) + ' / ' + total;
+    elBarra.style.width = ((i + 1) / total * 100) + '%';
+    elPrev.disabled = i === 0;
+    elNext.disabled = i === total - 1;
+    if (conFoco) { slides[i].setAttribute('tabindex', '-1'); slides[i].focus({ preventScroll: true }); }
+    slides[i].scrollTop = 0;
+    if (history.replaceState) history.replaceState(null, '', '#' + (i + 1));
+  }
+
+  elPrev.addEventListener('click', function () { mostrar(i - 1, true); });
+  elNext.addEventListener('click', function () { mostrar(i + 1, true); });
+
+  document.addEventListener('keydown', function (e) {
+    if (/^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName)) return;
+    // La barra espaciadora sobre un acordeón o un enlace lo activa; no pasa de diapositiva.
+    if (e.key === ' ' && /^(SUMMARY|A|BUTTON)$/.test(e.target.tagName)) return;
+    switch (e.key) {
+      case 'ArrowRight': case 'PageDown': mostrar(i + 1, true); break;
+      case 'ArrowLeft':  case 'PageUp':   mostrar(i - 1, true); break;
+      case ' ':          mostrar(i + (e.shiftKey ? -1 : 1), true); e.preventDefault(); break;
+      case 'Home':       mostrar(0, true); break;
+      case 'End':        mostrar(total - 1, true); break;
+      default: return;
+    }
+  });
+
+  var x0 = null, y0 = null;
+  document.addEventListener('touchstart', function (e) {
+    x0 = e.changedTouches[0].clientX; y0 = e.changedTouches[0].clientY;
+  }, { passive: true });
+  document.addEventListener('touchend', function (e) {
+    if (x0 === null) return;
+    var dx = e.changedTouches[0].clientX - x0;
+    var dy = e.changedTouches[0].clientY - y0;
+    if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) mostrar(i + (dx < 0 ? 1 : -1), false);
+    x0 = y0 = null;
+  }, { passive: true });
+
+  // Diapositiva 11: ¿vale o no vale? Cada caso se responde una vez y muestra el fundamento.
+  (function () {
+    var quiz = document.getElementById('quiz');
+    if (!quiz) return;
+    var casos = Array.prototype.slice.call(quiz.querySelectorAll('.caso-q'));
+    var marcador = document.getElementById('quiz-marcador');
+    var reinicio = document.getElementById('quiz-reinicio');
+    function contar() {
+      var resp = 0, bien = 0;
+      casos.forEach(function (c) {
+        if (c.dataset.respuesta) { resp++; if (c.dataset.respuesta === c.dataset.correcta) bien++; }
+      });
+      marcador.textContent = resp === 0 ? '0 de 6 respondidos'
+        : resp + ' de 6 respondidos · ' + bien + (bien === 1 ? ' acierto' : ' aciertos');
+      reinicio.hidden = resp === 0;
+    }
+    casos.forEach(function (c) {
+      var botones = Array.prototype.slice.call(c.querySelectorAll('button'));
+      var exp = c.querySelector('.caso-q__exp');
+      botones.forEach(function (b) {
+        b.addEventListener('click', function () {
+          if (c.dataset.respuesta) return;
+          c.dataset.respuesta = b.dataset.r;
+          var ok = b.dataset.r === c.dataset.correcta;
+          c.classList.add(ok ? 'es-ok' : 'es-no');
+          b.setAttribute('aria-pressed', 'true');
+          botones.forEach(function (x) { x.disabled = true; });
+          exp.hidden = false;
+          exp.setAttribute('data-veredicto', ok ? '✓ Bien' : '✗ Revise');
+          contar();
+        });
+      });
+    });
+    reinicio.addEventListener('click', function () {
+      casos.forEach(function (c) {
+        delete c.dataset.respuesta;
+        c.classList.remove('es-ok', 'es-no');
+        c.querySelector('.caso-q__exp').hidden = true;
+        Array.prototype.forEach.call(c.querySelectorAll('button'), function (x) {
+          x.disabled = false; x.removeAttribute('aria-pressed');
+        });
+      });
+      contar();
+      casos[0].querySelector('button').focus();
+    });
+  })();
+
+  // Al imprimir, los acordeones salen abiertos: el papel no tiene botones.
+  window.addEventListener('beforeprint', function () {
+    // Sin el atributo name, porque el grupo exclusivo cerraría uno al abrir el otro.
+    Array.prototype.forEach.call(document.querySelectorAll('details'), function (d) {
+      d.removeAttribute('name'); d.open = true;
+    });
+    Array.prototype.forEach.call(document.querySelectorAll('.caso-q__exp'), function (e) { e.hidden = false; });
+  });
+
+  var inicial = parseInt((location.hash || '').replace('#', ''), 10);
+  mostrar(isNaN(inicial) ? 0 : inicial - 1, false);
+})();
+</script>
+</html>
