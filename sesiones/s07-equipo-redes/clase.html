@@ -124,6 +124,45 @@ th,td{padding:.58rem .75rem;text-align:left;vertical-align:top;border-bottom:1px
 th{background:var(--acento-soft);color:var(--acento-dark);font-size:.8rem}
 tbody tr:last-child td{border-bottom:0}
 
+/* Diapositiva 12: el examen del «exitoso». Cada criterio se marca si se conoce su dato. */
+.examen__consigna{font-size:clamp(.92rem,1.4vw,1.02rem);color:var(--gris);max-width:70ch;margin:-.2rem 0 .9rem}
+.examen{max-width:70rem;display:grid;gap:.9rem}
+.criterios{display:grid;gap:.65rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,10.4rem),1fr))}
+.crit{font:inherit;text-align:left;cursor:pointer;display:flex;flex-direction:column;gap:.4rem;
+  background:var(--blanco);color:var(--pizarra);border:1.5px solid rgba(34,40,42,.1);border-top:4px solid var(--malva-soft);
+  border-radius:var(--radius);padding:.8rem .85rem .9rem;box-shadow:var(--shadow-soft);
+  transition:transform .18s ease,border-color .18s ease,background-color .18s ease,box-shadow .18s ease}
+.crit:hover{transform:translateY(-3px);border-top-color:var(--acento)}
+.crit__cab{display:flex;justify-content:space-between;align-items:center;gap:.4rem}
+.crit__n{font-family:var(--mono);font-size:.72rem;font-weight:700;color:var(--acento-dark);letter-spacing:.06em}
+.crit__estado{font-family:var(--mono);font-size:.64rem;text-transform:uppercase;letter-spacing:.08em;border-radius:999px;
+  padding:.12rem .55rem;border:1px dashed var(--gris-claro);color:var(--gris)}
+.crit__nombre{font-size:clamp(1rem,1.6vw,1.12rem);font-weight:700;color:var(--malva-deep)}
+.crit__preg{font-family:var(--serif);font-style:italic;font-size:clamp(.92rem,1.35vw,1rem);line-height:1.35;color:var(--pizarra)}
+.crit__dato{font-size:.8rem;line-height:1.4;color:var(--gris);border-top:1px solid rgba(34,40,42,.08);padding-top:.45rem;margin-top:auto}
+.crit__dato b{color:var(--acento-dark);font-weight:700}
+.crit[aria-pressed="true"]{background:var(--malva-soft);border-color:var(--acento);border-top-color:var(--acento);
+  box-shadow:0 0 0 2px var(--acento) inset,var(--shadow-soft)}
+.crit[aria-pressed="true"] .crit__estado{background:var(--acento);border:1px solid var(--acento);color:var(--blanco)}
+.crit[aria-pressed="true"] .crit__estado::before{content:'✓ '}
+.veredicto{display:flex;align-items:center;gap:1.1rem;flex-wrap:wrap;background:var(--blanco);border-radius:var(--radius);
+  box-shadow:var(--shadow-soft);border-left:5px solid var(--piedra);padding:.85rem 1.1rem;transition:border-color .25s ease}
+.veredicto[data-n="5"]{border-left-color:var(--acento)}
+.medidor{display:flex;gap:.3rem;flex-shrink:0}
+.medidor i{display:block;width:1.15rem;height:2.3rem;border-radius:5px;background:rgba(34,40,42,.08);transition:background-color .25s ease,transform .25s ease}
+.medidor i.on{background:var(--acento);transform:scaleY(1.06)}
+.veredicto__texto{flex:1;min-width:14rem}
+.veredicto__texto p{margin:0;max-width:64ch}
+.veredicto__cuenta{font-family:var(--mono);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--acento-dark);font-weight:700}
+.veredicto__frase{font-family:var(--serif);font-size:clamp(.98rem,1.55vw,1.12rem);line-height:1.35;color:var(--pizarra);margin-top:.15rem !important}
+.veredicto__ojo{font-size:.84rem;color:var(--gris);margin-top:.35rem !important}
+.veredicto__ojo::before{content:'Ojo · ';font-weight:700;color:var(--piedra-deep)}
+.veredicto__reinicio{font:inherit;font-size:.8rem;background:transparent;border:1px solid var(--gris-claro);color:var(--gris);
+  border-radius:999px;padding:.35rem .9rem;cursor:pointer;flex-shrink:0}
+.veredicto__reinicio:hover{border-color:var(--acento);color:var(--acento-dark)}
+@media (prefers-reduced-motion:reduce){.crit,.medidor i,.veredicto{transition:none}.crit:hover{transform:none}}
+@media print{.crit{box-shadow:none}.crit__estado,.medidor,.veredicto__reinicio,.examen__consigna{display:none}}
+
 /* Acordeón de la diapositiva 7: el dato se busca, no se expone de entrada. */
 .acordeon{display:grid;gap:.55rem;max-width:72ch;margin-top:.3rem}
 .acordeon details{background:var(--blanco);border-radius:var(--radius-sm);box-shadow:var(--shadow-soft);border-left:4px solid var(--acento)}
@@ -417,19 +456,52 @@ tbody tr:last-child td{border-bottom:0}
 <section class="d" id="d12" aria-label="Qué hace exitoso a un programa">
   <p class="d__eyebrow">La misma pregunta de la unidad 2</p>
   <h2>¿Qué hace «exitoso» a un programa?</h2>
-  <div class="tabla">
-    <table>
-      <thead><tr><th>Criterio</th><th>La pregunta</th><th>Qué dato lo mostraría</th></tr></thead>
-      <tbody>
-        <tr><td>Cobertura</td><td>¿A cuántos de los que lo necesitan llega?</td><td>Personas atendidas sobre necesidad estimada en el territorio</td></tr>
-        <tr><td>Desenlaces</td><td>¿Cambia algo para la persona y su familia?</td><td>Control de síntomas, lugar de muerte acorde con la preferencia, duelo</td></tr>
-        <tr><td>Sostenibilidad</td><td>¿Sobrevive al cambio de contrato o de gerente?</td><td>Años de funcionamiento, fuente de financiación</td></tr>
-        <tr><td>Equidad</td><td>¿Llega igual a la vereda que a la cabecera?</td><td>Cobertura desagregada por zona, régimen y edad</td></tr>
-        <tr><td>Replicabilidad</td><td>¿Funcionaría en otro municipio?</td><td>Descripción suficiente de qué se hizo y con qué recursos</td></tr>
-      </tbody>
-    </table>
+  <p class="examen__consigna">Piense en un programa que le hayan presentado como exitoso. <strong>Toque cada criterio del
+    que sí conozca el dato.</strong></p>
+  <div class="examen" id="examen">
+    <div class="criterios" role="group" aria-label="Criterios de éxito de un programa">
+      <button type="button" class="crit" aria-pressed="false" data-nombre="cobertura">
+        <span class="crit__cab"><span class="crit__n">01</span><span class="crit__estado">sin dato</span></span>
+        <span class="crit__nombre">Cobertura</span>
+        <span class="crit__preg">¿A cuántos de los que lo necesitan llega?</span>
+        <span class="crit__dato"><b>El dato:</b> personas atendidas sobre necesidad estimada en el territorio</span>
+      </button>
+      <button type="button" class="crit" aria-pressed="false" data-nombre="desenlaces">
+        <span class="crit__cab"><span class="crit__n">02</span><span class="crit__estado">sin dato</span></span>
+        <span class="crit__nombre">Desenlaces</span>
+        <span class="crit__preg">¿Cambia algo para la persona y su familia?</span>
+        <span class="crit__dato"><b>El dato:</b> control de síntomas, lugar de muerte acorde con la preferencia, duelo</span>
+      </button>
+      <button type="button" class="crit" aria-pressed="false" data-nombre="sostenibilidad">
+        <span class="crit__cab"><span class="crit__n">03</span><span class="crit__estado">sin dato</span></span>
+        <span class="crit__nombre">Sostenibilidad</span>
+        <span class="crit__preg">¿Sobrevive al cambio de contrato o de gerente?</span>
+        <span class="crit__dato"><b>El dato:</b> años de funcionamiento, fuente de financiación</span>
+      </button>
+      <button type="button" class="crit" aria-pressed="false" data-nombre="equidad">
+        <span class="crit__cab"><span class="crit__n">04</span><span class="crit__estado">sin dato</span></span>
+        <span class="crit__nombre">Equidad</span>
+        <span class="crit__preg">¿Llega igual a la vereda que a la cabecera?</span>
+        <span class="crit__dato"><b>El dato:</b> cobertura desagregada por zona, régimen y edad</span>
+      </button>
+      <button type="button" class="crit" aria-pressed="false" data-nombre="replicabilidad">
+        <span class="crit__cab"><span class="crit__n">05</span><span class="crit__estado">sin dato</span></span>
+        <span class="crit__nombre">Replicabilidad</span>
+        <span class="crit__preg">¿Funcionaría en otro municipio?</span>
+        <span class="crit__dato"><b>El dato:</b> descripción suficiente de qué se hizo y con qué recursos</span>
+      </button>
+    </div>
+    <div class="veredicto">
+      <div class="medidor" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="veredicto__texto" aria-live="polite">
+        <p class="veredicto__cuenta" id="examen-cuenta">0 de 5 criterios con dato</p>
+        <p class="veredicto__frase" id="examen-frase">Un programa que se declara exitoso sin decir con cuál de estos
+          criterios es un programa que <strong>se describe</strong>, no uno que se evalúa.</p>
+        <p class="veredicto__ojo" id="examen-ojo" hidden></p>
+      </div>
+      <button type="button" class="veredicto__reinicio" id="examen-reinicio" hidden>Empezar de nuevo</button>
+    </div>
   </div>
-  <p class="nota">Un programa que se declara exitoso sin decir con cuál de estos criterios es un programa que se describe, no uno que se evalúa.</p>
 </section>
 
 <!-- 13 ─ Parte 4 ──────────────────────────────────────────────────────── -->
@@ -663,6 +735,61 @@ tbody tr:last-child td{border-bottom:0}
       if (d.open) d.scrollIntoView({ block: 'start', behavior: 'smooth' });
     });
   });
+
+  // Diapositiva 12: el examen del «exitoso». El veredicto cambia con los criterios que tienen dato.
+  (function () {
+    var caja = document.getElementById('examen');
+    if (!caja) return;
+    var crits = Array.prototype.slice.call(caja.querySelectorAll('.crit'));
+    var barras = caja.querySelectorAll('.medidor i');
+    var veredicto = caja.querySelector('.veredicto');
+    var cuenta = document.getElementById('examen-cuenta');
+    var frase = document.getElementById('examen-frase');
+    var ojo = document.getElementById('examen-ojo');
+    var reinicio = document.getElementById('examen-reinicio');
+    var fraseInicial = frase.innerHTML;
+
+    function marcado(nombre) {
+      return crits.some(function (c) { return c.dataset.nombre === nombre && c.getAttribute('aria-pressed') === 'true'; });
+    }
+    function lista(nombres) {
+      if (nombres.length === 1) return nombres[0];
+      return nombres.slice(0, -1).join(', ') + ' y ' + nombres[nombres.length - 1];
+    }
+    function actualizar() {
+      var faltan = [], n = 0;
+      crits.forEach(function (c, k) {
+        var si = c.getAttribute('aria-pressed') === 'true';
+        c.querySelector('.crit__estado').textContent = si ? 'con dato' : 'sin dato';
+        barras[k].classList.toggle('on', si);
+        if (si) n++; else faltan.push(c.dataset.nombre);
+      });
+      veredicto.setAttribute('data-n', n);
+      cuenta.textContent = n + ' de 5 criterios con dato';
+      if (n === 0) frase.innerHTML = fraseInicial;
+      else if (n === 1) frase.innerHTML = 'Es un indicio, no una evaluación. <strong>¿Qué dato falta primero?</strong>';
+      else if (n < 5) frase.innerHTML = 'Falta ' + lista(faltan) + '. <strong>¿Dónde estaría ese dato, y quién lo tendría?</strong>';
+      else frase.innerHTML = 'Los cinco con dato. Ahora «exitoso» significa algo: <strong>diga con qué criterio lo afirma.</strong>';
+
+      var aviso = '';
+      if (n > 0 && !marcado('desenlaces')) aviso = 'sin desenlaces se mide lo que el programa hace, no lo que le cambia a la persona.';
+      else if (marcado('cobertura') && !marcado('equidad')) aviso = 'una cobertura alta puede esconder la vereda: sin desagregar, no se sabe.';
+      ojo.textContent = aviso;
+      ojo.hidden = !aviso;
+      reinicio.hidden = n === 0;
+    }
+    crits.forEach(function (c) {
+      c.addEventListener('click', function () {
+        c.setAttribute('aria-pressed', c.getAttribute('aria-pressed') === 'true' ? 'false' : 'true');
+        actualizar();
+      });
+    });
+    reinicio.addEventListener('click', function () {
+      crits.forEach(function (c) { c.setAttribute('aria-pressed', 'false'); });
+      actualizar();
+      crits[0].focus();
+    });
+  })();
 
   // Al imprimir, los acordeones salen abiertos: el papel no tiene botones.
   window.addEventListener('beforeprint', function () {
